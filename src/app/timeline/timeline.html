@@ -1,0 +1,34 @@
+<section class="timeline-section">
+  <h2 class="section-title">My Journey</h2>
+  <p class="section-subtitle">A timeline of my professional experience and education</p>
+
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+    
+    @for (item of timelineItems; track item.title; let index = $index) {
+      <div class="timeline-item" [class.education]="item.type === 'education'" [class.work]="item.type === 'work'">
+        <div class="timeline-badge">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
+        
+        <div class="timeline-card-wrapper">
+          <div class="timeline-date">{{ item.date }}</div>
+          
+          <div class="timeline-card">
+            <span class="timeline-tag" [class.tag-work]="item.type === 'work'" [class.tag-edu]="item.type === 'education'">
+              {{ item.type === 'work' ? 'Work Experience' : 'Education' }}
+            </span>
+            <h3 class="timeline-title">{{ item.title }}</h3>
+            <h4 class="timeline-subtitle">{{ item.subtitle }}</h4>
+            
+            <ul class="timeline-bullets">
+              @for (bullet of item.bullets; track bullet) {
+                <li>{{ bullet }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
