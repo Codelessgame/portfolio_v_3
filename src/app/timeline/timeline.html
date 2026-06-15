@@ -5,6 +5,63 @@
   <div class="timeline-container">
     <div class="timeline-line"></div>
     
+    <!-- Desktop Interactive SVG overlay and floating items -->
+    @if (isDesktop) {
+      <svg class="timeline-svg-overlay">
+        @for (line of activityLines; track line.index) {
+          <path 
+            [attr.d]="line.path" 
+            [attr.stroke]="line.color" 
+            stroke-width="3.5" 
+            stroke-dasharray="6,4"
+            fill="none"
+            class="activity-svg-path">
+          </path>
+        }
+      </svg>
+      
+      <!-- Start Bubbles (Left Side of Line) -->
+      @for (act of personalActivities.slice(0, maxActivities); track act.id; let idx = $index) {
+        <div 
+          class="activity-start-bubble" 
+          [id]="'activity-start-' + idx"
+          [style.top.%]="act.startPercent"
+          [style.border-color]="act.color"
+          [class.active]="activeActivityIndex === idx"
+          (click)="toggleActivity(idx)">
+          <mat-icon [style.color]="act.color">{{ act.icon }}</mat-icon>
+          <span class="bubble-label">{{ act.label }}</span>
+          
+          @if (activeActivityIndex === idx) {
+            <div class="activity-popup-card" [style.border-color]="act.color" (click)="$event.stopPropagation()">
+              <div class="popup-header">
+                <h4 [style.color]="act.color">{{ act.label }}</h4>
+                <button class="popup-close-btn" (click)="toggleActivity(idx)">×</button>
+              </div>
+              <p>{{ act.description }}</p>
+              <div class="popup-time">
+                Time Span: {{ act.startDateLabel }} – {{ act.endDateLabel }}
+              </div>
+            </div>
+          }
+        </div>
+        
+        <!-- Clickable End Point Dot -->
+        <button 
+          class="activity-end-dot" 
+          [id]="'activity-end-' + idx"
+          [style.top.%]="act.endPercent"
+          [style.background-color]="act.color"
+          [style.border-color]="act.color"
+          [style.box-shadow]="'0 0 12px ' + act.color"
+          (click)="scrollToStart(idx)"
+          [title]="'Click to trace back to: ' + act.label">
+          <mat-icon>keyboard_double_arrow_down</mat-icon>
+        </button>
+      }
+    }
+
+    <!-- Main Timeline Cards Flow -->
     @for (item of timelineItems; track item.title; let index = $index) {
       <div class="timeline-item" [class.education]="item.type === 'education'" [class.work]="item.type === 'work'">
         <div class="timeline-badge">
@@ -26,6 +83,26 @@
                 <li>{{ bullet }}</li>
               }
             </ul>
+
+            <!-- Mobile Fallback for Personal Activities (rendered inside cards) -->
+            @if (!isDesktop && item.personalActivity) {
+              <div class="mobile-activity-container">
+                <button class="activity-toggle-btn" (click)="toggleActivity(index)">
+                  <mat-icon>{{ item.personalActivity.icon }}</mat-icon>
+                  <span class="btn-text">{{ item.personalActivity.label }}</span>
+                </button>
+                
+                @if (activeActivityIndex === index) {
+                  <div class="activity-info-card">
+                    <div class="activity-info-header">
+                      <h4>{{ item.personalActivity.label }}</h4>
+                      <button class="close-btn" (click)="toggleActivity(index)">×</button>
+                    </div>
+                    <p>{{ item.personalActivity.description }}</p>
+                  </div>
+                }
+              </div>
+            }
           </div>
         </div>
       </div>
