@@ -1,0 +1,24 @@
+<section class="featured-cards-section">
+  <h2 class="section-title">My Creative Space</h2>
+  <p class="section-subtitle">A collection of code, art, and engineering projects</p>
+  
+  <div class="cards-grid">
+    @for (card of cards; track card.title) {
+      <a [href]="card.link" target="_blank" class="showcase-card">
+        <div class="card-image-wrapper">
+          <img [src]="card.imageUrl" [alt]="card.title" class="card-bg-image" />
+          <div class="card-gradient-overlay"></div>
+        </div>
+        
+        <div class="card-content">
+          <h3 class="card-title">{{ card.title }}</h3>
+          <p class="card-description">{{ card.description }}</p>
+          <div class="card-action">
+            <span class="action-text">{{ card.linkText }}</span>
+            <span class="action-arrow">→</span>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+</section>

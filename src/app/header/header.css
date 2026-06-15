@@ -1,0 +1,60 @@
+/* This is the main container, it must clip any potential overflow */
+.header-container {
+  overflow: hidden;
+  position: relative; /* Establishes a positioning context */
+  width: 100%;
+}
+
+/* Sticky toolbar at the top */
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for elevation */
+}
+
+/* New: Canvas for the animation and title */
+.animation-canvas {
+  position: relative; /* This is the anchor for the absolutely positioned h1 and app-star */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+  background-color: var(--mat-app-background-color);
+  color: var(--cyan, #00ffff);
+  /* overflow: hidden; is on the parent .header-container */
+}
+
+/* Animated heading */
+h1 {
+  position: relative; /* Make z-index work */
+  z-index: 2; /* Ensure title is above the stars */
+  font-family: monospace, sans-serif;
+  font-size: 5vw;
+  color: var(--cyan, #00ffff);
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0 2rem;
+  /* No longer needs position: absolute because the parent is a flex container */
+}
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: 6vw;
+  }
+}
+
+.sky {
+  position: absolute;
+  overflow-x: hidden;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 130vw;
+  height: 120vh;
+  transform: rotate(-15deg);
+}

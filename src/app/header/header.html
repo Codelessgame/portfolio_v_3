@@ -1,0 +1,18 @@
+<div class="header-container">
+  <mat-toolbar class="sticky">
+    <button mat-button routerLink="">Home</button>
+    <button mat-button routerLink="">My Projects</button>
+
+  </mat-toolbar>
+
+  <!-- This is the new canvas for the animation -->
+  <div class="animation-canvas">
+    <h1 (mouseover)="startAnimation()">{{currentValue()}}</h1>
+    <!-- The star component lives here, inside the canvas that will clip it -->
+    <div class="sky">
+      @for ( star of stars; track $index) {
+          <app-star></app-star>
+        }
+    </div>
+  </div>
+</div>
