@@ -1,7 +1,7 @@
 <div class="header-container">
   <mat-toolbar class="sticky">
-    <button mat-button routerLink="">{{ t('nav.home') }}</button>
-    <button mat-button routerLink="">{{ t('nav.projects') }}</button>
+    <button mat-button routerLink="/">{{ t('nav.home') }}</button>
+    <button mat-button routerLink="/projects">{{ t('nav.projects') }}</button>
     
     <span class="spacer"></span>
     
@@ -19,8 +19,8 @@
     <h1 (mouseover)="startAnimation()">{{currentValue()}}</h1>
     <!-- The star component lives here, inside the canvas that will clip it -->
     <div class="sky">
-      @for ( star of stars; track $index) {
-          <app-star></app-star>
+      @for ( star of stars; track $index; let i = $index) {
+          <app-star [index]="i"></app-star>
         }
     </div>
   </div>

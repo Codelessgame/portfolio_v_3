@@ -17,7 +17,7 @@ const letters = "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYZŽ012345678
 export class Header implements OnChanges {
   @Input() value: string = '';
   currentValue = signal('');
-  stars = Array.from({ length: 20 });
+  stars = Array.from({ length: 15 });
   interval: any;
 
   private ts = inject(TranslationService);

@@ -1,0 +1,101 @@
+<div class="projects-container">
+  <div class="projects-header">
+    <h2>{{ t('projects.title') }}</h2>
+    <p class="subtitle">{{ t('projects.subtitle') }}</p>
+  </div>
+
+  <div class="filter-controls">
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input 
+        type="text" 
+        [ngModel]="searchQuery()" 
+        (ngModelChange)="searchQuery.set($event)" 
+        [placeholder]="t('projects.search_placeholder')" 
+        class="search-input" />
+      @if (searchQuery()) {
+        <button class="clear-btn" (click)="searchQuery.set('')" aria-label="Clear search">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    </div>
+
+    <!-- Category Pills -->
+    <div class="filters-row">
+      <div class="filter-group">
+        <button 
+          class="pill-btn" 
+          [class.active]="selectedCategory() === 'all'" 
+          (click)="setCategory('all')">
+          {{ t('projects.filter_all') }}
+        </button>
+        <button 
+          class="pill-btn" 
+          [class.active]="selectedCategory() === 'embedded'" 
+          (click)="setCategory('embedded')">
+          {{ t('projects.filter_embedded') }}
+        </button>
+        <button 
+          class="pill-btn" 
+          [class.active]="selectedCategory() === 'ai'" 
+          (click)="setCategory('ai')">
+          {{ t('projects.filter_ai') }}
+        </button>
+      </div>
+
+      <!-- Status Pills -->
+      <div class="filter-group">
+        <button 
+          class="pill-btn" 
+          [class.active]="selectedStatus() === 'all'" 
+          (click)="setStatus('all')">
+          {{ t('projects.status_all') }}
+        </button>
+        <button 
+          class="pill-btn" 
+          [class.active]="selectedStatus() === 'finished'" 
+          (click)="setStatus('finished')">
+          {{ t('projects.status_finished') }}
+        </button>
+        <button 
+          class="pill-btn" 
+          [class.active]="selectedStatus() === 'ongoing'" 
+          (click)="setStatus('ongoing')">
+          {{ t('projects.status_ongoing') }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid of Cards -->
+  <div class="projects-grid">
+    @for (project of filteredProjects(); track project.id) {
+      <div class="project-card">
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="project-date">{{ t(project.translationPrefix + '.date') }}</span>
+            <span class="status-badge" [ngClass]="project.status">
+              {{ t('projects.status_' + project.status) }}
+            </span>
+          </div>
+          <h3>{{ t(project.translationPrefix + '.title') }}</h3>
+          <p>{{ t(project.translationPrefix + '.desc') }}</p>
+          <div class="card-footer">
+            <span class="category-tag" [ngClass]="project.category">
+              {{ t('projects.filter_' + project.category) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Empty State -->
+  @if (filteredProjects().length === 0) {
+    <div class="no-projects-found">
+      <mat-icon class="empty-icon">search_off</mat-icon>
+      <p>No projects match your search or filter criteria.</p>
+    </div>
+  }
+</div>

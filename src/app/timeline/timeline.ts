@@ -30,6 +30,9 @@ interface TimelineItem {
     label: string;
     icon: string;
     description: string;
+    color: string;
+    startDateLabel: string;
+    endDateLabel: string;
   };
 }
 
@@ -132,7 +135,10 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
       personalActivity: {
         label: this.ts.t()('act.sports.label'),
         icon: 'sports_soccer',
-        description: this.ts.t()('act.sports.desc')
+        description: this.ts.t()('act.sports.desc'),
+        color: '#ffbe0b',
+        startDateLabel: this.currentLang() === 'en' ? 'Jan 2025' : 'Led. 2025',
+        endDateLabel: this.currentLang() === 'en' ? 'Dec 2025' : 'Pros. 2025'
       }
     },
     {
@@ -149,7 +155,10 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
       personalActivity: {
         label: this.ts.t()('act.physics.label'),
         icon: 'rocket_launch',
-        description: this.ts.t()('act.physics.desc')
+        description: this.ts.t()('act.physics.desc'),
+        color: '#3a86ff',
+        startDateLabel: this.currentLang() === 'en' ? 'June 2024' : 'Června 2024',
+        endDateLabel: this.currentLang() === 'en' ? 'Nov 2024' : 'List. 2024'
       }
     },
     {
@@ -166,7 +175,10 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
       personalActivity: {
         label: this.ts.t()('act.art.label'),
         icon: 'palette',
-        description: this.ts.t()('act.art.desc')
+        description: this.ts.t()('act.art.desc'),
+        color: '#ff006e',
+        startDateLabel: this.currentLang() === 'en' ? 'Sept 2022' : 'Září 2022',
+        endDateLabel: this.currentLang() === 'en' ? 'June 2026' : 'Červen 2026'
       }
     }
   ]);

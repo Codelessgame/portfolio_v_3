@@ -1,0 +1,20 @@
+<app-split-section 
+  imageSrc="me_photo.svg" 
+  imageAlt="Stanislav Růžička" 
+  [imageOnRight]="true"
+  [sectionTitle]="t('about.title')"
+  [sectionSubtitle]="t('about.subtitle')">
+  <p>
+    {{ t('about.p1') }}
+  </p>
+  <p>
+    {{ t('about.p2') }}
+  </p>
+  <p>
+    {{ t('about.p3') }}
+  </p>
+</app-split-section>
+
+<app-featured-cards></app-featured-cards>
+
+<app-timeline></app-timeline>

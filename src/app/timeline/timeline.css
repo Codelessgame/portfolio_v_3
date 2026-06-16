@@ -1,5 +1,6 @@
 .timeline-section {
   padding: 5rem 10vw;
+  padding-left: max(200px, 10vw);
   background-color: transparent;
   color: var(--mat-sys-on-surface, #ffffff);
 }
@@ -406,9 +407,9 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(98, 202, 185, 0.06);
-  border: 1.5px dashed var(--light-cyan, #62cab9);
-  color: var(--light-cyan, #62cab9);
+  background: color-mix(in srgb, var(--act-color, #62cab9) 8%, transparent);
+  border: 1.5px dashed var(--act-color, #62cab9);
+  color: var(--act-color, #62cab9);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   cursor: pointer;
@@ -420,24 +421,25 @@
 }
 
 .activity-toggle-btn:hover {
-  background: rgba(98, 202, 185, 0.14);
+  background: color-mix(in srgb, var(--act-color, #62cab9) 15%, transparent);
   border-style: solid;
-  box-shadow: 0 0 10px rgba(98, 202, 185, 0.25);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--act-color, #62cab9) 40%, transparent);
 }
 
 .activity-toggle-btn mat-icon {
   font-size: 16px;
   width: 16px;
   height: 16px;
+  color: var(--act-color, #62cab9);
 }
 
 .activity-info-card {
   background: var(--mat-sys-surface-container-high, #222222);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--light-cyan, #62cab9);
+  border: 1px solid var(--act-color, #62cab9);
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 10px 25px rgba(98, 202, 185, 0.15);
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--act-color, #62cab9) 20%, transparent);
   margin-top: 0.5rem;
   text-align: left;
   z-index: 10;
@@ -449,7 +451,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(98, 202, 185, 0.15);
+  border-bottom: 1px solid color-mix(in srgb, var(--act-color, #62cab9) 20%, transparent);
   padding-bottom: 0.3rem;
 }
 
@@ -457,7 +459,7 @@
   margin: 0;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--light-cyan, #62cab9);
+  color: var(--act-color, #62cab9);
 }
 
 .close-btn {

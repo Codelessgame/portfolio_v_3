@@ -1,9 +1,27 @@
-<div
-  class="star"
-  [ngStyle]="{
-    '--fall-duration': star_data.duration + 's',
-    '--fall-delay': star_data.delay + 's',
-    '--star-tail-length': star_data.tail_length + 'em',
-    '--top-offset': star_data.top + 'em'
-  }">
-</div>
+@if (star_data) {
+  <div
+    class="star-container"
+    [ngStyle]="{
+      '--fall-duration': star_data.duration + 's',
+      '--fall-delay': star_data.delay + 's',
+      '--top-offset': star_data.top + '%',
+      '--start-x': star_data.startX,
+      '--end-x': star_data.endX,
+      '--start-y': star_data.startY,
+      '--end-y': star_data.endY,
+      '--star-rotation': star_data.rotation + 'deg'
+    }">
+    <div
+      class="star"
+      [class.twinkle]="star_data.twinkle"
+      [ngStyle]="{
+        '--fall-duration': star_data.duration + 's',
+        '--fall-delay': star_data.delay + 's',
+        '--star-tail-length': star_data.tail_length + 'em',
+        '--star-color': star_data.color,
+        '--max-opacity': star_data.maxOpacity,
+        '--twinkle-duration': star_data.duration + 's'
+      }">
+    </div>
+  </div>
+}

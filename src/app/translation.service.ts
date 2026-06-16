@@ -94,7 +94,43 @@ export const translations: Record<Lang, Record<string, string>> = {
     'act.physics.desc': 'Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.',
     'act.sports.label': 'Team Sports (Football/Floorball)',
     'act.sports.desc': 'Engaged in competitive team sports to build tactical cooperation, leadership, and quick decision-making under physical and mental pressure.',
-    'act.trace': 'Click to trace back to: '
+    'act.trace': 'Click to trace back to: ',
+
+    // Projects Page Translations
+    'projects.title': 'My Projects',
+    'projects.subtitle': 'A collection of my engineering, hardware, and AI projects',
+    'projects.search_placeholder': 'Search projects by name, technology, status...',
+    'projects.filter_all': 'All Categories',
+    'projects.filter_embedded': 'Embedded / Engineering',
+    'projects.filter_ai': 'AI Models',
+    'projects.status_all': 'All Statuses',
+    'projects.status_finished': 'Finished',
+    'projects.status_ongoing': 'Ongoing',
+    
+    // Project 1: RC Car
+    'projects.rc_car.title': 'Remote Controlled Car',
+    'projects.rc_car.desc': 'A smart, custom-built remote-controlled vehicle designed with obstacle avoidance sensors, optimized chassis, and a dual-motor driver system.',
+    'projects.rc_car.date': 'March 2024 – December 2024',
+    
+    // Project 2: Train switches
+    'projects.railway.title': 'Model Railways Automatic Train Switches',
+    'projects.railway.desc': 'An automated railway track switching system designed to direct trains dynamically based on route logic, sensor feedbacks, and integrated control microchips.',
+    'projects.railway.date': 'November 2024 – June 2026',
+    
+    // Project 3: Digit recognizer
+    'projects.digit.title': 'Digit Recognizer',
+    'projects.digit.desc': 'A deep neural network (CNN) trained to classify handwritten digits with high accuracy, complete with a drawing canvas interface for real-time validation.',
+    'projects.digit.date': 'June 9, 2026',
+    
+    // Project 4: Music attention
+    'projects.music.title': 'Music Attention',
+    'projects.music.desc': 'An audio analyzer utilizing self-attention mechanism layers in PyTorch to classify musical features and map spectral attention coefficients over time.',
+    'projects.music.date': 'June 10, 2026 – June 11, 2026',
+    
+    // Project 5: Small language model
+    'projects.slm.title': 'Small Language Model',
+    'projects.slm.desc': 'An ongoing project building and pre-training a lightweight Transformer-based GPT style language model to understand structural text dependencies.',
+    'projects.slm.date': 'June 14, 2026 – Ongoing'
   },
   cs: {
     // Navigation / Header
@@ -166,6 +202,42 @@ export const translations: Record<Lang, Record<string, string>> = {
     'act.physics.desc': 'Návrh a simulace matematického modelu stínové projekce pro konvexní 3D tvary s využitím analytické geometrie, vektorové analýzy a Pythonu.',
     'act.sports.label': 'Týmové sporty (Fotbal/Florbal)',
     'act.sports.desc': 'Účast v soutěžních týmových sportech s cílem rozvíjet taktickou spolupráci, vůdčí schopnosti a rychlé rozhodování pod fyzickým a psychickým tlakem.',
-    'act.trace': 'Klikněte pro návrat k: '
+    'act.trace': 'Klikněte pro návrat k: ',
+
+    // Projects Page Translations
+    'projects.title': 'Mé projekty',
+    'projects.subtitle': 'Sbírka mých inženýrských, hardwarových a AI projektů',
+    'projects.search_placeholder': 'Hledat projekty podle názvu, technologie, stavu...',
+    'projects.filter_all': 'Všechny kategorie',
+    'projects.filter_embedded': 'Vestavěné systémy / Inženýrství',
+    'projects.filter_ai': 'AI Modely',
+    'projects.status_all': 'Všechny stavy',
+    'projects.status_finished': 'Dokončeno',
+    'projects.status_ongoing': 'Probíhá',
+    
+    // Project 1: RC Car
+    'projects.rc_car.title': 'Dálkově ovládané auto',
+    'projects.rc_car.desc': 'Chytré, na zakázku postavené dálkově ovládané vozidlo s integrovanými senzory pro vyhýbání se překážkám, optimalizovaným podvozkem a systémem pohonu se dvěma motory.',
+    'projects.rc_car.date': 'Březen 2024 – Prosinec 2024',
+    
+    // Project 2: Train switches
+    'projects.railway.title': 'Automatické výhybky pro modelovou železnici',
+    'projects.railway.desc': 'Automatizovaný systém řízení a přepínání kolejí navržený k dynamickému směrování vlaků na základě logiky tras, zpětné vazby ze senzorů a integrovaných mikročipů.',
+    'projects.railway.date': 'Listopad 2024 – Červen 2026',
+    
+    // Project 3: Digit recognizer
+    'projects.digit.title': 'Rozpoznávání číslic',
+    'projects.digit.desc': 'Hluboká neuronová síť (CNN) natrénovaná na klasifikaci ručně psaných číslic s vysokou přesností, doplněná o interaktivní kreslicí plátno pro okamžité rozpoznání.',
+    'projects.digit.date': '9. června 2026',
+    
+    // Project 4: Music attention
+    'projects.music.title': 'Hudební pozornost (Music Attention)',
+    'projects.music.desc': 'Analyzátor zvuku využívající vrstvy mechanismu self-attention v PyTorch pro klasifikaci hudebních prvků a mapování spektrálních koeficientů pozornosti v čase.',
+    'projects.music.date': '10. června 2026 – 11. června 2026',
+    
+    // Project 5: Small language model
+    'projects.slm.title': 'Malý jazykový model',
+    'projects.slm.desc': 'Probíhající projekt vývoje a předtrénování lehkého jazykového modelu založeného na architektuře Transformer (styl GPT) pro pochopení strukturních textových závislostí.',
+    'projects.slm.date': '14. června 2026 – Probíhá'
   }
 };
