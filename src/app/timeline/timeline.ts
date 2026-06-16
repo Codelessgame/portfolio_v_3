@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, HostListener, inject, computed } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslationService } from '../translation.service';
 
 interface PersonalActivity {
   id: string;
@@ -41,118 +42,136 @@ interface TimelineItem {
 export class Timeline implements OnInit, AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   activeActivityIndex: number | null = null;
+  hoveredIndex: number | null = null;
   isDesktop = false;
   maxActivities = 3;
 
-  personalActivities: PersonalActivity[] = [
-    {
-      id: 'art',
-      label: 'Art Club & School Volunteering',
-      icon: 'palette',
-      description: 'Volunteered to coordinate custom physical/digital artwork commissions and designed school community farewell gifts, utilizing acrylic painting and pastels.',
-      color: '#ff006e', // Hot Pink
-      startYear: 2022,
-      startMonth: 9,
-      endYear: 2026,
-      endMonth: 6,
-      startDateLabel: 'Sept 2022',
-      endDateLabel: 'June 2026'
-    },
-    {
-      id: 'physics',
-      label: 'Aerospace & Physics Research',
-      icon: 'rocket_launch',
-      description: 'Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.',
-      color: '#3a86ff', // Neon Blue
-      startYear: 2024,
-      startMonth: 6,
-      endYear: 2024,
-      endMonth: 11,
-      startDateLabel: 'June 2024',
-      endDateLabel: 'Nov 2024'
-    },
-    {
-      id: 'sports',
-      label: 'Team Sports (Football/Floorball)',
-      icon: 'sports_soccer',
-      description: 'Engaged in competitive team sports to build tactical cooperation, leadership, and quick decision-making under physical and mental pressure.',
-      color: '#ffbe0b', // Neon Yellow
-      startYear: 2025,
-      startMonth: 1,
-      endYear: 2025,
-      endMonth: 12,
-      startDateLabel: 'Jan 2025',
-      endDateLabel: 'Dec 2025'
-    }
-  ];
+  private ts = inject(TranslationService);
+  currentLang = this.ts.currentLang;
 
-  activityLines: Array<{ index: number; path: string; color: string }> = [];
+  t(key: string): string {
+    return this.ts.t()(key);
+  }
 
-  timelineItems: TimelineItem[] = [
+  personalActivities = computed<PersonalActivity[]>(() => {
+    const list: PersonalActivity[] = [
+      {
+        id: 'art',
+        label: this.ts.t()('act.art.label'),
+        icon: 'palette',
+        description: this.ts.t()('act.art.desc'),
+        color: '#ff006e', // Hot Pink
+        startYear: 2022,
+        startMonth: 9,
+        endYear: 2026,
+        endMonth: 6,
+        startDateLabel: this.currentLang() === 'en' ? 'Sept 2022' : 'Září 2022',
+        endDateLabel: this.currentLang() === 'en' ? 'June 2026' : 'Červen 2026'
+      },
+      {
+        id: 'physics',
+        label: this.ts.t()('act.physics.label'),
+        icon: 'rocket_launch',
+        description: this.ts.t()('act.physics.desc'),
+        color: '#3a86ff', // Neon Blue
+        startYear: 2024,
+        startMonth: 6,
+        endYear: 2024,
+        endMonth: 11,
+        startDateLabel: this.currentLang() === 'en' ? 'June 2024' : 'Června 2024',
+        endDateLabel: this.currentLang() === 'en' ? 'Nov 2024' : 'List. 2024'
+      },
+      {
+        id: 'sports',
+        label: this.ts.t()('act.sports.label'),
+        icon: 'sports_soccer',
+        description: this.ts.t()('act.sports.desc'),
+        color: '#ffbe0b', // Neon Yellow
+        startYear: 2025,
+        startMonth: 1,
+        endYear: 2025,
+        endMonth: 12,
+        startDateLabel: this.currentLang() === 'en' ? 'Jan 2025' : 'Led. 2025',
+        endDateLabel: this.currentLang() === 'en' ? 'Dec 2025' : 'Pros. 2025'
+      }
+    ];
+
+    // Compute relative vertical percentages
+    list.forEach(act => {
+      act.startPercent = this.getPercentFromTop(act.startYear, act.startMonth);
+      act.endPercent = this.getPercentFromTop(act.endYear, act.endMonth);
+    });
+
+    return list;
+  });
+
+  timelineItems = computed<TimelineItem[]>(() => [
     {
       type: 'education',
-      title: 'Fontys University of Applied Sciences',
-      subtitle: 'Bachelor of Science in Mechatronics',
-      date: 'Sept 2026 – Future (Upcoming)',
+      title: this.ts.t()('timeline.fontys.title'),
+      subtitle: this.ts.t()('timeline.fontys.sub'),
+      date: this.ts.t()('timeline.fontys.date'),
       icon: 'upcoming',
       bullets: [
-        'Enrolled in the Bachelor of Science in Mechatronics engineering program.',
-        'Focusing on integrating mechanical engineering, electrical engineering, and computer systems.',
-        'Applying practical CAD/CAM, software engineering, and hardware prototyping skills in a collaborative project-based curriculum.'
+        this.ts.t()('timeline.fontys.b1'),
+        this.ts.t()('timeline.fontys.b2'),
+        this.ts.t()('timeline.fontys.b3')
       ]
     },
     {
       type: 'work',
-      title: 'Stadion Viktoria Plzeň',
-      subtitle: 'Hospitality Server',
-      date: '2025',
+      title: this.ts.t()('timeline.viktoria.title'),
+      subtitle: this.ts.t()('timeline.viktoria.sub'),
+      date: this.ts.t()('timeline.viktoria.date'),
       icon: 'sports_soccer',
       bullets: [
-        'Delivered rapid, high-quality customer service in high-pressure, fast-paced sports stadium environments.',
-        'Prepared and sold food and concessions while managing inventory and cash transactions for large matchday crowds.',
-        'Maintained a welcoming, organized, and efficient service atmosphere under pressure.'
+        this.ts.t()('timeline.viktoria.b1'),
+        this.ts.t()('timeline.viktoria.b2'),
+        this.ts.t()('timeline.viktoria.b3')
       ],
       personalActivity: {
-        label: 'Team Sports (Football/Floorball)',
+        label: this.ts.t()('act.sports.label'),
         icon: 'sports_soccer',
-        description: 'Engaged in competitive team sports to build tactical cooperation, leadership, and quick decision-making under physical and mental pressure.'
+        description: this.ts.t()('act.sports.desc')
       }
     },
     {
       type: 'work',
-      title: 'PPA Arena',
-      subtitle: 'Cashier & Paintball Event Organizer',
-      date: '2023 – 2024',
+      title: this.ts.t()('timeline.ppa.title'),
+      subtitle: this.ts.t()('timeline.ppa.sub'),
+      date: this.ts.t()('timeline.ppa.date'),
       icon: 'groups',
       bullets: [
-        'Managed daily logistics, safety briefs, and client relations for paintball groups ranging from 6 to 90 participants per day.',
-        'Communicated event rules, handled fee collection, and guided foreign visitors (providing instructions in English and German).',
-        'Operated POS ticketing terminals, balancing concession sales and ticketing checkouts in high-energy environments.'
+        this.ts.t()('timeline.ppa.b1'),
+        this.ts.t()('timeline.ppa.b2'),
+        this.ts.t()('timeline.ppa.b3')
       ],
       personalActivity: {
-        label: 'Aerospace & Physics Research',
+        label: this.ts.t()('act.physics.label'),
         icon: 'rocket_launch',
-        description: 'Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.'
+        description: this.ts.t()('act.physics.desc')
       }
     },
     {
       type: 'education',
-      title: 'Gymnázium Rokycany',
-      subtitle: 'International Baccalaureate (IB) Diploma Programme',
-      date: 'Sept 2022 – June 2026 (ongoing)',
+      title: this.ts.t()('timeline.rokycany.title'),
+      subtitle: this.ts.t()('timeline.rokycany.sub'),
+      date: this.ts.t()('timeline.rokycany.date'),
       icon: 'school',
       bullets: [
-        'Advanced coursework: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL.',
-        'Developed an advanced computational physics/math model calculating the shadow areas of convex shapes using 3D vector analysis and the Shoelace formula (Math IA).',
-        'Balanced rigorous academic work with self-taught engineering skills (CAD in Fusion 360, PCBs in KiCad, AI architectures in PyTorch).'
+        this.ts.t()('timeline.rokycany.b1'),
+        this.ts.t()('timeline.rokycany.b2'),
+        this.ts.t()('timeline.rokycany.b3')
       ],
       personalActivity: {
-        label: 'Art Club & School Volunteering',
+        label: this.ts.t()('act.art.label'),
         icon: 'palette',
-        description: 'Volunteered to coordinate custom physical/digital artwork commissions and designed school community farewell gifts, utilizing acrylic painting and pastels.'
+        description: this.ts.t()('act.art.desc')
       }
     }
-  ];
+  ]);
+
+  activityLines: Array<{ index: number; horizontalPath: string; verticalPath: string; color: string }> = [];
 
   constructor(
     private el: ElementRef,
@@ -163,12 +182,6 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       this.isDesktop = window.innerWidth > 768;
     }
-
-    // Calculate vertical percentages based on dates early to prevent check warnings
-    this.personalActivities.forEach(act => {
-      act.startPercent = this.getPercentFromTop(act.startYear, act.startMonth);
-      act.endPercent = this.getPercentFromTop(act.endYear, act.endMonth);
-    });
   }
 
   getPercentFromTop(year: number, month: number): number {
@@ -178,8 +191,6 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
 
     const currentMonths = (year - startYear) * 12 + (month - startMonth);
     const clamped = Math.max(0, Math.min(totalMonths, currentMonths));
-    // Timeline grows bottom to top chronologically, so month 0 is 100% from top (bottom),
-    // and month 48 is 0% from top (top).
     return 100 - (clamped / totalMonths) * 100;
   }
 
@@ -243,7 +254,7 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     // Center point of this vertical line is 41.5px from container's left edge
     const centerX = 41.5;
 
-    this.activityLines = this.personalActivities.slice(0, this.maxActivities).map((act, idx) => {
+    this.activityLines = this.personalActivities().slice(0, this.maxActivities).map((act, idx) => {
       const startEl = document.getElementById(`activity-start-${idx}`);
       const endEl = document.getElementById(`activity-end-${idx}`);
       if (!startEl || !endEl) return null;
@@ -260,12 +271,13 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
       const endY = endRect.top - containerRect.top + endRect.height / 2;
 
       // Path layout: Starts at startX,startY -> horizontally to centerX, then jumps (Move) to centerX,endY -> horizontally to endX
-      // This hides the vertical connecting lines running along the main timeline axis.
-      const path = `M ${startX} ${startY} H ${centerX} M ${centerX} ${endY} H ${endX}`;
+      const horizontalPath = `M ${startX} ${startY} H ${centerX} M ${centerX} ${endY} H ${endX}`;
+      const verticalPath = `M ${centerX} ${startY} V ${endY}`;
 
       return {
         index: idx,
-        path,
+        horizontalPath,
+        verticalPath,
         color: act.color
       };
     }).filter(line => line !== null) as any[];

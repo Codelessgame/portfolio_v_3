@@ -4,17 +4,16 @@
   imageSrc="me_photo.svg" 
   imageAlt="Stanislav Růžička" 
   [imageOnRight]="true"
-  sectionTitle="About me"
-  sectionSubtitle="Who I am">
+  [sectionTitle]="t('about.title')"
+  [sectionSubtitle]="t('about.subtitle')">
   <p>
-    Hi, I’m Stanislav Růžička, a high school student studying the 
-    <a href="https://en.wikipedia.org/wiki/IB_Diploma_Programme" target="_blank">International Baccalaureate Diploma Programme (IBDP)</a>.
+    {{ t('about.p1') }}
   </p>
   <p>
-    I am passionate about engineering, programming, and design. I enjoy creating both in the digital and physical world, from coding applications to designing and 3D-printing mechanical parts.
+    {{ t('about.p2') }}
   </p>
   <p>
-    My technical background includes CAD design (Fusion 360, FreeCAD), circuit board design (KiCAD), and programming in Python, Angular, C, and TypeScript.
+    {{ t('about.p3') }}
   </p>
 </app-split-section>
 

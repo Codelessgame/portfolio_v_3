@@ -1,10 +1,10 @@
-import { Component, Input, OnChanges, SimpleChanges, signal } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, signal, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { Star } from './star/star';
-
+import { TranslationService } from '../translation.service';
 
 const letters = "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYZŽ0123456789";
 
@@ -19,6 +19,17 @@ export class Header implements OnChanges {
   currentValue = signal('');
   stars = Array.from({ length: 20 });
   interval: any;
+
+  private ts = inject(TranslationService);
+  currentLang = this.ts.currentLang;
+
+  t(key: string): string {
+    return this.ts.t()(key);
+  }
+
+  toggleLanguage() {
+    this.ts.toggleLanguage();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.hasOwnProperty('value')) {

@@ -224,12 +224,21 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3; /* Draw colored paths on top of the main vertical timeline line */
 }
 
 .activity-svg-path {
   opacity: 0.65;
   transition: opacity 0.3s ease;
+}
+
+.activity-vertical-path {
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-vertical-path.show-vertical {
+  opacity: 1;
 }
 
 .activity-start-bubble {

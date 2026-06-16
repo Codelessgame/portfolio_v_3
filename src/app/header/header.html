@@ -1,8 +1,17 @@
 <div class="header-container">
   <mat-toolbar class="sticky">
-    <button mat-button routerLink="">Home</button>
-    <button mat-button routerLink="">My Projects</button>
-
+    <button mat-button routerLink="">{{ t('nav.home') }}</button>
+    <button mat-button routerLink="">{{ t('nav.projects') }}</button>
+    
+    <span class="spacer"></span>
+    
+    <button class="lang-toggle-btn" (click)="toggleLanguage()" aria-label="Toggle language">
+      @if (currentLang() === 'en') {
+        <span class="flag-icon">🇬🇧</span> <span class="lang-text">EN</span>
+      } @else {
+        <span class="flag-icon">🇨🇿</span> <span class="lang-text">CZ</span>
+      }
+    </button>
   </mat-toolbar>
 
   <!-- This is the new canvas for the animation -->

@@ -1,9 +1,9 @@
 <section class="featured-cards-section">
-  <h2 class="section-title">My Creative Space</h2>
-  <p class="section-subtitle">A collection of code, art, and engineering projects</p>
+  <h2 class="section-title">{{ t('creative.title') }}</h2>
+  <p class="section-subtitle">{{ t('creative.subtitle') }}</p>
   
   <div class="cards-grid">
-    @for (card of cards; track card.title) {
+    @for (card of cards(); track card.title) {
       <a [href]="card.link" target="_blank" class="showcase-card">
         <div class="card-image-wrapper">
           <img [src]="card.imageUrl" [alt]="card.title" class="card-bg-image" />
