@@ -269,6 +269,7 @@
   border-style: solid;
   background: var(--mat-sys-surface-container-high, #333333);
   box-shadow: 0 0 12px rgba(27, 193, 152, 0.25);
+  z-index: 20;
 }
 
 .activity-start-bubble mat-icon {

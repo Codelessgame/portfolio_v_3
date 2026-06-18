@@ -47,7 +47,11 @@
           <span class="bubble-label">{{ act.label }}</span>
           
           @if (activeActivityIndex === idx) {
-            <div class="activity-popup-card" [style.border-color]="act.color" (click)="$event.stopPropagation()">
+            <div class="activity-popup-card" 
+                 [style.border-color]="act.color"
+                 [style.bottom]="(act.startPercent || 0) > 50 ? '2.2rem' : 'auto'"
+                 [style.top]="(act.startPercent || 0) > 50 ? 'auto' : '2.2rem'"
+                 (click)="$event.stopPropagation()">
               <div class="popup-header">
                 <h4 [style.color]="act.color">{{ act.label }}</h4>
                 <button class="popup-close-btn" (click)="toggleActivity(idx)">×</button>
