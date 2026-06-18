@@ -35,8 +35,57 @@ export class Projects {
   private ts = inject(TranslationService);
 
   searchQuery = signal<string>('');
+  selectedTags = signal<string[]>([]);
   selectedCategory = signal<string>('all');
   currentLang = this.ts.currentLang;
+
+  /** Tags that match what the user has typed in the search box */
+  suggestedTags = computed(() => {
+    const query = this.searchQuery().trim().toLowerCase();
+    if (!query) return [];
+    const active = this.selectedTags().map(t => t.toLowerCase());
+    return this.allKnownTags().filter(tag =>
+      tag.toLowerCase().includes(query) && !active.includes(tag.toLowerCase())
+    );
+  });
+
+  /** All unique tags across all library items */
+  allKnownTags = computed(() => {
+    const tagSet = new Set<string>();
+    this.libraryItems.forEach(item => {
+      this.getItemTags(item).forEach(tag => tagSet.add(tag));
+    });
+    return Array.from(tagSet).sort();
+  });
+
+  toggleTag(tag: string) {
+    const current = this.selectedTags();
+    if (current.includes(tag)) {
+      this.selectedTags.set(current.filter(t => t !== tag));
+    } else {
+      this.selectedTags.set([...current, tag]);
+    }
+  }
+
+  removeTag(tag: string) {
+    this.selectedTags.set(this.selectedTags().filter(t => t !== tag));
+  }
+
+  promoteToTag(tag: string) {
+    if (!this.selectedTags().includes(tag)) {
+      this.selectedTags.set([...this.selectedTags(), tag]);
+    }
+    this.searchQuery.set('');
+  }
+
+  isTagActive(tag: string): boolean {
+    return this.selectedTags().some(t => t.toLowerCase() === tag.toLowerCase());
+  }
+
+  clearAll() {
+    this.searchQuery.set('');
+    this.selectedTags.set([]);
+  }
 
   // Pinned/fixed items to showcase at the top
   pinnedItems: LibraryItem[] = [
@@ -1014,6 +1063,10 @@ export class Projects {
 
   sortMode = signal<'default' | 'default-rev' | 'alpha-asc' | 'alpha-desc' | 'date-desc' | 'date-asc'>('default');
 
+  isDateSortActive = computed(() => {
+    return this.sortMode() === 'date-desc' || this.sortMode() === 'date-asc';
+  });
+
   cycleSort() {
     const modes: ('default' | 'default-rev' | 'alpha-asc' | 'alpha-desc' | 'date-desc' | 'date-asc')[] = [
       'default',
@@ -1025,7 +1078,13 @@ export class Projects {
     ];
     const currentIndex = modes.indexOf(this.sortMode());
     const nextIndex = (currentIndex + 1) % modes.length;
-    this.sortMode.set(modes[nextIndex]);
+    const nextMode = modes[nextIndex];
+    this.sortMode.set(nextMode);
+
+    if ((nextMode === 'date-desc' || nextMode === 'date-asc') &&
+        (this.selectedCategory() === 'youtube' || this.selectedCategory() === 'podcast')) {
+      this.selectedCategory.set('all');
+    }
   }
 
   getSortIcon(): string {
@@ -1198,21 +1257,6 @@ export class Projects {
     return 0;
   }
 
-  toggleTag(tag: string) {
-    const current = this.searchQuery().trim();
-    if (!current) {
-      this.searchQuery.set(tag);
-    } else {
-      const words = current.split(/\s+/);
-      if (words.includes(tag)) {
-        const filtered = words.filter(w => w !== tag).join(' ');
-        this.searchQuery.set(filtered);
-      } else {
-        this.searchQuery.set(current + ' ' + tag);
-      }
-    }
-  }
-
   filteredPinnedItems = computed(() => {
     return this.pinnedItems;
   });
@@ -1220,27 +1264,37 @@ export class Projects {
   filteredItems = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const cat = this.selectedCategory();
+    const activeTags = this.selectedTags();
     const translator = this.ts.t();
 
     let items = this.libraryItems.filter(item => {
+      // Exclude Media Filter when sorting by date (youtube/podcast don't have time associated)
+      if (this.isDateSortActive() && (item.type === 'youtube' || item.type === 'podcast')) {
+        return false;
+      }
+
       // Category Filter
       if (cat !== 'all' && item.type !== cat) return false;
 
-      // Search Filter
+      // Tag Filter — item must have ALL selected tags
+      if (activeTags.length > 0) {
+        const itemTags = this.getItemTags(item).map(t => t.toLowerCase());
+        const allTagsMatch = activeTags.every(tag =>
+          itemTags.some(it => it.toLowerCase() === tag.toLowerCase())
+        );
+        if (!allTagsMatch) return false;
+      }
+
+      // Text Search Filter
       if (query) {
         const title = translator(`${item.translationPrefix}.title`).toLowerCase();
         const desc = translator(`${item.translationPrefix}.desc`).toLowerCase();
         const extra = item.extraKey ? item.extraKey.toLowerCase() : '';
         const tags = this.getItemTags(item).map(t => t.toLowerCase());
         const typeLabel = translator(`projects.filter_${item.type}`).toLowerCase();
+        const searchable = `${title} ${desc} ${extra} ${tags.join(' ')} ${typeLabel}`;
 
-        return (
-          title.includes(query) ||
-          desc.includes(query) ||
-          extra.includes(query) ||
-          tags.some(t => t.includes(query)) ||
-          typeLabel.includes(query)
-        );
+        if (!searchable.includes(query)) return false;
       }
 
       return true;

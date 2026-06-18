@@ -139,8 +139,8 @@
 @media screen and (max-width: 900px) {
   .split-section-container {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 3rem 5vw;
+    gap: 2rem;
+    padding: 2.5rem 4vw;
   }
 
   /* In mobile, always keep text on top, image on bottom */
@@ -158,8 +158,33 @@
     font-size: 2rem;
   }
 
+  .description {
+    font-size: 1rem;
+  }
+
   .image-wrapper {
     max-width: 100%;
     aspect-ratio: 16 / 9;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .split-section-container {
+    gap: 1.5rem;
+    padding: 2rem 3vw;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }

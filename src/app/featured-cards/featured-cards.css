@@ -1,8 +1,11 @@
 .featured-cards-section {
-  padding: 5rem 10vw;
+  padding: 5rem 5vw;
   text-align: center;
   background-color: transparent;
   color: var(--mat-sys-on-surface, #ffffff);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 }
 
 .section-title {
@@ -27,6 +30,8 @@
   gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Card base styling */
@@ -168,26 +173,84 @@
 
 @media screen and (max-width: 768px) {
   .featured-cards-section {
-    padding: 3rem 5vw;
+    padding: 2.5rem 4vw;
   }
-  
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+  }
+
   .cards-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 100%;
   }
-  
+
   .showcase-card {
-    height: 360px;
+    height: 280px;
   }
-  
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
   /* On mobile, keep description visible by default */
   .card-content {
     transform: translateY(0);
   }
-  
+
   .card-description {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .featured-cards-section {
+    padding: 2rem 3vw;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .showcase-card {
+    height: 240px;
+  }
+
+  .card-content {
+    padding: 1.2rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .card-description {
+    font-size: 0.85rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .card-action {
+    font-size: 0.9rem;
   }
 }

@@ -25,7 +25,7 @@
                 <p class="brief-desc">{{ t(project.translationPrefix + '.desc') }}</p>
                 <div class="card-tags">
                   @for (tag of getItemTags(project); track tag) {
-                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                    <button class="tag-btn" [class.active]="isTagActive(tag)" (click)="toggleTag(tag); $event.stopPropagation()">
                       {{ tag }}
                     </button>
                   }
@@ -61,12 +61,38 @@
           (ngModelChange)="searchQuery.set($event)" 
           [placeholder]="t('projects.search_placeholder')" 
           class="search-input" />
-        @if (searchQuery()) {
-          <button class="clear-btn" (click)="searchQuery.set('')" aria-label="Clear search">
+        @if (searchQuery() || selectedTags().length > 0) {
+          <button class="clear-btn" (click)="clearAll()" aria-label="Clear all">
             <mat-icon>close</mat-icon>
           </button>
         }
       </div>
+
+      <!-- Tag Suggestions (when typed text matches known tags) -->
+      @if (suggestedTags().length > 0) {
+        <div class="tag-suggestions-row">
+          <span class="suggestions-label">{{ currentLang() === 'en' ? 'Add tag:' : 'Přidat tag:' }}</span>
+          @for (tag of suggestedTags().slice(0, 8); track tag) {
+            <button class="tag-suggestion-btn" (click)="promoteToTag(tag)">
+              {{ tag }}
+              <mat-icon class="suggestion-add-icon">add</mat-icon>
+            </button>
+          }
+        </div>
+      }
+
+      <!-- Active Tag Filters -->
+      @if (selectedTags().length > 0) {
+        <div class="active-tags-row">
+          @for (tag of selectedTags(); track tag) {
+            <button class="active-tag-chip" (click)="removeTag(tag)">
+              <span>{{ tag }}</span>
+              <mat-icon class="chip-close-icon">close</mat-icon>
+            </button>
+          }
+        </div>
+      }
+
 
       <!-- Category Pills -->
       <div class="filters-row">
@@ -92,12 +118,16 @@
           <button 
             class="pill-btn" 
             [class.active]="selectedCategory() === 'youtube'" 
+            [class.disabled-pill]="isDateSortActive()"
+            [disabled]="isDateSortActive()"
             (click)="setCategory('youtube')">
             {{ t('projects.filter_youtube') }}
           </button>
           <button 
             class="pill-btn" 
             [class.active]="selectedCategory() === 'podcast'" 
+            [class.disabled-pill]="isDateSortActive()"
+            [disabled]="isDateSortActive()"
             (click)="setCategory('podcast')">
             {{ t('projects.filter_podcast') }}
           </button>
@@ -133,7 +163,7 @@
                 <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
                 <div class="card-tags">
                   @for (tag of getItemTags(item); track tag) {
-                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                    <button class="tag-btn" [class.active]="isTagActive(tag)" (click)="toggleTag(tag); $event.stopPropagation()">
                       {{ tag }}
                     </button>
                   }
@@ -164,7 +194,7 @@
                 <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
                 <div class="card-tags">
                   @for (tag of getItemTags(item); track tag) {
-                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                    <button class="tag-btn" [class.active]="isTagActive(tag)" (click)="toggleTag(tag); $event.stopPropagation()">
                       {{ tag }}
                     </button>
                   }
@@ -195,7 +225,7 @@
                 <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
                 <div class="card-tags">
                   @for (tag of getItemTags(item); track tag) {
-                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                    <button class="tag-btn" [class.active]="isTagActive(tag)" (click)="toggleTag(tag); $event.stopPropagation()">
                       {{ tag }}
                     </button>
                   }
@@ -229,7 +259,7 @@
                 <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
                 <div class="card-tags">
                   @for (tag of getItemTags(item); track tag) {
-                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                    <button class="tag-btn" [class.active]="isTagActive(tag)" (click)="toggleTag(tag); $event.stopPropagation()">
                       {{ tag }}
                     </button>
                   }

@@ -39,7 +39,7 @@
   font-family: 'Outfit', sans-serif;
   font-size: 1.6rem;
   color: var(--cyan, #1bc198);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--mat-sys-outline-variant, rgba(255, 255, 255, 0.1));
   padding-bottom: 0.75rem;
 }
@@ -59,7 +59,7 @@
   border: 1px solid var(--mat-sys-outline-variant, rgba(255, 255, 255, 0.1));
   border-radius: 20px;
   padding: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -119,6 +119,91 @@
   color: var(--mat-sys-on-surface, #ffffff);
 }
 
+/* Active search tag chips */
+.active-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.active-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(27, 193, 152, 0.15);
+  border: 1px solid var(--cyan, #1bc198);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: var(--cyan, #1bc198);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.active-tag-chip:hover {
+  background: rgba(255, 77, 106, 0.12);
+  border-color: #ff4d6a;
+  color: #ff4d6a;
+}
+
+.chip-close-icon {
+  font-size: 13px;
+  width: 13px;
+  height: 13px;
+  line-height: 1;
+}
+
+/* Tag suggestions row */
+.tag-suggestions-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.suggestions-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--mat-sys-on-surface-variant, #94a3b8);
+  margin-right: 2px;
+}
+
+.tag-suggestion-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: transparent;
+  border: 1px dashed var(--mat-sys-outline-variant, rgba(255, 255, 255, 0.15));
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  color: var(--mat-sys-on-surface-variant, #94a3b8);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.tag-suggestion-btn:hover {
+  background: rgba(27, 193, 152, 0.1);
+  border-color: var(--cyan, #1bc198);
+  border-style: solid;
+  color: var(--cyan, #1bc198);
+}
+
+.suggestion-add-icon {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+}
+
 .filters-row {
   display: flex;
   flex-wrap: wrap;
@@ -163,6 +248,23 @@
   margin-left: auto;
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.pill-btn.disabled-pill {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: rgba(239, 68, 68, 0.03) !important;
+  border-color: rgba(239, 68, 68, 0.15) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: none !important;
+}
+
+.pill-btn.disabled-pill:hover {
+  background: rgba(239, 68, 68, 0.03) !important;
+  border-color: rgba(239, 68, 68, 0.15) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: none !important;
 }
 
 .sort-cycle-btn {
@@ -214,34 +316,44 @@
   font-family: 'Outfit', sans-serif;
   color: var(--mat-sys-on-surface-variant, #94a3b8);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
-.tag-btn:hover {
-  background: rgba(27, 193, 152, 0.1);
+/* Project tags (Cyan) - active/hover */
+.project-card .tag-btn:hover,
+.project-card .tag-btn.active {
+  background: rgba(27, 193, 152, 0.18);
   border-color: var(--cyan, #1bc198);
   color: var(--cyan, #1bc198);
+  box-shadow: 0 2px 8px rgba(27, 193, 152, 0.15);
 }
 
-/* Specific book card tags hover */
-.book-card .tag-btn:hover {
-  background: rgba(255, 0, 110, 0.1);
+/* Book tags (Pink) - active/hover */
+.book-card .tag-btn:hover,
+.book-card .tag-btn.active {
+  background: rgba(255, 0, 110, 0.18);
   border-color: #ff006e;
   color: #ff006e;
+  box-shadow: 0 2px 8px rgba(255, 0, 110, 0.15);
 }
 
-/* Specific youtube card tags hover */
-.youtube-card .tag-btn:hover {
-  background: rgba(255, 190, 11, 0.1);
+/* YouTube tags (Yellow) - active/hover */
+.youtube-card .tag-btn:hover,
+.youtube-card .tag-btn.active {
+  background: rgba(255, 190, 11, 0.18);
   border-color: #ffbe0b;
   color: #ffbe0b;
+  box-shadow: 0 2px 8px rgba(255, 190, 11, 0.15);
 }
 
-/* Specific podcast card tags hover */
-.podcast-card .tag-btn:hover {
-  background: rgba(162, 0, 255, 0.1);
+/* Podcast tags (Purple) - active/hover */
+.podcast-card .tag-btn:hover,
+.podcast-card .tag-btn.active {
+  background: rgba(162, 0, 255, 0.18);
   border-color: #a200ff;
   color: #a200ff;
+  box-shadow: 0 2px 8px rgba(162, 0, 255, 0.15);
 }
 
 /* Projects Grid & Cards */
@@ -478,11 +590,17 @@ a.project-card {
   }
   
   .projects-header h2 {
-    font-size: 2.3rem;
+    font-size: 2rem;
+    white-space: nowrap;
   }
   
   .filter-controls {
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    margin-bottom: 1.2rem;
   }
   
   .filters-row {
@@ -499,5 +617,49 @@ a.project-card {
     margin-top: 1rem;
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects-container {
+    padding: 2rem 3vw 5rem 3vw;
+  }
+
+  .projects-header h2 {
+    font-size: clamp(1.15rem, 6.5vw, 1.6rem);
+    white-space: nowrap;
+  }
+
+  .projects-header .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .filter-controls {
+    margin-bottom: 1rem;
+    padding: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-content {
+    padding: 1.2rem;
+    min-height: 200px;
+  }
+
+  .card-top-row h3 {
+    font-size: 1.15rem;
+  }
+
+  .pill-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
   }
 }

@@ -2,20 +2,20 @@
   <div class="footer-container">
     <div class="footer-left">
       <h3 class="footer-logo">STANISLAV RŮŽIČKA</h3>
-      <p class="footer-email-section">
-        <a href="mailto:stanik.ruzicka@gmail.com" class="email-link">
-          <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
-          stanik.ruzicka@gmail.com
-        </a>
-      </p>
     </div>
 
     <div class="footer-right">
       <div class="social-icons">
+        <button class="social-icon-btn email-copy" (click)="copyEmail()" aria-label="Copy email" type="button">
+          <svg class="social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          @if (emailCopied()) {
+            <span class="copied-tooltip">Copied!</span>
+          }
+        </button>
         <a href="https://github.com/Codelessgame" target="_blank" rel="noopener noreferrer"
           class="social-icon-btn github" aria-label="GitHub">
           <svg class="social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
