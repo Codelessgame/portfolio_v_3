@@ -130,7 +130,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Project 5: Small language model
     'projects.slm.title': 'Small Language Model',
     'projects.slm.desc': 'An ongoing project building and pre-training a lightweight Transformer-based GPT style language model to understand structural text dependencies.',
-    'projects.slm.date': 'June 14, 2026 – Ongoing'
+    'projects.slm.date': 'June 14, 2026 – Ongoing',
+
+    // Footer Section
+    'footer.contact': 'Contact Me',
+    'footer.rights': 'All rights reserved.',
+    'footer.designed_by': 'Designed & Built by Stanislav Růžička'
   },
   cs: {
     // Navigation / Header
@@ -238,6 +243,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Project 5: Small language model
     'projects.slm.title': 'Malý jazykový model',
     'projects.slm.desc': 'Probíhající projekt vývoje a předtrénování lehkého jazykového modelu založeného na architektuře Transformer (styl GPT) pro pochopení strukturních textových závislostí.',
-    'projects.slm.date': '14. června 2026 – Probíhá'
+    'projects.slm.date': '14. června 2026 – Probíhá',
+
+    // Footer Section
+    'footer.contact': 'Kontaktujte mě',
+    'footer.rights': 'Všechna práva vyhrazena.',
+    'footer.designed_by': 'Navrhl a vytvořil Stanislav Růžička'
   }
 };
