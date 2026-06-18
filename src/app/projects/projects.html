@@ -59,7 +59,7 @@
         }
       </div>
 
-      <!-- Category Pills and Settings -->
+      <!-- Category Pills -->
       <div class="filters-row">
         <div class="filter-group">
           <button 
@@ -86,20 +86,22 @@
             (click)="setCategory('youtube')">
             {{ t('projects.filter_youtube') }}
           </button>
+          <button 
+            class="pill-btn" 
+            [class.active]="selectedCategory() === 'podcast'" 
+            (click)="setCategory('podcast')">
+            {{ t('projects.filter_podcast') }}
+          </button>
         </div>
 
-        <!-- Optional setting checkbox to dim unreviewed books unless hovered -->
-        <div class="settings-group">
-          <label class="checkbox-container">
-            <input 
-              type="checkbox" 
-              [ngModel]="dimUnreviewed()" 
-              (ngModelChange)="dimUnreviewed.set($event)" />
-            <span class="checkbox-checkmark"></span>
-            <span class="checkbox-label">
-              {{ currentLang() === 'en' ? 'Dim books without analysis' : 'Ztlumit knihy bez analýzy' }}
-            </span>
-          </label>
+        <div class="sort-group">
+          <button 
+            class="sort-cycle-btn" 
+            (click)="cycleSort()" 
+            [title]="getSortTooltip()">
+            <mat-icon class="sort-icon">{{ getSortIcon() }}</mat-icon>
+            <span class="sort-label">{{ getSortLabel() }}</span>
+          </button>
         </div>
       </div>
     </div>
@@ -120,68 +122,53 @@
               </div>
               <div class="card-middle-row">
                 <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
+                <div class="card-tags">
+                  @for (tag of getItemTags(item); track tag) {
+                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                      {{ tag }}
+                    </button>
+                  }
+                </div>
               </div>
               <div class="card-bottom-row">
-                <span class="category-tag" [ngClass]="item.category || ''">
-                  {{ t('projects.filter_' + item.category) }}
-                </span>
                 <span class="project-date">{{ t(item.translationPrefix + '.date') }}</span>
+                <span class="category-tag project">
+                  {{ t('projects.filter_project') }}
+                </span>
               </div>
             </div>
           </div>
         }
 
-        <!-- Case 2: Book Item (Interactive if hasAnalysis, otherwise disabled) -->
+        <!-- Case 2: Book Item -->
         @if (item.type === 'book') {
-          @if (item.hasAnalysis) {
-            <a [routerLink]="['/projects/analysis', item.id]" class="project-card book-card interactive" [class.dimmed]="dimUnreviewed() && !item.hasAnalysis">
-              <div class="card-content">
-                <div class="card-top-row">
-                  <h3 class="interactive-title">
-                    <mat-icon class="book-open-icon">menu_book</mat-icon>
-                    <span>{{ t(item.translationPrefix + '.title') }}</span>
-                  </h3>
-                  <span class="status-badge" [ngClass]="item.status || ''">
-                    {{ t('projects.status_' + item.status) }}
-                  </span>
-                </div>
-                <div class="card-middle-row">
-                  <span class="author-label">{{ item.extraKey }}</span>
-                  <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
-                </div>
-                <div class="card-bottom-row">
-                  <span class="category-tag book">
-                    {{ t('projects.filter_book') }}
-                  </span>
-                  <span class="project-date">{{ t(item.translationPrefix + '.date') }}</span>
+          <div class="project-card book-card">
+            <div class="card-content">
+              <div class="card-top-row">
+                <h3>{{ t(item.translationPrefix + '.title') }}</h3>
+                <span class="status-badge" [ngClass]="item.status || ''">
+                  {{ t('projects.status_' + item.status) }}
+                </span>
+              </div>
+              <div class="card-middle-row">
+                <span class="author-label">{{ item.extraKey }}</span>
+                <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
+                <div class="card-tags">
+                  @for (tag of getItemTags(item); track tag) {
+                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                      {{ tag }}
+                    </button>
+                  }
                 </div>
               </div>
-            </a>
-          } @else {
-            <div class="project-card book-card disabled" [class.dimmed]="dimUnreviewed() && !item.hasAnalysis">
-              <div class="card-content">
-                <div class="card-top-row">
-                  <h3 class="disabled-title">
-                    <mat-icon class="lock-icon">lock</mat-icon>
-                    <span>{{ t(item.translationPrefix + '.title') }}</span>
-                  </h3>
-                  <span class="status-badge" [ngClass]="item.status || ''">
-                    {{ t('projects.status_' + item.status) }}
-                  </span>
-                </div>
-                <div class="card-middle-row">
-                  <span class="author-label">{{ item.extraKey }}</span>
-                  <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
-                </div>
-                <div class="card-bottom-row">
-                  <span class="category-tag book">
-                    {{ t('projects.filter_book') }}
-                  </span>
-                  <span class="project-date">{{ t(item.translationPrefix + '.date') }}</span>
-                </div>
+              <div class="card-bottom-row">
+                <span class="project-date">{{ t(item.translationPrefix + '.date') }}</span>
+                <span class="category-tag book">
+                  {{ t('projects.filter_book') }}
+                </span>
               </div>
             </div>
-          }
+          </div>
         }
 
         <!-- Case 3: YouTube Channel Item -->
@@ -197,12 +184,59 @@
               <div class="card-middle-row">
                 <span class="creator-label">{{ item.extraKey }}</span>
                 <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
+                <div class="card-tags">
+                  @for (tag of getItemTags(item); track tag) {
+                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                      {{ tag }}
+                    </button>
+                  }
+                </div>
               </div>
               <div class="card-bottom-row">
+                <span class="project-date">{{ currentLang() === 'en' ? 'Active' : 'Aktivní' }}</span>
                 <span class="category-tag youtube">
                   {{ t('projects.filter_youtube') }}
                 </span>
-                <span class="project-date">{{ currentLang() === 'en' ? 'Active' : 'Aktivní' }}</span>
+              </div>
+            </div>
+          </a>
+        }
+
+        <!-- Case 4: Podcast Item -->
+        @if (item.type === 'podcast') {
+          <a [href]="item.link || '#'" target="_blank" class="project-card podcast-card" [class.interactive]="item.link">
+            <div class="card-content">
+              <div class="card-top-row">
+                <h3>
+                  <mat-icon class="podcast-icon">mic</mat-icon>
+                  <span>{{ t(item.translationPrefix + '.title') }}</span>
+                </h3>
+                <span class="status-badge" [ngClass]="item.status || ''">
+                  {{ t('projects.status_' + item.status) }}
+                </span>
+              </div>
+              <div class="card-middle-row">
+                <span class="creator-label">{{ item.extraKey }}</span>
+                <p class="brief-desc">{{ t(item.translationPrefix + '.desc') }}</p>
+                <div class="card-tags">
+                  @for (tag of getItemTags(item); track tag) {
+                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                      {{ tag }}
+                    </button>
+                  }
+                </div>
+              </div>
+              <div class="card-bottom-row">
+                <span class="project-date">
+                  @if (item.status === 'ongoing') {
+                    {{ currentLang() === 'en' ? 'Active' : 'Aktivní' }}
+                  } @else {
+                    {{ t(item.translationPrefix + '.date') }}
+                  }
+                </span>
+                <span class="category-tag podcast">
+                  {{ t('projects.filter_podcast') }}
+                </span>
               </div>
             </div>
           </a>

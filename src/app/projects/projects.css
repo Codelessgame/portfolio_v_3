@@ -158,76 +158,90 @@
   box-shadow: 0 4px 12px rgba(27, 193, 152, 0.35);
 }
 
-/* Settings Checkbox */
-.settings-group {
-  display: flex;
-  align-items: center;
+/* Sort Cycle Button */
+.sort-group {
   margin-left: auto;
-}
-
-.checkbox-container {
   display: flex;
   align-items: center;
-  position: relative;
-  padding-left: 28px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: var(--mat-sys-on-surface-variant, #cbd5e1);
-  user-select: none;
 }
 
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkbox-checkmark {
-  position: absolute;
-  left: 0;
-  height: 18px;
-  width: 18px;
-  background-color: rgba(255, 255, 255, 0.05);
+.sort-cycle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--mat-sys-outline-variant, rgba(255, 255, 255, 0.15));
-  border-radius: 4px;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--mat-sys-on-surface, #e2e8f0);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.sort-cycle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--cyan, #1bc198);
+  box-shadow: 0 4px 12px rgba(27, 193, 152, 0.1);
+  color: #ffffff;
+}
+
+.sort-cycle-btn .sort-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--cyan, #1bc198);
+}
+
+/* Card Tags */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  color: var(--mat-sys-on-surface-variant, #94a3b8);
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.checkbox-container:hover input ~ .checkbox-checkmark {
-  background-color: rgba(255, 255, 255, 0.1);
+.tag-btn:hover {
+  background: rgba(27, 193, 152, 0.1);
   border-color: var(--cyan, #1bc198);
+  color: var(--cyan, #1bc198);
 }
 
-.checkbox-container input:checked ~ .checkbox-checkmark {
-  background-color: var(--cyan, #1bc198);
-  border-color: transparent;
+/* Specific book card tags hover */
+.book-card .tag-btn:hover {
+  background: rgba(255, 0, 110, 0.1);
+  border-color: #ff006e;
+  color: #ff006e;
 }
 
-.checkbox-checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+/* Specific youtube card tags hover */
+.youtube-card .tag-btn:hover {
+  background: rgba(255, 190, 11, 0.1);
+  border-color: #ffbe0b;
+  color: #ffbe0b;
 }
 
-.checkbox-container input:checked ~ .checkbox-checkmark:after {
-  display: block;
-}
-
-.checkbox-container .checkbox-checkmark:after {
-  left: 6px;
-  top: 2px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.checkbox-label {
-  margin-left: 6px;
-  font-weight: 500;
+/* Specific podcast card tags hover */
+.podcast-card .tag-btn:hover {
+  background: rgba(162, 0, 255, 0.1);
+  border-color: #a200ff;
+  color: #a200ff;
 }
 
 /* Projects Grid & Cards */
@@ -271,24 +285,6 @@ a.project-card {
   box-shadow: 0 15px 30px rgba(255, 190, 11, 0.15);
 }
 
-/* Dimming Option Style */
-.project-card.dimmed {
-  opacity: 0.35;
-  filter: grayscale(35%);
-  transition: all 0.35s ease;
-}
-
-.project-card.dimmed:hover {
-  opacity: 1;
-  filter: none;
-}
-
-/* Disabled Book Card Styles */
-.project-card.disabled {
-  opacity: 0.85;
-  cursor: default;
-}
-
 .card-content {
   padding: 2rem;
   display: flex;
@@ -330,18 +326,12 @@ a.project-card {
   color: #ffbe0b;
 }
 
+.book-icon,
 .book-open-icon {
   font-size: 20px;
   width: 20px;
   height: 20px;
   color: #ff006e;
-}
-
-.lock-icon {
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
-  color: #94a3b8;
 }
 
 .status-badge {
@@ -417,16 +407,10 @@ a.project-card {
   letter-spacing: 0.5px;
 }
 
-.category-tag.embedded {
+.category-tag.project {
   background: rgba(27, 193, 152, 0.1);
   color: #1bc198;
   border: 1px solid rgba(27, 193, 152, 0.2);
-}
-
-.category-tag.ai {
-  background: rgba(58, 134, 255, 0.08);
-  color: #3a86ff;
-  border: 1px solid rgba(58, 134, 255, 0.15);
 }
 
 .category-tag.book {
@@ -439,6 +423,31 @@ a.project-card {
   background: rgba(255, 190, 11, 0.1);
   color: #ffbe0b;
   border: 1px solid rgba(255, 190, 11, 0.2);
+}
+
+.category-tag.podcast {
+  background: rgba(162, 0, 255, 0.1);
+  color: #a200ff;
+  border: 1px solid rgba(162, 0, 255, 0.2);
+}
+
+/* Podcast Icon & Card */
+.podcast-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: #a200ff;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.podcast-card.interactive:hover {
+  border-color: #a200ff;
+  box-shadow: 0 12px 24px rgba(162, 0, 255, 0.15);
+}
+
+.podcast-card.interactive:hover h3 {
+  color: #a200ff;
 }
 
 /* Empty State */

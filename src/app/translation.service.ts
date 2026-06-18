@@ -108,6 +108,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'projects.filter_project': 'Projects',
     'projects.filter_book': 'Books',
     'projects.filter_youtube': 'YouTube Channels',
+    'projects.filter_podcast': 'Podcasts',
     'projects.status_all': 'All Statuses',
     'projects.status_finished': 'Finished',
     'projects.status_ongoing': 'Ongoing',
@@ -152,7 +153,239 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     'projects.electrodynamics.title': 'Introduction to Electrodynamics',
     'projects.electrodynamics.desc': 'A classical physics textbook covering electromagnetic fields, Maxwell\'s equations, and electrodynamics principles.',
-    'projects.electrodynamics.date': 'Read: Dec 2025',
+    'projects.electrodynamics.date': 'Reading',
+
+    'projects.nineteen_eighty_four.title': '1984',
+    'projects.nineteen_eighty_four.desc': 'George Orwell\'s classic dystopian novel exploring surveillance, totalitarianism, and the manipulation of truth.',
+    'projects.nineteen_eighty_four.date': 'Read: 2023',
+
+    'projects.bible_first_100_pages.title': 'The Bible (First 100 Pages)',
+    'projects.bible_first_100_pages.desc': 'Reading and reflecting on the foundational historical, moral, and spiritual texts of the Old Testament.',
+    'projects.bible_first_100_pages.date': 'Read: 2023',
+
+    'projects.surely_youre_joking_feynman.title': 'Surely You\'re Joking, Mr. Feynman!',
+    'projects.surely_youre_joking_feynman.desc': 'The brilliant and humorous autobiographical anecdotes of Nobel laureate physicist Richard Feynman.',
+    'projects.surely_youre_joking_feynman.date': 'Read: 2024',
+
+    'projects.feynman_lectures_vol1.title': 'Feynman\'s Lectures on Physics Vol. 1',
+    'projects.feynman_lectures_vol1.desc': 'A comprehensive textbook covering mechanics, radiation, and heat from Feynman\'s famous undergraduate lectures.',
+    'projects.feynman_lectures_vol1.date': 'Read: 2024',
+
+    'projects.white_disease.title': 'The White Disease',
+    'projects.white_disease.desc': 'Karel Čapek\'s visionary drama warning against totalitarianism, fanaticism, and the horrors of war.',
+    'projects.white_disease.date': 'Read: 2022',
+
+    'projects.war_with_the_newts.title': 'War with the Newts',
+    'projects.war_with_the_newts.desc': 'A satirical sci-fi novel by Čapek depicting humans exploiting intelligent newts, leading to global catastrophe.',
+    'projects.war_with_the_newts.date': 'Read: 2022',
+
+    'projects.mother_capek.title': 'The Mother',
+    'projects.mother_capek.desc': 'Karel Čapek\'s anti-war play depicting a mother wrestling with the sacrifice of her sons for their country.',
+    'projects.mother_capek.date': 'Read: 2022',
+
+    'projects.hitchhikers_guide.title': 'The Hitchhiker\'s Guide to the Galaxy',
+    'projects.hitchhikers_guide.desc': 'Douglas Adams\' legendary sci-fi comedy following the absurd space adventures of Arthur Dent.',
+    'projects.hitchhikers_guide.date': 'Read: 2023',
+
+    'projects.handmaids_tale.title': 'The Handmaid\'s Tale',
+    'projects.handmaids_tale.desc': 'Margaret Atwood\'s dystopian novel depicting Gilead, a near-future totalitarian state that subjugates women.',
+    'projects.handmaids_tale.date': 'Read: 2023',
+
+    'projects.to_kill_a_mockingbird.title': 'To Kill a Mockingbird',
+    'projects.to_kill_a_mockingbird.desc': 'Harper Lee\'s classic novel exploring racial injustice, honor, and the loss of innocence in the American South.',
+    'projects.to_kill_a_mockingbird.date': 'Read: 2022',
+
+    'projects.ten_rules_for_life.title': '12 Rules for Life',
+    'projects.ten_rules_for_life.desc': 'Jordan Peterson\'s bestselling guide offering practical wisdom and psychological rules for building personal order.',
+    'projects.ten_rules_for_life.date': 'Read: 2024',
+
+    'projects.beyond_order.title': 'Beyond Order: 12 More Rules',
+    'projects.beyond_order.desc': 'Jordan Peterson\'s sequel offering twelve additional principles to balance creative change and personal structure.',
+    'projects.beyond_order.date': 'Read: 2024',
+
+    'projects.why_we_sleep.title': 'Why We Sleep',
+    'projects.why_we_sleep.desc': 'Matthew Walker\'s fascinating exploration of the vital scientific importance of sleep and dreaming.',
+    'projects.why_we_sleep.date': 'Read: 2024',
+
+    'projects.structures_why_things_dont_fall.title': 'Structures: Or Why Things Don\'t Fall Down',
+    'projects.structures_why_things_dont_fall.desc': 'J.E. Gordon\'s brilliant, accessible introduction to the mechanical engineering principles of structural design.',
+    'projects.structures_why_things_dont_fall.date': 'Read: 2024',
+
+    'projects.stiff_cadavers.title': 'Stiff: The Curious Lives of Human Cadavers',
+    'projects.stiff_cadavers.desc': 'Mary Roach\'s humorous and deeply educational look at the contributions of human cadavers to science and history.',
+    'projects.stiff_cadavers.date': 'Read: 2023',
+
+    'projects.rich_dad_poor_dad.title': 'Rich Dad Poor Dad',
+    'projects.rich_dad_poor_dad.desc': 'Robert Kiyosaki\'s classic personal finance book outlining different mindsets toward money, assets, and investing.',
+    'projects.rich_dad_poor_dad.date': 'Read: 2023',
+
+    'projects.modern_computer_graphics.title': 'Modern Computer Graphics',
+    'projects.modern_computer_graphics.desc': 'A comprehensive Czech textbook by Žára, Beneš, and Felkel explaining the math, geometry, and algorithms of rendering.',
+    'projects.modern_computer_graphics.date': 'Read: 2025',
+
+    'projects.fahrenheit_451.title': 'Fahrenheit 451',
+    'projects.fahrenheit_451.desc': 'Ray Bradbury\'s dystopian classic depicting a future society where books are outlawed and systematically burned.',
+    'projects.fahrenheit_451.date': 'Read: 2022',
+
+    'projects.antigone.title': 'Antigone',
+    'projects.antigone.desc': 'Sophocles\' classic Greek tragedy exploring the moral conflict between civil laws and divine/familial duty.',
+    'projects.antigone.date': 'Read: 2021',
+
+    'projects.divine_comedy.title': 'The Divine Comedy',
+    'projects.divine_comedy.desc': 'Dante Alighieri\'s epic poem detailing the soul\'s journey through Inferno, Purgatorio, and Paradiso.',
+    'projects.divine_comedy.date': 'Read: 2022',
+
+    'projects.day_of_the_jackal.title': 'The Day of the Jackal',
+    'projects.day_of_the_jackal.desc': 'Frederick Forsyth\'s suspenseful thriller chronicling a professional assassin\'s plot to murder Charles de Gaulle.',
+    'projects.day_of_the_jackal.date': 'Read: 2023',
+
+    'projects.diary_of_anne_frank.title': 'The Diary of a Young Girl',
+    'projects.diary_of_anne_frank.desc': 'The moving real-life diary written by Anne Frank while hiding from Nazi occupation in Amsterdam.',
+    'projects.diary_of_anne_frank.date': 'Read: 2022',
+
+    'projects.animal_farm.title': 'Animal Farm',
+    'projects.animal_farm.desc': 'George Orwell\'s satirical allegorical novella exposing the corruption of revolutionary ideals and totalitarianism.',
+    'projects.animal_farm.date': 'Read: 2022',
+
+    'projects.ivanhoe.title': 'Ivanhoe',
+    'projects.ivanhoe.desc': 'Sir Walter Scott\'s historical novel depicting medieval chivalry, crusades, and conflict in 12th-century England.',
+    'projects.ivanhoe.date': 'Read: 2022',
+
+    'projects.brave_new_world.title': 'Brave New World',
+    'projects.brave_new_world.desc': 'Aldous Huxley\'s chilling dystopian masterpiece depicting a highly engineered, consumerist, and painless future society.',
+    'projects.brave_new_world.date': 'Read: 2023',
+
+    'projects.krakatit.title': 'Krakatit',
+    'projects.krakatit.desc': 'Karel Čapek\'s novel warnings about the devastating dangers of a newly invented ultimate explosive.',
+    'projects.krakatit.date': 'Read: 2022',
+
+    'projects.ku_klux_klan.title': 'Ku-klux-klan: Where the Love Lives',
+    'projects.ku_klux_klan.desc': 'Katarzyna Surmiak-Domańska\'s documentary reportage examining the modern members and ideology of the KKK.',
+    'projects.ku_klux_klan.date': 'Read: 2023',
+
+    'projects.butterball.title': 'Butterball (Boule de Suif)',
+    'projects.butterball.desc': 'Guy de Maupassant\'s famous short story set during the Franco-Prussian War, satirizing bourgeois hypocrisy.',
+    'projects.butterball.date': 'Read: 2022',
+
+    'projects.a_bouquet.title': 'A Bouquet (Kytice)',
+    'projects.a_bouquet.desc': 'Karel Jaromír Erben\'s classic collection of Czech ballads rich in mythology, moral codes, and dark themes.',
+    'projects.a_bouquet.date': 'Read: 2021',
+
+    'projects.the_miser.title': 'The Miser (Lakomec)',
+    'projects.the_miser.desc': 'Molière\'s classic satirical comedy depicting the greedy Harpagon and his comedic conflicts with his children.',
+    'projects.the_miser.date': 'Read: 2021',
+
+    'projects.the_little_prince.title': 'The Little Prince',
+    'projects.the_little_prince.desc': 'Antoine de Saint-Exupéry\'s philosophical tale about friendship, love, and the essential things invisible to the eye.',
+    'projects.the_little_prince.date': 'Read: 2020',
+
+    'projects.prayer_for_katerina_horovitzova.title': 'A Prayer for Katerina Horovitzova',
+    'projects.prayer_for_katerina_horovitzova.desc': 'Arnošt Lustig\'s dramatic novella depicting Jewish hostages bargaining with Nazis during WWII, showing dignity in hopelessness.',
+    'projects.prayer_for_katerina_horovitzova.date': 'Read: 2022',
+
+    'projects.all_quiet_on_western_front.title': 'All Quiet on the Western Front',
+    'projects.all_quiet_on_western_front.desc': 'Erich Maria Remarque\'s powerful anti-war masterpiece detailing the extreme physical and mental stress of WWI soldiers.',
+    'projects.all_quiet_on_western_front.date': 'Read: 2022',
+
+    'projects.lord_of_the_rings.title': 'The Lord of the Rings',
+    'projects.lord_of_the_rings.desc': 'J.R.R. Tolkien\'s epic high-fantasy masterpiece following the quest to destroy the One Ring.',
+    'projects.lord_of_the_rings.date': 'Read: 2023',
+
+    'projects.persepolis.title': 'Persepolis',
+    'projects.persepolis.desc': 'Marjane Satrapi\'s autobiographical graphic novel detailing her childhood growing up in Iran during the Islamic Revolution.',
+    'projects.persepolis.date': 'Read: 2023',
+
+    'projects.hound_of_the_baskervilles.title': 'The Hound of the Baskervilles',
+    'projects.hound_of_the_baskervilles.desc': 'Arthur Conan Doyle\'s classic Sherlock Holmes mystery investigating a legendary supernatural beast in Devonshire.',
+    'projects.hound_of_the_baskervilles.date': 'Read: 2022',
+
+    'projects.tales_of_the_little_quarter.title': 'Tales of the Little Quarter',
+    'projects.tales_of_the_little_quarter.desc': 'Jan Neruda\'s humorous and satirical short stories capturing 19th-century life in Prague\'s Malá Strana.',
+    'projects.tales_of_the_little_quarter.date': 'Read: 2021',
+
+    'projects.change_kafka.title': 'The Metamorphosis',
+    'projects.change_kafka.desc': 'Franz Kafka\'s absurd and tragic novella about Gregor Samsa, who wakes up transformed into a giant insect.',
+    'projects.change_kafka.date': 'Read: 2021',
+
+    'projects.r_u_r.title': 'R.U.R. (Rossum\'s Universal Robots)',
+    'projects.r_u_r.desc': 'Karel Čapek\'s landmark sci-fi play that introduced the word "robot" to the world, exploring artificial life.',
+    'projects.r_u_r.date': 'Read: 2021',
+
+    'projects.robinson_crusoe.title': 'Robinson Crusoe',
+    'projects.robinson_crusoe.desc': 'Daniel Defoe\'s classic adventure novel depicting a castaway\'s 28-year survival on a remote island.',
+    'projects.robinson_crusoe.date': 'Read: 2021',
+
+    'projects.romeo_and_juliet.title': 'Romeo and Juliet',
+    'projects.romeo_and_juliet.desc': 'William Shakespeare\'s timeless tragedy of two young star-crossed lovers from feuding families.',
+    'projects.romeo_and_juliet.date': 'Read: 2021',
+
+    'projects.saturnin.title': 'Saturnin',
+    'projects.saturnin.desc': 'Zdeněk Jirotka\'s beloved Czech humorous novel about an eccentric butler who turns everyday life into an adventure.',
+    'projects.saturnin.date': 'Read: 2022',
+
+    'projects.great_gatsby.title': 'The Great Gatsby',
+    'projects.great_gatsby.desc': 'F. Scott Fitzgerald\'s novel exploring wealth, love, and the disillusionment of the American Dream in the Roaring Twenties.',
+    'projects.great_gatsby.date': 'Read: 2023',
+
+    'projects.merry_wives_of_windsor.title': 'The Merry Wives of Windsor',
+    'projects.merry_wives_of_windsor.desc': 'William Shakespeare\'s comedic play featuring the mischief of Sir John Falstaff and the clever wives.',
+    'projects.merry_wives_of_windsor.date': 'Read: 2021',
+
+    'projects.murder_on_orient_express.title': 'Murder on the Orient Express',
+    'projects.murder_on_orient_express.desc': 'Agatha Christie\'s famous detective novel featuring Hercule Poirot resolving a complex train murder.',
+    'projects.murder_on_orient_express.date': 'Read: 2022',
+
+    'projects.cowards_skvorecky.title': 'The Cowards (Zbabělci)',
+    'projects.cowards_skvorecky.desc': 'Josef Škvorecký\'s novel tracking a group of jazz-loving youth during the chaotic final days of WWII in a Czech town.',
+    'projects.cowards_skvorecky.date': 'Read: 2022',
+
+    'projects.crime_and_punishment.title': 'Crime and Punishment',
+    'projects.crime_and_punishment.desc': 'Fyodor Dostoevsky\'s psychological masterpiece exploring Raskolnikov\'s moral dilemmas, murder, and redemption.',
+    'projects.crime_and_punishment.date': 'Read: 2023',
+
+    'projects.i_robot.title': 'I, Robot',
+    'projects.i_robot.desc': 'Isaac Asimov\'s collection of sci-fi short stories exploring the interactions between humans, robots, and the Three Laws.',
+    'projects.i_robot.date': 'Read: 2023',
+
+    'projects.study_in_scarlet.title': 'A Study in Scarlet',
+    'projects.study_in_scarlet.desc': 'Arthur Conan Doyle\'s novel introducing the legendary partnership of Sherlock Holmes and Dr. John Watson.',
+    'projects.study_in_scarlet.date': 'Read: 2022',
+
+    'projects.become_investor.title': 'Stát se investorem',
+    'projects.become_investor.desc': 'Mikuláš Splítek\'s Czech guide to value investing, market psychology, and portfolio management.',
+    'projects.become_investor.date': 'Read: 2024',
+
+    'projects.sport_is_pain.title': 'Sport je bolest',
+    'projects.sport_is_pain.desc': 'A look into how endurance sports test mental fortitude, discipline, and personal thresholds.',
+    'projects.sport_is_pain.date': 'Read: 2023',
+
+    'projects.fault_in_our_stars.title': 'The Fault in Our Stars',
+    'projects.fault_in_our_stars.desc': 'John Green\'s popular novel depicting the emotional and romantic journey of two teenage cancer patients.',
+    'projects.fault_in_our_stars.date': 'Read: 2022',
+
+    'projects.ai_modern_approach.title': 'Artificial Intelligence: A Modern Approach',
+    'projects.ai_modern_approach.desc': 'The leading global textbook on AI covering search, logic, machine learning, and deep neural architectures.',
+    'projects.ai_modern_approach.date': 'Reading',
+
+    'projects.flowers_for_algernon.title': 'Flowers for Algernon',
+    'projects.flowers_for_algernon.desc': 'Daniel Keyes\' poignant sci-fi novel about a disabled man undergoing an experimental surgery to increase intelligence.',
+    'projects.flowers_for_algernon.date': 'Read: 2023',
+
+    'projects.contact_sagan.title': 'Contact',
+    'projects.contact_sagan.desc': 'Carl Sagan\'s hard science fiction novel exploring humanity\'s first contact with an extraterrestrial intelligence.',
+    'projects.contact_sagan.date': 'Read: 2023',
+
+    'projects.safehold_series.title': 'Safehold Series',
+    'projects.safehold_series.desc': 'David Weber\'s massive military science fiction series depicting humanity rebuilding technology on a hidden world.',
+    'projects.safehold_series.date': 'Read: 2024',
+
+    'projects.children_of_time.title': 'Children of Time',
+    'projects.children_of_time.desc': 'Adrian Tchaikovsky\'s award-winning sci-fi novel detailing the evolution of a terraformed planet\'s arachnid civilization.',
+    'projects.children_of_time.date': 'Read: 2024',
+
+    'projects.rocket_propulsion_elements.title': 'Rocket Propulsion Elements',
+    'projects.rocket_propulsion_elements.desc': 'George Sutton\'s definitive aerospace engineering guide covering liquid and solid rocket engine designs.',
+    'projects.rocket_propulsion_elements.date': 'Reading',
 
     // YouTube Channels
     'projects.three_blue_one_brown.title': '3Blue1Brown',
@@ -416,6 +649,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'projects.filter_project': 'Projekty',
     'projects.filter_book': 'Knihy',
     'projects.filter_youtube': 'YouTube kanály',
+    'projects.filter_podcast': 'Podcasty',
     'projects.status_all': 'Všechny stavy',
     'projects.status_finished': 'Dokončeno',
     'projects.status_ongoing': 'Probíhá',
@@ -460,7 +694,239 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     'projects.electrodynamics.title': 'Úvod do elektrodynamiky',
     'projects.electrodynamics.desc': 'Učebnice klasické fyziky pokrývající elektromagnetická pole, Maxwellovy rovnice a principy elektrodynamiky.',
-    'projects.electrodynamics.date': 'Přečteno: Pro. 2025',
+    'projects.electrodynamics.date': 'Čtu právě teď',
+
+    'projects.nineteen_eighty_four.title': '1984',
+    'projects.nineteen_eighty_four.desc': 'Klasický dystopický román George Orwella zkoumající sledování, totalitu a manipulaci s pravdou.',
+    'projects.nineteen_eighty_four.date': 'Přečteno: 2023',
+
+    'projects.bible_first_100_pages.title': 'Bible (prvních 100 stran)',
+    'projects.bible_first_100_pages.desc': 'Čtení a zamyšlení nad zakládajícími historickými, morálními a duchovními texty Starého zákona.',
+    'projects.bible_first_100_pages.date': 'Přečteno: 2023',
+
+    'projects.surely_youre_joking_feynman.title': 'To snad nemyslíte vážně, pane Feynmane!',
+    'projects.surely_youre_joking_feynman.desc': 'Brilantní a humorné autobiografické historky a postřehy nositele Nobelovy ceny, fyzika Richarda Feynmana.',
+    'projects.surely_youre_joking_feynman.date': 'Přečteno: 2024',
+
+    'projects.feynman_lectures_vol1.title': 'Feynmanovy přednášky z fyziky 1',
+    'projects.feynman_lectures_vol1.desc': 'Ucelená učebnice pokrývající mechaniku, záření a teplo z Feynmanových slavných přednášek pro vysokoškoláky.',
+    'projects.feynman_lectures_vol1.date': 'Přečteno: 2024',
+
+    'projects.white_disease.title': 'Bílá nemoc',
+    'projects.white_disease.desc': 'Vizionářské drama Karla Čapka varující před totalitou, fanatismem a hrůzami války.',
+    'projects.white_disease.date': 'Přečteno: 2022',
+
+    'projects.war_with_the_newts.title': 'Válka s mloky',
+    'projects.war_with_the_newts.desc': 'Satirický sci-fi román Karla Čapka líčící zneužívání inteligentních mloků lidstvem, vedoucí ke globální katastrofě.',
+    'projects.war_with_the_newts.date': 'Přečteno: 2022',
+
+    'projects.mother_capek.title': 'Matka',
+    'projects.mother_capek.desc': 'Protiválečná divadelní hra Karla Čapka zobrazující matku bojující s obětí svých synů pro vlast.',
+    'projects.mother_capek.date': 'Přečteno: 2022',
+
+    'projects.hitchhikers_guide.title': 'Stopařův průvodce Galaxií',
+    'projects.hitchhikers_guide.desc': 'Legendární sci-fi komedie Douglase Adamse sledující absurdní vesmírná dobrodružství Arthura Denta.',
+    'projects.hitchhikers_guide.date': 'Přečteno: 2023',
+
+    'projects.handmaids_tale.title': 'Příběh služebnice',
+    'projects.handmaids_tale.desc': 'Dystopický román Margaret Atwoodové o Gileádu, totalitním státě blízké budoucnosti, který si podmaňuje ženy.',
+    'projects.handmaids_tale.date': 'Přečteno: 2023',
+
+    'projects.to_kill_a_mockingbird.title': 'Jako zabít ptáčka',
+    'projects.to_kill_a_mockingbird.desc': 'Klasický román Harper Leeové zkoumající rasovou nespravedlnost, čest a ztrátu nevinnosti na americkém Jihu.',
+    'projects.to_kill_a_mockingbird.date': 'Přečteno: 2022',
+
+    'projects.ten_rules_for_life.title': '12 pravidel pro život',
+    'projects.ten_rules_for_life.desc': 'Bestseller Jordana Petersona nabízející praktickou moudrost a psychologická pravidla pro budování osobního řádu.',
+    'projects.ten_rules_for_life.date': 'Přečteno: 2024',
+
+    'projects.beyond_order.title': 'Řád není všechno: 12 dalších pravidel',
+    'projects.beyond_order.desc': 'Pokračování od Jordana Petersona nabízející dvanáct dalších principů k vyvážení kreativní změny a osobní struktury.',
+    'projects.beyond_order.date': 'Přečteno: 2024',
+
+    'projects.why_we_sleep.title': 'Proč spíme',
+    'projects.why_we_sleep.desc': 'Fascinující zkoumání Matthew Walkera o zásadním vědeckém významu spánku a snění.',
+    'projects.why_we_sleep.date': 'Přečteno: 2024',
+
+    'projects.structures_why_things_dont_fall.title': 'Struktury: Anebo proč věci nespadnou',
+    'projects.structures_why_things_dont_fall.desc': 'Brilantní a srozumitelný úvod J. E. Gordona do strojírenských principů strukturálního designu.',
+    'projects.structures_why_things_dont_fall.date': 'Přečteno: 2024',
+
+    'projects.stiff_cadavers.title': 'Stiff: Podivuhodné životy lidských mrtvol',
+    'projects.stiff_cadavers.desc': 'Humorný a hluboce vzdělávací pohled Mary Roachové na přínos lidských těl vědě a historii.',
+    'projects.stiff_cadavers.date': 'Přečteno: 2023',
+
+    'projects.rich_dad_poor_dad.title': 'Bohatý táta, chudý táta',
+    'projects.rich_dad_poor_dad.desc': 'Klasická kniha o osobních financích od Roberta Kiyosakiho popisující rozdílné uvažování o penězích, aktivech a investicích.',
+    'projects.rich_dad_poor_dad.date': 'Přečteno: 2023',
+
+    'projects.modern_computer_graphics.title': 'Moderní počítačová grafika',
+    'projects.modern_computer_graphics.desc': 'Ucelená česká učebnice (Žára, Beneš, Felkel) vysvětlující matematiku, geometrii a algoritmy vykreslování.',
+    'projects.modern_computer_graphics.date': 'Přečteno: 2025',
+
+    'projects.fahrenheit_451.title': '451 stupňů Fahrenheita',
+    'projects.fahrenheit_451.desc': 'Dystopická klasika Raye Bradburyho líčící budoucí společnost, v níž jsou knihy zakázány a systematicky páleny.',
+    'projects.fahrenheit_451.date': 'Přečteno: 2022',
+
+    'projects.antigone.title': 'Antigona',
+    'projects.antigone.desc': 'Sofoklova klasická řecká tragédie zkoumající morální konflikt mezi světskými zákony a božskou či rodinnou povinností.',
+    'projects.antigone.date': 'Přečteno: 2021',
+
+    'projects.divine_comedy.title': 'Božská komedie',
+    'projects.divine_comedy.desc': 'Epická báseň Dante Alighieriho popisující cestu duše Peklem, Očistcem a Rájem.',
+    'projects.divine_comedy.date': 'Přečteno: 2022',
+
+    'projects.day_of_the_jackal.title': 'Den pro Šakala',
+    'projects.day_of_the_jackal.desc': 'Napínavý thriller Fredericka Forsytha líčící plán profesionálního atentátníka na zavraždění Charlese de Gaulla.',
+    'projects.day_of_the_jackal.date': 'Přečteno: 2023',
+
+    'projects.diary_of_anne_frank.title': 'Deník Anny Frankové',
+    'projects.diary_of_anne_frank.desc': 'Dojemný skutečný deník, který si psala Anne Franková během skrývání před nacistickou okupací v Amsterdamu.',
+    'projects.diary_of_anne_frank.date': 'Přečteno: 2022',
+
+    'projects.animal_farm.title': 'Farma zvířat',
+    'projects.animal_farm.desc': 'Satirická alegorická novela George Orwella odhalující korupci revolučních ideálů a totalitarismus.',
+    'projects.animal_farm.date': 'Přečteno: 2022',
+
+    'projects.ivanhoe.title': 'Ivanhoe',
+    'projects.ivanhoe.desc': 'Historický román Sira Waltera Scotta zobrazující středověké rytířství, křížové výpravy a konflikty v Anglii 12. století.',
+    'projects.ivanhoe.date': 'Přečteno: 2022',
+
+    'projects.brave_new_world.title': 'Konec civilizace (Brave New World)',
+    'projects.brave_new_world.desc': 'Dystopické mistrovské dílo Aldouse Huxleyho líčící vysoce inženýrskou, konzumní a bezbolestnou budoucí společnost.',
+    'projects.brave_new_world.date': 'Přečteno: 2023',
+
+    'projects.krakatit.title': 'Krakatit',
+    'projects.krakatit.desc': 'Román Karla Čapka varující před ničivým nebezpečím nově vynalezené ničivé třaskaviny.',
+    'projects.krakatit.date': 'Přečteno: 2022',
+
+    'projects.ku_klux_klan.title': 'Ku-klux-klan: Tady bydlí láska',
+    'projects.ku_klux_klan.desc': 'Dokumentární reportáž Katarzyny Surmiak-Domańské zkoumající moderní členy a ideologii KKK.',
+    'projects.ku_klux_klan.date': 'Přečteno: 2023',
+
+    'projects.butterball.title': 'Kulička',
+    'projects.butterball.desc': 'Slavná povídka Guy de Maupassanta zasazená do prusko-francouzské války, satirizující měšťácké pokrytectví.',
+    'projects.butterball.date': 'Přečteno: 2022',
+
+    'projects.a_bouquet.title': 'Kytice',
+    'projects.a_bouquet.desc': 'Klasická sbírka balad Karla Jaromíra Erbena plná mytologie, morálních kodexů a temných témat.',
+    'projects.a_bouquet.date': 'Přečteno: 2021',
+
+    'projects.the_miser.title': 'Lakomec',
+    'projects.the_miser.desc': 'Klasická satirická komedie Molièra zobrazující chamtivého Harpagona a jeho komické spory s dětmi.',
+    'projects.the_miser.date': 'Přečteno: 2021',
+
+    'projects.the_little_prince.title': 'Malý princ',
+    'projects.the_little_prince.desc': 'Filosofická pohádka Antoina de Saint-Exupéryho o přátelství, lásce a důležitých věcech neviditelných očím.',
+    'projects.the_little_prince.date': 'Přečteno: 2020',
+
+    'projects.prayer_for_katerina_horovitzova.title': 'Modlitba pro Kateřinu Horovitzovou',
+    'projects.prayer_for_katerina_horovitzova.desc': 'Dramatická novela Arnošta Lustiga zobrazující židovské rukojmí vyjednávající s nacisty během druhé světové války, ukazující důstojnost v bezmoci.',
+    'projects.prayer_for_katerina_horovitzova.date': 'Přečteno: 2022',
+
+    'projects.all_quiet_on_western_front.title': 'Na západní frontě klid',
+    'projects.all_quiet_on_western_front.desc': 'Protiválečné mistrovské dílo Ericha Maria Remarqua popisující extrémní fyzický a duševní tlak vojáků za 1. světové války.',
+    'projects.all_quiet_on_western_front.date': 'Přečteno: 2022',
+
+    'projects.lord_of_the_rings.title': 'Pán prstenů',
+    'projects.lord_of_the_rings.desc': 'Epické high-fantasy mistrovské dílo J. R. R. Tolkiena sledující výpravu za zničením Jednoho prstenu.',
+    'projects.lord_of_the_rings.date': 'Přečteno: 2023',
+
+    'projects.persepolis.title': 'Persepolis',
+    'projects.persepolis.desc': 'Autobiografický komiks Marjane Satrapiové popisující její dětství a dospívání v Íránu během islámské revoluce.',
+    'projects.persepolis.date': 'Přečteno: 2023',
+
+    'projects.hound_of_the_baskervilles.title': 'Pes baskervillský',
+    'projects.hound_of_the_baskervilles.desc': 'Klasický detektivní román Arthura Conana Doylea o Sherlocku Holmesovi vyšetřujícím legendární nadpřirozenou bestii.',
+    'projects.hound_of_the_baskervilles.date': 'Přečteno: 2022',
+
+    'projects.tales_of_the_little_quarter.title': 'Povídky malostranské',
+    'projects.tales_of_the_little_quarter.desc': 'Humorné a satirické povídky Jana Nerudy zachycující život v 19. století na pražské Malé Straně.',
+    'projects.tales_of_the_little_quarter.date': 'Přečteno: 2021',
+
+    'projects.change_kafka.title': 'Proměna',
+    'projects.change_kafka.desc': 'Absurdní a tragická povídka Franze Kafky o Řehoři Samsovi, který se jednoho dne probudí proměněný v obří hmyz.',
+    'projects.change_kafka.date': 'Přečteno: 2021',
+
+    'projects.r_u_r.title': 'R.U.R.',
+    'projects.r_u_r.desc': 'Průlomová sci-fi divadelní hra Karla Čapka, která dala světu slovo „robot“ a zkoumala umělý život.',
+    'projects.r_u_r.date': 'Přečteno: 2021',
+
+    'projects.robinson_crusoe.title': 'Robinson Crusoe',
+    'projects.robinson_crusoe.desc': 'Klasický dobrodružný román Daniela Defoe o 28 letech přežívání trosečníka na opuštěném ostrově.',
+    'projects.robinson_crusoe.date': 'Přečteno: 2021',
+
+    'projects.romeo_and_juliet.title': 'Romeo a Julie',
+    'projects.romeo_and_juliet.desc': 'Nadčasová tragédie Williama Shakespeara o dvou mladých milencích ze znepřátelených rodů.',
+    'projects.romeo_and_juliet.date': 'Přečteno: 2021',
+
+    'projects.saturnin.title': 'Saturnin',
+    'projects.saturnin.desc': 'Oblíbený český humoristický román Zdeňka Jirotky o excentrickém sluhovi, který mění všední život v dobrodružství.',
+    'projects.saturnin.date': 'Přečteno: 2022',
+
+    'projects.great_gatsby.title': 'Velký Gatsby',
+    'projects.great_gatsby.desc': 'Román F. Scotta Fitzgeralda zkoumající bohatství, lásku a rozčarování z amerického snu v bouřlivých dvacátých letech.',
+    'projects.great_gatsby.date': 'Přečteno: 2023',
+
+    'projects.merry_wives_of_windsor.title': 'Veselé paničky windsorské',
+    'projects.merry_wives_of_windsor.desc': 'Komedie Williama Shakespeara o kouscích Sira Johna Falstaffa a chytrých paniček.',
+    'projects.merry_wives_of_windsor.date': 'Přečteno: 2021',
+
+    'projects.murder_on_orient_express.title': 'Vražda v Orient expresu',
+    'projects.murder_on_orient_express.desc': 'Slavný detektivní román Agathy Christie, v němž Hercule Poirot řeší složitou vraždu ve vlaku.',
+    'projects.murder_on_orient_express.date': 'Přečteno: 2022',
+
+    'projects.cowards_skvorecky.title': 'Zbabělci',
+    'projects.cowards_skvorecky.desc': 'Román Josefa Škvoreckého sledující skupinu jazzových mladíků během chaotických posledních dnů 2. světové války.',
+    'projects.cowards_skvorecky.date': 'Přečteno: 2022',
+
+    'projects.crime_and_punishment.title': 'Zločin a trest',
+    'projects.crime_and_punishment.desc': 'Psychologické mistrovské dílo Fjodora Dostojevského zkoumající Raskolnikovovo morální dilema, vraždu a vykoupení.',
+    'projects.crime_and_punishment.date': 'Přečteno: 2023',
+
+    'projects.i_robot.title': 'Já, robot',
+    'projects.i_robot.desc': 'Sbírka sci-fi povídek Isaaca Asimova zkoumajících interakce mezi lidmi, roboty a třemi zákony robotiky.',
+    'projects.i_robot.date': 'Přečteno: 2023',
+
+    'projects.study_in_scarlet.title': 'Studie v šarlatové',
+    'projects.study_in_scarlet.desc': 'Román Arthura Conana Doylea, který světu představil legendární partnerství Sherlocka Holmese a Dr. Watsona.',
+    'projects.study_in_scarlet.date': 'Přečteno: 2022',
+
+    'projects.become_investor.title': 'Stát se investorem',
+    'projects.become_investor.desc': 'Průvodce hodnotovým investováním, psychologií trhu a správou portfolia od Mikuláše Splítka.',
+    'projects.become_investor.date': 'Přečteno: 2024',
+
+    'projects.sport_is_pain.title': 'Sport je bolest',
+    'projects.sport_is_pain.desc': 'Pohled na to, jak vytrvalostní sporty testují mentální odolnost, disciplínu a osobní limity.',
+    'projects.sport_is_pain.date': 'Přečteno: 2023',
+
+    'projects.fault_in_our_stars.title': 'Hvězdy nám nepřály',
+    'projects.fault_in_our_stars.desc': 'Populární román Johna Greena zobrazující emotivní a romantickou cestu dvou dospívajících onkologických pacientů.',
+    'projects.fault_in_our_stars.date': 'Přečteno: 2022',
+
+    'projects.ai_modern_approach.title': 'Umělá inteligence: Moderní přístup',
+    'projects.ai_modern_approach.desc': 'Přední světová učebnice o AI pokrývající prohledávání, logiku, strojové učení a architektury neuronových sítí.',
+    'projects.ai_modern_approach.date': 'Čtu právě teď',
+
+    'projects.flowers_for_algernon.title': 'Růže pro Algernon',
+    'projects.flowers_for_algernon.desc': 'Dojemný sci-fi román Daniela Keyese o mentálně postiženém muži, který podstoupí experimentální operaci ke zvýšení inteligence.',
+    'projects.flowers_for_algernon.date': 'Přečteno: 2023',
+
+    'projects.contact_sagan.title': 'Kontakt',
+    'projects.contact_sagan.desc': 'Vědecko-fantastický román Carla Sagana zkoumající první kontakt lidstva s mimozemskou inteligencí.',
+    'projects.contact_sagan.date': 'Přečteno: 2023',
+
+    'projects.safehold_series.title': 'Série Safehold',
+    'projects.safehold_series.desc': 'Rozsáhlá vojenská sci-fi série Davida Webera líčící lidstvo obnovující technologie na skrytém světě.',
+    'projects.safehold_series.date': 'Přečteno: 2024',
+
+    'projects.children_of_time.title': 'Děti času',
+    'projects.children_of_time.desc': 'Oceněný sci-fi román Adriana Tchaikovského popisující evoluci pavoučí civilizace na teraformované planetě.',
+    'projects.children_of_time.date': 'Přečteno: 2024',
+
+    'projects.rocket_propulsion_elements.title': 'Rocket Propulsion Elements',
+    'projects.rocket_propulsion_elements.desc': 'Definitivní průvodce raketovým inženýrstvím od George Suttona pokrývající konstrukci motorů na kapalná i pevná paliva.',
+    'projects.rocket_propulsion_elements.date': 'Čtu právě teď',
 
     // YouTube Channels
     'projects.three_blue_one_brown.title': '3Blue1Brown',
