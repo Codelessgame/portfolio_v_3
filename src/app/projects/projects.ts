@@ -1214,60 +1214,7 @@ export class Projects {
   }
 
   filteredPinnedItems = computed(() => {
-    const query = this.searchQuery().toLowerCase().trim();
-    const cat = this.selectedCategory();
-    const translator = this.ts.t();
-
-    let items = this.pinnedItems.filter(item => {
-      // Category Filter
-      if (cat !== 'all' && item.type !== cat) return false;
-
-      // Search Filter
-      if (query) {
-        const title = translator(`${item.translationPrefix}.title`).toLowerCase();
-        const desc = translator(`${item.translationPrefix}.desc`).toLowerCase();
-        const extra = item.extraKey ? item.extraKey.toLowerCase() : '';
-        const tags = this.getItemTags(item).map(t => t.toLowerCase());
-        const typeLabel = translator(`projects.filter_${item.type}`).toLowerCase();
-
-        return (
-          title.includes(query) ||
-          desc.includes(query) ||
-          extra.includes(query) ||
-          tags.some(t => t.includes(query)) ||
-          typeLabel.includes(query)
-        );
-      }
-
-      return true;
-    });
-
-    const mode = this.sortMode();
-    if (mode === 'default-rev') {
-      return [...items].reverse();
-    } else if (mode === 'alpha-asc') {
-      return [...items].sort((a, b) => {
-        const titleA = translator(`${a.translationPrefix}.title`).toLowerCase();
-        const titleB = translator(`${b.translationPrefix}.title`).toLowerCase();
-        return titleA.localeCompare(titleB, this.currentLang());
-      });
-    } else if (mode === 'alpha-desc') {
-      return [...items].sort((a, b) => {
-        const titleA = translator(`${a.translationPrefix}.title`).toLowerCase();
-        const titleB = translator(`${b.translationPrefix}.title`).toLowerCase();
-        return titleB.localeCompare(titleA, this.currentLang());
-      });
-    } else if (mode === 'date-desc') {
-      return [...items].sort((a, b) => {
-        return this.getYear(b) - this.getYear(a);
-      });
-    } else if (mode === 'date-asc') {
-      return [...items].sort((a, b) => {
-        return this.getYear(a) - this.getYear(b);
-      });
-    }
-
-    return items;
+    return this.pinnedItems;
   });
 
   filteredItems = computed(() => {
