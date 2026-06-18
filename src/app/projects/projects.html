@@ -5,35 +5,44 @@
   </div>
 
   <!-- Featured Showcase: Fixed projects the user wants to highlight -->
-  <div class="showcase-section">
-    <h3 class="section-title">
-      <mat-icon class="section-icon">star</mat-icon>
-      <span>{{ t('projects.featured_showcase') }}</span>
-    </h3>
-    <div class="projects-grid featured-grid">
-      @for (project of pinnedItems; track project.id) {
-        <div class="project-card featured-card">
-          <div class="card-content">
-            <div class="card-top-row">
-              <h3>{{ t(project.translationPrefix + '.title') }}</h3>
-              <span class="status-badge" [ngClass]="project.status || ''">
-                {{ t('projects.status_' + project.status) }}
-              </span>
-            </div>
-            <div class="card-middle-row">
-              <p class="brief-desc">{{ t(project.translationPrefix + '.desc') }}</p>
-            </div>
-            <div class="card-bottom-row">
-              <span class="category-tag" [ngClass]="project.category || ''">
-                {{ t('projects.filter_' + project.category) }}
-              </span>
-              <span class="project-date">{{ t(project.translationPrefix + '.date') }}</span>
+  @if (filteredPinnedItems().length > 0) {
+    <div class="showcase-section">
+      <h3 class="section-title">
+        <mat-icon class="section-icon">star</mat-icon>
+        <span>{{ t('projects.featured_showcase') }}</span>
+      </h3>
+      <div class="projects-grid featured-grid">
+        @for (project of filteredPinnedItems(); track project.id) {
+          <div class="project-card featured-card">
+            <div class="card-content">
+              <div class="card-top-row">
+                <h3>{{ t(project.translationPrefix + '.title') }}</h3>
+                <span class="status-badge" [ngClass]="project.status || ''">
+                  {{ t('projects.status_' + project.status) }}
+                </span>
+              </div>
+              <div class="card-middle-row">
+                <p class="brief-desc">{{ t(project.translationPrefix + '.desc') }}</p>
+                <div class="card-tags">
+                  @for (tag of getItemTags(project); track tag) {
+                    <button class="tag-btn" (click)="toggleTag(tag); $event.stopPropagation()">
+                      {{ tag }}
+                    </button>
+                  }
+                </div>
+              </div>
+              <div class="card-bottom-row">
+                <span class="project-date">{{ t(project.translationPrefix + '.date') }}</span>
+                <span class="category-tag project">
+                  {{ t('projects.filter_project') }}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
-  </div>
+  }
 
   <!-- Resources Library: Searchable & Filterable grid -->
   <div class="library-section">

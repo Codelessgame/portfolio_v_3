@@ -116,7 +116,7 @@
 }
 
 .clear-btn:hover {
-  color: #ffffff;
+  color: var(--mat-sys-on-surface, #ffffff);
 }
 
 .filters-row {
@@ -146,9 +146,9 @@
 }
 
 .pill-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--mat-sys-surface-container-high, rgba(255, 255, 255, 0.1));
+  color: var(--mat-sys-on-surface, #ffffff);
+  border-color: var(--mat-sys-outline, rgba(255, 255, 255, 0.2));
 }
 
 .pill-btn.active {
@@ -183,10 +183,10 @@
 }
 
 .sort-cycle-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--mat-sys-surface-container-high, rgba(255, 255, 255, 0.1));
   border-color: var(--cyan, #1bc198);
   box-shadow: 0 4px 12px rgba(27, 193, 152, 0.1);
-  color: #ffffff;
+  color: var(--mat-sys-on-surface, #ffffff);
 }
 
 .sort-cycle-btn .sort-icon {
@@ -206,8 +206,8 @@
 }
 
 .tag-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--mat-sys-surface-container-high, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--mat-sys-outline-variant, rgba(255, 255, 255, 0.08));
   border-radius: 6px;
   padding: 2px 8px;
   font-size: 0.75rem;
@@ -307,7 +307,7 @@ a.project-card {
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
-  color: #ffffff;
+  color: var(--mat-sys-on-surface, #ffffff);
   display: flex;
   align-items: center;
   gap: 8px;
