@@ -1,7 +1,8 @@
 /* This is the main container, it must clip any potential overflow */
 .header-container {
   overflow: hidden;
-  position: relative; /* Establishes a positioning context */
+  position: relative;
+  /* Establishes a positioning context */
   width: 100%;
 }
 
@@ -12,12 +13,14 @@ mat-toolbar {
   left: 0;
   width: 100%;
   z-index: 10;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for elevation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow for elevation */
 }
 
 /* New: Canvas for the animation and title */
 .animation-canvas {
-  position: relative; /* This is the anchor for the absolutely positioned h1 and app-star */
+  position: relative;
+  /* This is the anchor for the absolutely positioned h1 and app-star */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,8 +33,10 @@ mat-toolbar {
 
 /* Animated heading */
 h1 {
-  position: relative; /* Make z-index work */
-  z-index: 2; /* Ensure title is above the stars */
+  position: relative;
+  /* Make z-index work */
+  z-index: 2;
+  /* Ensure title is above the stars */
   font-family: monospace, sans-serif;
   font-size: 5vw;
   color: var(--cyan, #00ffff);
@@ -82,7 +87,6 @@ h1 {
   .lang-toggle-btn {
     padding: 0.3rem 0.6rem;
     font-size: 0.75rem;
-    margin-right: 0.8rem;
   }
 
   .flag-icon {
@@ -109,7 +113,6 @@ h1 {
   gap: 0.4rem;
   outline: none;
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  margin-right: 1.5rem;
 }
 
 .lang-toggle-btn:hover {
@@ -126,4 +129,3 @@ h1 {
 .lang-text {
   letter-spacing: 0.05rem;
 }
-

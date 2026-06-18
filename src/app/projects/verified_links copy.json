@@ -1,0 +1,590 @@
+{
+  "atomic-habits": {
+    "category": "book",
+    "name": "Atomic Habits",
+    "link": "https://jamesclear.com/atomic-habits",
+    "author": "James Clear"
+  },
+  "clean-code": {
+    "category": "book",
+    "name": "Clean Code",
+    "link": "https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882",
+    "author": "Robert C. Martin"
+  },
+  "design-things": {
+    "category": "book",
+    "name": "The Design of Everyday Things",
+    "link": "https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things",
+    "author": "Don Norman"
+  },
+  "electrodynamics": {
+    "category": "book",
+    "name": "Introduction to Electrodynamics",
+    "link": "https://en.wikipedia.org/wiki/Introduction_to_Electrodynamics",
+    "author": "David J. Griffiths"
+  },
+  "nineteen-eighty-four": {
+    "category": "book",
+    "name": "1984",
+    "link": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
+    "author": "George Orwell"
+  },
+  "bible-first-100-pages": {
+    "category": "book",
+    "name": "The Bible (First 100 Pages)",
+    "link": "https://books.google.com/books/about/The_Bible_in_100_Pages.html?id=xHPfAwAAQBAJ",
+    "author": "Various"
+  },
+  "surely-youre-joking-feynman": {
+    "category": "book",
+    "name": "Surely You're Joking, Mr. Feynman!",
+    "link": "https://en.wikipedia.org/wiki/Surely_You're_Joking,_Mr._Feynman",
+    "author": "Richard Feynman"
+  },
+  "feynman-lectures-vol1": {
+    "category": "book",
+    "name": "Feynman's Lectures on Physics Vol. 1",
+    "link": "https://www.feynmanlectures.caltech.edu/I_toc.html",
+    "author": "Richard Feynman"
+  },
+  "white-disease": {
+    "category": "book",
+    "name": "The White Disease",
+    "link": "https://books.apple.com/cz/book/bíla-nemoc/id501318950?l=cs",
+    "author": "Karel Čapek"
+  },
+  "war-with-the-newts": {
+    "category": "book",
+    "name": "War with the Newts",
+    "link": "https://www.knihydobrovsky.cz/kniha/valka-s-mloky-103765274",
+    "author": "Karel Čapek"
+  },
+  "mother-capek": {
+    "category": "book",
+    "name": "The Mother",
+    "link": "https://cs.wikipedia.org/wiki/Matka_(divadelní_hra",
+    "author": "Karel Čapek"
+  },
+  "hitchhikers-guide": {
+    "category": "book",
+    "name": "The Hitchhiker's Guide to the Galaxy",
+    "link": "https://en.wikipedia.org/wiki/The_Hitchhiker's_Guide_to_the_Galaxy",
+    "author": "Douglas Adams"
+  },
+  "handmaids-tale": {
+    "category": "book",
+    "name": "The Handmaid's Tale",
+    "link": "https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale",
+    "author": "Margaret Atwood"
+  },
+  "to-kill-a-mockingbird": {
+    "category": "book",
+    "name": "To Kill a Mockingbird",
+    "link": "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird",
+    "author": "Harper Lee"
+  },
+  "ten-rules-for-life": {
+    "category": "book",
+    "name": "12 Rules for Life",
+    "link": "https://en.wikipedia.org/wiki/12_Rules_for_Life",
+    "author": "Jordan Peterson"
+  },
+  "beyond-order": {
+    "category": "book",
+    "name": "Beyond Order: 12 More Rules",
+    "link": "https://en.wikipedia.org/wiki/Beyond_Order",
+    "author": "Jordan Peterson"
+  },
+  "why-we-sleep": {
+    "category": "book",
+    "name": "Why We Sleep",
+    "link": "https://en.wikipedia.org/wiki/Why_We_Sleep",
+    "author": "Matthew Walker"
+  },
+  "structures-why-things-dont-fall": {
+    "category": "book",
+    "name": "Structures: Or Why Things Don't Fall Down",
+    "link": "https://www.amazon.com/-/es/Structures-Things-Dont-Fall-Down/dp/0306812835",
+    "author": "J.E. Gordon"
+  },
+  "stiff-cadavers": {
+    "category": "book",
+    "name": "Stiff: The Curious Lives of Human Cadavers",
+    "link": "https://en.wikipedia.org/wiki/Stiff:_The_Curious_Lives_of_Human_Cadavers",
+    "author": "Mary Roach"
+  },
+  "rich-dad-poor-dad": {
+    "category": "book",
+    "name": "Rich Dad Poor Dad",
+    "link": "https://en.wikipedia.org/wiki/Rich_Dad_Poor_Dad",
+    "author": "Robert Kiyosaki"
+  },
+  "modern-computer-graphics": {
+    "category": "book",
+    "name": "Modern Computer Graphics",
+    "link": "https://www.kosmas.cz/knihy/138920/moderni-pocitacova-grafika/",
+    "author": "Jiří Žára, Bedřich Beneš, Petr Felkel"
+  },
+  "fahrenheit-451": {
+    "category": "book",
+    "name": "Fahrenheit 451",
+    "link": "https://en.wikipedia.org/wiki/Fahrenheit_451",
+    "author": "Ray Bradbury"
+  },
+  "antigone": {
+    "category": "book",
+    "name": "Antigone",
+    "link": "https://classics.mit.edu/Sophocles/antigone.html",
+    "author": "Sophocles"
+  },
+  "divine-comedy": {
+    "category": "book",
+    "name": "The Divine Comedy",
+    "link": "https://en.wikipedia.org/wiki/Divine_Comedy",
+    "author": "Dante Alighieri"
+  },
+  "day-of-the-jackal": {
+    "category": "book",
+    "name": "The Day of the Jackal",
+    "link": "https://www.amazon.com/-/he/Day-Jackal-Frederick-Forsyth/dp/0593544994",
+    "author": "Frederick Forsyth"
+  },
+  "diary-of-anne-frank": {
+    "category": "book",
+    "name": "The Diary of a Young Girl",
+    "link": "https://en.wikipedia.org/wiki/The_Diary_of_a_Young_Girl",
+    "author": "Anne Frank"
+  },
+  "animal-farm": {
+    "category": "book",
+    "name": "Animal Farm",
+    "link": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/animal-farm/",
+    "author": "George Orwell"
+  },
+  "ivanhoe": {
+    "category": "book",
+    "name": "Ivanhoe",
+    "link": "https://www.gutenberg.org/ebooks/82",
+    "author": "Walter Scott"
+  },
+  "brave-new-world": {
+    "category": "book",
+    "name": "Brave New World",
+    "link": "https://en.wikipedia.org/wiki/Brave_New_World",
+    "author": "Aldous Huxley"
+  },
+  "krakatit": {
+    "category": "book",
+    "name": "Krakatit",
+    "link": "https://www.kosmas.cz/knihy/176646/krakatit/",
+    "author": "Karel Čapek"
+  },
+  "ku-klux-klan": {
+    "category": "book",
+    "name": "Ku-klux-klan: Where the Love Lives",
+    "link": "https://www.empik.com/ku-klux-klan-tu-mieszka-milosc-surmiak-domanska-katarzyna,p1247882314,ksiazka-p",
+    "author": "Katarzyna Surmiak-Domańska"
+  },
+  "butterball": {
+    "category": "book",
+    "name": "Butterball (Boule de Suif)",
+    "link": "https://en.wikipedia.org/wiki/Boule_de_Suif",
+    "author": "Guy de Maupassant"
+  },
+  "a-bouquet": {
+    "category": "book",
+    "name": "A Bouquet (Kytice)",
+    "link": "https://cs.wikipedia.org/wiki/Kytice_(sbírka",
+    "author": "Karel Jaromír Erben"
+  },
+  "the-miser": {
+    "category": "book",
+    "name": "The Miser (Lakomec)",
+    "link": "https://en.wikipedia.org/wiki/The_Miser",
+    "author": "Molière"
+  },
+  "the-little-prince": {
+    "category": "book",
+    "name": "The Little Prince",
+    "link": "https://www.knihydobrovsky.cz/kniha/maly-prync-757079355",
+    "author": "Antoine de Saint-Exupéry"
+  },
+  "prayer-for-katerina-horovitzova": {
+    "category": "book",
+    "name": "A Prayer for Katerina Horovitzova",
+    "link": "https://www.knihydobrovsky.cz/kniha/modlitba-pro-katerinu-horovitzovou-721489277?productDetailBigBanner-bannerId=6555",
+    "author": "Arnošt Lustig"
+  },
+  "all-quiet-on-western-front": {
+    "category": "book",
+    "name": "All Quiet on the Western Front",
+    "link": "https://www.penguinrandomhouse.com/books/775540/all-quiet-on-the-western-front-by-erich-maria-remarque-translated-by-maria-tatar-foreword-by-samantha-power/",
+    "author": "Erich Maria Remarque"
+  },
+  "lord-of-the-rings": {
+    "category": "book",
+    "name": "The Lord of the Rings",
+    "link": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings",
+    "author": "J.R.R. Tolkien"
+  },
+  "persepolis": {
+    "category": "book",
+    "name": "Persepolis",
+    "link": "https://www.theguardian.com/books/2026/jun/04/marjane-satrapi-creator-of-persepolis-and-acclaimed-french-iranian-artist-dies-aged-56",
+    "author": "Marjane Satrapi"
+  },
+  "hound-of-the-baskervilles": {
+    "category": "book",
+    "name": "The Hound of the Baskervilles",
+    "link": "https://en.wikipedia.org/wiki/The_Hound_of_the_Baskervilles",
+    "author": "Arthur Conan Doyle"
+  },
+  "tales-of-the-little-quarter": {
+    "category": "book",
+    "name": "Tales of the Little Quarter",
+    "link": "https://en.wikipedia.org/wiki/Povídky_malostranské",
+    "author": "Jan Neruda"
+  },
+  "change-kafka": {
+    "category": "book",
+    "name": "The Metamorphosis",
+    "link": "https://gutenberg.org/ebooks/5200",
+    "author": "Franz Kafka"
+  },
+  "r-u-r": {
+    "category": "book",
+    "name": "R.U.R. (Rossum's Universal Robots)",
+    "link": "https://cs.wikipedia.org/wiki/R.U.R",
+    "author": "Karel Čapek"
+  },
+  "robinson-crusoe": {
+    "category": "book",
+    "name": "Robinson Crusoe",
+    "link": "https://en.wikipedia.org/wiki/Robinson_Crusoe",
+    "author": "Daniel Defoe"
+  },
+  "romeo-and-juliet": {
+    "category": "book",
+    "name": "Romeo and Juliet",
+    "link": "https://shakespeare.mit.edu/romeo_juliet/full.html",
+    "author": "William Shakespeare"
+  },
+  "saturnin": {
+    "category": "book",
+    "name": "Saturnin",
+    "link": "https://cs.wikipedia.org/wiki/Saturnin_(román",
+    "author": "Zdeněk Jirotka"
+  },
+  "great-gatsby": {
+    "category": "book",
+    "name": "The Great Gatsby",
+    "link": "https://en.wikipedia.org/wiki/The_Great_Gatsby",
+    "author": "F. Scott Fitzgerald"
+  },
+  "merry-wives-of-windsor": {
+    "category": "book",
+    "name": "The Merry Wives of Windsor",
+    "link": "http://knihydobrovsky.cz/product/the-merry-wives-of-windsor-004/",
+    "author": "William Shakespeare"
+  },
+  "murder-on-orient-express": {
+    "category": "book",
+    "name": "Murder on the Orient Express",
+    "link": "https://www.agathachristie.com/stories/murder-on-the-orient-express",
+    "author": "Agatha Christie"
+  },
+  "cowards-skvorecky": {
+    "category": "book",
+    "name": "The Cowards (Zbabělci)",
+    "link": "https://www.knihydobrovsky.cz/kniha/zbabelci-261481846",
+    "author": "Josef Škvorecký"
+  },
+  "crime-and-punishment": {
+    "category": "book",
+    "name": "Crime and Punishment",
+    "link": "https://www.gutenberg.org/ebooks/2554",
+    "author": "Fyodor Dostoevsky"
+  },
+  "i-robot": {
+    "category": "book",
+    "name": "I, Robot",
+    "link": "https://en.wikipedia.org/wiki/I,_Robot",
+    "author": "Isaac Asimov"
+  },
+  "study-in-scarlet": {
+    "category": "book",
+    "name": "A Study in Scarlet",
+    "link": "https://en.wikipedia.org/wiki/A_Study_in_Scarlet",
+    "author": "Arthur Conan Doyle"
+  },
+  "become-investor": {
+    "category": "book",
+    "name": "Stát se investorem",
+    "link": "https://www.knihydobrovsky.cz/kniha/stat-se-investorem-251180217",
+    "author": "Mikuláš Splítek"
+  },
+  "sport-is-pain": {
+    "category": "book",
+    "name": "Sport je bolest",
+    "link": "https://books.google.com/books/about/Sport_je_bolest.html?id=Z2LjEAAAQBAJ",
+    "author": "Martin Kovář"
+  },
+  "fault-in-our-stars": {
+    "category": "book",
+    "name": "The Fault in Our Stars",
+    "link": "https://en.wikipedia.org/wiki/The_Fault_in_Our_Stars",
+    "author": "John Green"
+  },
+  "ai-modern-approach": {
+    "category": "book",
+    "name": "Artificial Intelligence: A Modern Approach",
+    "link": "https://www.pearson.com/en-us/subject-catalog/p/artificial-intelligence-a-modern-approach/P200000003500/9780137505135",
+    "author": "Stuart Russell, Peter Norvig"
+  },
+  "flowers-for-algernon": {
+    "category": "book",
+    "name": "Flowers for Algernon",
+    "link": "https://en.wikipedia.org/wiki/Flowers_for_Algernon",
+    "author": "Daniel Keyes"
+  },
+  "contact-sagan": {
+    "category": "book",
+    "name": "Contact",
+    "link": "https://en.wikipedia.org/wiki/Contact_(novel)",
+    "author": "Carl Sagan"
+  },
+  "safehold-series": {
+    "category": "book",
+    "name": "Safehold Series",
+    "link": "https://www.bookseriesinorder.com/safehold/",
+    "author": "David Weber"
+  },
+  "children-of-time": {
+    "category": "book",
+    "name": "Children of Time",
+    "link": "https://www.panmacmillan.com/authors/adrian-tchaikovsky/children-of-time/9781035076192",
+    "author": "Adrian Tchaikovsky"
+  },
+  "rocket-propulsion-elements": {
+    "category": "book",
+    "name": "Rocket Propulsion Elements",
+    "link": "https://www.amazon.com/Rocket-Propulsion-Elements-George-Sutton/dp/0470080248",
+    "author": "George P. Sutton"
+  },
+  "three_blue_one_brown": {
+    "category": "youtube",
+    "name": "3Blue1Brown",
+    "link": "https://www.youtube.com/c/3blue1brown",
+    "author": "Grant Sanderson"
+  },
+  "mark_rober": {
+    "category": "youtube",
+    "name": "Mark Rober",
+    "link": "https://www.youtube.com/@markrober",
+    "author": "Mark Rober"
+  },
+  "veritasium": {
+    "category": "youtube",
+    "name": "Veritasium",
+    "link": "https://www.youtube.com/@veritasium",
+    "author": "Derek Muller"
+  },
+  "stuff_made_here": {
+    "category": "youtube",
+    "name": "Stuff Made Here",
+    "link": "https://www.youtube.com/@StuffMadeHere",
+    "author": "Shane Wighton"
+  },
+  "nikhil_kamath": {
+    "category": "youtube",
+    "name": "Nikhil Kamath",
+    "link": "https://www.youtube.com/@nikhil.kamath",
+    "author": "Nikhil Kamath"
+  },
+  "ivysilani": {
+    "category": "youtube",
+    "name": "iVysílání",
+    "link": "https://www.youtube.com/@CeskaTelevizeTV",
+    "author": "Česká Televize"
+  },
+  "andy_guitar": {
+    "category": "youtube",
+    "name": "Andy Guitar",
+    "link": "https://www.youtube.com/@andycrowley",
+    "author": "Andy Crowley"
+  },
+  "herdyn": {
+    "category": "youtube",
+    "name": "Herdyn",
+    "link": "https://www.youtube.com/@Herdyn",
+    "author": "Pavel Mikeš"
+  },
+  "mit_ocw": {
+    "category": "youtube",
+    "name": "MIT OpenCourseWare",
+    "link": "https://www.youtube.com/@mitocw",
+    "author": "MIT"
+  },
+  "revision_village": {
+    "category": "youtube",
+    "name": "Revision Village",
+    "link": "https://www.youtube.com/@RevisionVillage",
+    "author": "Revision Village"
+  },
+  "cvutfel": {
+    "category": "youtube",
+    "name": "CVUTFEL",
+    "link": "https://www.youtube.com/@cvutfel",
+    "author": "FEL ČVUT"
+  },
+  "jaderka": {
+    "category": "youtube",
+    "name": "Jaderka [fjfi]",
+    "link": "https://www.youtube.com/@videoFJFI",
+    "author": "FJFI ČVUT"
+  },
+  "kapitalista": {
+    "category": "youtube",
+    "name": "Kapitalista",
+    "link": "https://www.youtube.com/@KapitalistaYT",
+    "author": "Kapitalista"
+  },
+  "steve_mould": {
+    "category": "youtube",
+    "name": "Steve Mould",
+    "link": "https://www.youtube.com/@stevemould",
+    "author": "Steve Mould"
+  },
+  "online_ucitel": {
+    "category": "youtube",
+    "name": "Online Učitel",
+    "link": "https://www.youtube.com/@OnlineUcitel",
+    "author": "Online Učitel"
+  },
+  "artem_kirsanov": {
+    "category": "youtube",
+    "name": "Artem Kirsanov",
+    "link": "https://www.youtube.com/@ArtemKirsanov",
+    "author": "Artem Kirsanov"
+  },
+  "real_engineering": {
+    "category": "youtube",
+    "name": "Real Engineering",
+    "link": "https://www.youtube.com/@RealEngineering",
+    "author": "Shaun Fitzgerald"
+  },
+  "scott_manley": {
+    "category": "youtube",
+    "name": "Scott Manley",
+    "link": "https://www.youtube.com/@ScottManley",
+    "author": "Scott Manley"
+  },
+  "gal_lahat": {
+    "category": "youtube",
+    "name": "Gal Lahat",
+    "link": "https://www.youtube.com/@GalLahat/featured",
+    "author": "Gal Lahat"
+  },
+  "alexander_amini": {
+    "category": "youtube",
+    "name": "Alexander Amini",
+    "link": "https://www.youtube.com/@AAmini",
+    "author": "Alexander Amini"
+  },
+  "ai_explained": {
+    "category": "youtube",
+    "name": "AI Explained",
+    "link": "https://www.youtube.com/@aiexplained-official",
+    "author": "AI Explained"
+  },
+  "aleph_zero": {
+    "category": "youtube",
+    "name": "Aleph 0",
+    "link": "https://www.youtube.com/@Aleph0",
+    "author": "Aleph 0"
+  },
+  "efficient_engineer": {
+    "category": "youtube",
+    "name": "The Efficient Engineer",
+    "link": "https://www.youtube.com/c/TheEfficientEngineer",
+    "author": "The Efficient Engineer"
+  },
+  "cgp_grey": {
+    "category": "youtube",
+    "name": "CGP Grey",
+    "link": "https://www.youtube.com/@cgpgrey",
+    "author": "CGP Grey"
+  },
+  "quanta_magazine": {
+    "category": "youtube",
+    "name": "Quanta Magazine",
+    "link": "https://www.youtube.com/@QuantaScienceChannel",
+    "author": "Quanta Magazine"
+  },
+  "lemmino": {
+    "category": "youtube",
+    "name": "LEMMiNO",
+    "link": "https://www.youtube.com/@LEMMiNO",
+    "author": "LEMMiNO"
+  },
+  "andrej_karpathy": {
+    "category": "youtube",
+    "name": "Andrej Karpathy",
+    "link": "https://www.youtube.com/channel/UCXUPKJO5MZQN11PqgIvyuvQ",
+    "author": "Andrej Karpathy"
+  },
+  "integza": {
+    "category": "youtube",
+    "name": "Integza",
+    "link": "https://www.youtube.com/@Integza",
+    "author": "Integza"
+  },
+  "bps_space": {
+    "category": "youtube",
+    "name": "BPS.space",
+    "link": "https://www.youtube.com/@BPSspace",
+    "author": "Joe Barnard"
+  },
+  "sebastian_lague": {
+    "category": "youtube",
+    "name": "Sebastian Lague",
+    "link": "https://www.youtube.com/@SebastianLague",
+    "author": "Sebastian Lague"
+  },
+  "hyperplexed": {
+    "category": "youtube",
+    "name": "Hyperplexed",
+    "link": "https://www.youtube.com/c/Hyperplexed",
+    "author": "Hyperplexed"
+  },
+  "jirka_vysvetluje": {
+    "category": "youtube",
+    "name": "Jirka vysvětluje věci",
+    "link": "https://www.youtube.com/@Jirkavyspetlujeveci",
+    "author": "Jiří Burísek"
+  },
+  "everyday_astronaut": {
+    "category": "youtube",
+    "name": "Everyday Astronaut",
+    "link": "https://www.youtube.com/@everyday_astronaut",
+    "author": "Tim Dodd"
+  },
+  "vsauce": {
+    "category": "youtube",
+    "name": "Vsauce",
+    "link": "https://www.youtube.com/@Vsauce",
+    "author": "Michael Stevens"
+  },
+  "smarter_every_day": {
+    "category": "youtube",
+    "name": "SmarterEveryDay",
+    "link": "https://www.youtube.com/channel/UC6107grRI4m0o2-emgoDnAA",
+    "author": "Destin Sandlin"
+  },
+  "bycloud": {
+    "category": "youtube",
+    "name": "bycloud",
+    "link": "https://www.youtube.com/@bycloudAI",
+    "author": "bycloud"
+  }
+}

@@ -305,6 +305,8 @@
   gap: 6px;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .tag-btn {
@@ -369,6 +371,7 @@ a.project-card {
 }
 
 .project-card {
+  position: relative;
   background: var(--mat-sys-surface-container-lowest, rgba(255, 255, 255, 0.04));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -378,6 +381,16 @@ a.project-card {
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   display: flex;
   flex-direction: column;
+}
+
+.stretched-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
 }
 
 .project-card.interactive:hover {

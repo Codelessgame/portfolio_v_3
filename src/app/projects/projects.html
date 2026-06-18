@@ -151,7 +151,10 @@
         
         <!-- Case 1: Project Item -->
         @if (item.type === 'project') {
-          <div class="project-card">
+          <div class="project-card" [class.interactive]="item.link">
+            @if (item.link) {
+              <a [href]="item.link" target="_blank" class="stretched-link" aria-hidden="true"></a>
+            }
             <div class="card-content">
               <div class="card-top-row">
                 <h3>{{ t(item.translationPrefix + '.title') }}</h3>
@@ -181,7 +184,10 @@
 
         <!-- Case 2: Book Item -->
         @if (item.type === 'book') {
-          <div class="project-card book-card">
+          <div class="project-card book-card" [class.interactive]="item.link">
+            @if (item.link) {
+              <a [href]="item.link" target="_blank" class="stretched-link" aria-hidden="true"></a>
+            }
             <div class="card-content">
               <div class="card-top-row">
                 <h3>{{ t(item.translationPrefix + '.title') }}</h3>
@@ -212,7 +218,10 @@
 
         <!-- Case 3: YouTube Channel Item -->
         @if (item.type === 'youtube') {
-          <a [href]="item.link" target="_blank" class="project-card youtube-card interactive">
+          <div class="project-card youtube-card" [class.interactive]="item.link">
+            @if (item.link) {
+              <a [href]="item.link" target="_blank" class="stretched-link" aria-hidden="true"></a>
+            }
             <div class="card-content">
               <div class="card-top-row">
                 <h3>{{ t(item.translationPrefix + '.title') }}</h3>
@@ -238,12 +247,15 @@
                 </span>
               </div>
             </div>
-          </a>
+          </div>
         }
 
         <!-- Case 4: Podcast Item -->
         @if (item.type === 'podcast') {
-          <a [href]="item.link || '#'" target="_blank" class="project-card podcast-card" [class.interactive]="item.link">
+          <div class="project-card podcast-card" [class.interactive]="item.link">
+            @if (item.link) {
+              <a [href]="item.link" target="_blank" class="stretched-link" aria-hidden="true"></a>
+            }
             <div class="card-content">
               <div class="card-top-row">
                 <h3>
@@ -278,7 +290,7 @@
                 </span>
               </div>
             </div>
-          </a>
+          </div>
         }
 
       }
