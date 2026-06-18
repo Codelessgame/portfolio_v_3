@@ -27,21 +27,21 @@ export class FeaturedCards {
       title: 'GitHub',
       description: this.ts.t()('creative.github_desc'),
       link: 'https://github.com/Codelessgame',
-      imageUrl: '/home/code_img.jpg',
+      imageUrl: '/code_img.jpg',
       linkText: this.ts.t()('creative.view_code')
     },
     {
       title: 'Instagram',
       description: this.ts.t()('creative.art_desc'),
       link: 'https://www.instagram.com/stanislav_ruza/profilecard/?igsh=enEzZHc2aGIxemk0',
-      imageUrl: '/home/art_img.jpg',
+      imageUrl: '/art_img.jpg',
       linkText: this.ts.t()('creative.view_art')
     },
     {
       title: 'Printables',
       description: this.ts.t()('creative.printables_desc'),
       link: 'https://www.printables.com/',
-      imageUrl: '/home/3D_art.jpg',
+      imageUrl: '/3D_art.jpg',
       linkText: this.ts.t()('creative.view_prints')
     }
   ]);

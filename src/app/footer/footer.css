@@ -3,7 +3,7 @@
   background-color: transparent;
   border-top: 1px solid var(--mat-sys-outline-variant, rgba(0, 0, 0, 0.08));
   box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.03);
-  padding: 4rem 10vw 2rem 10vw;
+  padding: 2rem 10vw 2rem 10vw;
   box-sizing: border-box;
   color: var(--mat-sys-on-surface, #1e1e1e);
   font-family: 'Roboto', sans-serif;
@@ -130,7 +130,8 @@
 }
 
 .social-icon-btn.printables:hover {
-  background-color: #fa5d19; /* Printables brand orange */
+  background-color: #fa5d19;
+  /* Printables brand orange */
   border-color: #fa5d19;
   color: #ffffff;
   box-shadow: 0 5px 15px rgba(250, 93, 25, 0.4);
@@ -149,7 +150,8 @@
   color: var(--mat-sys-on-surface-variant, rgba(30, 30, 30, 0.5));
 }
 
-.copyright, .credits {
+.copyright,
+.credits {
   margin: 0;
 }
 
@@ -162,7 +164,7 @@
   .portfolio-footer {
     padding: 3rem 5vw 2rem 5vw;
   }
-  
+
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -170,16 +172,16 @@
     gap: 2rem;
     padding-bottom: 2rem;
   }
-  
+
   .footer-left {
     min-width: 100%;
   }
-  
+
   .footer-right {
     align-items: center;
     min-width: 100%;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     text-align: center;
