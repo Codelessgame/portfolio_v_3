@@ -27,7 +27,7 @@ export const translations: Record<Lang, Record<string, string>> = {
   en: {
     // Navigation / Header
     'nav.home': 'Home',
-    'nav.projects': 'Showcase',
+    'nav.projects': 'Library',
     'header.title': 'STANISLAV RŮŽIČKA',
 
     'about.title': 'About Me',
@@ -52,10 +52,10 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     'act.trace': 'Click to trace back to: ',
 
-    'projects.title': 'Showcase & Library',
-    'projects.subtitle': 'A curated collection of my engineering projects, books I read, and YouTube channels I watch.',
-    'projects.featured_showcase': 'Featured Showcase',
-    'projects.library_resources': 'Resources Library',
+    'projects.title': 'Library',
+    'projects.subtitle': 'A curated collection of my engineering projects, books I read, podcasts I listen to, and YouTube channels I watch.',
+    'projects.featured_showcase': 'Featured Projects',
+    'projects.library_resources': 'Library Search',
     'projects.search_placeholder': 'Search projects, books, or channels by name, author, tech...',
     'projects.filter_all': 'All Resources',
     'projects.filter_embedded': 'Embedded / Engineering',
@@ -78,7 +78,7 @@ export const translations: Record<Lang, Record<string, string>> = {
   cs: {
     // Navigation / Header
     'nav.home': 'Domů',
-    'nav.projects': 'Showcase',
+    'nav.projects': 'Knihovna',
     'header.title': 'STANISLAV RŮŽIČKA',
 
     'about.title': 'O mně',
@@ -104,10 +104,10 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     'act.trace': 'Klikněte pro návrat k: ',
 
-    'projects.title': 'Showcase & Knihovna',
-    'projects.subtitle': 'Vybraná sbírka mých inženýrských projektů, knih, které čtu, a YouTube kanálů, které doporučuji.',
+    'projects.title': 'Knihovna',
+    'projects.subtitle': 'Vybraná sbírka mých inženýrských projektů, knih, které čtu, podcastů, které poslouchám, a YouTube kanálů, které doporučuji.',
     'projects.featured_showcase': 'Vybrané projekty',
-    'projects.library_resources': 'Knihovna a zdroje',
+    'projects.library_resources': 'Vyhledávání v knihovně',
     'projects.search_placeholder': 'Hledat projekty, knihy nebo kanály podle názvu, autora, technologií...',
     'projects.filter_all': 'Všechny zdroje',
     'projects.filter_embedded': 'Vestavěné systémy / Inženýrství',

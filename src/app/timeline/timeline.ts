@@ -29,14 +29,7 @@ interface TimelineItem {
   bullets: string[];
   startYear: number;
   startMonth: number;
-  personalActivity?: {
-    label: string;
-    icon: string;
-    description: string;
-    color: string;
-    startDateLabel: string;
-    endDateLabel: string;
-  };
+  personalActivities: PersonalActivity[];
 }
 
 @Component({
@@ -52,9 +45,10 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
   private destroyed = false;
 
   activeActivityIndex: number | null = null;
+  activeActivityId: string | null = null;
   hoveredIndex: number | null = null;
   isDesktop = false;
-  maxActivities = 3;
+  maxActivities = 5;
 
   private ts = inject(TranslationService);
   private zone = inject(NgZone);
@@ -94,11 +88,8 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     const lang = this.currentLang();
     const activities = this.personalActivities();
 
+    // Map the basic properties of all items
     const mapped = timelineData.timelineItems.map(item => {
-      const personalActivity = item.personalActivityId
-        ? activities.find(a => a.id === item.personalActivityId)
-        : undefined;
-
       return {
         type: item.type as 'work' | 'education',
         title: lang === 'en' ? item.title_en : item.title_cs,
@@ -108,15 +99,30 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
         bullets: lang === 'en' ? item.bullets_en : item.bullets_cs,
         startYear: item.startYear || 0,
         startMonth: item.startMonth || 0,
-        personalActivity: personalActivity ? {
-          label: personalActivity.label,
-          icon: personalActivity.icon,
-          description: personalActivity.description,
-          color: personalActivity.color,
-          startDateLabel: personalActivity.startDateLabel,
-          endDateLabel: personalActivity.endDateLabel
-        } : undefined
+        personalActivities: []
       } as TimelineItem;
+    });
+
+    // Helper to get raw dates from original timelineItems configuration
+    activities.forEach(act => {
+      const actStart = act.startYear * 12 + act.startMonth;
+      
+      const candidates = mapped.map((item, idx) => ({
+        item,
+        rawStart: (timelineData.timelineItems[idx].startYear || 0) * 12 + (timelineData.timelineItems[idx].startMonth || 0),
+        rawEnd: (timelineData.timelineItems[idx].endYear || 2026) * 12 + (timelineData.timelineItems[idx].endMonth || 6)
+      })).filter(c => actStart >= c.rawStart && actStart <= c.rawEnd);
+
+      if (candidates.length > 0) {
+        // Pick best candidate: 'work' takes precedence over 'education'
+        let bestCandidate = candidates[0];
+        for (const cand of candidates) {
+          if (cand.item.type === 'work' && bestCandidate.item.type === 'education') {
+            bestCandidate = cand;
+          }
+        }
+        bestCandidate.item.personalActivities.push(act);
+      }
     });
 
     // Sort reverse-chronologically (newest first)
@@ -150,22 +156,25 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     return 100 - (clamped / totalMonths) * 100;
   }
 
-  toggleActivity(index: number) {
-    if (this.activeActivityIndex === index) {
+  toggleActivity(index: number, activityId?: string) {
+    if (this.activeActivityIndex === index && (!activityId || this.activeActivityId === activityId)) {
       this.activeActivityIndex = null;
+      this.activeActivityId = null;
     } else {
       this.activeActivityIndex = index;
+      this.activeActivityId = activityId || null;
     }
     // Re-draw lines to align with dynamic card states if active state changes sizes
     this.scheduleUpdateLines(100);
   }
 
-  scrollToStart(index: number) {
+  scrollToStart(index: number, activityId?: string) {
     if (!isPlatformBrowser(this.platformId)) return;
     const startEl = document.getElementById(`activity-start-${index}`);
     if (startEl) {
       startEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       this.activeActivityIndex = index;
+      this.activeActivityId = activityId || null;
     }
   }
 
@@ -253,6 +262,48 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     const container = this.el.nativeElement.querySelector('.timeline-container');
     if (!container) return;
 
+    // Reset styles to defaults first so we get clean, unadjusted offsets
+    this.personalActivities().forEach((act, idx) => {
+      const startEl = document.getElementById(`activity-start-${idx}`);
+      const endEl = document.getElementById(`activity-end-${idx}`);
+      if (startEl) startEl.style.top = `${act.startPercent}%`;
+      if (endEl) endEl.style.top = `${act.endPercent}%`;
+    });
+
+    const activitiesCount = this.personalActivities().length;
+
+    // Adjust start bubbles to avoid overlap in pixels
+    const bubbles = Array.from({ length: activitiesCount }, (_, idx) => document.getElementById(`activity-start-${idx}`))
+      .filter(el => el !== null) as HTMLElement[];
+    
+    // Sort bubbles by offsetTop ascending
+    bubbles.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    const minBubbleGap = 42; // Bubble height (~36px) + 6px gap
+    for (let i = 1; i < bubbles.length; i++) {
+      const prev = bubbles[i - 1];
+      const curr = bubbles[i];
+      if (curr.offsetTop - prev.offsetTop < minBubbleGap) {
+        curr.style.top = `${prev.offsetTop + minBubbleGap}px`;
+      }
+    }
+
+    // Adjust end dots to avoid overlap in pixels
+    const dots = Array.from({ length: activitiesCount }, (_, idx) => document.getElementById(`activity-end-${idx}`))
+      .filter(el => el !== null) as HTMLElement[];
+
+    // Sort dots by offsetTop ascending
+    dots.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    const minDotGap = 28; // Dot height (~24px) + 4px gap
+    for (let i = 1; i < dots.length; i++) {
+      const prev = dots[i - 1];
+      const curr = dots[i];
+      if (curr.offsetTop - prev.offsetTop < minDotGap) {
+        curr.style.top = `${prev.offsetTop + minDotGap}px`;
+      }
+    }
+
     // The central vertical line is absolute positioned at left: 40px, width: 3px
     // Center point of this vertical line is 41.5px from container's left edge
     const centerX = 41.5;
@@ -266,13 +317,26 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
       const startX = startEl.offsetLeft + startEl.offsetWidth;
       const startY = startEl.offsetTop;
 
-      // Left edge of the end dot relative to the container (accounting for translateX(-50%))
-      const endX = endEl.offsetLeft - endEl.offsetWidth / 2;
+      const isSameHeight = (act.startYear === act.endYear && act.startMonth === act.endMonth) || 
+                           Math.abs(startEl.offsetTop - endEl.offsetTop) < 2;
+
+      let endX: number;
+      let horizontalPath: string;
+      let verticalPath: string;
+
       const endY = endEl.offsetTop;
 
-      // Path layout: Starts at startX,startY -> horizontally to centerX, then jumps (Move) to centerX,endY -> horizontally to endX
-      const horizontalPath = `M ${startX} ${startY} H ${centerX} M ${centerX} ${endY} H ${endX}`;
-      const verticalPath = `M ${centerX} ${startY} V ${endY}`;
+      if (isSameHeight) {
+        endEl.style.left = '41.5px';
+        endX = centerX;
+        horizontalPath = `M ${startX} ${startY} H ${centerX}`;
+        verticalPath = '';
+      } else {
+        endEl.style.left = '20px';
+        endX = 20;
+        horizontalPath = `M ${startX} ${startY} H ${centerX} M ${centerX} ${endY} H ${endX}`;
+        verticalPath = `M ${centerX} ${startY} V ${endY}`;
+      }
 
       return {
         index: idx,

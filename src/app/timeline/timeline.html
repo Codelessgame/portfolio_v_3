@@ -110,25 +110,42 @@
             </ul>
 
             <!-- Mobile Fallback for Personal Activities (rendered inside cards) -->
-            @if (!isDesktop && item.personalActivity) {
-              <div class="mobile-activity-container" [style.--act-color]="item.personalActivity.color">
-                <button class="activity-toggle-btn" (click)="toggleActivity(index)">
-                  <mat-icon>{{ item.personalActivity.icon }}</mat-icon>
-                  <span class="btn-text">{{ item.personalActivity.label }}</span>
-                </button>
+            @if (!isDesktop && item.personalActivities && item.personalActivities.length > 0) {
+              <div class="mobile-activity-container">
+                <div class="mobile-activity-heading">
+                  {{ item.personalActivities.length === 1 
+                      ? (currentLang() === 'en' ? 'Other Activity:' : 'Mimoškolní aktivita:') 
+                      : (currentLang() === 'en' ? 'Other Activities:' : 'Mimoškolní aktivity:') }}
+                </div>
                 
-                @if (activeActivityIndex === index) {
-                  <div class="activity-info-card">
-                    <div class="activity-info-header">
-                      <h4>{{ item.personalActivity.label }}</h4>
-                      <button class="close-btn" (click)="toggleActivity(index)">×</button>
+                <div class="mobile-activity-list">
+                  @for (act of item.personalActivities; track act.id) {
+                    <div class="mobile-activity-item" [style.--act-color]="act.color">
+                      <button class="activity-toggle-btn" (click)="toggleActivity(index, act.id)">
+                        <mat-icon>{{ act.icon }}</mat-icon>
+                        <span class="btn-text">
+                          {{ act.label }}
+                          <span class="activity-btn-time">
+                            ({{ act.startYear === act.endYear ? act.startYear : act.startYear + '–' + act.endYear }})
+                          </span>
+                        </span>
+                      </button>
+                      
+                      @if (activeActivityIndex === index && activeActivityId === act.id) {
+                        <div class="activity-info-card">
+                          <div class="activity-info-header">
+                            <h4>{{ act.label }}</h4>
+                            <button class="close-btn" (click)="toggleActivity(index, act.id)">×</button>
+                          </div>
+                          <p>{{ act.description }}</p>
+                          <div class="popup-time" style="margin-top: 0.6rem; font-size: 0.8rem; opacity: 0.85; font-weight: 500;">
+                            {{ currentLang() === 'en' ? 'Time Span' : 'Časové období' }}: {{ act.startDateLabel }} – {{ act.endDateLabel }}
+                          </div>
+                        </div>
+                      }
                     </div>
-                    <p>{{ item.personalActivity.description }}</p>
-                    <div class="popup-time" style="margin-top: 0.6rem; font-size: 0.8rem; opacity: 0.85; font-weight: 500;">
-                      {{ currentLang() === 'en' ? 'Time Span' : 'Časové období' }}: {{ item.personalActivity.startDateLabel }} – {{ item.personalActivity.endDateLabel }}
-                    </div>
-                  </div>
-                }
+                  }
+                </div>
               </div>
             }
           </div>
