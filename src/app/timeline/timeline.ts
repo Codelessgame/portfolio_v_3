@@ -1,304 +1,193 @@
-import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, HostListener, inject, computed, NgZone, ChangeDetectorRef } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { TranslationService } from '../translation.service';
-import timelineData from './timeline.json';
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TimelineModule } from 'primeng/timeline';
 
-interface PersonalActivity {
-  id: string;
-  label: string;
-  icon: string;
-  description: string;
-  color: string;
-  startYear: number;
-  startMonth: number;
-  endYear: number;
-  endMonth: number;
-  startDateLabel: string;
-  endDateLabel: string;
-  startPercent?: number;
-  endPercent?: number;
+type LangCode = 'en' | 'cs';
+
+interface LocalizedText {
+  label?: string;
+  description?: string;
+  title?: string;
+  subtitle?: string;
+  bullets?: string[];
 }
 
-interface TimelineItem {
-  type: 'work' | 'education';
-  title: string;
-  subtitle: string;
-  date: string;
-  icon: string;
-  bullets: string[];
-  personalActivity?: {
-    label: string;
+interface TimelineEvent {
+  id: string;
+  type: 'education' | 'work' | string;
+  startDate: number;
+  endDate: number | null;
+  badge: {
     icon: string;
-    description: string;
-    color: string;
-    startDateLabel: string;
-    endDateLabel: string;
+    themeColor: string;
+    en: LocalizedText;
+    cs: LocalizedText;
+  };
+  card: {
+    en: LocalizedText;
+    cs: LocalizedText;
   };
 }
 
 @Component({
   selector: 'app-timeline',
-  imports: [CommonModule, MatIconModule],
+  standalone: true,
+  imports: [CommonModule, TimelineModule],
   templateUrl: './timeline.html',
-  styleUrl: './timeline.css',
+  styleUrls: ['./timeline.css']
 })
-export class Timeline implements OnInit, AfterViewInit, OnDestroy {
-  private observer: IntersectionObserver | null = null;
-  private pendingTimeouts: ReturnType<typeof setTimeout>[] = [];
-  private scrollHandler: (() => void) | null = null;
-  private destroyed = false;
 
-  activeActivityIndex: number | null = null;
-  hoveredIndex: number | null = null;
-  isDesktop = false;
-  maxActivities = 3;
 
-  private ts = inject(TranslationService);
-  private zone = inject(NgZone);
-  private cdr = inject(ChangeDetectorRef);
-  currentLang = this.ts.currentLang;
-
-  t(key: string): string {
-    return this.ts.t()(key);
+export class Timeline {
+  // Set default language
+  public currentLang = signal<LangCode>('en');
+  // Toggle language function for testing
+  public toggleLanguage() {
+    // 2. Update the signal using .set()
+    this.currentLang.set(this.currentLang() === 'en' ? 'cs' : 'en');
   }
 
-  personalActivities = computed<PersonalActivity[]>(() => {
-    const lang = this.currentLang();
-    const list = timelineData.personalActivities.map(act => ({
-      id: act.id,
-      label: lang === 'en' ? act.label_en : act.label_cs,
-      icon: act.icon,
-      description: lang === 'en' ? act.desc_en : act.desc_cs,
-      color: act.color,
-      startYear: act.startYear,
-      startMonth: act.startMonth,
-      endYear: act.endYear,
-      endMonth: act.endMonth,
-      startDateLabel: lang === 'en' ? act.startDateLabel_en : act.startDateLabel_cs,
-      endDateLabel: lang === 'en' ? act.endDateLabel_en : act.endDateLabel_cs
-    } as PersonalActivity));
-
-    // Compute relative vertical percentages
-    list.forEach(act => {
-      act.startPercent = this.getPercentFromTop(act.startYear, act.startMonth);
-      act.endPercent = this.getPercentFromTop(act.endYear, act.endMonth);
-    });
-
-    return list;
-  });
-
-  timelineItems = computed<TimelineItem[]>(() => {
-    const lang = this.currentLang();
-    const activities = this.personalActivities();
-
-    return timelineData.timelineItems.map(item => {
-      const personalActivity = item.personalActivityId
-        ? activities.find(a => a.id === item.personalActivityId)
-        : undefined;
-
-      return {
-        type: item.type as 'work' | 'education',
-        title: lang === 'en' ? item.title_en : item.title_cs,
-        subtitle: lang === 'en' ? item.subtitle_en : item.subtitle_cs,
-        date: lang === 'en' ? item.date_en : item.date_cs,
-        icon: item.icon,
-        bullets: lang === 'en' ? item.bullets_en : item.bullets_cs,
-        personalActivity: personalActivity ? {
-          label: personalActivity.label,
-          icon: personalActivity.icon,
-          description: personalActivity.description,
-          color: personalActivity.color,
-          startDateLabel: personalActivity.startDateLabel,
-          endDateLabel: personalActivity.endDateLabel
-        } : undefined
-      } as TimelineItem;
-    });
-  });
-
-  activityLines: Array<{ index: number; horizontalPath: string; verticalPath: string; color: string }> = [];
-
-  constructor(
-    private el: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
-
-  ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isDesktop = window.innerWidth > 768;
+  // Paste your flattened JSON here
+  public timelineEvents: TimelineEvent[] = [
+    {
+      "type": "education",
+      "title_en": "Fontys University of Applied Sciences",
+      "title_cs": "Univerzita aplikovaných věd Fontys",
+      "subtitle_en": "Bachelor of Science in Mechatronics",
+      "subtitle_cs": "Bakalář věd v oboru mechatroniky",
+      "startYear": 2026,
+      "startMonth": 9,
+      "endYear": null,
+      "endMonth": null,
+      "upcoming": true,
+      "icon": "school",
+      "bullets_en": [
+        "Status: conditionally accepted awaiting IBDP results on July 6th. ",
+        "The programme is focused on practical knowledge, requiring mandatory internships at companies"
+      ],
+      "bullets_cs": [
+        "Status: podmíněně přijat, čekám na výsledky IBDP 6. července. ",
+        "Program se zaměřuje na praktické znalosti a vyžaduje povinné stáže ve firmách"
+      ]
+    },
+    {
+      "type": "work",
+      "title_en": "Stadion Viktoria Plzeň",
+      "title_cs": "Stadion Viktoria Plzeň",
+      "subtitle_en": "Fast-food Stall",
+      "subtitle_cs": "Obsluha Fast-food stánku",
+      "startYear": 2025,
+      "startMonth": 6,
+      "endYear": 2025,
+      "endMonth": 12,
+      "icon": "sports_soccer",
+      "bullets_en": [
+        "The nature of the work consisted of selling, preparing food and interacting with customersat a fast pace, during a football match."
+      ],
+      "bullets_cs": [
+        "Práce spočívala v prodeji, přípravě jídel a komunikaci se zákazníky ve vysokém tempu, během fotbalového utkání."
+      ]
+    },
+    {
+      "type": "work",
+      "title_en": "PPA Arena",
+      "title_cs": "PPA Arena",
+      "subtitle_en": "Cashier & Paintball Event Organizer",
+      "subtitle_cs": "Pokladní & organizátor paintballových akcí",
+      "startYear": 2023,
+      "startMonth": 2,
+      "endYear": 2024,
+      "endMonth": 6,
+      "icon": "groups",
+      "bullets_en": [
+        "Managed daily logistics, safety briefs, and client relations for paintball groups ranging from 6 to 90 participants per day.",
+        "Communicated event rules, handled fee collection, and guided foreign visitors (providing instructions in English and sometimes in German)."
+      ],
+      "bullets_cs": [
+        "Správa denní logistiky, bezpečnostních školení a klientských vztahů pro paintballové skupiny od 6 do 90 účastníků denně.",
+        "Vysvětlování pravidel, výběr poplatků a navigace zahraničních návštěvníků (poskytování instrukcí v angličtině a někdy v němčině)."
+      ]
+    },
+    {
+      "type": "education",
+      "title_en": "Gymnázium Rokycany",
+      "title_cs": "Gymnázium Rokycany",
+      "subtitle_en": "International Baccalaureate (IB) Diploma Programme",
+      "subtitle_cs": "Program International Baccalaureate (IB) Diploma",
+      "startYear": 2022,
+      "startMonth": 9,
+      "endYear": 2026,
+      "endMonth": 6,
+      "ongoing": true,
+      "icon": "school",
+      "bullets_en": [
+        "Have taken these courses: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL."
+      ],
+      "bullets_cs": [
+        "Navštěvoval jsem tyto předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL.",
+        "IB program, obshajue 2 roky studia kompletně v angličtině."
+      ]
+    },
+    {
+      "type": "education",
+      "title_en": "Primary school T.G.M Rokycany",
+      "title_cs": "Základní škola T.G.M Rokycany",
+      "subtitle_en": "International Baccalaureate (IB) Diploma Programme",
+      "subtitle_cs": "Program International Baccalaureate (IB) Diploma",
+      "startYear": 2013,
+      "startMonth": 9,
+      "endYear": 2022,
+      "endMonth": 6,
+      "ongoing": false,
+      "icon": "school",
+      "bullets_en": [
+        "Have taken these courses: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL."
+      ],
+      "bullets_cs": [
+        "Navštěvoval jsem tyto předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL.",
+        "IB program, obshajue 2 roky studia kompletně v angličtině."
+      ]
+    },
+    {
+      "type": "activity",
+      "title_en": "Art Club",
+      "title_cs": "Výtvarný kroužek ",
+      "icon": "palette",
+      "color": "#ff006e",
+      "startYear": 2022,
+      "startMonth": 9,
+      "endYear": 2026,
+      "endMonth": 6,
+      "desc_en": "Attended an art club",
+      "desc_cs": "Navštěvoval výtvarný kroužek"
+    },
+    {
+      "type": "activity",
+      "id": "physics",
+      "icon": "bug_report",
+      "color": "#3a86ff",
+      "startYear": 2024,
+      "startMonth": 6,
+      "endYear": 2024,
+      "endMonth": 11,
+      "title_en": "Aerospace & Physics Research",
+      "title_cs": "Výzkum v oblasti letectví a fyziky",
+      "desc_en": "Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.",
+      "desc_cs": "Návrh a simulace matematického modelu stínové projekce pro konvexní 3D tvary s využitím analytické geometrie, vektorové analýzy a Pythonu."
+    },
+    {
+      "type": "activity",
+      "id": "sports",
+      "icon": "sports_soccer",
+      "color": "#ffbe0b",
+      "startYear": 2025,
+      "startMonth": 4,
+      "endYear": 2025,
+      "endMonth": 6,
+      "title_en": "Rugby",
+      "title_cs": "Rugby",
+      "desc_en": "Briefly attended a rugby club",
+      "desc_cs": "Krátce navštěvoval rugby"
     }
-  }
-
-  getPercentFromTop(year: number, month: number): number {
-    const startYear = 2022;
-    const startMonth = 9; // Sept 2022
-    const totalMonths = 48; // Sept 2022 to Sept 2026
-
-    const currentMonths = (year - startYear) * 12 + (month - startMonth);
-    const clamped = Math.max(0, Math.min(totalMonths, currentMonths));
-    return 100 - (clamped / totalMonths) * 100;
-  }
-
-  toggleActivity(index: number) {
-    if (this.activeActivityIndex === index) {
-      this.activeActivityIndex = null;
-    } else {
-      this.activeActivityIndex = index;
-    }
-    // Re-draw lines to align with dynamic card states if active state changes sizes
-    this.scheduleUpdateLines(100);
-  }
-
-  scrollToStart(index: number) {
-    if (!isPlatformBrowser(this.platformId)) return;
-    const startEl = document.getElementById(`activity-start-${index}`);
-    if (startEl) {
-      startEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      this.activeActivityIndex = index;
-    }
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isDesktop = window.innerWidth > 768;
-      this.scheduleUpdateLines(100);
-    }
-  }
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      // Observer for main timeline cards animation
-      this.observer = new IntersectionObserver((entries) => {
-        let hasIntersected = false;
-        entries.forEach(entry => {
-          if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-            entry.target.classList.add('active');
-            hasIntersected = true;
-          }
-        });
-        if (hasIntersected) {
-          this.scheduleUpdateLines(50);
-          this.scheduleUpdateLines(400);
-        }
-      }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -100px 0px'
-      });
-
-      const items = this.el.nativeElement.querySelectorAll('.timeline-item');
-      items.forEach((item: Element) => this.observer?.observe(item));
-
-      // Activate items already scrolled past & draw lines — run outside Angular
-      // to avoid NG0100. We schedule the first view update for after hydration.
-      this.zone.runOutsideAngular(() => {
-        this.activateScrolledPastItems();
-
-        // Register scroll listener outside Angular zone to avoid triggering
-        // change detection on every scroll event
-        this.scrollHandler = () => {
-          if (!this.destroyed) {
-            this.activateScrolledPastItems();
-          }
-        };
-        window.addEventListener('scroll', this.scrollHandler, { passive: true });
-      });
-
-      // Schedule line calculations after DOM stabilizes, outside Angular zone.
-      // The final one runs inside the zone to trigger a single CD cycle.
-      this.scheduleUpdateLines(100);
-      this.scheduleUpdateLines(300);
-      this.scheduleUpdateLines(600);
-      this.scheduleUpdateLines(1200);
-    }
-  }
-
-  /** Activate items whose top is above the bottom of the viewport.
-   *  Pure DOM manipulation (classList.add) — no Angular bindings touched. */
-  private activateScrolledPastItems() {
-    const items = this.el.nativeElement.querySelectorAll('.timeline-item');
-    const viewportHeight = window.innerHeight;
-    items.forEach((item: Element) => {
-      const rect = item.getBoundingClientRect();
-      if (rect.top < viewportHeight - 100) {
-        item.classList.add('active');
-      }
-    });
-  }
-
-  /** Schedule an updateLines call. Runs outside Angular zone, then
-   *  enters the zone only if lines actually changed. */
-  private scheduleUpdateLines(delayMs: number) {
-    const id = setTimeout(() => {
-      if (this.destroyed) return;
-      this.updateLines();
-    }, delayMs);
-    this.pendingTimeouts.push(id);
-  }
-
-  updateLines() {
-    if (!isPlatformBrowser(this.platformId) || !this.isDesktop) return;
-
-    const container = this.el.nativeElement.querySelector('.timeline-container');
-    if (!container) return;
-
-    // The central vertical line is absolute positioned at left: 40px, width: 3px
-    // Center point of this vertical line is 41.5px from container's left edge
-    const centerX = 41.5;
-
-    const newLines = this.personalActivities().slice(0, this.maxActivities).map((act, idx) => {
-      const startEl = document.getElementById(`activity-start-${idx}`);
-      const endEl = document.getElementById(`activity-end-${idx}`);
-      if (!startEl || !endEl) return null;
-
-      // Right edge of the start bubble relative to the container
-      const startX = startEl.offsetLeft + startEl.offsetWidth;
-      const startY = startEl.offsetTop;
-
-      // Left edge of the end dot relative to the container (accounting for translateX(-50%))
-      const endX = endEl.offsetLeft - endEl.offsetWidth / 2;
-      const endY = endEl.offsetTop;
-
-      // Path layout: Starts at startX,startY -> horizontally to centerX, then jumps (Move) to centerX,endY -> horizontally to endX
-      const horizontalPath = `M ${startX} ${startY} H ${centerX} M ${centerX} ${endY} H ${endX}`;
-      const verticalPath = `M ${centerX} ${startY} V ${endY}`;
-
-      return {
-        index: idx,
-        horizontalPath,
-        verticalPath,
-        color: act.color
-      };
-    }).filter(line => line !== null) as any[];
-
-    // Only update the binding (and trigger CD) if the paths actually changed
-    const oldSerialized = JSON.stringify(this.activityLines);
-    const newSerialized = JSON.stringify(newLines);
-    if (oldSerialized !== newSerialized) {
-      this.zone.run(() => {
-        this.activityLines = newLines;
-        this.cdr.detectChanges();
-      });
-    }
-  }
-
-  ngOnDestroy() {
-    this.destroyed = true;
-
-    // Clear all pending timeouts
-    this.pendingTimeouts.forEach(id => clearTimeout(id));
-    this.pendingTimeouts = [];
-
-    // Disconnect observer
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
-
-    // Remove scroll listener
-    if (this.scrollHandler) {
-      window.removeEventListener('scroll', this.scrollHandler);
-      this.scrollHandler = null;
-    }
-  }
+  ]
 }

@@ -1,134 +1,51 @@
 <section class="timeline-section">
-  <h2 class="section-title">{{ t('timeline.title') }}</h2>
-  <p class="section-subtitle">{{ t('timeline.subtitle') }}</p>
+  <div class="section-header">
+    <h2 class="section-title">My Journey</h2>
+    <p class="section-subtitle">A timeline of education, work experience, and activities</p>
+  </div>
 
-  <div class="timeline-container">
-    <div class="timeline-line"></div>
-    
-    <!-- Desktop Interactive SVG overlay and floating items -->
-    @if (isDesktop) {
-      <svg class="timeline-svg-overlay">
-        @for (line of activityLines; track line.index) {
-          <!-- Horizontal entry/exit connector lines (always visible) -->
-          <path 
-            [attr.d]="line.horizontalPath" 
-            [attr.stroke]="line.color" 
-            stroke-width="3.5" 
-            stroke-dasharray="6,4"
-            fill="none"
-            class="activity-svg-path">
-          </path>
-          
-          <!-- Vertical center segment (shown on hover or when card is active) -->
-          <path 
-            [attr.d]="line.verticalPath" 
-            [attr.stroke]="line.color" 
-            stroke-width="3.5" 
-            stroke-dasharray="6,4"
-            fill="none"
-            class="activity-vertical-path"
-            [class.show-vertical]="activeActivityIndex === line.index || hoveredIndex === line.index">
-          </path>
-        }
-      </svg>
-      
-      <!-- Start Bubbles (Left Side of Line) -->
-      @for (act of personalActivities().slice(0, maxActivities); track act.id; let idx = $index) {
-        <div 
-          class="activity-start-bubble" 
-          [id]="'activity-start-' + idx"
-          [style.top.%]="act.startPercent"
-          [style.border-color]="act.color"
-          [class.active]="activeActivityIndex === idx"
-          (click)="toggleActivity(idx)"
-          (mouseenter)="hoveredIndex = idx"
-          (mouseleave)="hoveredIndex = null">
-          <mat-icon [style.color]="act.color">{{ act.icon }}</mat-icon>
-          <span class="bubble-label">{{ act.label }}</span>
-          
-          @if (activeActivityIndex === idx) {
-            <div class="activity-popup-card" 
-                 [style.border-color]="act.color"
-                 [style.bottom]="(act.startPercent || 0) > 50 ? '2.2rem' : 'auto'"
-                 [style.top]="(act.startPercent || 0) > 50 ? 'auto' : '2.2rem'"
-                 (click)="$event.stopPropagation()">
-              <div class="popup-header">
-                <h4 [style.color]="act.color">{{ act.label }}</h4>
-                <button class="popup-close-btn" (click)="toggleActivity(idx)">×</button>
-              </div>
-              <p>{{ act.description }}</p>
-              <div class="popup-time">
-                {{ currentLang() === 'en' ? 'Time Span' : 'Časové období' }}: {{ act.startDateLabel }} – {{ act.endDateLabel }}
-              </div>
-            </div>
-          }
+  <div class="timeline-wrapper">
+    <p-timeline [value]="timelineEvents" align="left">
+
+      <ng-template pTemplate="marker" let-event>
+        <div class="custom-marker" [style.backgroundColor]="event.badge.themeColor">
+          <span class="material-symbols-outlined icon">{{ event.badge.icon }}</span>
         </div>
-        
-        <!-- Clickable End Point Dot -->
-        <button 
-          class="activity-end-dot" 
-          [id]="'activity-end-' + idx"
-          [style.top.%]="act.endPercent"
-          [style.background-color]="act.color"
-          [style.border-color]="act.color"
-          [style.box-shadow]="'0 0 12px ' + act.color"
-          (click)="scrollToStart(idx)"
-          [title]="t('act.trace') + act.label"
-          (mouseenter)="hoveredIndex = idx"
-          (mouseleave)="hoveredIndex = null">
-          <mat-icon>keyboard_double_arrow_down</mat-icon>
-        </button>
-      }
-    }
+      </ng-template>
 
-    <!-- Main Timeline Cards Flow -->
-    @for (item of timelineItems(); track item.title; let index = $index) {
-      <div class="timeline-item" [class.education]="item.type === 'education'" [class.work]="item.type === 'work'">
-        <div class="timeline-badge">
-          <mat-icon>{{ item.icon }}</mat-icon>
-        </div>
-        
-        <div class="timeline-card-wrapper">
-          <div class="timeline-date">{{ item.date }}</div>
-          
-          <div class="timeline-card">
-            <span class="timeline-tag" [class.tag-work]="item.type === 'work'" [class.tag-edu]="item.type === 'education'">
-              {{ item.type === 'work' ? t('timeline.work') : t('timeline.edu') }}
-            </span>
-            <h3 class="timeline-title">{{ item.title }}</h3>
-            <h4 class="timeline-subtitle">{{ item.subtitle }}</h4>
-            
-            <ul class="timeline-bullets">
-              @for (bullet of item.bullets; track bullet) {
-                <li>{{ bullet }}</li>
-              }
-            </ul>
+      <ng-template pTemplate="content" let-event>
+        <div class="timeline-card" [class]="'timeline-card type-' + event.type">
 
-            <!-- Mobile Fallback for Personal Activities (rendered inside cards) -->
-            @if (!isDesktop && item.personalActivity) {
-              <div class="mobile-activity-container" [style.--act-color]="item.personalActivity.color">
-                <button class="activity-toggle-btn" (click)="toggleActivity(index)">
-                  <mat-icon>{{ item.personalActivity.icon }}</mat-icon>
-                  <span class="btn-text">{{ item.personalActivity.label }}</span>
-                </button>
-                
-                @if (activeActivityIndex === index) {
-                  <div class="activity-info-card">
-                    <div class="activity-info-header">
-                      <h4>{{ item.personalActivity.label }}</h4>
-                      <button class="close-btn" (click)="toggleActivity(index)">×</button>
-                    </div>
-                    <p>{{ item.personalActivity.description }}</p>
-                    <div class="popup-time" style="margin-top: 0.6rem; font-size: 0.8rem; opacity: 0.85; font-weight: 500;">
-                      {{ currentLang() === 'en' ? 'Time Span' : 'Časové období' }}: {{ item.personalActivity.startDateLabel }} – {{ item.personalActivity.endDateLabel }}
-                    </div>
-                  </div>
-                }
-              </div>
-            }
+          <div class="date-header" [style.color]="event.badge.themeColor">
+            {{ event.startDate | date:'MMM yyyy' }} &mdash;
+            <ng-container *ngIf="event.endDate; else ongoing">
+              {{ event.endDate | date:'MMM yyyy' }}
+            </ng-container>
+            <ng-template #ongoing>
+              {{ currentLang() === 'en' ? 'Present' : 'Současnost' }}
+            </ng-template>
           </div>
+
+          <h3 class="title">{{ event.card[currentLang()].title }}</h3>
+          <h4 class="subtitle">{{ event.card[currentLang()].subtitle }}</h4>
+
+          <ul class="bullets">
+            <li *ngFor="let bullet of event.card[currentLang()].bullets">
+              {{ bullet }}
+            </li>
+          </ul>
+
+          <div class="badge-context" [style.borderColor]="event.badge.themeColor">
+            <span class="material-symbols-outlined badge-icon" [style.color]="event.badge.themeColor">info</span>
+            <div class="badge-text">
+              <strong>{{ event.badge[currentLang()].label }}:</strong>
+              {{ event.badge[currentLang()].description }}
+            </div>
+          </div>
+
         </div>
-      </div>
-    }
+      </ng-template>
+
+    </p-timeline>
   </div>
 </section>
