@@ -1,590 +1,1879 @@
 {
+  "rc_car": {
+    "category": "project",
+    "projectCategory": "embedded",
+    "name": "Remote Controlled Car",
+    "link": "",
+    "author": "Arduino, C++, Bluetooth, CAD",
+    "image": "rc_car_project.png",
+    "status": "finished",
+    "tags": [
+      "Arduino",
+      "C++",
+      "Bluetooth",
+      "CAD"
+    ],
+    "pinned": true,
+    "title_en": "Remote Controlled Car",
+    "title_cs": "Dálkově ovládané auto",
+    "desc_en": "A smart, custom-built remote-controlled vehicle designed with obstacle avoidance sensors, optimized chassis, and a dual-motor driver system.",
+    "desc_cs": "Chytré, na zakázku postavené dálkově ovládané vozidlo s integrovanými senzory pro vyhýbání se překážkám, optimalizovaným podvozkem a systémem pohonu se dvěma motory.",
+    "date_en": "March 2024 – December 2024",
+    "date_cs": "Březen 2024 – Prosinec 2024"
+  },
+  "railway": {
+    "category": "project",
+    "projectCategory": "embedded",
+    "name": "Railway Switches Controller",
+    "link": "",
+    "author": "ESP32, MicroPython, I2C",
+    "image": "railway_switches_project.png",
+    "status": "finished",
+    "tags": [
+      "ESP32",
+      "MicroPython",
+      "I2C"
+    ],
+    "pinned": true,
+    "title_en": "Model Railways Automatic Train Switches",
+    "title_cs": "Automatické výhybky pro modelovou železnici",
+    "desc_en": "An automated railway track switching system designed to direct trains dynamically based on route logic, sensor feedbacks, and integrated control microchips.",
+    "desc_cs": "Automatizovaný systém řízení a přepínání kolejí navržený k dynamickému směrování vlaků na základě logiky tras, zpětné vazby ze senzorů a integrovaných mikročipů.",
+    "date_en": "November 2024 – June 2026",
+    "date_cs": "Listopad 2024 – Červen 2026"
+  },
+  "digit": {
+    "category": "project",
+    "projectCategory": "ai",
+    "name": "Digit Recognizer",
+    "link": "",
+    "author": "TensorFlow, CNN, Python, JS",
+    "image": "digit_recognizer_project.png",
+    "status": "finished",
+    "tags": [
+      "TensorFlow",
+      "CNN",
+      "Python",
+      "JS"
+    ],
+    "pinned": true,
+    "title_en": "Digit Recognizer",
+    "title_cs": "Rozpoznávání číslic",
+    "desc_en": "A deep neural network (CNN) trained to classify handwritten digits with high accuracy, complete with a drawing canvas interface for real-time validation.",
+    "desc_cs": "Hluboká neuronová síť (CNN) natrénovaná na klasifikaci ručně psaných číslic s vysokou přesností, doplněná o interaktivní kreslicí plátno pro okamžité rozpoznání.",
+    "date_en": "June 9, 2026",
+    "date_cs": "9. června 2026"
+  },
+  "music": {
+    "category": "project",
+    "projectCategory": "ai",
+    "name": "Music Attention",
+    "link": "",
+    "author": "PyTorch, Transformers, Spectral Analysis",
+    "image": "music_attention_project.png",
+    "status": "finished",
+    "tags": [
+      "PyTorch",
+      "Transformers",
+      "Spectral Analysis"
+    ],
+    "title_en": "Music Attention",
+    "title_cs": "Hudební pozornost (Music Attention)",
+    "desc_en": "An audio analyzer utilizing self-attention mechanism layers in PyTorch to classify musical features and map spectral attention coefficients over time.",
+    "desc_cs": "Analyzátor zvuku využívající vrstvy mechanismu self-attention v PyTorch pro klasifikaci hudebních prvků a mapování spektrálních koeficientů pozornosti v čase.",
+    "date_en": "June 10, 2026 – June 11, 2026",
+    "date_cs": "10. června 2026 – 11. června 2026"
+  },
+  "slm": {
+    "category": "project",
+    "projectCategory": "ai",
+    "name": "Small Language Model",
+    "link": "",
+    "author": "PyTorch, Tokenization, Transformer",
+    "image": "small_language_model_project.png",
+    "status": "ongoing",
+    "tags": [
+      "PyTorch",
+      "Tokenization",
+      "Transformer"
+    ],
+    "title_en": "Small Language Model",
+    "title_cs": "Malý jazykový model",
+    "desc_en": "An ongoing project building and pre-training a lightweight Transformer-based GPT style language model to understand structural text dependencies.",
+    "desc_cs": "Probíhající projekt vývoje a předtrénování lehkého jazykového modelu založeného na architektuře Transformer (styl GPT) pro pochopení strukturních textových závislostí.",
+    "date_en": "June 14, 2026 – Ongoing",
+    "date_cs": "14. června 2026 – Probíhá"
+  },
   "atomic-habits": {
     "category": "book",
     "name": "Atomic Habits",
     "link": "https://jamesclear.com/atomic-habits",
-    "author": "James Clear"
+    "author": "James Clear",
+    "image": "atomic_habits_cover.png",
+    "status": "finished",
+    "tags": [
+      "Productivity",
+      "Self-Help"
+    ],
+    "hasAnalysis": true,
+    "title_en": "Atomic Habits",
+    "title_cs": "Atomové návyky",
+    "desc_en": "An extremely practical guide to building good habits and breaking bad ones by focusing on tiny, 1% daily improvements.",
+    "desc_cs": "Mimořádně praktická příručka pro budování dobrých návyků a odstraňování špatných se zaměřením na drobná, 1% denní zlepšení.",
+    "date_en": "Read: Jan 2024",
+    "date_cs": "Přečteno: Led. 2024"
   },
   "clean-code": {
     "category": "book",
     "name": "Clean Code",
     "link": "https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882",
-    "author": "Robert C. Martin"
+    "author": "Robert C. Martin",
+    "image": "clean_code_cover.png",
+    "status": "finished",
+    "tags": [
+      "Coding",
+      "Software"
+    ],
+    "hasAnalysis": true,
+    "title_en": "Clean Code",
+    "title_cs": "Čistý kód",
+    "desc_en": "A handbook of agile software craftsmanship, describing principles of writing clean, maintainable, and readable code.",
+    "desc_cs": "Příručka agilního softwarového řemesla, která popisuje principy psaní čistého, udržovatelného a čitelného kódu.",
+    "date_en": "Read: March 2025",
+    "date_cs": "Přečteno: Bře. 2025"
   },
   "design-things": {
     "category": "book",
     "name": "The Design of Everyday Things",
     "link": "https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things",
-    "author": "Don Norman"
+    "author": "Don Norman",
+    "image": "design_things_cover.png",
+    "status": "finished",
+    "tags": [
+      "Design",
+      "UX"
+    ],
+    "title_en": "The Design of Everyday Things",
+    "title_cs": "Design pro každý den",
+    "desc_en": "A masterpiece exploring the cognitive psychology of design, showing why usability is the most critical feature of any product.",
+    "desc_cs": "Mistrovské dílo zkoumající kognitivní psychologii designu, ukazující, proč je použitelnost nejdůležitější vlastností každého produktu.",
+    "date_en": "Read: June 2025",
+    "date_cs": "Přečteno: Čer. 2025"
   },
   "electrodynamics": {
     "category": "book",
     "name": "Introduction to Electrodynamics",
     "link": "https://en.wikipedia.org/wiki/Introduction_to_Electrodynamics",
-    "author": "David J. Griffiths"
+    "author": "David J. Griffiths",
+    "image": "electrodynamics_cover.png",
+    "status": "ongoing",
+    "tags": [
+      "Physics",
+      "Electromagnetism"
+    ],
+    "title_en": "Introduction to Electrodynamics",
+    "title_cs": "Úvod do elektrodynamiky",
+    "desc_en": "A classical physics textbook covering electromagnetic fields, Maxwell's equations, and electrodynamics principles.",
+    "desc_cs": "Učebnice klasické fyziky pokrývající elektromagnetická pole, Maxwellovy rovnice a principy elektrodynamiky.",
+    "date_en": "Reading",
+    "date_cs": "Čtu právě teď"
   },
   "nineteen-eighty-four": {
     "category": "book",
     "name": "1984",
     "link": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
-    "author": "George Orwell"
+    "author": "George Orwell",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Dystopian"
+    ],
+    "title_en": "1984",
+    "title_cs": "1984",
+    "desc_en": "George Orwell's classic dystopian novel exploring surveillance, totalitarianism, and the manipulation of truth.",
+    "desc_cs": "Klasický dystopický román George Orwella zkoumající sledování, totalitu a manipulaci s pravdou.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "bible-first-100-pages": {
     "category": "book",
     "name": "The Bible (First 100 Pages)",
     "link": "https://books.google.com/books/about/The_Bible_in_100_Pages.html?id=xHPfAwAAQBAJ",
-    "author": "Various"
+    "author": "Various",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Religion",
+      "History"
+    ],
+    "title_en": "The Bible (First 100 Pages)",
+    "title_cs": "Bible (prvních 100 stran)",
+    "desc_en": "Reading and reflecting on the foundational historical, moral, and spiritual texts of the Old Testament.",
+    "desc_cs": "Čtení a zamyšlení nad zakládajícími historickými, morálními a duchovními texty Starého zákona.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "surely-youre-joking-feynman": {
     "category": "book",
     "name": "Surely You're Joking, Mr. Feynman!",
     "link": "https://en.wikipedia.org/wiki/Surely_You're_Joking,_Mr._Feynman",
-    "author": "Richard Feynman"
+    "author": "Richard Feynman",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Biography",
+      "Physics"
+    ],
+    "title_en": "Surely You're Joking, Mr. Feynman!",
+    "title_cs": "To snad nemyslíte vážně, pane Feynmane!",
+    "desc_en": "The brilliant and humorous autobiographical anecdotes of Nobel laureate physicist Richard Feynman.",
+    "desc_cs": "Brilantní a humorné autobiografické historky a postřehy nositele Nobelovy ceny, fyzika Richarda Feynmana.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "feynman-lectures-vol1": {
     "category": "book",
     "name": "Feynman's Lectures on Physics Vol. 1",
     "link": "https://www.feynmanlectures.caltech.edu/I_toc.html",
-    "author": "Richard Feynman"
+    "author": "Richard Feynman",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Physics",
+      "Science"
+    ],
+    "title_en": "Feynman's Lectures on Physics Vol. 1",
+    "title_cs": "Feynmanovy přednášky z fyziky 1",
+    "desc_en": "A comprehensive textbook covering mechanics, radiation, and heat from Feynman's famous undergraduate lectures.",
+    "desc_cs": "Ucelená učebnice pokrývající mechaniku, záření a teplo z Feynmanových slavných přednášek pro vysokoškoláky.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "white-disease": {
     "category": "book",
     "name": "The White Disease",
     "link": "https://books.apple.com/cz/book/bíla-nemoc/id501318950?l=cs",
-    "author": "Karel Čapek"
+    "author": "Karel Čapek",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Drama",
+      "Czech"
+    ],
+    "title_en": "The White Disease",
+    "title_cs": "Bílá nemoc",
+    "desc_en": "Karel Čapek's visionary drama warning against totalitarianism, fanaticism, and the horrors of war.",
+    "desc_cs": "Vizionářské drama Karla Čapka varující před totalitou, fanatismem a hrůzami války.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "war-with-the-newts": {
     "category": "book",
     "name": "War with the Newts",
     "link": "https://www.knihydobrovsky.cz/kniha/valka-s-mloky-103765274",
-    "author": "Karel Čapek"
+    "author": "Karel Čapek",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Satire",
+      "Czech"
+    ],
+    "title_en": "War with the Newts",
+    "title_cs": "Válka s mloky",
+    "desc_en": "A satirical sci-fi novel by Čapek depicting humans exploiting intelligent newts, leading to global catastrophe.",
+    "desc_cs": "Satirický sci-fi román Karla Čapka líčící zneužívání inteligentních mloků lidstvem, vedoucí ke globální katastrofě.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "mother-capek": {
     "category": "book",
     "name": "The Mother",
     "link": "https://cs.wikipedia.org/wiki/Matka_(divadeln%C3%AD_hra)",
-    "author": "Karel Čapek"
+    "author": "Karel Čapek",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Drama",
+      "Czech"
+    ],
+    "title_en": "The Mother",
+    "title_cs": "Matka",
+    "desc_en": "Karel Čapek's anti-war play depicting a mother wrestling with the sacrifice of her sons for their country.",
+    "desc_cs": "Protiválečná divadelní hra Karla Čapka zobrazující matku bojující s obětí svých synů pro vlast.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "hitchhikers-guide": {
     "category": "book",
     "name": "The Hitchhiker's Guide to the Galaxy",
     "link": "https://en.wikipedia.org/wiki/The_Hitchhiker's_Guide_to_the_Galaxy",
-    "author": "Douglas Adams"
+    "author": "Douglas Adams",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Comedy"
+    ],
+    "title_en": "The Hitchhiker's Guide to the Galaxy",
+    "title_cs": "Stopařův průvodce Galaxií",
+    "desc_en": "Douglas Adams' legendary sci-fi comedy following the absurd space adventures of Arthur Dent.",
+    "desc_cs": "Legendární sci-fi komedie Douglase Adamse sledující absurdní vesmírná dobrodružství Arthura Denta.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "handmaids-tale": {
     "category": "book",
     "name": "The Handmaid's Tale",
     "link": "https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale",
-    "author": "Margaret Atwood"
+    "author": "Margaret Atwood",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Fiction",
+      "Dystopian"
+    ],
+    "title_en": "The Handmaid's Tale",
+    "title_cs": "Příběh služebnice",
+    "desc_en": "Margaret Atwood's dystopian novel depicting Gilead, a near-future totalitarian state that subjugates women.",
+    "desc_cs": "Dystopický román Margaret Atwoodové o Gileádu, totalitním státě blízké budoucnosti, který si podmaňuje ženy.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "to-kill-a-mockingbird": {
     "category": "book",
     "name": "To Kill a Mockingbird",
     "link": "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird",
-    "author": "Harper Lee"
+    "author": "Harper Lee",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Fiction"
+    ],
+    "title_en": "To Kill a Mockingbird",
+    "title_cs": "Jako zabít ptáčka",
+    "desc_en": "Harper Lee's classic novel exploring racial injustice, honor, and the loss of innocence in the American South.",
+    "desc_cs": "Klasický román Harper Leeové zkoumající rasovou nespravedlnost, čest a ztrátu nevinnosti na americkém Jihu.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "ten-rules-for-life": {
     "category": "book",
     "name": "12 Rules for Life",
     "link": "https://en.wikipedia.org/wiki/12_Rules_for_Life",
-    "author": "Jordan Peterson"
+    "author": "Jordan Peterson",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Psychology",
+      "Self-Help"
+    ],
+    "title_en": "12 Rules for Life",
+    "title_cs": "12 pravidel pro život",
+    "desc_en": "Jordan Peterson's bestselling guide offering practical wisdom and psychological rules for building personal order.",
+    "desc_cs": "Bestseller Jordana Petersona nabízející praktickou moudrost a psychologická pravidla pro budování osobního řádu.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "beyond-order": {
     "category": "book",
     "name": "Beyond Order: 12 More Rules",
     "link": "https://en.wikipedia.org/wiki/Beyond_Order",
-    "author": "Jordan Peterson"
+    "author": "Jordan Peterson",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Psychology",
+      "Self-Help"
+    ],
+    "title_en": "Beyond Order: 12 More Rules",
+    "title_cs": "Řád není všechno: 12 dalších pravidel",
+    "desc_en": "Jordan Peterson's sequel offering twelve additional principles to balance creative change and personal structure.",
+    "desc_cs": "Pokračování od Jordana Petersona nabízející dvanáct dalších principů k vyvážení kreativní změny a osobní struktury.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "why-we-sleep": {
     "category": "book",
     "name": "Why We Sleep",
     "link": "https://en.wikipedia.org/wiki/Why_We_Sleep",
-    "author": "Matthew Walker"
+    "author": "Matthew Walker",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Science",
+      "Health"
+    ],
+    "title_en": "Why We Sleep",
+    "title_cs": "Proč spíme",
+    "desc_en": "Matthew Walker's fascinating exploration of the vital scientific importance of sleep and dreaming.",
+    "desc_cs": "Fascinující zkoumání Matthew Walkera o zásadním vědeckém významu spánku a snění.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "structures-why-things-dont-fall": {
     "category": "book",
     "name": "Structures: Or Why Things Don't Fall Down",
     "link": "https://www.amazon.com/-/es/Structures-Things-Dont-Fall-Down/dp/0306812835",
-    "author": "J.E. Gordon"
+    "author": "J.E. Gordon",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Engineering",
+      "Physics"
+    ],
+    "title_en": "Structures: Or Why Things Don't Fall Down",
+    "title_cs": "Struktury: Anebo proč věci nespadnou",
+    "desc_en": "J.E. Gordon's brilliant, accessible introduction to the mechanical engineering principles of structural design.",
+    "desc_cs": "Brilantní a srozumitelný úvod J. E. Gordona do strojírenských principů strukturálního designu.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "stiff-cadavers": {
     "category": "book",
     "name": "Stiff: The Curious Lives of Human Cadavers",
     "link": "https://en.wikipedia.org/wiki/Stiff:_The_Curious_Lives_of_Human_Cadavers",
-    "author": "Mary Roach"
+    "author": "Mary Roach",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Science",
+      "Biology"
+    ],
+    "title_en": "Stiff: The Curious Lives of Human Cadavers",
+    "title_cs": "Stiff: Podivuhodné životy lidských mrtvol",
+    "desc_en": "Mary Roach's humorous and deeply educational look at the contributions of human cadavers to science and history.",
+    "desc_cs": "Humorný a hluboce vzdělávací pohled Mary Roachové na přínos lidských těl vědě a historii.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "rich-dad-poor-dad": {
     "category": "book",
     "name": "Rich Dad Poor Dad",
     "link": "https://en.wikipedia.org/wiki/Rich_Dad_Poor_Dad",
-    "author": "Robert Kiyosaki"
+    "author": "Robert Kiyosaki",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Finance",
+      "Business"
+    ],
+    "title_en": "Rich Dad Poor Dad",
+    "title_cs": "Bohatý táta, chudý táta",
+    "desc_en": "Robert Kiyosaki's classic personal finance book outlining different mindsets toward money, assets, and investing.",
+    "desc_cs": "Klasická kniha o osobních financích od Roberta Kiyosakiho popisující rozdílné uvažování o penězích, aktivech a investicích.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "modern-computer-graphics": {
     "category": "book",
     "name": "Modern Computer Graphics",
     "link": "https://www.kosmas.cz/knihy/138920/moderni-pocitacova-grafika/",
-    "author": "Jiří Žára, Bedřich Beneš, Petr Felkel"
+    "author": "Jiří Žára, Bedřich Beneš, Petr Felkel",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Graphics",
+      "Coding"
+    ],
+    "title_en": "Modern Computer Graphics",
+    "title_cs": "Moderní počítačová grafika",
+    "desc_en": "A comprehensive Czech textbook by Žára, Beneš, and Felkel explaining the math, geometry, and algorithms of rendering.",
+    "desc_cs": "Ucelená česká učebnice (Žára, Beneš, Felkel) vysvětlující matematiku, geometrii a algoritmy vykreslování.",
+    "date_en": "Read: 2025",
+    "date_cs": "Přečteno: 2025"
   },
   "fahrenheit-451": {
     "category": "book",
     "name": "Fahrenheit 451",
     "link": "https://en.wikipedia.org/wiki/Fahrenheit_451",
-    "author": "Ray Bradbury"
+    "author": "Ray Bradbury",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Dystopian"
+    ],
+    "title_en": "Fahrenheit 451",
+    "title_cs": "451 stupňů Fahrenheita",
+    "desc_en": "Ray Bradbury's dystopian classic depicting a future society where books are outlawed and systematically burned.",
+    "desc_cs": "Dystopická klasika Raye Bradburyho líčící budoucí společnost, v níž jsou knihy zakázány a systematicky páleny.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "antigone": {
     "category": "book",
     "name": "Antigone",
     "link": "https://classics.mit.edu/Sophocles/antigone.html",
-    "author": "Sophocles"
+    "author": "Sophocles",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Drama"
+    ],
+    "title_en": "Antigone",
+    "title_cs": "Antigona",
+    "desc_en": "Sophocles' classic Greek tragedy exploring the moral conflict between civil laws and divine/familial duty.",
+    "desc_cs": "Sofoklova klasická řecká tragédie zkoumající morální konflikt mezi světskými zákony a božskou či rodinnou povinností.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "divine-comedy": {
     "category": "book",
     "name": "The Divine Comedy",
     "link": "https://en.wikipedia.org/wiki/Divine_Comedy",
-    "author": "Dante Alighieri"
+    "author": "Dante Alighieri",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Poetry"
+    ],
+    "title_en": "The Divine Comedy",
+    "title_cs": "Božská komedie",
+    "desc_en": "Dante Alighieri's epic poem detailing the soul's journey through Inferno, Purgatorio, and Paradiso.",
+    "desc_cs": "Epická báseň Dante Alighieriho popisující cestu duše Peklem, Očistcem a Rájem.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "day-of-the-jackal": {
     "category": "book",
     "name": "The Day of the Jackal",
     "link": "https://www.amazon.com/-/he/Day-Jackal-Frederick-Forsyth/dp/0593544994",
-    "author": "Frederick Forsyth"
+    "author": "Frederick Forsyth",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Thriller",
+      "Fiction"
+    ],
+    "title_en": "The Day of the Jackal",
+    "title_cs": "Den pro Šakala",
+    "desc_en": "Frederick Forsyth's suspenseful thriller chronicling a professional assassin's plot to murder Charles de Gaulle.",
+    "desc_cs": "Napínavý thriller Fredericka Forsytha líčící plán profesionálního atentátníka na zavraždění Charlese de Gaulla.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "diary-of-anne-frank": {
     "category": "book",
     "name": "The Diary of a Young Girl",
     "link": "https://en.wikipedia.org/wiki/The_Diary_of_a_Young_Girl",
-    "author": "Anne Frank"
+    "author": "Anne Frank",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Biography",
+      "History"
+    ],
+    "title_en": "The Diary of a Young Girl",
+    "title_cs": "Deník Anny Frankové",
+    "desc_en": "The moving real-life diary written by Anne Frank while hiding from Nazi occupation in Amsterdam.",
+    "desc_cs": "Dojemný skutečný deník, který si psala Anne Franková během skrývání před nacistickou okupací v Amsterdamu.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "animal-farm": {
     "category": "book",
     "name": "Animal Farm",
     "link": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/animal-farm/",
-    "author": "George Orwell"
+    "author": "George Orwell",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Satire"
+    ],
+    "title_en": "Animal Farm",
+    "title_cs": "Farma zvířat",
+    "desc_en": "George Orwell's satirical allegorical novella exposing the corruption of revolutionary ideals and totalitarianism.",
+    "desc_cs": "Satirická alegorická novela George Orwella odhalující korupci revolučních ideálů a totalitarismus.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "ivanhoe": {
     "category": "book",
     "name": "Ivanhoe",
     "link": "https://www.gutenberg.org/ebooks/82",
-    "author": "Walter Scott"
+    "author": "Walter Scott",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Historical"
+    ],
+    "title_en": "Ivanhoe",
+    "title_cs": "Ivanhoe",
+    "desc_en": "Sir Walter Scott's historical novel depicting medieval chivalry, crusades, and conflict in 12th-century England.",
+    "desc_cs": "Historický román Sira Waltera Scotta zobrazující středověké rytířství, křížové výpravy a konflikty v Anglii 12. století.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "brave-new-world": {
     "category": "book",
     "name": "Brave New World",
     "link": "https://en.wikipedia.org/wiki/Brave_New_World",
-    "author": "Aldous Huxley"
+    "author": "Aldous Huxley",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Dystopian"
+    ],
+    "title_en": "Brave New World",
+    "title_cs": "Konec civilizace (Brave New World)",
+    "desc_en": "Aldous Huxley's chilling dystopian masterpiece depicting a highly engineered, consumerist, and painless future society.",
+    "desc_cs": "Dystopické mistrovské dílo Aldouse Huxleyho líčící vysoce inženýrskou, konzumní a bezbolestnou budoucí společnost.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "krakatit": {
     "category": "book",
     "name": "Krakatit",
     "link": "https://www.kosmas.cz/knihy/176646/krakatit/",
-    "author": "Karel Čapek"
+    "author": "Karel Čapek",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Czech"
+    ],
+    "title_en": "Krakatit",
+    "title_cs": "Krakatit",
+    "desc_en": "Karel Čapek's novel warnings about the devastating dangers of a newly invented ultimate explosive.",
+    "desc_cs": "Román Karla Čapka varující před ničivým nebezpečím nově vynalezené ničivé třaskaviny.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "ku-klux-klan": {
     "category": "book",
     "name": "Ku-klux-klan: Where the Love Lives",
     "link": "https://www.empik.com/ku-klux-klan-tu-mieszka-milosc-surmiak-domanska-katarzyna,p1247882314,ksiazka-p",
-    "author": "Katarzyna Surmiak-Domańska"
+    "author": "Katarzyna Surmiak-Domańska",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Non-Fiction",
+      "History"
+    ],
+    "title_en": "Ku-klux-klan: Where the Love Lives",
+    "title_cs": "Ku-klux-klan: Tady bydlí láska",
+    "desc_en": "Katarzyna Surmiak-Domańska's documentary reportage examining the modern members and ideology of the KKK.",
+    "desc_cs": "Dokumentární reportáž Katarzyny Surmiak-Domańské zkoumající moderní členy a ideologii KKK.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "butterball": {
     "category": "book",
     "name": "Butterball (Boule de Suif)",
     "link": "https://en.wikipedia.org/wiki/Boule_de_Suif",
-    "author": "Guy de Maupassant"
+    "author": "Guy de Maupassant",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Fiction"
+    ],
+    "title_en": "Butterball (Boule de Suif)",
+    "title_cs": "Kulička",
+    "desc_en": "Guy de Maupassant's famous short story set during the Franco-Prussian War, satirizing bourgeois hypocrisy.",
+    "desc_cs": "Slavná povídka Guy de Maupassanta zasazená do prusko-francouzské války, satirizující měšťácké pokrytectví.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "a-bouquet": {
     "category": "book",
     "name": "A Bouquet (Kytice)",
     "link": "https://cs.wikipedia.org/wiki/Kytice_(sb%C3%ADrka)",
-    "author": "Karel Jaromír Erben"
+    "author": "Karel Jaromír Erben",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Poetry",
+      "Czech"
+    ],
+    "title_en": "A Bouquet (Kytice)",
+    "title_cs": "Kytice",
+    "desc_en": "Karel Jaromír Erben's classic collection of Czech ballads rich in mythology, moral codes, and dark themes.",
+    "desc_cs": "Klasická sbírka balad Karla Jaromíra Erbena plná mytologie, morálních kodexů a temných témat.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "the-miser": {
     "category": "book",
     "name": "The Miser (Lakomec)",
     "link": "https://en.wikipedia.org/wiki/The_Miser",
-    "author": "Molière"
+    "author": "Molière",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Comedy"
+    ],
+    "title_en": "The Miser (Lakomec)",
+    "title_cs": "Lakomec",
+    "desc_en": "Molière's classic satirical comedy depicting the greedy Harpagon and his comedic conflicts with his children.",
+    "desc_cs": "Klasická satirická komedie Molièra zobrazující chamtivého Harpagona a jeho komické spory s dětmi.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "the-little-prince": {
     "category": "book",
     "name": "The Little Prince",
     "link": "https://www.knihydobrovsky.cz/kniha/maly-prync-757079355",
-    "author": "Antoine de Saint-Exupéry"
+    "author": "Antoine de Saint-Exupéry",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Philosophy"
+    ],
+    "title_en": "The Little Prince",
+    "title_cs": "Malý princ",
+    "desc_en": "Antoine de Saint-Exupéry's philosophical tale about friendship, love, and the essential things invisible to the eye.",
+    "desc_cs": "Filosofická pohádka Antoina de Saint-Exupéryho o přátelství, lásce a důležitých věcech neviditelných očím.",
+    "date_en": "Read: 2020",
+    "date_cs": "Přečteno: 2020"
   },
   "prayer-for-katerina-horovitzova": {
     "category": "book",
     "name": "A Prayer for Katerina Horovitzova",
     "link": "https://www.knihydobrovsky.cz/kniha/modlitba-pro-katerinu-horovitzovou-721489277?productDetailBigBanner-bannerId=6555",
-    "author": "Arnošt Lustig"
+    "author": "Arnošt Lustig",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Czech"
+    ],
+    "title_en": "A Prayer for Katerina Horovitzova",
+    "title_cs": "Modlitba pro Kateřinu Horovitzovou",
+    "desc_en": "Arnošt Lustig's dramatic novella depicting Jewish hostages bargaining with Nazis during WWII, showing dignity in hopelessness.",
+    "desc_cs": "Dramatická novela Arnošta Lustiga zobrazující židovské rukojmí vyjednávající s nacisty během druhé světové války, ukazující důstojnost v bezmoci.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "all-quiet-on-western-front": {
     "category": "book",
     "name": "All Quiet on the Western Front",
     "link": "https://www.penguinrandomhouse.com/books/775540/all-quiet-on-the-western-front-by-erich-maria-remarque-translated-by-maria-tatar-foreword-by-samantha-power/",
-    "author": "Erich Maria Remarque"
+    "author": "Erich Maria Remarque",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Historical"
+    ],
+    "title_en": "All Quiet on the Western Front",
+    "title_cs": "Na západní frontě klid",
+    "desc_en": "Erich Maria Remarque's powerful anti-war masterpiece detailing the extreme physical and mental stress of WWI soldiers.",
+    "desc_cs": "Protiválečné mistrovské dílo Ericha Maria Remarqua popisující extrémní fyzický a duševní tlak vojáků za 1. světové války.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "lord-of-the-rings": {
     "category": "book",
     "name": "The Lord of the Rings",
     "link": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings",
-    "author": "J.R.R. Tolkien"
+    "author": "J.R.R. Tolkien",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Fantasy",
+      "Classic"
+    ],
+    "title_en": "The Lord of the Rings",
+    "title_cs": "Pán prstenů",
+    "desc_en": "J.R.R. Tolkien's epic high-fantasy masterpiece following the quest to destroy the One Ring.",
+    "desc_cs": "Epické high-fantasy mistrovské dílo J. R. R. Tolkiena sledující výpravu za zničením Jednoho prstenu.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "persepolis": {
     "category": "book",
     "name": "Persepolis",
     "link": "https://www.theguardian.com/books/2026/jun/04/marjane-satrapi-creator-of-persepolis-and-acclaimed-french-iranian-artist-dies-aged-56",
-    "author": "Marjane Satrapi"
+    "author": "Marjane Satrapi",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Biography",
+      "Graphic Novel"
+    ],
+    "title_en": "Persepolis",
+    "title_cs": "Persepolis",
+    "desc_en": "Marjane Satrapi's autobiographical graphic novel detailing her childhood growing up in Iran during the Islamic Revolution.",
+    "desc_cs": "Autobiografický komiks Marjane Satrapiové popisující její dětství a dospívání v Íránu během islámské revoluce.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "hound-of-the-baskervilles": {
     "category": "book",
     "name": "The Hound of the Baskervilles",
     "link": "https://en.wikipedia.org/wiki/The_Hound_of_the_Baskervilles",
-    "author": "Arthur Conan Doyle"
+    "author": "Arthur Conan Doyle",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Mystery",
+      "Classic"
+    ],
+    "title_en": "The Hound of the Baskervilles",
+    "title_cs": "Pes baskervillský",
+    "desc_en": "Arthur Conan Doyle's classic Sherlock Holmes mystery investigating a legendary supernatural beast in Devonshire.",
+    "desc_cs": "Klasický detektivní román Arthura Conana Doylea o Sherlocku Holmesovi vyšetřujícím legendární nadpřirozenou bestii.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "tales-of-the-little-quarter": {
     "category": "book",
     "name": "Tales of the Little Quarter",
     "link": "https://cs.wikipedia.org/wiki/Pov%C3%ADdky_malostransk%C3%A9",
-    "author": "Jan Neruda"
+    "author": "Jan Neruda",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Czech"
+    ],
+    "title_en": "Tales of the Little Quarter",
+    "title_cs": "Povídky malostranské",
+    "desc_en": "Jan Neruda's humorous and satirical short stories capturing 19th-century life in Prague's Malá Strana.",
+    "desc_cs": "Humorné a satirické povídky Jana Nerudy zachycující život v 19. století na pražské Malé Straně.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "change-kafka": {
     "category": "book",
     "name": "The Metamorphosis",
     "link": "https://gutenberg.org/ebooks/5200",
-    "author": "Franz Kafka"
+    "author": "Franz Kafka",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Czech"
+    ],
+    "title_en": "The Metamorphosis",
+    "title_cs": "Proměna",
+    "desc_en": "Franz Kafka's absurd and tragic novella about Gregor Samsa, who wakes up transformed into a giant insect.",
+    "desc_cs": "Absurdní a tragická povídka Franze Kafky o Řehoři Samsovi, který se jednoho dne probudí proměněný v obří hmyz.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "r-u-r": {
     "category": "book",
     "name": "R.U.R. (Rossum's Universal Robots)",
     "link": "https://cs.wikipedia.org/wiki/R.U.R.",
-    "author": "Karel Čapek"
+    "author": "Karel Čapek",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Drama",
+      "Czech"
+    ],
+    "title_en": "R.U.R. (Rossum's Universal Robots)",
+    "title_cs": "R.U.R.",
+    "desc_en": "Karel Čapek's landmark sci-fi play that introduced the word \"robot\" to the world, exploring artificial life.",
+    "desc_cs": "Průlomová sci-fi divadelní hra Karla Čapka, která dala světu slovo „robot“ a zkoumala umělý život.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "robinson-crusoe": {
     "category": "book",
     "name": "Robinson Crusoe",
     "link": "https://en.wikipedia.org/wiki/Robinson_Crusoe",
-    "author": "Daniel Defoe"
+    "author": "Daniel Defoe",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Adventure"
+    ],
+    "title_en": "Robinson Crusoe",
+    "title_cs": "Robinson Crusoe",
+    "desc_en": "Daniel Defoe's classic adventure novel depicting a castaway's 28-year survival on a remote island.",
+    "desc_cs": "Klasický dobrodružný román Daniela Defoe o 28 letech přežívání trosečníka na opuštěném ostrově.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "romeo-and-juliet": {
     "category": "book",
     "name": "Romeo and Juliet",
     "link": "https://shakespeare.mit.edu/romeo_juliet/full.html",
-    "author": "William Shakespeare"
+    "author": "William Shakespeare",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Drama"
+    ],
+    "title_en": "Romeo and Juliet",
+    "title_cs": "Romeo a Julie",
+    "desc_en": "William Shakespeare's timeless tragedy of two young star-crossed lovers from feuding families.",
+    "desc_cs": "Nadčasová tragédie Williama Shakespeara o dvou mladých milencích ze znepřátelených rodů.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "saturnin": {
     "category": "book",
     "name": "Saturnin",
     "link": "https://cs.wikipedia.org/wiki/Saturnin_(rom%C3%A1n)",
-    "author": "Zdeněk Jirotka"
+    "author": "Zdeněk Jirotka",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Comedy",
+      "Czech"
+    ],
+    "title_en": "Saturnin",
+    "title_cs": "Saturnin",
+    "desc_en": "Zdeněk Jirotka's beloved Czech humorous novel about an eccentric butler who turns everyday life into an adventure.",
+    "desc_cs": "Oblíbený český humoristický román Zdeňka Jirotky o excentrickém sluhovi, který mění všední život v dobrodružství.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "great-gatsby": {
     "category": "book",
     "name": "The Great Gatsby",
     "link": "https://en.wikipedia.org/wiki/The_Great_Gatsby",
-    "author": "F. Scott Fitzgerald"
+    "author": "F. Scott Fitzgerald",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Fiction"
+    ],
+    "title_en": "The Great Gatsby",
+    "title_cs": "Velký Gatsby",
+    "desc_en": "F. Scott Fitzgerald's novel exploring wealth, love, and the disillusionment of the American Dream in the Roaring Twenties.",
+    "desc_cs": "Román F. Scotta Fitzgeralda zkoumající bohatství, lásku a rozčarování z amerického snu v bouřlivých dvacátých letech.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "merry-wives-of-windsor": {
     "category": "book",
     "name": "The Merry Wives of Windsor",
     "link": "https://en.wikipedia.org/wiki/The_Merry_Wives_of_Windsor",
-    "author": "William Shakespeare"
+    "author": "William Shakespeare",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Comedy"
+    ],
+    "title_en": "The Merry Wives of Windsor",
+    "title_cs": "Veselé paničky windsorské",
+    "desc_en": "William Shakespeare's comedic play featuring the mischief of Sir John Falstaff and the clever wives.",
+    "desc_cs": "Komedie Williama Shakespeara o kouscích Sira Johna Falstaffa a chytrých paniček.",
+    "date_en": "Read: 2021",
+    "date_cs": "Přečteno: 2021"
   },
   "murder-on-orient-express": {
     "category": "book",
     "name": "Murder on the Orient Express",
     "link": "https://www.agathachristie.com/stories/murder-on-the-orient-express",
-    "author": "Agatha Christie"
+    "author": "Agatha Christie",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Mystery",
+      "Classic"
+    ],
+    "title_en": "Murder on the Orient Express",
+    "title_cs": "Vražda v Orient expresu",
+    "desc_en": "Agatha Christie's famous detective novel featuring Hercule Poirot resolving a complex train murder.",
+    "desc_cs": "Slavný detektivní román Agathy Christie, v němž Hercule Poirot řeší složitou vraždu ve vlaku.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "cowards-skvorecky": {
     "category": "book",
     "name": "The Cowards (Zbabělci)",
     "link": "https://www.knihydobrovsky.cz/kniha/zbabelci-261481846",
-    "author": "Josef Škvorecký"
+    "author": "Josef Škvorecký",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Czech"
+    ],
+    "title_en": "The Cowards (Zbabělci)",
+    "title_cs": "Zbabělci",
+    "desc_en": "Josef Škvorecký's novel tracking a group of jazz-loving youth during the chaotic final days of WWII in a Czech town.",
+    "desc_cs": "Román Josefa Škvoreckého sledující skupinu jazzových mladíků během chaotických posledních dnů 2. světové války.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "crime-and-punishment": {
     "category": "book",
     "name": "Crime and Punishment",
     "link": "https://www.gutenberg.org/ebooks/2554",
-    "author": "Fyodor Dostoevsky"
+    "author": "Fyodor Dostoevsky",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Psychology"
+    ],
+    "title_en": "Crime and Punishment",
+    "title_cs": "Zločin a trest",
+    "desc_en": "Fyodor Dostoevsky's psychological masterpiece exploring Raskolnikov's moral dilemmas, murder, and redemption.",
+    "desc_cs": "Psychologické mistrovské dílo Fjodora Dostojevského zkoumající Raskolnikovovo morální dilema, vraždu a vykoupení.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "i-robot": {
     "category": "book",
     "name": "I, Robot",
     "link": "https://en.wikipedia.org/wiki/I,_Robot",
-    "author": "Isaac Asimov"
+    "author": "Isaac Asimov",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Classic"
+    ],
+    "title_en": "I, Robot",
+    "title_cs": "Já, robot",
+    "desc_en": "Isaac Asimov's collection of sci-fi short stories exploring the interactions between humans, robots, and the Three Laws.",
+    "desc_cs": "Sbírka sci-fi povídek Isaaca Asimova zkoumajících interakce mezi lidmi, roboty a třemi zákony robotiky.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "study-in-scarlet": {
     "category": "book",
     "name": "A Study in Scarlet",
     "link": "https://en.wikipedia.org/wiki/A_Study_in_Scarlet",
-    "author": "Arthur Conan Doyle"
+    "author": "Arthur Conan Doyle",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Mystery",
+      "Classic"
+    ],
+    "title_en": "A Study in Scarlet",
+    "title_cs": "Studie v šarlatové",
+    "desc_en": "Arthur Conan Doyle's novel introducing the legendary partnership of Sherlock Holmes and Dr. John Watson.",
+    "desc_cs": "Román Arthura Conana Doylea, který světu představil legendární partnerství Sherlocka Holmese a Dr. Watsona.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "become-investor": {
     "category": "book",
     "name": "Stát se investorem",
     "link": "https://www.knihydobrovsky.cz/kniha/stat-se-investorem-251180217",
-    "author": "Mikuláš Splítek"
+    "author": "Mikuláš Splítek",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Finance",
+      "Investing"
+    ],
+    "title_en": "Stát se investorem",
+    "title_cs": "Stát se investorem",
+    "desc_en": "Mikuláš Splítek's Czech guide to value investing, market psychology, and portfolio management.",
+    "desc_cs": "Průvodce hodnotovým investováním, psychologií trhu a správou portfolia od Mikuláše Splítka.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "sport-is-pain": {
     "category": "book",
     "name": "Sport je bolest",
     "link": "https://books.google.com/books/about/Sport_je_bolest.html?id=Z2LjEAAAQBAJ",
-    "author": "Martin Kovář"
+    "author": "Martin Kovář",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Biography",
+      "Sport"
+    ],
+    "title_en": "Sport je bolest",
+    "title_cs": "Sport je bolest",
+    "desc_en": "A look into how endurance sports test mental fortitude, discipline, and personal thresholds.",
+    "desc_cs": "Pohled na to, jak vytrvalostní sporty testují mentální odolnost, disciplínu a osobní limity.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "fault-in-our-stars": {
     "category": "book",
     "name": "The Fault in Our Stars",
     "link": "https://en.wikipedia.org/wiki/The_Fault_in_Our_Stars",
-    "author": "John Green"
+    "author": "John Green",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Fiction",
+      "Drama"
+    ],
+    "title_en": "The Fault in Our Stars",
+    "title_cs": "Hvězdy nám nepřály",
+    "desc_en": "John Green's popular novel depicting the emotional and romantic journey of two teenage cancer patients.",
+    "desc_cs": "Populární román Johna Greena zobrazující emotivní a romantickou cestu dvou dospívajících onkologických pacientů.",
+    "date_en": "Read: 2022",
+    "date_cs": "Přečteno: 2022"
   },
   "ai-modern-approach": {
     "category": "book",
     "name": "Artificial Intelligence: A Modern Approach",
     "link": "https://www.pearson.com/en-us/subject-catalog/p/artificial-intelligence-a-modern-approach/P200000003500/9780137505135",
-    "author": "Stuart Russell, Peter Norvig"
+    "author": "Stuart Russell, Peter Norvig",
+    "image": "book_placeholder.png",
+    "status": "ongoing",
+    "tags": [
+      "AI",
+      "Computer Science"
+    ],
+    "title_en": "Artificial Intelligence: A Modern Approach",
+    "title_cs": "Umělá inteligence: Moderní přístup",
+    "desc_en": "The leading global textbook on AI covering search, logic, machine learning, and deep neural architectures.",
+    "desc_cs": "Přední světová učebnice o AI pokrývající prohledávání, logiku, strojové učení a architektury neuronových sítí.",
+    "date_en": "Reading",
+    "date_cs": "Čtu právě teď"
   },
   "flowers-for-algernon": {
     "category": "book",
     "name": "Flowers for Algernon",
     "link": "https://en.wikipedia.org/wiki/Flowers_for_Algernon",
-    "author": "Daniel Keyes"
+    "author": "Daniel Keyes",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Classic",
+      "Drama"
+    ],
+    "title_en": "Flowers for Algernon",
+    "title_cs": "Růže pro Algernon",
+    "desc_en": "Daniel Keyes' poignant sci-fi novel about a disabled man undergoing an experimental surgery to increase intelligence.",
+    "desc_cs": "Dojemný sci-fi román Daniela Keyese o mentálně postiženém muži, který podstoupí experimentální operaci ke zvýšení inteligence.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "contact-sagan": {
     "category": "book",
     "name": "Contact",
     "link": "https://en.wikipedia.org/wiki/Contact_(novel)",
-    "author": "Carl Sagan"
+    "author": "Carl Sagan",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Space"
+    ],
+    "title_en": "Contact",
+    "title_cs": "Kontakt",
+    "desc_en": "Carl Sagan's hard science fiction novel exploring humanity's first contact with an extraterrestrial intelligence.",
+    "desc_cs": "Vědecko-fantastický román Carla Sagana zkoumající první kontakt lidstva s mimozemskou inteligencí.",
+    "date_en": "Read: 2023",
+    "date_cs": "Přečteno: 2023"
   },
   "safehold-series": {
     "category": "book",
     "name": "Safehold Series",
     "link": "https://www.bookseriesinorder.com/safehold/",
-    "author": "David Weber"
+    "author": "David Weber",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Space"
+    ],
+    "title_en": "Safehold Series",
+    "title_cs": "Série Safehold",
+    "desc_en": "David Weber's massive military science fiction series depicting humanity rebuilding technology on a hidden world.",
+    "desc_cs": "Rozsáhlá vojenská sci-fi série Davida Webera líčící lidstvo obnovující technologie na skrytém světě.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "children-of-time": {
     "category": "book",
     "name": "Children of Time",
     "link": "https://www.panmacmillan.com/authors/adrian-tchaikovsky/children-of-time/9781035076192",
-    "author": "Adrian Tchaikovsky"
+    "author": "Adrian Tchaikovsky",
+    "image": "book_placeholder.png",
+    "status": "finished",
+    "tags": [
+      "Sci-Fi",
+      "Space"
+    ],
+    "title_en": "Children of Time",
+    "title_cs": "Děti času",
+    "desc_en": "Adrian Tchaikovsky's award-winning sci-fi novel detailing the evolution of a terraformed planet's arachnid civilization.",
+    "desc_cs": "Oceněný sci-fi román Adriana Tchaikovského popisující evoluci pavoučí civilizace na teraformované planetě.",
+    "date_en": "Read: 2024",
+    "date_cs": "Přečteno: 2024"
   },
   "rocket-propulsion-elements": {
     "category": "book",
     "name": "Rocket Propulsion Elements",
     "link": "https://www.amazon.com/Rocket-Propulsion-Elements-George-Sutton/dp/0470080248",
-    "author": "George P. Sutton"
+    "author": "George P. Sutton",
+    "image": "book_placeholder.png",
+    "status": "ongoing",
+    "tags": [
+      "Aerospace",
+      "Engineering"
+    ],
+    "title_en": "Rocket Propulsion Elements",
+    "title_cs": "Rocket Propulsion Elements",
+    "desc_en": "George Sutton's definitive aerospace engineering guide covering liquid and solid rocket engine designs.",
+    "desc_cs": "Definitivní průvodce raketovým inženýrstvím od George Suttona pokrývající konstrukci motorů na kapalná i pevná paliva.",
+    "date_en": "Reading",
+    "date_cs": "Čtu právě teď"
   },
   "three_blue_one_brown": {
     "category": "youtube",
     "name": "3Blue1Brown",
     "link": "https://www.youtube.com/c/3blue1brown",
-    "author": "Grant Sanderson"
+    "author": "Grant Sanderson",
+    "image": "3b1b_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Math",
+      "Visualization"
+    ],
+    "title_en": "3Blue1Brown",
+    "title_cs": "3Blue1Brown",
+    "desc_en": "Visual mathematics explaining complex topics in linear algebra, calculus, and neural networks using manim animations.",
+    "desc_cs": "Vizuální matematika vysvětlující složitá témata v lineární algebře, kalkulu, neuronových sítích a fyzice pomocí animací.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "mark_rober": {
     "category": "youtube",
     "name": "Mark Rober",
     "link": "https://www.youtube.com/@markrober",
-    "author": "Mark Rober"
+    "author": "Mark Rober",
+    "image": "mark_rober_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Engineering",
+      "Science"
+    ],
+    "title_en": "Mark Rober",
+    "title_cs": "Mark Rober",
+    "desc_en": "Creative engineering and science experiments presented by a former NASA engineer, showcasing physics, mechanics, and design.",
+    "desc_cs": "Kreativní inženýrství a vědecké experimenty prezentované bývalým inženýrem NASA, ukazující fyziku, mechaniku a design.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "veritasium": {
     "category": "youtube",
     "name": "Veritasium",
     "link": "https://www.youtube.com/@veritasium",
-    "author": "Derek Muller"
+    "author": "Derek Muller",
+    "image": "veritasium_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Science",
+      "Physics"
+    ],
+    "title_en": "Veritasium",
+    "title_cs": "Veritasium",
+    "desc_en": "An amazing science channel featuring truth-seeking experiments, expert interviews, and counter-intuitive physics concepts.",
+    "desc_cs": "Úžasný vědecký kanál přinášející experimenty hledající pravdu, rozhovory s odborníky a protiintuitivní fyzikální koncepty.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "stuff_made_here": {
     "category": "youtube",
     "name": "Stuff Made Here",
     "link": "https://www.youtube.com/@StuffMadeHere",
-    "author": "Shane Wighton"
+    "author": "Shane Wighton",
+    "image": "stuff_made_here_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Engineering",
+      "DIY"
+    ],
+    "title_en": "Stuff Made Here",
+    "title_cs": "Stuff Made Here",
+    "desc_en": "A channel about building insanely complex mechanical parts, custom machines, robots, and programming them to solve hard challenges.",
+    "desc_cs": "Kanál o stavbě šíleně složitých mechanických součástí, vlastních strojů, robotů a jejich programování k řešení obtížných úkolů.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "nikhil_kamath": {
     "category": "youtube",
     "name": "Nikhil Kamath",
     "link": "https://www.youtube.com/@nikhil.kamath",
-    "author": "Nikhil Kamath"
+    "author": "Nikhil Kamath",
+    "image": "nikhil_kamath_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Business",
+      "Podcast"
+    ],
+    "title_en": "Nikhil Kamath",
+    "title_cs": "Nikhil Kamath",
+    "desc_en": "Insightful podcasts and discussions on business, economy, and entrepreneurship with industry leaders.",
+    "desc_cs": "Podnětné podcasty a diskuse o byznysu, ekonomice a podnikání s lídry v oboru.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "ivysilani": {
     "category": "youtube",
     "name": "iVysílání",
     "link": "https://www.youtube.com/@CeskaTelevizeTV",
-    "author": "Česká Televize"
+    "author": "Česká Televize",
+    "image": "ivysilani_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "TV",
+      "Czech"
+    ],
+    "title_en": "iVysílání",
+    "title_cs": "iVysílání",
+    "desc_en": "Czech Television's online streaming archive, offering diverse documentaries, news, and cultural shows.",
+    "desc_cs": "Online videoarchiv České televize, nabízející širokou škálu dokumentů, zpráv a kulturních pořadů.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "andy_guitar": {
     "category": "youtube",
     "name": "Andy Guitar",
     "link": "https://www.youtube.com/@andycrowley",
-    "author": "Andy Crowley"
+    "author": "Andy Crowley",
+    "image": "andy_guitar_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Music",
+      "Guitar"
+    ],
+    "title_en": "Andy Guitar",
+    "title_cs": "Andy Guitar",
+    "desc_en": "Excellent step-by-step guitar lessons for beginners and intermediate players.",
+    "desc_cs": "Vynikající kytarové lekce krok za krokem pro začátečníky i pokročilé hráče.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "herdyn": {
     "category": "youtube",
     "name": "Herdyn",
     "link": "https://www.youtube.com/@Herdyn",
-    "author": "Pavel Mikeš"
+    "author": "Pavel Mikeš",
+    "image": "herdyn_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Gaming",
+      "Czech"
+    ],
+    "title_en": "Herdyn",
+    "title_cs": "Herdyn",
+    "desc_en": "Popular Czech gaming streamer, let's player, and entertainer.",
+    "desc_cs": "Populární český herní streamer, let's player a bavič.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "mit_ocw": {
     "category": "youtube",
     "name": "MIT OpenCourseWare",
     "link": "https://www.youtube.com/@mitocw",
-    "author": "MIT"
+    "author": "MIT",
+    "image": "mit_ocw_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Education",
+      "University"
+    ],
+    "title_en": "MIT OpenCourseWare",
+    "title_cs": "MIT OpenCourseWare",
+    "desc_en": "Free, high-quality lecture recordings and educational resources from MIT courses.",
+    "desc_cs": "Bezplatné, vysoce kvalitní záznamy přednášek a výukové materiály z kurzů MIT.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "revision_village": {
     "category": "youtube",
     "name": "Revision Village",
     "link": "https://www.youtube.com/@RevisionVillage",
-    "author": "Revision Village"
+    "author": "Revision Village",
+    "image": "revision_village_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Math",
+      "IB"
+    ],
+    "title_en": "Revision Village",
+    "title_cs": "Revision Village",
+    "desc_en": "The ultimate resource for IB Mathematics preparation, featuring video solutions and practice exams.",
+    "desc_cs": "Špičkový zdroj pro přípravu na IB matematiku, obsahující video řešení a cvičné zkoušky.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "cvutfel": {
     "category": "youtube",
     "name": "CVUTFEL",
     "link": "https://www.youtube.com/@cvutfel",
-    "author": "FEL ČVUT"
+    "author": "FEL ČVUT",
+    "image": "cvutfel_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Education",
+      "Czech"
+    ],
+    "title_en": "CVUTFEL",
+    "title_cs": "CVUTFEL",
+    "desc_en": "Official channel of the Faculty of Electrical Engineering at CTU Prague, featuring research and lectures.",
+    "desc_cs": "Oficiální kanál Fakulty elektrotechnické ČVUT v Praze, představující výzkum a přednášky.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "jaderka": {
     "category": "youtube",
     "name": "Jaderka [fjfi]",
     "link": "https://www.youtube.com/@videoFJFI",
-    "author": "FJFI ČVUT"
+    "author": "FJFI ČVUT",
+    "image": "jaderka_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Education",
+      "Czech"
+    ],
+    "title_en": "Jaderka [fjfi]",
+    "title_cs": "Jaderka [fjfi]",
+    "desc_en": "Faculty of Nuclear Sciences and Physical Engineering at CTU Prague, sharing science talks and events.",
+    "desc_cs": "Fakulta jaderná a fyzikálně inženýrská ČVUT v Praze, sdílející vědecké přednášky a akce.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "kapitalista": {
     "category": "youtube",
     "name": "Kapitalista",
     "link": "https://www.youtube.com/@KapitalistaYT",
-    "author": "Kapitalista"
+    "author": "Kapitalista",
+    "image": "kapitalista_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Finance",
+      "Czech"
+    ],
+    "title_en": "Kapitalista",
+    "title_cs": "Kapitalista",
+    "desc_en": "Czech educational channel focusing on investing, finance, and financial literacy.",
+    "desc_cs": "Český vzdělávací kanál zaměřený na investování, finance a finanční gramotnost.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "steve_mould": {
     "category": "youtube",
     "name": "Steve Mould",
     "link": "https://www.youtube.com/@stevemould",
-    "author": "Steve Mould"
+    "author": "Steve Mould",
+    "image": "steve_mould_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Science",
+      "Physics"
+    ],
+    "title_en": "Steve Mould",
+    "title_cs": "Steve Mould",
+    "desc_en": "Fun and engaging science experiments explaining physics and chemistry principles in everyday life.",
+    "desc_cs": "Zábavné a poutavé vědecké experimenty vysvětlující principy fyziky a chemie v každodenním životě.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "online_ucitel": {
     "category": "youtube",
     "name": "Online Učitel",
     "link": "https://www.youtube.com/@OnlineUcitel",
-    "author": "Online Učitel"
+    "author": "Online Učitel",
+    "image": "online_ucitel_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Education",
+      "Czech"
+    ],
+    "title_en": "Online Učitel",
+    "title_cs": "Online Učitel",
+    "desc_en": "Czech educational channel helping students understand school mathematics and science subjects.",
+    "desc_cs": "Český vzdělávací kanál pomáhající studentům porozumět školní matematice a přírodovědným předmětům.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "artem_kirsanov": {
     "category": "youtube",
     "name": "Artem Kirsanov",
     "link": "https://www.youtube.com/@ArtemKirsanov",
-    "author": "Artem Kirsanov"
+    "author": "Artem Kirsanov",
+    "image": "artem_kirsanov_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Neuroscience",
+      "Biology"
+    ],
+    "title_en": "Artem Kirsanov",
+    "title_cs": "Artem Kirsanov",
+    "desc_en": "Visually stunning videos about neuroscience, cognitive science, and complex systems.",
+    "desc_cs": "Vizuálně úchvatná videa o neurovědě, kognitivní vědě a komplexních systémech.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "real_engineering": {
     "category": "youtube",
     "name": "Real Engineering",
     "link": "https://www.youtube.com/@RealEngineering",
-    "author": "Shaun Fitzgerald"
+    "author": "Shaun Fitzgerald",
+    "image": "real_engineering_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Engineering",
+      "History"
+    ],
+    "title_en": "Real Engineering",
+    "title_cs": "Real Engineering",
+    "desc_en": "Detailed animated breakdowns of mechanical, civil, and aerospace engineering milestones.",
+    "desc_cs": "Detailní animované rozbory milníků strojírenství, stavebnictví a letectví.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "scott_manley": {
     "category": "youtube",
     "name": "Scott Manley",
     "link": "https://www.youtube.com/@ScottManley",
-    "author": "Scott Manley"
+    "author": "Scott Manley",
+    "image": "scott_manley_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Space",
+      "Astronomy"
+    ],
+    "title_en": "Scott Manley",
+    "title_cs": "Scott Manley",
+    "desc_en": "Space science, orbital mechanics, and rocket technology explained by an astrophysicist.",
+    "desc_cs": "Vesmírná věda, orbitální mechanika a raketové technologie vysvětlené astrofyzikem.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "gal_lahat": {
     "category": "youtube",
     "name": "Gal Lahat",
     "link": "https://www.youtube.com/@GalLahat/featured",
-    "author": "Gal Lahat"
+    "author": "Gal Lahat",
+    "image": "gal_lahat_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Tech",
+      "Coding"
+    ],
+    "title_en": "Gal Lahat",
+    "title_cs": "Gal Lahat",
+    "desc_en": "Informative videos analyzing software engineering, system design, and coding career tips.",
+    "desc_cs": "Informativní videa analyzující softwarové inženýrství, návrh systémů a tipy pro kariéru v kódování.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "alexander_amini": {
     "category": "youtube",
     "name": "Alexander Amini",
     "link": "https://www.youtube.com/@AAmini",
-    "author": "Alexander Amini"
+    "author": "Alexander Amini",
+    "image": "alexander_amini_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "AI",
+      "MIT"
+    ],
+    "title_en": "Alexander Amini",
+    "title_cs": "Alexander Amini",
+    "desc_en": "Lecturer of MIT Introduction to Deep Learning (6.S191), sharing cutting-edge AI research.",
+    "desc_cs": "Přednášející kurzu MIT Introduction to Deep Learning (6.S191), sdílející špičkový výzkum v oblasti AI.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "ai_explained": {
     "category": "youtube",
     "name": "AI Explained",
     "link": "https://www.youtube.com/@aiexplained-official",
-    "author": "AI Explained"
+    "author": "AI Explained",
+    "image": "ai_explained_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "AI",
+      "Analysis"
+    ],
+    "title_en": "AI Explained",
+    "title_cs": "AI Explained",
+    "desc_en": "Clear, in-depth analysis of the latest advancements, papers, and models in artificial intelligence.",
+    "desc_cs": "Jasná a hloubková analýza nejnovějších pokroků, vědeckých prací a modelů v oblasti umělé inteligence.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "aleph_zero": {
     "category": "youtube",
     "name": "Aleph 0",
     "link": "https://www.youtube.com/@Aleph0",
-    "author": "Aleph 0"
+    "author": "Aleph 0",
+    "image": "aleph_zero_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Math",
+      "Physics"
+    ],
+    "title_en": "Aleph 0",
+    "title_cs": "Aleph 0",
+    "desc_en": "Beautiful math visualizations and explanations of challenging mathematical equations.",
+    "desc_cs": "Krásné vizualizace matematiky a vysvětlení náročných matematických rovnic.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "efficient_engineer": {
     "category": "youtube",
     "name": "The Efficient Engineer",
     "link": "https://www.youtube.com/c/TheEfficientEngineer",
-    "author": "The Efficient Engineer"
+    "author": "The Efficient Engineer",
+    "image": "efficient_engineer_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Engineering",
+      "Physics"
+    ],
+    "title_en": "The Efficient Engineer",
+    "title_cs": "The Efficient Engineer",
+    "desc_en": "Clear visualizations of mechanical engineering concepts like stress analysis and thermodynamics.",
+    "desc_cs": "Jasné vizualizace konceptů strojírenství, jako je analýza napětí a termodynamika.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "cgp_grey": {
     "category": "youtube",
     "name": "CGP Grey",
     "link": "https://www.youtube.com/@cgpgrey",
-    "author": "CGP Grey"
+    "author": "CGP Grey",
+    "image": "cgp_grey_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Education",
+      "History"
+    ],
+    "title_en": "CGP Grey",
+    "title_cs": "CGP Grey",
+    "desc_en": "Humorous and highly detailed animated explanations of politics, geography, and history.",
+    "desc_cs": "Humorná a velmi podrobná animovaná vysvětlení politiky, geografie a historie.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "quanta_magazine": {
     "category": "youtube",
     "name": "Quanta Magazine",
     "link": "https://www.youtube.com/@QuantaScienceChannel",
-    "author": "Quanta Magazine"
+    "author": "Quanta Magazine",
+    "image": "quanta_magazine_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Science",
+      "Math"
+    ],
+    "title_en": "Quanta Magazine",
+    "title_cs": "Quanta Magazine",
+    "desc_en": "Public-service science journalism covering mathematics, physics, and computer science breakthroughs.",
+    "desc_cs": "Veřejnoprávní vědecká žurnalistika pokrývající průlomy v matematice, fyzice a informatice.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "lemmino": {
     "category": "youtube",
     "name": "LEMMiNO",
     "link": "https://www.youtube.com/@LEMMiNO",
-    "author": "LEMMiNO"
+    "author": "LEMMiNO",
+    "image": "lemmino_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Documentary",
+      "Mystery"
+    ],
+    "title_en": "LEMMiNO",
+    "title_cs": "LEMMiNO",
+    "desc_en": "Masterfully edited documentary-style videos investigating mysteries, space, and history.",
+    "desc_cs": "Mistrovsky sestříhaná dokumentární videa zkoumající záhady, vesmír a historii.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "andrej_karpathy": {
     "category": "youtube",
     "name": "Andrej Karpathy",
     "link": "https://www.youtube.com/channel/UCXUPKJO5MZQN11PqgIvyuvQ",
-    "author": "Andrej Karpathy"
+    "author": "Andrej Karpathy",
+    "image": "andrej_karpathy_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "AI",
+      "Deep Learning"
+    ],
+    "title_en": "Andrej Karpathy",
+    "title_cs": "Andrej Karpathy",
+    "desc_en": "Outstanding deep-dive coding tutorials on neural networks and building GPT models from scratch.",
+    "desc_cs": "Vynikající hloubkové programovací tutoriály o neuronových sítích a stavbě GPT modelů od nuly.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "integza": {
     "category": "youtube",
     "name": "Integza",
     "link": "https://www.youtube.com/@Integza",
-    "author": "Integza"
+    "author": "Integza",
+    "image": "integza_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Engineering",
+      "DIY"
+    ],
+    "title_en": "Integza",
+    "title_cs": "Integza",
+    "desc_en": "Building and 3D printing custom rocket engines, jet engines, and experimental turbines.",
+    "desc_cs": "Stavba a 3D tisk vlastních raketových motorů, proudových motorů a experimentálních turbín.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "bps_space": {
     "category": "youtube",
     "name": "BPS.space",
     "link": "https://www.youtube.com/@BPSspace",
-    "author": "Joe Barnard"
+    "author": "Joe Barnard",
+    "image": "bps_space_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Aerospace",
+      "Engineering"
+    ],
+    "title_en": "BPS.space",
+    "title_cs": "BPS.space",
+    "desc_en": "Designing, building, and launching thrust-vector controlled model rockets and guidance computers.",
+    "desc_cs": "Navrhování, stavba a starty modelů raket s řízeným vektorem tahu a naváděcími počítači.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "sebastian_lague": {
     "category": "youtube",
     "name": "Sebastian Lague",
     "link": "https://www.youtube.com/@SebastianLague",
-    "author": "Sebastian Lague"
+    "author": "Sebastian Lague",
+    "image": "sebastian_lague_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Coding",
+      "GameDev"
+    ],
+    "title_en": "Sebastian Lague",
+    "title_cs": "Sebastian Lague",
+    "desc_en": "Incredible coding adventures, game development, simulations, and graphics programming.",
+    "desc_cs": "Neuvěřitelná dobrodružství při kódování, vývoj her, simulace a programování grafiky.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "hyperplexed": {
     "category": "youtube",
     "name": "Hyperplexed",
     "link": "https://www.youtube.com/c/Hyperplexed",
-    "author": "Hyperplexed"
+    "author": "Hyperplexed",
+    "image": "hyperplexed_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Web Design",
+      "Coding"
+    ],
+    "title_en": "Hyperplexed",
+    "title_cs": "Hyperplexed",
+    "desc_en": "Brilliant web design tutorials, CSS masterclasses, and rebuilding creative layouts.",
+    "desc_cs": "Skvělé tutoriály o webdesignu, CSS masterclasses a předělávání kreativních rozvržení.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "jirka_vysvetluje": {
     "category": "youtube",
     "name": "Jirka vysvětluje věci",
     "link": "https://www.youtube.com/@Jirkavysvetlujeveci",
-    "author": "Jiří Burísek"
+    "author": "Jiří Burísek",
+    "image": "jirka_vysvetluje_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Education",
+      "Czech"
+    ],
+    "title_en": "Jirka vysvětluje věci",
+    "title_cs": "Jirka vysvětluje věci",
+    "desc_en": "Czech documentary channel explaining diverse interesting topics about history, society, and technology.",
+    "desc_cs": "Český dokumentární kanál vysvětlující různá zajímavá témata o historii, společnosti a technologiích.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "everyday_astronaut": {
     "category": "youtube",
     "name": "Everyday Astronaut",
     "link": "https://www.youtube.com/@everydayastronaut",
-    "author": "Tim Dodd"
+    "author": "Tim Dodd",
+    "image": "everyday_astronaut_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Space",
+      "Aerospace"
+    ],
+    "title_en": "Everyday Astronaut",
+    "title_cs": "Everyday Astronaut",
+    "desc_en": "In-depth aerospace engineering and coverage of SpaceX, NASA, and global rocket launches.",
+    "desc_cs": "Hloubkové letectví a zpravodajství o starttech raket SpaceX, NASA a dalších světových agentur.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "vsauce": {
     "category": "youtube",
     "name": "Vsauce",
     "link": "https://www.youtube.com/@Vsauce",
-    "author": "Michael Stevens"
+    "author": "Michael Stevens",
+    "image": "vsauce_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Science",
+      "Philosophy"
+    ],
+    "title_en": "Vsauce",
+    "title_cs": "Vsauce",
+    "desc_en": "Mind-bending philosophical and scientific questions explored by Michael Stevens.",
+    "desc_cs": "Fascinující filozofické a vědecké otázky zkoumané Michaelem Stevensem.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "smarter_every_day": {
     "category": "youtube",
     "name": "SmarterEveryDay",
     "link": "https://www.youtube.com/channel/UC6107grRI4m0o2-emgoDnAA",
-    "author": "Destin Sandlin"
+    "author": "Destin Sandlin",
+    "image": "smarter_every_day_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Science",
+      "Engineering"
+    ],
+    "title_en": "SmarterEveryDay",
+    "title_cs": "SmarterEveryDay",
+    "desc_en": "Exploring the world using science, engineering, and ultra-high-speed photography.",
+    "desc_cs": "Zkoumání světa pomocí vědy, inženýrství a ultra-vysokorychlostní fotografie.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   },
   "bycloud": {
     "category": "youtube",
     "name": "bycloud",
     "link": "https://www.youtube.com/@bycloudAI",
-    "author": "bycloud"
+    "author": "bycloud",
+    "image": "bycloud_logo.png",
+    "status": "ongoing",
+    "tags": [
+      "Tech",
+      "AI"
+    ],
+    "title_en": "bycloud",
+    "title_cs": "bycloud",
+    "desc_en": "Documentary-style animations and stories about the history of computing and hardware engineering.",
+    "desc_cs": "Dokumentární animace a příběhy o historii počítačů a hardwarovém inženýrství.",
+    "date_en": "Recommended",
+    "date_cs": "Doporučeno"
   }
 }

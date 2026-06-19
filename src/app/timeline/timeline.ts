@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, Inject, PLATFO
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslationService } from '../translation.service';
+import timelineData from './timeline.json';
 
 interface PersonalActivity {
   id: string;
@@ -63,47 +64,20 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
   }
 
   personalActivities = computed<PersonalActivity[]>(() => {
-    const list: PersonalActivity[] = [
-      {
-        id: 'art',
-        label: this.ts.t()('act.art.label'),
-        icon: 'palette',
-        description: this.ts.t()('act.art.desc'),
-        color: '#ff006e', // Hot Pink
-        startYear: 2022,
-        startMonth: 9,
-        endYear: 2026,
-        endMonth: 6,
-        startDateLabel: this.currentLang() === 'en' ? 'Sept 2022' : 'Září 2022',
-        endDateLabel: this.currentLang() === 'en' ? 'June 2026' : 'Červen 2026'
-      },
-      {
-        id: 'physics',
-        label: this.ts.t()('act.physics.label'),
-        icon: 'rocket_launch',
-        description: this.ts.t()('act.physics.desc'),
-        color: '#3a86ff', // Neon Blue
-        startYear: 2024,
-        startMonth: 6,
-        endYear: 2024,
-        endMonth: 11,
-        startDateLabel: this.currentLang() === 'en' ? 'June 2024' : 'Června 2024',
-        endDateLabel: this.currentLang() === 'en' ? 'Nov 2024' : 'List. 2024'
-      },
-      {
-        id: 'sports',
-        label: this.ts.t()('act.sports.label'),
-        icon: 'sports_soccer',
-        description: this.ts.t()('act.sports.desc'),
-        color: '#ffbe0b', // Neon Yellow
-        startYear: 2025,
-        startMonth: 1,
-        endYear: 2025,
-        endMonth: 12,
-        startDateLabel: this.currentLang() === 'en' ? 'Jan 2025' : 'Led. 2025',
-        endDateLabel: this.currentLang() === 'en' ? 'Dec 2025' : 'Pros. 2025'
-      }
-    ];
+    const lang = this.currentLang();
+    const list = timelineData.personalActivities.map(act => ({
+      id: act.id,
+      label: lang === 'en' ? act.label_en : act.label_cs,
+      icon: act.icon,
+      description: lang === 'en' ? act.desc_en : act.desc_cs,
+      color: act.color,
+      startYear: act.startYear,
+      startMonth: act.startMonth,
+      endYear: act.endYear,
+      endMonth: act.endMonth,
+      startDateLabel: lang === 'en' ? act.startDateLabel_en : act.startDateLabel_cs,
+      endDateLabel: lang === 'en' ? act.endDateLabel_en : act.endDateLabel_cs
+    } as PersonalActivity));
 
     // Compute relative vertical percentages
     list.forEach(act => {
@@ -114,80 +88,33 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     return list;
   });
 
-  timelineItems = computed<TimelineItem[]>(() => [
-    {
-      type: 'education',
-      title: this.ts.t()('timeline.fontys.title'),
-      subtitle: this.ts.t()('timeline.fontys.sub'),
-      date: this.ts.t()('timeline.fontys.date'),
-      icon: 'upcoming',
-      bullets: [
-        this.ts.t()('timeline.fontys.b1'),
-        this.ts.t()('timeline.fontys.b2'),
-        this.ts.t()('timeline.fontys.b3')
-      ]
-    },
-    {
-      type: 'work',
-      title: this.ts.t()('timeline.viktoria.title'),
-      subtitle: this.ts.t()('timeline.viktoria.sub'),
-      date: this.ts.t()('timeline.viktoria.date'),
-      icon: 'sports_soccer',
-      bullets: [
-        this.ts.t()('timeline.viktoria.b1'),
-        this.ts.t()('timeline.viktoria.b2'),
-        this.ts.t()('timeline.viktoria.b3')
-      ],
-      personalActivity: {
-        label: this.ts.t()('act.sports.label'),
-        icon: 'sports_soccer',
-        description: this.ts.t()('act.sports.desc'),
-        color: '#ffbe0b',
-        startDateLabel: this.currentLang() === 'en' ? 'Jan 2025' : 'Led. 2025',
-        endDateLabel: this.currentLang() === 'en' ? 'Dec 2025' : 'Pros. 2025'
-      }
-    },
-    {
-      type: 'work',
-      title: this.ts.t()('timeline.ppa.title'),
-      subtitle: this.ts.t()('timeline.ppa.sub'),
-      date: this.ts.t()('timeline.ppa.date'),
-      icon: 'groups',
-      bullets: [
-        this.ts.t()('timeline.ppa.b1'),
-        this.ts.t()('timeline.ppa.b2'),
-        this.ts.t()('timeline.ppa.b3')
-      ],
-      personalActivity: {
-        label: this.ts.t()('act.physics.label'),
-        icon: 'rocket_launch',
-        description: this.ts.t()('act.physics.desc'),
-        color: '#3a86ff',
-        startDateLabel: this.currentLang() === 'en' ? 'June 2024' : 'Června 2024',
-        endDateLabel: this.currentLang() === 'en' ? 'Nov 2024' : 'List. 2024'
-      }
-    },
-    {
-      type: 'education',
-      title: this.ts.t()('timeline.rokycany.title'),
-      subtitle: this.ts.t()('timeline.rokycany.sub'),
-      date: this.ts.t()('timeline.rokycany.date'),
-      icon: 'school',
-      bullets: [
-        this.ts.t()('timeline.rokycany.b1'),
-        this.ts.t()('timeline.rokycany.b2'),
-        this.ts.t()('timeline.rokycany.b3')
-      ],
-      personalActivity: {
-        label: this.ts.t()('act.art.label'),
-        icon: 'palette',
-        description: this.ts.t()('act.art.desc'),
-        color: '#ff006e',
-        startDateLabel: this.currentLang() === 'en' ? 'Sept 2022' : 'Září 2022',
-        endDateLabel: this.currentLang() === 'en' ? 'June 2026' : 'Červen 2026'
-      }
-    }
-  ]);
+  timelineItems = computed<TimelineItem[]>(() => {
+    const lang = this.currentLang();
+    const activities = this.personalActivities();
+
+    return timelineData.timelineItems.map(item => {
+      const personalActivity = item.personalActivityId
+        ? activities.find(a => a.id === item.personalActivityId)
+        : undefined;
+
+      return {
+        type: item.type as 'work' | 'education',
+        title: lang === 'en' ? item.title_en : item.title_cs,
+        subtitle: lang === 'en' ? item.subtitle_en : item.subtitle_cs,
+        date: lang === 'en' ? item.date_en : item.date_cs,
+        icon: item.icon,
+        bullets: lang === 'en' ? item.bullets_en : item.bullets_cs,
+        personalActivity: personalActivity ? {
+          label: personalActivity.label,
+          icon: personalActivity.icon,
+          description: personalActivity.description,
+          color: personalActivity.color,
+          startDateLabel: personalActivity.startDateLabel,
+          endDateLabel: personalActivity.endDateLabel
+        } : undefined
+      } as TimelineItem;
+    });
+  });
 
   activityLines: Array<{ index: number; horizontalPath: string; verticalPath: string; color: string }> = [];
 

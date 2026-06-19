@@ -1,16 +1,13 @@
 <div class="split-section-container" [class.image-right]="imageOnRight">
   <div class="content-side">
-    @if (sectionSubtitle) {
-      <span class="subtitle">{{ sectionSubtitle }}</span>
-    }
     @if (sectionTitle) {
-      <h2 class="title">{{ sectionTitle }}</h2>
+    <h2 class="title">{{ sectionTitle }}</h2>
     }
     <div class="description">
       <ng-content></ng-content>
     </div>
   </div>
-  
+
   <div class="image-side">
     <div class="image-wrapper">
       <img [src]="imageSrc" [alt]="imageAlt" class="split-image" />

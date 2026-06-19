@@ -1,0 +1,129 @@
+{
+  "personalActivities": [
+    {
+      "id": "art",
+      "icon": "palette",
+      "color": "#ff006e",
+      "startYear": 2022,
+      "startMonth": 9,
+      "endYear": 2026,
+      "endMonth": 6,
+      "label_en": "Art Club & School Volunteering",
+      "label_cs": "Výtvarný kroužek & školní dobrovolnictví",
+      "desc_en": "Volunteered to coordinate custom physical/digital artwork commissions and designed school community farewell gifts, utilizing acrylic painting and pastels.",
+      "desc_cs": "Dobrovolná koordinace zakázek na fyzické a digitální umění, tvorba rozlučkových dárků pro školní komunitu (akrylové malby, pastely).",
+      "startDateLabel_en": "Sept 2022",
+      "startDateLabel_cs": "Září 2022",
+      "endDateLabel_en": "June 2026",
+      "endDateLabel_cs": "Červen 2026"
+    },
+    {
+      "id": "physics",
+      "icon": "rocket_launch",
+      "color": "#3a86ff",
+      "startYear": 2024,
+      "startMonth": 6,
+      "endYear": 2024,
+      "endMonth": 11,
+      "label_en": "Aerospace & Physics Research",
+      "label_cs": "Výzkum v oblasti letectví a fyziky",
+      "desc_en": "Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.",
+      "desc_cs": "Návrh a simulace matematického modelu stínové projekce pro konvexní 3D tvary s využitím analytické geometrie, vektorové analýzy a Pythonu.",
+      "startDateLabel_en": "June 2024",
+      "startDateLabel_cs": "Června 2024",
+      "endDateLabel_en": "Nov 2024",
+      "endDateLabel_cs": "List. 2024"
+    },
+    {
+      "id": "sports",
+      "icon": "sports_soccer",
+      "color": "#ffbe0b",
+      "startYear": 2025,
+      "startMonth": 1,
+      "endYear": 2025,
+      "endMonth": 12,
+      "label_en": "Team Sports (Football/Floorball)",
+      "label_cs": "Týmové sporty (Fotbal/Florbal)",
+      "desc_en": "Engaged in competitive team sports to build tactical cooperation, leadership, and quick decision-making under physical and mental pressure.",
+      "desc_cs": "Účast v soutěžních týmových sportech s cílem rozvíjet taktickou spolupráci, vůdčí schopnosti a rychlé rozhodování pod fyzickým a psychickým tlakem.",
+      "startDateLabel_en": "Jan 2025",
+      "startDateLabel_cs": "Led. 2025",
+      "endDateLabel_en": "Dec 2025",
+      "endDateLabel_cs": "Pros. 2025"
+    }
+  ],
+  "timelineItems": [
+    {
+      "type": "education",
+      "title_en": "Fontys University of Applied Sciences",
+      "title_cs": "Univerzita aplikovaných věd Fontys",
+      "subtitle_en": "Bachelor of Science in Mechatronics",
+      "subtitle_cs": "Bakalář věd v oboru mechatroniky",
+      "date_en": "Sept 2026 – Future (Upcoming)",
+      "date_cs": "Září 2026 – Budoucnost (Následující)",
+      "icon": "upcoming",
+      "bullets_en": [
+        "Status: conditionally accepted awaiting IBDP results on July 6th. ",
+        "The programme is focused on practical knowledge, requiring mandatory internships at companies"
+      ],
+      "bullets_cs": [
+        "Status: podmíněně přijat, čekám na výsledky IBDP 6. července. ",
+        "Program se zaměřuje na praktické znalosti a vyžaduje povinné stáže ve firmách"
+      ]
+    },
+    {
+      "type": "work",
+      "title_en": "Stadion Viktoria Plzeň",
+      "title_cs": "Stadion Viktoria Plzeň",
+      "subtitle_en": "Fast-food Stall",
+      "subtitle_cs": "Obsluha Fast-food stánku",
+      "date_en": "June 2025 - December 2025",
+      "date_cs": "Červen 2025 - Prosinec 2025",
+      "icon": "sports_soccer",
+      "personalActivityId": "sports",
+      "bullets_en": [
+        "The nature of the work consisted of selling, preparing food and interacting with customersat a fast pace, during a football match."
+      ],
+      "bullets_cs": [
+        "Práce spočívala v prodeji, přípravě jídel a komunikaci se zákazníky ve vysokém tempu, během fotbalového utkání."
+      ]
+    },
+    {
+      "type": "work",
+      "title_en": "PPA Arena",
+      "title_cs": "PPA Arena",
+      "subtitle_en": "Cashier & Paintball Event Organizer",
+      "subtitle_cs": "Pokladní & organizátor paintballových akcí",
+      "date_en": "2023 – 2024",
+      "date_cs": "2023 – 2024",
+      "icon": "groups",
+      "personalActivityId": "physics",
+      "bullets_en": [
+        "Managed daily logistics, safety briefs, and client relations for paintball groups ranging from 6 to 90 participants per day.",
+        "Communicated event rules, handled fee collection, and guided foreign visitors (providing instructions in English and sometimes in German)."
+      ],
+      "bullets_cs": [
+        "Správa denní logistiky, bezpečnostních školení a klientských vztahů pro paintballové skupiny od 6 do 90 účastníků denně.",
+        "Vysvětlování pravidel, výběr poplatků a navigace zahraničních návštěvníků (poskytování instrukcí v angličtině a někdy v němčině)."
+      ]
+    },
+    {
+      "type": "education",
+      "title_en": "Gymnázium Rokycany",
+      "title_cs": "Gymnázium Rokycany",
+      "subtitle_en": "International Baccalaureate (IB) Diploma Programme",
+      "subtitle_cs": "Program International Baccalaureate (IB) Diploma",
+      "date_en": "Sept 2022 – June 2026 (ongoing)",
+      "date_cs": "Září 2022 – Červen 2026 (probíhá)",
+      "icon": "school",
+      "personalActivityId": "art",
+      "bullets_en": [
+        "Have taken these courses: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL."
+      ],
+      "bullets_cs": [
+        "Navštěvoval jsem tyto předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL.",
+        "IB program, obshajue 2 roky studia kompltně v angličtině."
+      ]
+    }
+  ]
+}

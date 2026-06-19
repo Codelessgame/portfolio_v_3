@@ -11,5 +11,5 @@ export class SplitSection {
   @Input() imageAlt: string = 'Section Image';
   @Input() imageOnRight: boolean = false;
   @Input() sectionTitle: string = '';
-  @Input() sectionSubtitle: string = '';
+  // @Input() sectionSubtitle: string = '';
 }

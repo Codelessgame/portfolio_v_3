@@ -1,0 +1,29 @@
+[
+  {
+    "title": "GitHub",
+    "link": "https://github.com/Codelessgame",
+    "imageUrl": "code_img.jpg",
+    "desc_en": "Explore my open-source repositories, web apps, and coding projects.",
+    "desc_cs": "Prozkoumejte mé open-source repozitáře, webové aplikace a programátorské projekty.",
+    "linkText_en": "View Code",
+    "linkText_cs": "Zobrazit kód"
+  },
+  {
+    "title": "Instagram",
+    "link": "https://www.instagram.com/stanislav_ruza/profilecard/?igsh=enEzZHc2aGIxemk0",
+    "imageUrl": "art_img.jpg",
+    "desc_en": "Check out my 2D art, designs, sketches, and creative works.",
+    "desc_cs": "Podívejte se na mé 2D umění, designy, skici a kreativní tvorbu.",
+    "linkText_en": "View Art",
+    "linkText_cs": "Zobrazit umění"
+  },
+  {
+    "title": "Printables",
+    "link": "https://www.printables.com/",
+    "imageUrl": "3D_art.jpg",
+    "desc_en": "Browse my 3D printing designs, CAD models, and engineering parts.",
+    "desc_cs": "Procházejte mé 3D tištěné designy, CAD modely a inženýrské díly.",
+    "linkText_en": "View Prints",
+    "linkText_cs": "Zobrazit tisky"
+  }
+]

@@ -1,5 +1,6 @@
 import { Component, inject, computed } from '@angular/core';
 import { TranslationService } from '../translation.service';
+import creativeCards from './creative.json';
 
 interface CardItem {
   title: string;
@@ -22,27 +23,14 @@ export class FeaturedCards {
     return this.ts.t()(key);
   }
 
-  cards = computed<CardItem[]>(() => [
-    {
-      title: 'GitHub',
-      description: this.ts.t()('creative.github_desc'),
-      link: 'https://github.com/Codelessgame',
-      imageUrl: 'code_img.jpg',
-      linkText: this.ts.t()('creative.view_code')
-    },
-    {
-      title: 'Instagram',
-      description: this.ts.t()('creative.art_desc'),
-      link: 'https://www.instagram.com/stanislav_ruza/profilecard/?igsh=enEzZHc2aGIxemk0',
-      imageUrl: 'art_img.jpg',
-      linkText: this.ts.t()('creative.view_art')
-    },
-    {
-      title: 'Printables',
-      description: this.ts.t()('creative.printables_desc'),
-      link: 'https://www.printables.com/',
-      imageUrl: '3D_art.jpg',
-      linkText: this.ts.t()('creative.view_prints')
-    }
-  ]);
+  cards = computed<CardItem[]>(() => {
+    const lang = this.ts.currentLang();
+    return creativeCards.map(card => ({
+      title: card.title,
+      description: lang === 'en' ? card.desc_en : card.desc_cs,
+      link: card.link,
+      imageUrl: card.imageUrl,
+      linkText: lang === 'en' ? card.linkText_en : card.linkText_cs
+    }));
+  });
 }

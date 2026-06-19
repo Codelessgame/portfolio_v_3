@@ -12,6 +12,18 @@ interface VerifiedLinkItem {
   name: string;
   link: string;
   author: string;
+  image?: string;
+  status?: 'finished' | 'ongoing';
+  tags?: string[];
+  pinned?: boolean;
+  hasAnalysis?: boolean;
+  projectCategory?: 'embedded' | 'ai';
+  title_en: string;
+  title_cs: string;
+  desc_en: string;
+  desc_cs: string;
+  date_en: string;
+  date_cs: string;
 }
 
 export interface LibraryItem {
@@ -20,10 +32,17 @@ export interface LibraryItem {
   image: string;
   category?: 'embedded' | 'ai'; // for projects
   status?: 'finished' | 'ongoing';
-  translationPrefix: string;
   hasAnalysis?: boolean; // for books
   link?: string; // external link for youtube channels, or projects
   extraKey?: string; // tech stack, author name, creator
+  tags: string[];
+  pinned?: boolean;
+  title_en: string;
+  title_cs: string;
+  desc_en: string;
+  desc_cs: string;
+  date_en: string;
+  date_cs: string;
 }
 
 @Component({
@@ -95,119 +114,35 @@ export class Projects {
     this.selectedTags.set([]);
   }
 
-  // Pinned/fixed items to showcase at the top
-  pinnedItems: LibraryItem[] = [
-    {
-      id: 'rc_car',
-      image: 'rc_car_project.png',
-      type: 'project',
-      category: 'embedded',
-      status: 'finished',
-      translationPrefix: 'projects.rc_car',
-      extraKey: 'Arduino, C++, Bluetooth, CAD'
-    },
-    {
-      id: 'railway',
-      image: 'railway_switches_project.png',
-      type: 'project',
-      category: 'embedded',
-      status: 'finished',
-      translationPrefix: 'projects.railway',
-      extraKey: 'ESP32, MicroPython, I2C'
-    },
-    {
-      id: 'digit',
-      image: 'digit_recognizer_project.png',
-      type: 'project',
-      category: 'ai',
-      status: 'finished',
-      translationPrefix: 'projects.digit',
-      extraKey: 'TensorFlow, CNN, Python, JS'
-    }
-  ];
-
   // The searchable & filterable collection of ALL items
-  libraryItems: LibraryItem[] = [
-    // Projects (static)
-    {
-      id: 'rc_car',
-      image: 'rc_car_project.png',
-      type: 'project',
-      category: 'embedded',
-      status: 'finished',
-      translationPrefix: 'projects.rc_car',
-      extraKey: 'Arduino, C++, Bluetooth, CAD'
-    },
-    {
-      id: 'railway',
-      image: 'railway_switches_project.png',
-      type: 'project',
-      category: 'embedded',
-      status: 'finished',
-      translationPrefix: 'projects.railway',
-      extraKey: 'ESP32, MicroPython, I2C'
-    },
-    {
-      id: 'digit',
-      image: 'digit_recognizer_project.png',
-      type: 'project',
-      category: 'ai',
-      status: 'finished',
-      translationPrefix: 'projects.digit',
-      extraKey: 'TensorFlow, CNN, Python, JS'
-    },
-    {
-      id: 'music',
-      image: 'music_attention_project.png',
-      type: 'project',
-      category: 'ai',
-      status: 'finished',
-      translationPrefix: 'projects.music',
-      extraKey: 'PyTorch, Transformers, Spectral Analysis'
-    },
-    {
-      id: 'slm',
-      image: 'small_language_model_project.png',
-      type: 'project',
-      category: 'ai',
-      status: 'ongoing',
-      translationPrefix: 'projects.slm',
-      extraKey: 'PyTorch, Tokenization, Transformer'
-    },
-    // Dynamic books and channels from JSON
-    ...Object.entries(verifiedLinks as Record<string, VerifiedLinkItem>).map(([id, item]) => {
-      const type = item.category === 'youtube' ? 'youtube' : 'book';
-      
-      // Determine image cover
-      let image = 'book_placeholder.png';
-      if (type === 'book') {
-        if (id === 'atomic-habits') image = 'atomic_habits_cover.png';
-        else if (id === 'clean-code') image = 'clean_code_cover.png';
-        else if (id === 'design-things') image = 'design_things_cover.png';
-        else if (id === 'electrodynamics') image = 'electrodynamics_cover.png';
-      } else {
-        image = id === 'three_blue_one_brown' ? '3b1b_logo.png' : `${id}_logo.png`;
-      }
+  libraryItems: LibraryItem[] = Object.entries(verifiedLinks as Record<string, VerifiedLinkItem>).map(([id, item]) => {
+    const type = item.category as 'project' | 'book' | 'youtube' | 'podcast';
+    return {
+      id,
+      type,
+      image: item.image || (type === 'book' ? 'book_placeholder.png' : `${id}_logo.png`),
+      category: item.projectCategory,
+      status: item.status || (type === 'youtube' ? 'ongoing' : 'finished'),
+      hasAnalysis: !!item.hasAnalysis,
+      link: item.link || undefined,
+      extraKey: item.author || undefined,
+      tags: item.tags || [],
+      pinned: !!item.pinned,
+      title_en: item.title_en,
+      title_cs: item.title_cs,
+      desc_en: item.desc_en,
+      desc_cs: item.desc_cs,
+      date_en: item.date_en,
+      date_cs: item.date_cs
+    } as LibraryItem;
+  });
 
-      // Determine status
-      const ongoingBookIds = ['electrodynamics', 'ai-modern-approach', 'rocket-propulsion-elements'];
-      const status = (type === 'youtube' || ongoingBookIds.includes(id)) ? 'ongoing' : 'finished';
+  // Pinned/fixed items to showcase at the top
+  pinnedItems: LibraryItem[] = [];
 
-      // Determine hasAnalysis
-      const hasAnalysis = id === 'atomic-habits' || id === 'clean-code';
-
-      return {
-        id,
-        type,
-        image,
-        status,
-        translationPrefix: `projects.${id.replace(/-/g, '_')}`,
-        hasAnalysis,
-        extraKey: item.author,
-        link: item.link
-      } as LibraryItem;
-    })
-  ];
+  constructor() {
+    this.pinnedItems = this.libraryItems.filter(item => item.pinned);
+  }
 
   sortMode = signal<'default' | 'default-rev' | 'alpha-asc' | 'alpha-desc' | 'date-desc' | 'date-asc'>('default');
 
@@ -271,131 +206,12 @@ export class Projects {
   }
 
   getItemTags(item: LibraryItem): string[] {
-    if (item.type === 'project') {
-      return item.extraKey ? item.extraKey.split(',').map(s => s.trim()) : [];
-    }
-
-    if (item.type === 'youtube') {
-      const defaultTags = ['YouTube'];
-      const ytTags: Record<string, string[]> = {
-        three_blue_one_brown: ['Math', 'Visualization'],
-        veritasium: ['Science', 'Physics'],
-        mark_rober: ['Engineering', 'Science'],
-        stuff_made_here: ['Engineering', 'DIY'],
-        nikhil_kamath: ['Business', 'Podcast'],
-        ivysilani: ['TV', 'Czech'],
-        andy_guitar: ['Music', 'Guitar'],
-        herdyn: ['Gaming', 'Czech'],
-        mit_ocw: ['Education', 'University'],
-        revision_village: ['Math', 'IB'],
-        cvutfel: ['Education', 'Czech'],
-        jaderka: ['Education', 'Czech'],
-        kapitalista: ['Finance', 'Czech'],
-        steve_mould: ['Science', 'Physics'],
-        online_ucitel: ['Education', 'Czech'],
-        learntube: ['Education', 'Czech'],
-        artem_kirsanov: ['Neuroscience', 'Biology'],
-        real_engineering: ['Engineering', 'History'],
-        scott_manley: ['Space', 'Astronomy'],
-        gal_lahat: ['Tech', 'Coding'],
-        alexander_amini: ['AI', 'MIT'],
-        ai_explained: ['AI', 'Analysis'],
-        aleph_zero: ['Math', 'Physics'],
-        aleph_0: ['Math', 'Physics'],
-        efficient_engineer: ['Engineering', 'Physics'],
-        cgp_grey: ['Education', 'History'],
-        quanta_magazine: ['Science', 'Math'],
-        lemmino: ['Documentary', 'Mystery'],
-        andrej_karpathy: ['AI', 'Deep Learning'],
-        integza: ['Engineering', 'DIY'],
-        bps_space: ['Aerospace', 'Engineering'],
-        sebastian_lague: ['Coding', 'GameDev'],
-        hyperplexed: ['Web Design', 'Coding'],
-        jirka_vysvetluje: ['Education', 'Czech'],
-        everyday_astronaut: ['Space', 'Aerospace'],
-        vsauce: ['Science', 'Philosophy'],
-        smarter_every_day: ['Science', 'Engineering'],
-        bycloud: ['Tech', 'AI']
-      };
-      return ytTags[item.id] || defaultTags;
-    }
-
-    if (item.type === 'book') {
-      const defaultTags = ['Book'];
-      const bookTags: Record<string, string[]> = {
-        'atomic-habits': ['Productivity', 'Self-Help'],
-        'clean-code': ['Coding', 'Software'],
-        'design-things': ['Design', 'UX'],
-        electrodynamics: ['Physics', 'Electromagnetism'],
-        'nineteen-eighty-four': ['Classic', 'Dystopian'],
-        'bible-first-100-pages': ['Religion', 'History'],
-        'surely-youre-joking-feynman': ['Biography', 'Physics'],
-        'feynman-lectures-vol1': ['Physics', 'Science'],
-        'white-disease': ['Classic', 'Drama', 'Czech'],
-        'war-with-the-newts': ['Sci-Fi', 'Satire', 'Czech'],
-        'mother-capek': ['Classic', 'Drama', 'Czech'],
-        'hitchhikers-guide': ['Sci-Fi', 'Comedy'],
-        'handmaids-tale': ['Fiction', 'Dystopian'],
-        'to-kill-a-mockingbird': ['Classic', 'Fiction'],
-        'ten-rules-for-life': ['Psychology', 'Self-Help'],
-        'beyond-order': ['Psychology', 'Self-Help'],
-        'why-we-sleep': ['Science', 'Health'],
-        'structures-why-things-dont-fall': ['Engineering', 'Physics'],
-        'stiff-cadavers': ['Science', 'Biology'],
-        'rich-dad-poor-dad': ['Finance', 'Business'],
-        'modern-computer-graphics': ['Graphics', 'Coding'],
-        'fahrenheit-451': ['Classic', 'Dystopian'],
-        antigone: ['Classic', 'Drama'],
-        'divine-comedy': ['Classic', 'Poetry'],
-        'day-of-the-jackal': ['Thriller', 'Fiction'],
-        'diary-of-anne-frank': ['Biography', 'History'],
-        'animal-farm': ['Classic', 'Satire'],
-        ivanhoe: ['Classic', 'Historical'],
-        'brave-new-world': ['Classic', 'Dystopian'],
-        krakatit: ['Sci-Fi', 'Czech'],
-        'ku-klux-klan': ['Non-Fiction', 'History'],
-        butterball: ['Classic', 'Fiction'],
-        'a-bouquet': ['Classic', 'Poetry', 'Czech'],
-        'the-miser': ['Classic', 'Comedy'],
-        'the-little-prince': ['Classic', 'Philosophy'],
-        'prayer-for-katerina-horovitzova': ['Classic', 'Czech'],
-        'all-quiet-on-western-front': ['Classic', 'Historical'],
-        'lord-of-the-rings': ['Fantasy', 'Classic'],
-        persepolis: ['Biography', 'Graphic Novel'],
-        'hound-of-the-baskervilles': ['Mystery', 'Classic'],
-        'tales-of-the-little-quarter': ['Classic', 'Czech'],
-        'change-kafka': ['Classic', 'Czech'],
-        'r-u-r': ['Sci-Fi', 'Drama', 'Czech'],
-        'robinson-crusoe': ['Classic', 'Adventure'],
-        'romeo-and-juliet': ['Classic', 'Drama'],
-        saturnin: ['Classic', 'Comedy', 'Czech'],
-        'great-gatsby': ['Classic', 'Fiction'],
-        'merry-wives-of-windsor': ['Classic', 'Comedy'],
-        'murder-on-orient-express': ['Mystery', 'Classic'],
-        'cowards-skvorecky': ['Classic', 'Czech'],
-        'crime-and-punishment': ['Classic', 'Psychology'],
-        'i-robot': ['Sci-Fi', 'Classic'],
-        'study-in-scarlet': ['Mystery', 'Classic'],
-        'become-investor': ['Finance', 'Investing'],
-        'sport-is-pain': ['Biography', 'Sport'],
-        'fault-in-our-stars': ['Fiction', 'Drama'],
-        'ai-modern-approach': ['AI', 'Computer Science'],
-        'flowers-for-algernon': ['Classic', 'Drama'],
-        'contact-sagan': ['Sci-Fi', 'Space'],
-        'safehold-series': ['Sci-Fi', 'Space'],
-        'children-of-time': ['Sci-Fi', 'Space'],
-        'rocket-propulsion-elements': ['Aerospace', 'Engineering']
-      };
-      return bookTags[item.id] || defaultTags;
-    }
-
-    return [];
+    return item.tags || [];
   }
 
   getYear(item: LibraryItem): number {
     if (item.type === 'youtube') return 2026;
-    const translator = this.ts.t();
-    const dateStr = translator(`${item.translationPrefix}.date`);
+    const dateStr = this.currentLang() === 'en' ? item.date_en : item.date_cs;
     if (!dateStr || dateStr.toLowerCase().includes('reading') || dateStr.toLowerCase().includes('ongoing') || dateStr.toLowerCase().includes('future')) {
       return 2026;
     }
@@ -414,6 +230,7 @@ export class Projects {
     const query = this.searchQuery().toLowerCase().trim();
     const cat = this.selectedCategory();
     const activeTags = this.selectedTags();
+    const lang = this.currentLang();
     const translator = this.ts.t();
 
     let items = this.libraryItems.filter(item => {
@@ -436,8 +253,8 @@ export class Projects {
 
       // Text Search Filter
       if (query) {
-        const title = translator(`${item.translationPrefix}.title`).toLowerCase();
-        const desc = translator(`${item.translationPrefix}.desc`).toLowerCase();
+        const title = (lang === 'en' ? item.title_en : item.title_cs).toLowerCase();
+        const desc = (lang === 'en' ? item.desc_en : item.desc_cs).toLowerCase();
         const extra = item.extraKey ? item.extraKey.toLowerCase() : '';
         const tags = this.getItemTags(item).map(t => t.toLowerCase());
         const typeLabel = translator(`projects.filter_${item.type}`).toLowerCase();
@@ -454,15 +271,15 @@ export class Projects {
       return [...items].reverse();
     } else if (mode === 'alpha-asc') {
       return [...items].sort((a, b) => {
-        const titleA = translator(`${a.translationPrefix}.title`).toLowerCase();
-        const titleB = translator(`${b.translationPrefix}.title`).toLowerCase();
-        return titleA.localeCompare(titleB, this.currentLang());
+        const titleA = (lang === 'en' ? a.title_en : a.title_cs).toLowerCase();
+        const titleB = (lang === 'en' ? b.title_en : b.title_cs).toLowerCase();
+        return titleA.localeCompare(titleB, lang);
       });
     } else if (mode === 'alpha-desc') {
       return [...items].sort((a, b) => {
-        const titleA = translator(`${a.translationPrefix}.title`).toLowerCase();
-        const titleB = translator(`${b.translationPrefix}.title`).toLowerCase();
-        return titleB.localeCompare(titleA, this.currentLang());
+        const titleA = (lang === 'en' ? a.title_en : a.title_cs).toLowerCase();
+        const titleB = (lang === 'en' ? b.title_en : b.title_cs).toLowerCase();
+        return titleB.localeCompare(titleA, lang);
       });
     } else if (mode === 'date-desc') {
       return [...items].sort((a, b) => {
