@@ -85,7 +85,7 @@
     @for (item of timelineItems(); track item.title; let index = $index) {
       <div class="timeline-item" [class.education]="item.type === 'education'" [class.work]="item.type === 'work'">
         <div class="timeline-badge">
-          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.startYear }}</span>
         </div>
         
         <div class="timeline-card-wrapper">
@@ -95,7 +95,12 @@
             <span class="timeline-tag" [class.tag-work]="item.type === 'work'" [class.tag-edu]="item.type === 'education'">
               {{ item.type === 'work' ? t('timeline.work') : t('timeline.edu') }}
             </span>
-            <h3 class="timeline-title">{{ item.title }}</h3>
+            <h3 class="timeline-title">
+              @if (item.icon) {
+                <mat-icon class="card-icon">{{ item.icon }}</mat-icon>
+              }
+              {{ item.title }}
+            </h3>
             <h4 class="timeline-subtitle">{{ item.subtitle }}</h4>
             
             <ul class="timeline-bullets">

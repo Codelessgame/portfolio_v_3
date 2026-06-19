@@ -27,6 +27,8 @@ interface TimelineItem {
   date: string;
   icon: string;
   bullets: string[];
+  startYear: number;
+  startMonth: number;
   personalActivity?: {
     label: string;
     icon: string;
@@ -92,7 +94,7 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
     const lang = this.currentLang();
     const activities = this.personalActivities();
 
-    return timelineData.timelineItems.map(item => {
+    const mapped = timelineData.timelineItems.map(item => {
       const personalActivity = item.personalActivityId
         ? activities.find(a => a.id === item.personalActivityId)
         : undefined;
@@ -104,6 +106,8 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
         date: lang === 'en' ? item.date_en : item.date_cs,
         icon: item.icon,
         bullets: lang === 'en' ? item.bullets_en : item.bullets_cs,
+        startYear: item.startYear || 0,
+        startMonth: item.startMonth || 0,
         personalActivity: personalActivity ? {
           label: personalActivity.label,
           icon: personalActivity.icon,
@@ -113,6 +117,13 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
           endDateLabel: personalActivity.endDateLabel
         } : undefined
       } as TimelineItem;
+    });
+
+    // Sort reverse-chronologically (newest first)
+    return mapped.sort((a, b) => {
+      const aVal = a.startYear * 12 + a.startMonth;
+      const bVal = b.startYear * 12 + b.startMonth;
+      return bVal - aVal;
     });
   });
 
@@ -130,9 +141,9 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getPercentFromTop(year: number, month: number): number {
-    const startYear = 2022;
-    const startMonth = 9; // Sept 2022
-    const totalMonths = 48; // Sept 2022 to Sept 2026
+    const startYear = 2013;
+    const startMonth = 9; // Sept 2013
+    const totalMonths = 156; // Sept 2013 to Sept 2026
 
     const currentMonths = (year - startYear) * 12 + (month - startMonth);
     const clamped = Math.max(0, Math.min(totalMonths, currentMonths));
