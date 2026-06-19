@@ -124,6 +124,23 @@
         "Navštěvoval jsem tyto předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL.",
         "IB program, obshajue 2 roky studia kompltně v angličtině."
       ]
+    },
+    {
+      "type": "education",
+      "title_en": "Primary school T.G.M Rokycany",
+      "title_cs": "Základní škola T.G.M Rokycany",
+      "subtitle_en": "",
+      "subtitle_cs": "",
+      "date_en": "Sept 2013 – June 2022",
+      "date_cs": "Září 2013 – Červen 2022",
+      "startYear": 2013,
+      "startMonth": 9,
+      "endYear": 2022,
+      "endMonth": 6,
+      "ongoing": false,
+      "icon": "school",
+      "bullets_en": [],
+      "bullets_cs": []
     }
   ]
 }
