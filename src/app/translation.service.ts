@@ -44,11 +44,23 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Timeline Section
     'timeline.title': 'My Journey',
-    'timeline.subtitle': 'A timeline of my professional experience and education',
+    'timeline.subtitle': 'Interactive roadmap of my education, work experience, and extracurriculars',
     'timeline.work': 'Work Experience',
     'timeline.edu': 'Education',
+    'timeline.activities': 'Extracurricular & Projects',
+    'timeline.track_edu': 'Education',
+    'timeline.track_work': 'Work Experience',
+    'timeline.track_act': 'Activities & Projects',
     'timeline.upcoming': 'Upcoming',
     'timeline.ongoing': 'Ongoing',
+    'timeline.finished': 'Finished',
+    'timeline.now': 'NOW',
+    'timeline.select_item_hint': 'Click a milestone to inspect details (Hold Shift to select & compare multiple)',
+    'timeline.scroll_hint': '← Scroll or swipe horizontally to explore the roadmap →',
+    'timeline.key_skills': 'Key Highlights & Skills',
+    'timeline.era_all': 'All Years',
+    'timeline.era_early': '2022 – 2026',
+    'timeline.era_future': '2025 – 2030',
 
     'act.trace': 'Click to trace back to: ',
 
@@ -95,11 +107,23 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Timeline Section
     'timeline.title': 'Moje cesta',
-    'timeline.subtitle': 'Časová osa mého vzdělání a pracovních zkušeností',
+    'timeline.subtitle': 'Interaktivní časová osa mého vzdělání, pracovních zkušeností a projektů',
     'timeline.work': 'Pracovní zkušenosti',
     'timeline.edu': 'Vzdělání',
+    'timeline.activities': 'Mimoškolní aktivity a projekty',
+    'timeline.track_edu': 'Vzdělání',
+    'timeline.track_work': 'Pracovní zkušenosti',
+    'timeline.track_act': 'Aktivity a kroužky',
     'timeline.upcoming': 'Budoucí',
     'timeline.ongoing': 'Probíhá',
+    'timeline.finished': 'Dokončeno',
+    'timeline.now': 'NYNÍ',
+    'timeline.select_item_hint': 'Klikněte pro zobrazení podrobností (Držte Shift pro výběr a porovnání více položek)',
+    'timeline.scroll_hint': '← Posuňte vodorovně pro procházení časové osy →',
+    'timeline.key_skills': 'Klíčové dovednosti a body',
+    'timeline.era_all': 'Všechny roky',
+    'timeline.era_early': '2022 – 2026',
+    'timeline.era_future': '2025 – 2030',
 
 
     'act.trace': 'Klikněte pro návrat k: ',

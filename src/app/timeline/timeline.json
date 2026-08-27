@@ -8,6 +8,8 @@
       "startMonth": 9,
       "endYear": 2026,
       "endMonth": 6,
+      "lane": 0,
+      "status": "ongoing",
       "label_en": "Art Club",
       "label_cs": "Výtvarný kroužek",
       "desc_en": "Volunteered to coordinate custom physical/digital artwork commissions and designed school community farewell gifts, utilizing acrylic painting and pastels.",
@@ -15,7 +17,8 @@
       "startDateLabel_en": "Sept 2022",
       "startDateLabel_cs": "Září 2022",
       "endDateLabel_en": "June 2026",
-      "endDateLabel_cs": "Červen 2026"
+      "endDateLabel_cs": "Červen 2026",
+      "tags": ["Creative", "Design", "Commissions", "Volunteering"]
     },
     {
       "id": "volunteering",
@@ -25,6 +28,8 @@
       "startMonth": 9,
       "endYear": 2026,
       "endMonth": 6,
+      "lane": 1,
+      "status": "ongoing",
       "label_en": "School Volunteering",
       "label_cs": "Školní dobrovolnictví",
       "desc_en": "Organised school events and assisted with lower-grade activities, promoting community spirit and collaboration.",
@@ -32,16 +37,19 @@
       "startDateLabel_en": "Sept 2024",
       "startDateLabel_cs": "Září 2024",
       "endDateLabel_en": "June 2026",
-      "endDateLabel_cs": "Červen 2026"
+      "endDateLabel_cs": "Červen 2026",
+      "tags": ["Community", "Event Management", "Leadership"]
     },
     {
       "id": "physics",
       "icon": "smart_toy",
-      "color": "#3a86ff",
+      "color": "#06b6d4",
       "startYear": 2024,
       "startMonth": 9,
       "endYear": 2025,
       "endMonth": 6,
+      "lane": 2,
+      "status": "finished",
       "label_en": "Robotics Club",
       "label_cs": "Robotický kroužek",
       "desc_en": "Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.",
@@ -49,7 +57,8 @@
       "startDateLabel_en": "Sept 2024",
       "startDateLabel_cs": "Září 2024",
       "endDateLabel_en": "June 2025",
-      "endDateLabel_cs": "Červ. 2025"
+      "endDateLabel_cs": "Červ. 2025",
+      "tags": ["Python", "3D Math", "Vector Analysis", "Robotics"]
     },
     {
       "id": "sports",
@@ -59,6 +68,8 @@
       "startMonth": 4,
       "endYear": 2025,
       "endMonth": 6,
+      "lane": 3,
+      "status": "finished",
       "label_en": "Rugby",
       "label_cs": "Rugby",
       "desc_en": "Engaged in competitive team sports to build tactical cooperation, leadership, and quick decision-making under physical and mental pressure.",
@@ -66,118 +77,141 @@
       "startDateLabel_en": "April 2025",
       "startDateLabel_cs": "Dub. 2025",
       "endDateLabel_en": "June 2025",
-      "endDateLabel_cs": "Červ. 2025"
+      "endDateLabel_cs": "Červ. 2025",
+      "tags": ["Teamwork", "Tactics", "Athletics", "Leadership"]
     }
   ],
   "timelineItems": [
     {
+      "id": "fontys",
       "type": "education",
       "title_en": "Fontys University of Applied Sciences",
       "title_cs": "Univerzita aplikovaných věd Fontys",
       "subtitle_en": "Bachelor of Science in Mechatronics",
       "subtitle_cs": "Bakalář věd v oboru mechatroniky",
-      "date_en": "Sept 2026 – Future (Upcoming)",
-      "date_cs": "Září 2026 – Budoucnost (Následující)",
+      "date_en": "Sept 2026 – 2030 (Upcoming)",
+      "date_cs": "Září 2026 – 2030 (Budoucí)",
       "startYear": 2026,
       "startMonth": 9,
       "endYear": 2030,
       "endMonth": 7,
+      "status": "upcoming",
       "ongoing": false,
       "icon": "upcoming",
+      "color": "#1bc198",
+      "tags": ["Mechatronics", "Engineering", "Applied Sciences", "Hardware & Software"],
       "bullets_en": [
-        "Status: conditionally accepted awaiting IBDP results on July 6th. ",
-        "The programme is focused on practical knowledge, requiring mandatory internships at companies"
+        "Status: conditionally accepted awaiting IBDP results on July 6th.",
+        "The programme is focused on practical knowledge, requiring mandatory internships at innovative engineering companies."
       ],
       "bullets_cs": [
-        "Status: podmíněně přijat, čekám na výsledky IBDP 6. července. ",
-        "Program se zaměřuje na praktické znalosti a vyžaduje povinné stáže ve firmách"
+        "Status: podmíněně přijat, čekám na výsledky IBDP 6. července.",
+        "Program se zaměřuje na praktické znalosti a vyžaduje povinné stáže ve strojírenských a technologických firmách."
       ]
     },
     {
+      "id": "viktoria_plzen",
       "type": "work",
       "title_en": "Stadion Viktoria Plzeň",
       "title_cs": "Stadion Viktoria Plzeň",
-      "subtitle_en": "Fast-food Stall",
+      "subtitle_en": "Fast-food Stall Operator",
       "subtitle_cs": "Obsluha Fast-food stánku",
-      "date_en": "June 2025 - December 2025",
-      "date_cs": "Červen 2025 - Prosinec 2025",
+      "date_en": "June 2025 – Dec 2025",
+      "date_cs": "Červen 2025 – Prosinec 2025",
       "startYear": 2025,
       "startMonth": 6,
       "endYear": 2025,
       "endMonth": 12,
+      "status": "finished",
       "ongoing": false,
       "icon": "sports_soccer",
-      "personalActivityId": "sports",
+      "color": "#3a86ff",
+      "tags": ["Customer Service", "Fast-paced", "Cashier", "Teamwork"],
       "bullets_en": [
-        "The nature of the work consisted of selling, preparing food and interacting with customersat a fast pace, during a football match."
+        "Operated food preparation and customer service in a high-volume, fast-paced environment during football match days."
       ],
       "bullets_cs": [
-        "Práce spočívala v prodeji, přípravě jídel a komunikaci se zákazníky ve vysokém tempu, během fotbalového utkání."
+        "Práce spočívala v prodeji, přípravě jídel a komunikaci se zákazníky ve vysokém tempu během fotbalových utkání."
       ]
     },
     {
+      "id": "ppa_arena",
       "type": "work",
       "title_en": "PPA Arena",
       "title_cs": "PPA Arena",
       "subtitle_en": "Cashier & Paintball Event Organizer",
       "subtitle_cs": "Pokladní & organizátor paintballových akcí",
-      "date_en": "2023 – 2024",
-      "date_cs": "2023 – 2024",
+      "date_en": "June 2023 – June 2024",
+      "date_cs": "Červen 2023 – Červen 2024",
       "startYear": 2023,
       "startMonth": 6,
       "endYear": 2024,
       "endMonth": 6,
+      "status": "finished",
       "ongoing": false,
       "icon": "groups",
-      "personalActivityId": "physics",
+      "color": "#3a86ff",
+      "tags": ["Event Management", "Safety Briefs", "English/German Communication", "Logistics"],
       "bullets_en": [
         "Managed daily logistics, safety briefs, and client relations for paintball groups ranging from 6 to 90 participants per day.",
-        "Communicated event rules, handled fee collection, and guided foreign visitors (providing instructions in English and sometimes in German)."
+        "Communicated event rules, handled fee collection, and guided foreign visitors in English and German."
       ],
       "bullets_cs": [
         "Správa denní logistiky, bezpečnostních školení a klientských vztahů pro paintballové skupiny od 6 do 90 účastníků denně.",
-        "Vysvětlování pravidel, výběr poplatků a navigace zahraničních návštěvníků (poskytování instrukcí v angličtině a někdy v němčině)."
+        "Vysvětlování pravidel, výběr poplatků a navigace zahraničních návštěvníků v angličtině a němčině."
       ]
     },
     {
+      "id": "gymnazium",
       "type": "education",
       "title_en": "Gymnázium Rokycany",
       "title_cs": "Gymnázium Rokycany",
       "subtitle_en": "International Baccalaureate (IB) Diploma Programme",
       "subtitle_cs": "Program International Baccalaureate (IB) Diploma",
-      "date_en": "Sept 2022 – June 2026 (ongoing)",
-      "date_cs": "Září 2022 – Červen 2026 (probíhá)",
+      "date_en": "Sept 2022 – June 2026",
+      "date_cs": "Září 2022 – Červen 2026",
       "startYear": 2022,
       "startMonth": 9,
       "endYear": 2026,
       "endMonth": 6,
+      "status": "ongoing",
       "ongoing": true,
       "icon": "school",
-      "personalActivityId": "art",
+      "color": "#1bc198",
+      "tags": ["Math AA HL", "Physics HL", "English B HL", "Chemistry SL", "Bilingual 100% EN"],
       "bullets_en": [
-        "Have taken these courses: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL."
+        "Rigorous 2-year International Baccalaureate programme taught entirely in English.",
+        "Courses taken: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL."
       ],
       "bullets_cs": [
-        "Navštěvoval jsem tyto předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL.",
-        "IB program, obshajue 2 roky studia kompltně v angličtině."
+        "Náročný 2letý program International Baccalaureate vyučovaný kompletně v angličtině.",
+        "Předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL a Czech A: Literature SL."
       ]
     },
     {
+      "id": "primary_school",
       "type": "education",
-      "title_en": "Primary school T.G.M Rokycany",
+      "title_en": "Primary School T.G.M Rokycany",
       "title_cs": "Základní škola T.G.M Rokycany",
-      "subtitle_en": "",
-      "subtitle_cs": "",
+      "subtitle_en": "Elementary & Lower Secondary Education",
+      "subtitle_cs": "Základní vzdělání a nižší stupeň",
       "date_en": "Sept 2013 – June 2022",
       "date_cs": "Září 2013 – Červen 2022",
       "startYear": 2013,
       "startMonth": 9,
       "endYear": 2022,
       "endMonth": 6,
+      "status": "finished",
       "ongoing": false,
       "icon": "school",
-      "bullets_en": [],
-      "bullets_cs": []
+      "color": "#1bc198",
+      "tags": ["Foundation", "STEM Interest", "Rokycany"],
+      "bullets_en": [
+        "Foundational education with strong emphasis on sciences, mathematics, and early interest in engineering."
+      ],
+      "bullets_cs": [
+        "Základní vzdělání s důrazem na přírodní vědy, matematiku a rozvoj zájmu o techniku."
+      ]
     }
   ]
 }

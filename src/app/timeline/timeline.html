@@ -1,156 +1,192 @@
 <section class="timeline-section">
-  <h2 class="section-title">{{ t('timeline.title') }}</h2>
-  <p class="section-subtitle">{{ t('timeline.subtitle') }}</p>
+  <div class="timeline-header-block">
+    <h2 class="section-title">{{ t('timeline.title') }}</h2>
+    <p class="section-subtitle">{{ t('timeline.subtitle') }}</p>
+  </div>
 
-  <div class="timeline-container">
-    <div class="timeline-line"></div>
-    
-    <!-- Desktop Interactive SVG overlay and floating items -->
-    @if (isDesktop) {
-      <svg class="timeline-svg-overlay">
-        @for (line of activityLines; track line.index) {
-          <!-- Horizontal entry/exit connector lines (always visible) -->
-          <path 
-            [attr.d]="line.horizontalPath" 
-            [attr.stroke]="line.color" 
-            stroke-width="3.5" 
-            stroke-dasharray="6,4"
-            fill="none"
-            class="activity-svg-path">
-          </path>
-          
-          <!-- Vertical center segment (shown on hover or when card is active) -->
-          <path 
-            [attr.d]="line.verticalPath" 
-            [attr.stroke]="line.color" 
-            stroke-width="3.5" 
-            stroke-dasharray="6,4"
-            fill="none"
-            class="activity-vertical-path"
-            [class.show-vertical]="activeActivityIndex === line.index || hoveredIndex === line.index">
-          </path>
-        }
-      </svg>
-      
-      <!-- Start Bubbles (Left Side of Line) -->
-      @for (act of personalActivities().slice(0, maxActivities); track act.id; let idx = $index) {
-        <div 
-          class="activity-start-bubble" 
-          [id]="'activity-start-' + idx"
-          [style.top.%]="act.startPercent"
-          [style.border-color]="act.color"
-          [class.active]="activeActivityIndex === idx"
-          (click)="toggleActivity(idx)"
-          (mouseenter)="hoveredIndex = idx"
-          (mouseleave)="hoveredIndex = null">
-          <mat-icon [style.color]="act.color">{{ act.icon }}</mat-icon>
-          <span class="bubble-label">{{ act.label }}</span>
-          
-          @if (activeActivityIndex === idx) {
-            <div class="activity-popup-card" 
-                 [style.border-color]="act.color"
-                 [style.bottom]="(act.startPercent || 0) > 50 ? '2.2rem' : 'auto'"
-                 [style.top]="(act.startPercent || 0) > 50 ? 'auto' : '2.2rem'"
-                 (click)="$event.stopPropagation()">
-              <div class="popup-header">
-                <h4 [style.color]="act.color">{{ act.label }}</h4>
-                <button class="popup-close-btn" (click)="toggleActivity(idx)">×</button>
-              </div>
-              <p>{{ act.description }}</p>
-              <div class="popup-time">
-                {{ currentLang() === 'en' ? 'Time Span' : 'Časové období' }}: {{ act.startDateLabel }} – {{ act.endDateLabel }}
-              </div>
+  <!-- Main Horizontal Roadmap Container -->
+  <div class="roadmap-wrapper">
+    <div class="roadmap-nav-header">
+      <div class="roadmap-hint">
+        <mat-icon class="hint-icon">touch_app</mat-icon>
+        <span>{{ t('timeline.select_item_hint') }}</span>
+      </div>
+
+      <!-- Arrow Scroll Controls -->
+      <div class="roadmap-scroll-controls">
+        <button class="scroll-btn" (click)="scrollRoadmap('left')" aria-label="Scroll left">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button class="scroll-btn" (click)="scrollRoadmap('right')" aria-label="Scroll right">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Roadmap Runway -->
+    <div class="roadmap-scroll-container" #roadmapScroll>
+      <div class="roadmap-canvas">
+        
+        <!-- Background Grid & Vertical Year Marker Lines -->
+        <div class="roadmap-grid-layer">
+          @for (year of yearMarkers; track year) {
+            <div class="grid-year-col" [style.left.%]="calcLeft(year, 1)">
+              <div class="year-label-tick">{{ year }}</div>
+              <div class="grid-vertical-line"></div>
             </div>
           }
-        </div>
-        
-        <!-- Clickable End Point Dot -->
-        <button 
-          class="activity-end-dot" 
-          [id]="'activity-end-' + idx"
-          [style.top.%]="act.endPercent"
-          [style.background-color]="act.color"
-          [style.border-color]="act.color"
-          [style.box-shadow]="'0 0 12px ' + act.color"
-          (click)="scrollToStart(idx)"
-          [title]="t('act.trace') + act.label"
-          (mouseenter)="hoveredIndex = idx"
-          (mouseleave)="hoveredIndex = null">
-          <mat-icon>keyboard_double_arrow_down</mat-icon>
-        </button>
-      }
-    }
 
-    <!-- Main Timeline Cards Flow -->
-    @for (item of timelineItems(); track item.title; let index = $index) {
-      <div class="timeline-item" [class.education]="item.type === 'education'" [class.work]="item.type === 'work'">
-        <div class="timeline-badge">
-          <span>{{ item.startYear }}</span>
+          <!-- Glowing "NOW" Indicator Line -->
+          <div class="now-marker-line" [style.left.%]="nowPercent()">
+            <span class="now-badge">{{ t('timeline.now') }} (2026)</span>
+          </div>
         </div>
-        
-        <div class="timeline-card-wrapper">
-          <div class="timeline-date">{{ item.date }}</div>
-          
-          <div class="timeline-card">
-            <span class="timeline-tag" [class.tag-work]="item.type === 'work'" [class.tag-edu]="item.type === 'education'">
-              {{ item.type === 'work' ? t('timeline.work') : t('timeline.edu') }}
+
+        <!-- TRACK 1: EDUCATION -->
+        <div class="roadmap-track-row track-education">
+          <div class="track-info-side">
+            <span class="track-badge edu-badge">
+              <mat-icon>school</mat-icon>
+              <span>{{ t('timeline.track_edu') }}</span>
             </span>
-            <h3 class="timeline-title">
-              @if (item.icon) {
-                <mat-icon class="card-icon">{{ item.icon }}</mat-icon>
-              }
-              {{ item.title }}
-            </h3>
-            <h4 class="timeline-subtitle">{{ item.subtitle }}</h4>
-            
-            <ul class="timeline-bullets">
-              @for (bullet of item.bullets; track bullet) {
-                <li>{{ bullet }}</li>
-              }
-            </ul>
+          </div>
+          <div class="track-lanes-area">
+            @for (item of educationItems(); track item.id) {
+              <button 
+                class="roadmap-pill-block"
+                [class.active]="isSelected(item.id)"
+                [class.status-finished]="item.status === 'finished'"
+                [class.status-ongoing]="item.status === 'ongoing'"
+                [class.status-upcoming]="item.status === 'upcoming'"
+                [style.left.%]="item.leftPercent"
+                [style.width.%]="item.widthPercent"
+                [style.--pill-color]="item.color"
+                [title]="item.title + ' (' + item.date + ')'"
+                (click)="toggleSelect(item.id, $event)">
+                @if (item.fitsInPill) {
+                  <span class="pill-title">{{ item.title }}</span>
+                }
+              </button>
+            }
+          </div>
+        </div>
 
-            <!-- Mobile Fallback for Personal Activities (rendered inside cards) -->
-            @if (!isDesktop && item.personalActivities && item.personalActivities.length > 0) {
-              <div class="mobile-activity-container">
-                <div class="mobile-activity-heading">
-                  {{ item.personalActivities.length === 1 
-                      ? (currentLang() === 'en' ? 'Other Activity:' : 'Mimoškolní aktivita:') 
-                      : (currentLang() === 'en' ? 'Other Activities:' : 'Mimoškolní aktivity:') }}
+        <!-- TRACK 2: WORK EXPERIENCE -->
+        <div class="roadmap-track-row track-work">
+          <div class="track-info-side">
+            <span class="track-badge work-badge">
+              <mat-icon>work</mat-icon>
+              <span>{{ t('timeline.track_work') }}</span>
+            </span>
+          </div>
+          <div class="track-lanes-area">
+            @for (item of workItems(); track item.id) {
+              <button 
+                class="roadmap-pill-block"
+                [class.active]="isSelected(item.id)"
+                [class.status-finished]="item.status === 'finished'"
+                [class.status-ongoing]="item.status === 'ongoing'"
+                [class.status-upcoming]="item.status === 'upcoming'"
+                [style.left.%]="item.leftPercent"
+                [style.width.%]="item.widthPercent"
+                [style.--pill-color]="item.color"
+                [title]="item.title + ' (' + item.date + ')'"
+                (click)="toggleSelect(item.id, $event)">
+                @if (item.fitsInPill) {
+                  <span class="pill-title">{{ item.title }}</span>
+                }
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- TRACK 3: EXTRACURRICULARS & PROJECTS -->
+        <div class="roadmap-track-row track-activities">
+          <div class="track-info-side centered-activity-badge">
+            <span class="track-badge act-badge">
+              <mat-icon>palette</mat-icon>
+              <span>{{ t('timeline.track_act') }}</span>
+            </span>
+          </div>
+          <div class="track-lanes-area multi-lane">
+            @for (item of activityItems(); track item.id) {
+              <button 
+                class="roadmap-pill-block sub-lane-block"
+                [class.active]="isSelected(item.id)"
+                [class.status-finished]="item.status === 'finished'"
+                [class.status-ongoing]="item.status === 'ongoing'"
+                [class.status-upcoming]="item.status === 'upcoming'"
+                [style.left.%]="item.leftPercent"
+                [style.width.%]="item.widthPercent"
+                [style.top.rem]="item.lane * 2.7"
+                [style.--pill-color]="item.color"
+                [title]="item.title + ' (' + item.date + ')'"
+                (click)="toggleSelect(item.id, $event)">
+                @if (item.fitsInPill) {
+                  <span class="pill-title">{{ item.title }}</span>
+                }
+              </button>
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE MILESTONE INSPECTOR SECTION (SUPPORTS MULTI-SELECTION VIA SHIFT+CLICK) -->
+  <div class="inspector-cards-wrapper">
+    <div class="inspector-cards-grid" [class.multi-grid]="selectedItems().length > 1">
+      @for (item of selectedItems(); track item.id) {
+        <div class="inspector-card" [style.--accent-color]="item.color">
+          <div class="inspector-header">
+            <div class="inspector-title-group">
+              <div class="inspector-icon-wrapper" [style.background-color]="item.color + '22'" [style.border-color]="item.color">
+                <mat-icon [style.color]="item.color">{{ item.icon }}</mat-icon>
+              </div>
+              <div>
+                <div class="inspector-badges-row">
+                  <span class="category-chip" [style.color]="item.color" [style.border-color]="item.color + '44'">
+                    {{ item.type === 'education' ? t('timeline.edu') : (item.type === 'work' ? t('timeline.work') : t('timeline.activities')) }}
+                  </span>
+                  <span class="status-chip" [ngClass]="item.status">
+                    {{ t('timeline.' + item.status) }}
+                  </span>
+                  <span class="date-chip">
+                    <mat-icon class="mini-icon">event</mat-icon>
+                    {{ item.date }}
+                  </span>
                 </div>
-                
-                <div class="mobile-activity-list">
-                  @for (act of item.personalActivities; track act.id) {
-                    <div class="mobile-activity-item" [style.--act-color]="act.color">
-                      <button class="activity-toggle-btn" (click)="toggleActivity(index, act.id)">
-                        <mat-icon>{{ act.icon }}</mat-icon>
-                        <span class="btn-text">
-                          {{ act.label }}
-                          <span class="activity-btn-time">
-                            ({{ act.startYear === act.endYear ? act.startYear : act.startYear + '–' + act.endYear }})
-                          </span>
-                        </span>
-                      </button>
-                      
-                      @if (activeActivityIndex === index && activeActivityId === act.id) {
-                        <div class="activity-info-card">
-                          <div class="activity-info-header">
-                            <h4>{{ act.label }}</h4>
-                            <button class="close-btn" (click)="toggleActivity(index, act.id)">×</button>
-                          </div>
-                          <p>{{ act.description }}</p>
-                          <div class="popup-time" style="margin-top: 0.6rem; font-size: 0.8rem; opacity: 0.85; font-weight: 500;">
-                            {{ currentLang() === 'en' ? 'Time Span' : 'Časové období' }}: {{ act.startDateLabel }} – {{ act.endDateLabel }}
-                          </div>
-                        </div>
-                      }
-                    </div>
+                <h3 class="inspector-main-title">{{ item.title }}</h3>
+                @if (item.subtitle) {
+                  <h4 class="inspector-subtitle">{{ item.subtitle }}</h4>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="inspector-body">
+            @if (item.bullets.length > 0) {
+              <ul class="inspector-bullets-list">
+                @for (bullet of item.bullets; track bullet) {
+                  <li>{{ bullet }}</li>
+                }
+              </ul>
+            }
+
+            @if (item.tags.length > 0) {
+              <div class="inspector-skills-footer">
+                <span class="skills-label">{{ t('timeline.key_skills') }}:</span>
+                <div class="skills-chips">
+                  @for (tag of item.tags; track tag) {
+                    <span class="skill-tag" [style.--tag-color]="item.color">{{ tag }}</span>
                   }
                 </div>
               </div>
             }
           </div>
         </div>
-      </div>
-    }
+      }
+    </div>
   </div>
 </section>
