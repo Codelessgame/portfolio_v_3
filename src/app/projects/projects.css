@@ -365,6 +365,13 @@
   gap: 2.5rem;
 }
 
+.project-card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 a.project-card {
   text-decoration: none;
   color: inherit;
@@ -378,9 +385,12 @@ a.project-card {
   border: 1px solid var(--mat-sys-outline-variant, rgba(255, 255, 255, 0.08));
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stretched-link {
@@ -393,21 +403,28 @@ a.project-card {
   pointer-events: auto;
 }
 
+/* Hover effects triggered from stationary wrapper */
+.project-card-wrapper:hover .project-card.interactive,
 .project-card.interactive:hover {
   transform: translateY(-6px);
   border-color: var(--cyan, #1bc198);
-  box-shadow: 0 15px 30px rgba(27, 193, 152, 0.15);
+  box-shadow: 0 15px 30px rgba(27, 193, 152, 0.18);
   cursor: pointer;
 }
 
-.project-card.book-card.interactive:hover {
+.project-card-wrapper:hover .project-card.book-card.interactive {
   border-color: #ff006e;
-  box-shadow: 0 15px 30px rgba(255, 0, 110, 0.15);
+  box-shadow: 0 15px 30px rgba(255, 0, 110, 0.18);
 }
 
-.project-card.youtube-card.interactive:hover {
+.project-card-wrapper:hover .project-card.youtube-card.interactive {
   border-color: #ffbe0b;
-  box-shadow: 0 15px 30px rgba(255, 190, 11, 0.15);
+  box-shadow: 0 15px 30px rgba(255, 190, 11, 0.18);
+}
+
+.project-card-wrapper:hover .project-card.podcast-card.interactive {
+  border-color: #a200ff;
+  box-shadow: 0 15px 30px rgba(162, 0, 255, 0.18);
 }
 
 .card-content {
@@ -439,16 +456,20 @@ a.project-card {
   transition: color 0.3s;
 }
 
-.project-card.interactive:hover .card-top-row h3 {
+.project-card-wrapper:hover .project-card.interactive .card-top-row h3 {
   color: var(--cyan, #1bc198);
 }
 
-.project-card.book-card.interactive:hover .card-top-row h3 {
+.project-card-wrapper:hover .project-card.book-card.interactive .card-top-row h3 {
   color: #ff006e;
 }
 
-.project-card.youtube-card.interactive:hover .card-top-row h3 {
+.project-card-wrapper:hover .project-card.youtube-card.interactive .card-top-row h3 {
   color: #ffbe0b;
+}
+
+.project-card-wrapper:hover .project-card.podcast-card.interactive .card-top-row h3 {
+  color: #a200ff;
 }
 
 .book-icon,
@@ -530,6 +551,10 @@ a.project-card {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.category-tag:only-child {
+  margin-left: auto;
 }
 
 .category-tag.project {

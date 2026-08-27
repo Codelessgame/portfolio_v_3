@@ -1,0 +1,195 @@
+<div class="project-detail-container">
+  <!-- Top Navigation Bar -->
+  <nav class="detail-nav">
+    <a routerLink="/projects" class="back-btn">
+      <mat-icon>arrow_back</mat-icon>
+      <span>{{ currentLang() === 'en' ? 'Back to Library' : 'Zpět do Knihovny' }}</span>
+    </a>
+
+    <div class="project-switcher">
+      @if (prevProject()) {
+        <a [routerLink]="['/project', prevProject()?.id]" class="nav-paging-btn" [title]="prevProject()?.title_en">
+          <mat-icon>chevron_left</mat-icon>
+          <span>{{ currentLang() === 'en' ? prevProject()?.title_en : prevProject()?.title_cs }}</span>
+        </a>
+      }
+      @if (nextProject()) {
+        <a [routerLink]="['/project', nextProject()?.id]" class="nav-paging-btn" [title]="nextProject()?.title_en">
+          <span>{{ currentLang() === 'en' ? nextProject()?.title_en : nextProject()?.title_cs }}</span>
+          <mat-icon>chevron_right</mat-icon>
+        </a>
+      }
+    </div>
+  </nav>
+
+  <!-- Main Case Study Content -->
+  <article 
+    class="case-study-card" 
+    [ngClass]="'theme-' + project().category">
+    
+    <!-- Project Hero -->
+    <div class="project-hero">
+      <div class="hero-header-line">
+        <div class="title-group">
+          <div class="icon-circle">
+            <mat-icon>{{ project().icon }}</mat-icon>
+          </div>
+          <div>
+            <h1 class="project-title">{{ currentLang() === 'en' ? project().title_en : project().title_cs }}</h1>
+            <p class="project-subtitle">{{ currentLang() === 'en' ? project().subtitle_en : project().subtitle_cs }}</p>
+          </div>
+        </div>
+
+        <div class="meta-badges">
+          <span class="status-badge" [ngClass]="project().status">
+            {{ t('projects.status_' + project().status) }}
+          </span>
+          <span class="category-badge" [ngClass]="project().category">
+            {{ project().category === 'embedded' ? t('projects.filter_embedded') : t('projects.filter_ai') }}
+          </span>
+          <span class="date-badge">
+            {{ currentLang() === 'en' ? project().date_en : project().date_cs }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Tags List -->
+      <div class="project-tags">
+        @for (tag of project().tags; track tag) {
+          <span class="tag-pill">{{ tag }}</span>
+        }
+      </div>
+    </div>
+
+    <!-- 2-Column Deep Dive Section -->
+    <div class="deep-dive-grid">
+      <!-- Story & Architecture Column -->
+      <div class="story-col">
+        <!-- Problem Statement -->
+        <div class="story-block problem-block">
+          <div class="block-heading">
+            <mat-icon class="heading-icon">lightbulb</mat-icon>
+            <h3>{{ currentLang() === 'en' ? 'Problem & Motivation' : 'Problém a motivace' }}</h3>
+          </div>
+          <p>{{ currentLang() === 'en' ? project().story.problem_en : project().story.problem_cs }}</p>
+        </div>
+
+        <!-- Architecture & Engineering -->
+        <div class="story-block arch-block">
+          <div class="block-heading">
+            <mat-icon class="heading-icon">architecture</mat-icon>
+            <h3>{{ currentLang() === 'en' ? 'System Architecture & Engineering' : 'Architektura a technické řešení' }}</h3>
+          </div>
+          <p>{{ currentLang() === 'en' ? project().story.architecture_en : project().story.architecture_cs }}</p>
+        </div>
+
+        <!-- Key Challenges & Solutions -->
+        <div class="story-block challenges-block">
+          <div class="block-heading">
+            <mat-icon class="heading-icon">tune</mat-icon>
+            <h3>{{ currentLang() === 'en' ? 'Engineering Challenges & Solutions' : 'Technické výzvy a jejich řešení' }}</h3>
+          </div>
+          <div class="challenges-list">
+            @for (ch of (currentLang() === 'en' ? project().story.challenges_en : project().story.challenges_cs); track ch.title) {
+              <div class="challenge-item">
+                <div class="challenge-header">
+                  <mat-icon class="ch-icon">bolt</mat-icon>
+                  <strong>{{ ch.title }}</strong>
+                </div>
+                <p class="challenge-desc">{{ ch.desc }}</p>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="story-block results-block">
+          <div class="block-heading">
+            <mat-icon class="heading-icon">verified</mat-icon>
+            <h3>{{ currentLang() === 'en' ? 'Key Results & Performance' : 'Výsledky a dosažené parametry' }}</h3>
+          </div>
+          <p class="results-text">{{ currentLang() === 'en' ? project().story.results_en : project().story.results_cs }}</p>
+        </div>
+      </div>
+
+      <!-- Specs & Showcase Media Column -->
+      <div class="media-col">
+        <!-- Primary Image -->
+        <div class="hero-image-wrapper" (click)="openLightbox({ src: project().heroImage, caption_en: project().title_en, caption_cs: project().title_cs })">
+          <img [src]="project().heroImage" [alt]="project().title_en" class="hero-img" loading="lazy" />
+          <div class="image-overlay">
+            <mat-icon>fullscreen</mat-icon>
+            <span>{{ currentLang() === 'en' ? 'Click to Enlarge' : 'Klikněte pro zvětšení' }}</span>
+          </div>
+        </div>
+
+        <!-- Tech Specs Card -->
+        <div class="specs-card">
+          <div class="specs-header">
+            <mat-icon class="specs-icon">settings_input_component</mat-icon>
+            <h3>{{ currentLang() === 'en' ? 'Technical Specifications' : 'Technické parametry' }}</h3>
+          </div>
+          <div class="specs-table">
+            @for (spec of project().specs; track spec.label_en) {
+              <div class="spec-row">
+                <span class="spec-label">{{ currentLang() === 'en' ? spec.label_en : spec.label_cs }}</span>
+                <span class="spec-value">{{ spec.value }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="project-actions">
+          @if (project().github) {
+            <a [href]="project().github" target="_blank" class="action-btn github-btn">
+              <mat-icon>code</mat-icon>
+              <span>{{ currentLang() === 'en' ? 'View on GitHub' : 'Zobrazit na GitHubu' }}</span>
+            </a>
+          }
+          <a routerLink="/projects" [queryParams]="{ search: project().title_en }" class="action-btn library-btn">
+            <mat-icon>local_library</mat-icon>
+            <span>{{ currentLang() === 'en' ? 'View in Library' : 'Zobrazit v Knihovně' }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Image Gallery -->
+    <div class="project-gallery-section">
+      <div class="gallery-heading">
+        <mat-icon>photo_library</mat-icon>
+        <h4>{{ currentLang() === 'en' ? 'Project Visuals & Schematics' : 'Fotodokumentace a schémata' }}</h4>
+      </div>
+      <div class="gallery-grid">
+        @for (img of project().gallery; track img.src) {
+          <div class="gallery-item" (click)="openLightbox(img)">
+            <div class="gallery-img-container">
+              <img [src]="img.src" [alt]="img.caption_en" loading="lazy" />
+              <div class="gallery-hover-overlay">
+                <mat-icon>zoom_in</mat-icon>
+              </div>
+            </div>
+            <span class="gallery-caption">{{ currentLang() === 'en' ? img.caption_en : img.caption_cs }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+  </article>
+
+  <!-- Lightbox Modal -->
+  @if (activeLightbox()) {
+    <div class="lightbox-backdrop" (click)="closeLightbox()">
+      <div class="lightbox-content" (click)="$event.stopPropagation()">
+        <button class="lightbox-close-btn" (click)="closeLightbox()" aria-label="Close">
+          <mat-icon>close</mat-icon>
+        </button>
+        <img [src]="activeLightbox()?.src" [alt]="activeLightbox()?.caption_en" class="lightbox-img" />
+        <p class="lightbox-caption">
+          {{ currentLang() === 'en' ? activeLightbox()?.caption_en : activeLightbox()?.caption_cs }}
+        </p>
+      </div>
+    </div>
+  }
+</div>

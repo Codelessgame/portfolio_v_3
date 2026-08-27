@@ -214,6 +214,7 @@ export class Timeline implements AfterViewInit {
   scrollRoadmap(direction: 'left' | 'right') {
     if (!this.roadmapScrollRef) return;
     const el = this.roadmapScrollRef.nativeElement;
+    if (!el || typeof el.scrollBy !== 'function') return;
     const offset = direction === 'left' ? -420 : 420;
     el.scrollBy({ left: offset, behavior: 'smooth' });
   }
@@ -222,14 +223,17 @@ export class Timeline implements AfterViewInit {
   centerOn2022() {
     if (!this.roadmapScrollRef) return;
     const el = this.roadmapScrollRef.nativeElement;
+    if (!el || typeof el.scrollTo !== 'function') return;
     const leftPercent2022 = (2022.0 - this.scaleMin) / (this.scaleMax - this.scaleMin);
     const scrollTarget = (el.scrollWidth - 150) * leftPercent2022;
     el.scrollTo({ left: scrollTarget, behavior: 'smooth' });
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.centerOn2022();
-    }, 150);
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        this.centerOn2022();
+      }, 150);
+    }
   }
 }

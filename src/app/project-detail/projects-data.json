@@ -1,0 +1,507 @@
+[
+  {
+    "id": "rc_car",
+    "category": "embedded",
+    "icon": "toys",
+    "title_en": "Remote Controlled Car",
+    "title_cs": "Dálkově ovládané auto",
+    "subtitle_en": "Custom-designed obstacle-avoiding smart vehicle with dual-motor control and Bluetooth telemetry",
+    "subtitle_cs": "Na zakázku navržené chytré vozidlo s vyhýbáním se překážkám, duálním pohonem a Bluetooth telemetrií",
+    "date_en": "March 2024 – December 2024",
+    "date_cs": "Březen 2024 – Prosinec 2024",
+    "status": "finished",
+    "github": "https://github.com/Codelessgame",
+    "demo": "",
+    "tags": [
+      "Arduino",
+      "C++",
+      "Bluetooth",
+      "CAD",
+      "Robotics",
+      "Hardware",
+      "Sensors",
+      "Embedded",
+      "Motor Control",
+      "3D Printing"
+    ],
+    "heroImage": "rc_car_project.png",
+    "specs": [
+      {
+        "label_en": "Microcontroller",
+        "label_cs": "Mikrokontrolér",
+        "value": "Arduino Uno / Nano (ATmega328P)"
+      },
+      {
+        "label_en": "Motor Driver",
+        "label_cs": "Ovladač motorů",
+        "value": "L298N Dual H-Bridge Driver"
+      },
+      {
+        "label_en": "Wireless Comms",
+        "label_cs": "Bezdrátová komunikace",
+        "value": "HC-05 Bluetooth Serial (2.4 GHz)"
+      },
+      {
+        "label_en": "Sensors",
+        "label_cs": "Senzory",
+        "value": "HC-SR04 Ultrasonic Distance Sensor"
+      },
+      {
+        "label_en": "Chassis Design",
+        "label_cs": "Konstrukce podvozku",
+        "value": "Fusion 360 CAD / Custom 3D Printed PETG"
+      },
+      {
+        "label_en": "Power Source",
+        "label_cs": "Napájení",
+        "value": "2x 18650 Li-Ion 7.4V Battery Pack with BMS"
+      }
+    ],
+    "story": {
+      "problem_en": "Building a responsive robotics platform from scratch that balances mechanical stability, real-time wireless command parsing, and autonomous obstacle avoidance without incurring latency or motor stall issues.",
+      "problem_cs": "Vytvoření spolehlivé robotické platformy od základu, která kombinuje mechanickou stabilitu, zpracování bezdrátových příkazů v reálném čase a autonomní vyhýbání se překážkám bez zpoždění a přetěžování motorů.",
+      "architecture_en": "The firmware runs an interrupt-driven state machine in C++. The Bluetooth module receives real-time steering and speed vectors from a paired controller. Meanwhile, the forward-facing ultrasonic sensor sweeps via a micro-servo, feeding distance telemetry to an autonomous override collision-avoidance routine.",
+      "architecture_cs": "Firmware běží na stavovém automatu řízeném přerušeními v C++. Modul Bluetooth přijímá směrové a rychlostní vektory z ovladače. Přední ultrazvukový senzor měří vzdálenost a předává data autonomnímu algoritmu pro prevenci kolizí.",
+      "challenges_en": [
+        {
+          "title": "Voltage Spikes & Motor Noise",
+          "desc": "Inductive back-EMF from DC motors caused MCU resets during sudden direction shifts. Solved by separating motor and logic power rails with optocouplers and adding flyback suppression diodes."
+        },
+        {
+          "title": "Chassis Rigidity vs. Weight",
+          "desc": "Early 3D prints flexed under torque. Redesigned the CAD model with internal hexagonal infill ribs and reinforced motor mounting brackets."
+        }
+      ],
+      "challenges_cs": [
+        {
+          "title": "Napěťové špičky a rušení motorů",
+          "desc": "Indukční rázy stejnosměrných motorů způsobovaly restarty mikrokontroléru. Vyřešeno oddělením napájecích větví a přidáním ochranných diod."
+        },
+        {
+          "title": "Tuhost podvozku vůči hmotnosti",
+          "desc": "Původní 3D výtisky se kroutily při točivém momentu. Přepracován CAD model s hexagonálními výztuhami a zpevněnými držáky motorů."
+        }
+      ],
+      "results_en": "Successfully achieved smooth manual control up to 15 meters range with sub-50ms latency, coupled with a reliable 100% collision-avoidance rate at speeds up to 1.5 m/s.",
+      "results_cs": "Dosaženo plynulého manuálního ovládání s dosahem až 15 metrů s latencí pod 50 ms a spolehlivou detekcí překážek při rychlostech do 1,5 m/s."
+    },
+    "gallery": [
+      {
+        "src": "rc_car_project.png",
+        "caption_en": "Assembled RC Car Prototype",
+        "caption_cs": "Sestavený prototyp RC auta"
+      },
+      {
+        "src": "code_img.jpg",
+        "caption_en": "Firmware & Logic Architecture",
+        "caption_cs": "Architektura firmwaru a řízení"
+      },
+      {
+        "src": "3D_art.jpg",
+        "caption_en": "3D CAD Chassis & Motor Mounts",
+        "caption_cs": "3D CAD model podvozku a držáků"
+      }
+    ]
+  },
+  {
+    "id": "railway",
+    "category": "embedded",
+    "icon": "alt_route",
+    "title_en": "Railway Switches Controller",
+    "title_cs": "Automatické výhybky pro modelovou železnici",
+    "subtitle_en": "MicroPython-powered automated railway track switching network with I2C bus expanders and route logic",
+    "subtitle_cs": "Automatizovaný systém řízení a přepínání kolejí s ESP32, MicroPythonem, I2C expandéry a logikou tras",
+    "date_en": "November 2024 – June 2026",
+    "date_cs": "Listopad 2024 – Červen 2026",
+    "status": "finished",
+    "github": "https://github.com/Codelessgame",
+    "demo": "",
+    "tags": [
+      "ESP32",
+      "MicroPython",
+      "I2C",
+      "Automation",
+      "Embedded",
+      "IoT",
+      "Sensors",
+      "Hardware",
+      "Railway",
+      "Electronics"
+    ],
+    "heroImage": "railway_switches_project.png",
+    "specs": [
+      {
+        "label_en": "Main Controller",
+        "label_cs": "Hlavní řadič",
+        "value": "ESP32-WROOM-32 (Dual-Core 240MHz)"
+      },
+      {
+        "label_en": "Firmware Stack",
+        "label_cs": "Firmwarový stack",
+        "value": "MicroPython with asyncio event loop"
+      },
+      {
+        "label_en": "Bus Architecture",
+        "label_cs": "Sběrnicová architektura",
+        "value": "I2C Bus with MCP23017 16-Bit I/O Expanders"
+      },
+      {
+        "label_en": "Actuators",
+        "label_cs": "Pohony",
+        "value": "SG90 Micro Servos with PWM endpoints"
+      },
+      {
+        "label_en": "Track Occupancy",
+        "label_cs": "Detekce obsazení",
+        "value": "Optical infrared beam-break detectors"
+      },
+      {
+        "label_en": "Telemetry",
+        "label_cs": "Telemetrie",
+        "value": "WebSockets / REST dashboard over Wi-Fi"
+      }
+    ],
+    "story": {
+      "problem_en": "Model railway track networks require precise multi-switch coordination to prevent train derailments, route collisions, and deadlocks across concurrent train tracks.",
+      "problem_cs": "Modelové železniční sítě vyžadují přesnou koordinaci více výhybek, aby se zabránilo vykolejení vlaků, srážkám a zablokování tratí při souběžném provozu.",
+      "architecture_en": "Designed a distributed topology centered on an ESP32 master communicating over I2C to port expanders distributed across track sectors. An asynchronous route-graph engine tracks sector occupancy and dynamically arbitrates interlocking switch paths.",
+      "architecture_cs": "Návrh distribuované topologie s ESP32 komunikujícím přes I2C s expandéry portů v jednotlivých sektorech. Asynchronní stavový engine sleduje obsazenost úseků a dynamicky nastavuje bezkolizní vlakové cesty.",
+      "challenges_en": [
+        {
+          "title": "Servo Jitter & Signal Attenuation",
+          "desc": "Long cable runs to distant track servos picked up EMI. Resolved by running active I2C buffers (PCA9615) and localized PCA9685 PWM drivers next to servo clusters."
+        },
+        {
+          "title": "Fail-Safe Interlocking",
+          "desc": "Implemented mathematical interlocking matrix verification: no switch can be toggled if an adjacent block detector senses an approaching train."
+        }
+      ],
+      "challenges_cs": [
+        {
+          "title": "Zákmit servomotorů a útlum signálu",
+          "desc": "Dlouhé kabely k servům zachycovaly elektromagnetické rušení. Vyřešeno diferenciálními I2C budiči a lokálními PWM řadiči."
+        },
+        {
+          "title": "Bezpečnostní blokování tras",
+          "desc": "Implementována matice bezpečného blokování: žádná výhybka se nepřestaví, pokud senzor detekuje blížící se soupravu."
+        }
+      ],
+      "results_en": "Successfully controls 12+ switch tracks synchronously with zero route collisions during continuous multi-hour test runs.",
+      "results_cs": "Úspěšné simultánní řízení 12+ výhybek s nulovým výskytem kolizí během dlouhodobých zátěžových testů."
+    },
+    "gallery": [
+      {
+        "src": "railway_switches_project.png",
+        "caption_en": "Switching Network Overview",
+        "caption_cs": "Přehled sítě výhybek"
+      },
+      {
+        "src": "code_img.jpg",
+        "caption_en": "MicroPython Asyncio Route Logic",
+        "caption_cs": "Logika tras v MicroPythonu"
+      },
+      {
+        "src": "art_img.jpg",
+        "caption_en": "Track Wiring & Sector Diagrams",
+        "caption_cs": "Schéma zapojení sektorů kolejiště"
+      }
+    ]
+  },
+  {
+    "id": "digit",
+    "category": "ai",
+    "icon": "gesture",
+    "title_en": "Digit Recognizer",
+    "title_cs": "Rozpoznávání číslic",
+    "subtitle_en": "Deep Convolutional Neural Network trained on MNIST with real-time browser canvas drawing interface",
+    "subtitle_cs": "Hluboká konvoluční neuronová síť natrénovaná na MNIST s interaktivním kreslicím plátnem v prohlížeči",
+    "date_en": "June 9, 2026",
+    "date_cs": "9. června 2026",
+    "status": "finished",
+    "github": "https://github.com/Codelessgame",
+    "demo": "",
+    "tags": [
+      "TensorFlow",
+      "CNN",
+      "Python",
+      "JS",
+      "Computer Vision",
+      "Machine Learning",
+      "Deep Learning",
+      "Neural Networks",
+      "Classification",
+      "AI"
+    ],
+    "heroImage": "digit_recognizer_project.png",
+    "specs": [
+      {
+        "label_en": "Model Architecture",
+        "label_cs": "Architektura modelu",
+        "value": "2x Conv2D (3x3), MaxPooling2D, Dropout, Dense (128), Softmax"
+      },
+      {
+        "label_en": "Frameworks",
+        "label_cs": "Frameworky",
+        "value": "TensorFlow / Keras (Training) & TensorFlow.js (Inference)"
+      },
+      {
+        "label_en": "Dataset",
+        "label_cs": "Datová sada",
+        "value": "MNIST 70,000 Grayscale 28x28 Handwritten Images"
+      },
+      {
+        "label_en": "Evaluation Accuracy",
+        "label_cs": "Přesnost modelu",
+        "value": "99.2% Test Accuracy on unseen digit samples"
+      },
+      {
+        "label_en": "Frontend Tech",
+        "label_cs": "Technologie frontendu",
+        "value": "HTML5 Canvas, Vanilla JS / TypeScript, Real-time Normalization"
+      }
+    ],
+    "story": {
+      "problem_en": "Developing an end-to-end computer vision pipeline that can generalize to arbitrary user drawing styles, line thicknesses, and canvas offsets in real-time in the client browser.",
+      "problem_cs": "Vývoj uceleného počítačového vidění schopného v reálném čase generalizovat na různé styly kreslení, tloušťky čar a umístění na kreslicím plátně přímo v prohlížeči.",
+      "architecture_en": "Trained a convolutional neural network with batch normalization and dropout in Python. The trained weights are exported to TensorFlow.js. When the user draws on the canvas, the bounding box of the drawn stroke is centered via center-of-mass calculation, downsampled to 28x28, and normalized before running tensor inference.",
+      "architecture_cs": "Natrénování CNN s dávkovou normalizací a dropoutem v Pythonu. Váhy jsou exportovány do TensorFlow.js. Kresba z plátna je vycentrována podle těžiště, zmenšena na 28x28 pixelů a normalizována pro okamžitou inferenci.",
+      "challenges_en": [
+        {
+          "title": "Drawing Scale & Center of Mass Shift",
+          "desc": "Users draw digits with varying brush sizes and off-center coordinates. Implemented automatic bounding box extraction and mass-centering matching the original MNIST dataset preprocessing."
+        },
+        {
+          "title": "Low Latency Client-Side Inference",
+          "desc": "Optimized tensor operations to execute in under 12ms per frame using WebGL hardware acceleration."
+        }
+      ],
+      "challenges_cs": [
+        {
+          "title": "Měřítko a posun těžiště kresby",
+          "desc": "Uživatelé kreslí číslice různě velké a mimo střed. Implementováno automatické oříznutí a vycentrování odpovídající formátu MNIST."
+        },
+        {
+          "title": "Nízká latence v prohlížeči",
+          "desc": "Optimalizace tenzorových operací s využitím akcelerace WebGL pro vyhodnocení pod 12 ms na snímek."
+        }
+      ],
+      "results_en": "Achieved 99.2% test accuracy and instantaneous client-side predictions with live probability distribution charts for all digits 0-9.",
+      "results_cs": "Dosažena přesnost 99,2 % na testovací sadě a okamžité vyhodnocování s vizualizací pravděpodobnostního rozdělení pro číslice 0–9."
+    },
+    "gallery": [
+      {
+        "src": "digit_recognizer_project.png",
+        "caption_en": "Interactive Drawing Canvas & Prediction",
+        "caption_cs": "Interaktivní plátno a predikce"
+      },
+      {
+        "src": "code_img.jpg",
+        "caption_en": "CNN Layer Architecture & Training Loss",
+        "caption_cs": "Architektura vrstev CNN a trénovací křivka"
+      },
+      {
+        "src": "art_img.jpg",
+        "caption_en": "MNIST Preprocessing & Center-of-Mass Pipeline",
+        "caption_cs": "Předzpracování obrazu a výpočet těžiště"
+      }
+    ]
+  },
+  {
+    "id": "music",
+    "category": "ai",
+    "icon": "graphic_eq",
+    "title_en": "Music Attention",
+    "title_cs": "Hudební pozornost (Music Attention)",
+    "subtitle_en": "Self-attention neural analyzer for classifying musical patterns and visualizing temporal spectral dependencies",
+    "subtitle_cs": "Neuronový analyzátor se samo-pozorností pro klasifikaci hudebních vzorů a vizualizaci spektrálních závislostí",
+    "date_en": "June 10, 2026 – June 11, 2026",
+    "date_cs": "10. června 2026 – 11. června 2026",
+    "status": "finished",
+    "github": "https://github.com/Codelessgame",
+    "demo": "",
+    "tags": [
+      "PyTorch",
+      "Transformers",
+      "Spectral Analysis",
+      "Audio Processing",
+      "Deep Learning",
+      "Self-Attention",
+      "Machine Learning",
+      "Music AI",
+      "DSP",
+      "Signal Processing"
+    ],
+    "heroImage": "music_attention_project.png",
+    "specs": [
+      {
+        "label_en": "Deep Learning Stack",
+        "label_cs": "Deep Learning Stack",
+        "value": "PyTorch, Torchaudio, NumPy, SciPy"
+      },
+      {
+        "label_en": "Audio Processing",
+        "label_cs": "Zpracování audia",
+        "value": "Short-Time Fourier Transform (STFT), 128-band Mel Spectrograms"
+      },
+      {
+        "label_en": "Attention Mechanism",
+        "label_cs": "Mechanismus pozornosti",
+        "value": "Multi-Head Self-Attention (4 heads, embedding dim 256)"
+      },
+      {
+        "label_en": "Sampling Rate",
+        "label_cs": "Vzorkovací frekvence",
+        "value": "44.1 kHz resampled to 22.05 kHz for feature balance"
+      },
+      {
+        "label_en": "Visualizations",
+        "label_cs": "Vizualizace",
+        "value": "Dynamic attention weight heatmaps across time-frequency bins"
+      }
+    ],
+    "story": {
+      "problem_en": "Traditional audio analysis often relies on static convolutional filters that struggle to capture long-range harmonic dependencies, chord progressions, and rhythmic motifs across time.",
+      "problem_cs": "Tradiční analýza audia se často spoléhá na konvoluční filtry, které obtížně zachycují dlouhodobé harmonické závislosti, akordové progrese a rytmické motivy v čase.",
+      "architecture_en": "Audio signals are converted into log-mel spectrogram frames. A positional-encoded multi-head self-attention module computes attention weight matrices between different time slices, revealing which bars and frequencies govern the musical structure.",
+      "architecture_cs": "Zvukový signál je převeden na log-mel spektrogramy. Modul vícehlavé samo-pozornosti s pozičním kódováním počítá váhové matice mezi časovými úseky a odhaluje vztahy v hudební struktuře.",
+      "challenges_en": [
+        {
+          "title": "High Dimensionality of Raw Audio",
+          "desc": "Raw audio sequences consume huge memory. Solved by tuning hop length and STFT windowing to balance temporal resolution with compute footprint."
+        },
+        {
+          "title": "Attention Map Interpretability",
+          "desc": "Extracted attention matrices directly from intermediate PyTorch layers to render intuitive 2D heatmaps correlating with beat drops and chord shifts."
+        }
+      ],
+      "challenges_cs": [
+        {
+          "title": "Vysoká dimenzionalita surového audia",
+          "desc": "Surový zvuk spotřebovává enormní množství paměti. Vyřešeno optimálním nastavením oken STFT pro rovnováhu mezi rozlišením a náročností."
+        },
+        {
+          "title": "Interpretace map pozornosti",
+          "desc": "Extrakce matic pozornosti přímo z mezilehlých vrstev PyTorch pro vykreslení 2D teplotních map odpovídajících změnám rytmu a akordů."
+        }
+      ],
+      "results_en": "Successfully highlighted recurring motif correlations and achieved robust genre/pattern classification with transparent attention map exports.",
+      "results_cs": "Úspěšné mapování opakujících se hudebních motivů a robustní klasifikace struktur s exportem map pozornosti."
+    },
+    "gallery": [
+      {
+        "src": "music_attention_project.png",
+        "caption_en": "Mel-Spectrogram & Self-Attention Heatmap",
+        "caption_cs": "Mel-spektrogram a teplotní mapa pozornosti"
+      },
+      {
+        "src": "code_img.jpg",
+        "caption_en": "PyTorch Multi-Head Attention Class",
+        "caption_cs": "Třída vícehlavé pozornosti v PyTorch"
+      },
+      {
+        "src": "art_img.jpg",
+        "caption_en": "Harmonic Frequency Analysis",
+        "caption_cs": "Frekvenční a harmonická analýza"
+      }
+    ]
+  },
+  {
+    "id": "slm",
+    "category": "ai",
+    "icon": "psychology",
+    "title_en": "Small Language Model",
+    "title_cs": "Malý jazykový model",
+    "subtitle_en": "Autoregressive Decoder-only Transformer pre-trained from scratch with custom Byte-Pair Encoding (BPE)",
+    "subtitle_cs": "Autoregresivní Transformer architektura typu Decoder natrénovaná od základu s vlastním BPE tokenizérem",
+    "date_en": "June 14, 2026 – Ongoing",
+    "date_cs": "14. června 2026 – Probíhá",
+    "status": "ongoing",
+    "github": "https://github.com/Codelessgame",
+    "demo": "",
+    "tags": [
+      "PyTorch",
+      "Tokenization",
+      "Transformer",
+      "LLM",
+      "NLP",
+      "Deep Learning",
+      "Language Modeling",
+      "Attention Mechanism",
+      "Machine Learning",
+      "AI"
+    ],
+    "heroImage": "small_language_model_project.png",
+    "specs": [
+      {
+        "label_en": "Architecture",
+        "label_cs": "Architektura",
+        "value": "GPT-style Decoder-only Transformer (6 layers, 6 heads)"
+      },
+      {
+        "label_en": "Embedding Dimension",
+        "label_cs": "Dimenze vnoření",
+        "value": "384 hidden dimensions with causal masked self-attention"
+      },
+      {
+        "label_en": "Tokenizer",
+        "label_cs": "Tokenizér",
+        "value": "Custom Byte-Pair Encoding (BPE) vocab size 8,192"
+      },
+      {
+        "label_en": "Context Window",
+        "label_cs": "Kontextové okno",
+        "value": "256 tokens sequence length"
+      },
+      {
+        "label_en": "Optimization",
+        "label_cs": "Optimalizace",
+        "value": "AdamW (lr 3e-4) with Cosine Annealing learning rate schedule"
+      }
+    ],
+    "story": {
+      "problem_en": "Demystifying large generative models by architecting, tokenizing, and training a lightweight Transformer from first principles in PyTorch to study training dynamics, loss scaling, and autoregressive generation.",
+      "problem_cs": "Pochopení principů velkých jazykových modelů skrze návrh, tokenizaci a trénování lehkého Transformeru od základů v PyTorch pro studium dynamiky učení a generování textu.",
+      "architecture_en": "Features learned positional embeddings, pre-LayerNorm residual blocks, GELU activations, and causally masked multi-head attention. Autoregressive inference uses top-k and temperature-scaled nucleus sampling.",
+      "architecture_cs": "Využívá naučené poziční embeddingy, reziduální bloky s pre-LayerNorm, aktivace GELU a kauzální maskovanou pozornost. Autoregresivní generování využívá vzorkování s teplotou a top-k.",
+      "challenges_en": [
+        {
+          "title": "Subword Vocabulary Optimization",
+          "desc": "Standard character-level tokenization produces lengthy sequences. Implemented a custom BPE tokenizer that compresses text sequences by ~60% without losing special tokens."
+        },
+        {
+          "title": "Preventing Gradient Exploding & Overfitting",
+          "desc": "Employed gradient clipping (1.0 norm), dropout (0.1), and weight decay regularization to stabilize convergence on smaller datasets."
+        }
+      ],
+      "challenges_cs": [
+        {
+          "title": "Optimalizace slovníku podslov",
+          "desc": "Znaková tokenizace vedla k příliš dlouhým sekvencím. Implementován vlastní BPE tokenizér, který komprimoval délku sekvencí o ~60 %."
+        },
+        {
+          "title": "Stabilizace trénování a regularizace",
+          "desc": "Využití ořezávání gradientů (norma 1.0), dropoutu a váhového rozpadu pro stabilní konvergenci na menších datech."
+        }
+      ],
+      "results_en": "Achieved steady cross-entropy loss reduction below 1.45, producing syntactically structured, coherent paragraphs during autoregressive sampling.",
+      "results_cs": "Dosaženo stabilního poklesu cross-entropy ztráty pod 1,45 s generováním syntakticky správného a koherentního textu."
+    },
+    "gallery": [
+      {
+        "src": "small_language_model_project.png",
+        "caption_en": "Transformer Decoder Architecture & Sampling",
+        "caption_cs": "Architektura dekodéru a vzorkování"
+      },
+      {
+        "src": "code_img.jpg",
+        "caption_en": "Causal Attention Masking & FeedForward Blocks",
+        "caption_cs": "Kauzální maskování pozornosti a dopředné sítě"
+      },
+      {
+        "src": "art_img.jpg",
+        "caption_en": "Custom BPE Tokenizer Merges & Vocabulary",
+        "caption_cs": "BPE tokenizér a slovník tokenů"
+      }
+    ]
+  }
+]

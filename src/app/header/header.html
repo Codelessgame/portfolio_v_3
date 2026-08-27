@@ -5,12 +5,10 @@
     
     <span class="spacer"></span>
     
-    <button class="lang-toggle-btn" (click)="toggleLanguage()" aria-label="Toggle language">
-      @if (currentLang() === 'en') {
-        <span class="flag-icon">🇬🇧</span>
-      } @else {
-        <span class="flag-icon">🇨🇿</span>
-      }
+    <button class="lang-segmented-pill" (click)="toggleLanguage()" [attr.aria-label]="currentLang() === 'en' ? 'Switch to Czech' : 'Přepnout do angličtiny'">
+      <span class="lang-thumb" [class.is-cs]="currentLang() === 'cs'"></span>
+      <span class="lang-label" [class.active]="currentLang() === 'en'">EN</span>
+      <span class="lang-label" [class.active]="currentLang() === 'cs'">CZ</span>
     </button>
   </mat-toolbar>
 

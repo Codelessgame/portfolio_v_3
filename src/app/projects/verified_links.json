@@ -11,7 +11,15 @@
       "Arduino",
       "C++",
       "Bluetooth",
-      "CAD"
+      "CAD",
+      "Robotics",
+      "Hardware",
+      "Sensors",
+      "Embedded",
+      "Motor Control",
+      "3D Printing",
+      "Autonomous",
+      "Electronics"
     ],
     "pinned": true,
     "title_en": "Remote Controlled Car",
@@ -32,7 +40,16 @@
     "tags": [
       "ESP32",
       "MicroPython",
-      "I2C"
+      "I2C",
+      "Automation",
+      "Embedded",
+      "IoT",
+      "Sensors",
+      "Hardware",
+      "Railway",
+      "Electronics",
+      "Microcontrollers",
+      "Control Systems"
     ],
     "pinned": true,
     "title_en": "Model Railways Automatic Train Switches",
@@ -54,7 +71,15 @@
       "TensorFlow",
       "CNN",
       "Python",
-      "JS"
+      "JS",
+      "Computer Vision",
+      "Machine Learning",
+      "Deep Learning",
+      "Neural Networks",
+      "Classification",
+      "AI",
+      "MNIST",
+      "Canvas"
     ],
     "pinned": true,
     "title_en": "Digit Recognizer",
@@ -75,7 +100,16 @@
     "tags": [
       "PyTorch",
       "Transformers",
-      "Spectral Analysis"
+      "Spectral Analysis",
+      "Audio Processing",
+      "Deep Learning",
+      "Self-Attention",
+      "Machine Learning",
+      "Music AI",
+      "DSP",
+      "Signal Processing",
+      "AI",
+      "Python"
     ],
     "title_en": "Music Attention",
     "title_cs": "Hudební pozornost (Music Attention)",
@@ -95,7 +129,16 @@
     "tags": [
       "PyTorch",
       "Tokenization",
-      "Transformer"
+      "Transformer",
+      "LLM",
+      "NLP",
+      "Deep Learning",
+      "Language Modeling",
+      "Attention Mechanism",
+      "Machine Learning",
+      "AI",
+      "Python",
+      "Generative AI"
     ],
     "title_en": "Small Language Model",
     "title_cs": "Malý jazykový model",
@@ -113,7 +156,15 @@
     "status": "finished",
     "tags": [
       "Productivity",
-      "Self-Help"
+      "Self-Help",
+      "Habits",
+      "Psychology",
+      "Personal Growth",
+      "Behavior",
+      "Mindset",
+      "Discipline",
+      "Time Management",
+      "Systems Thinking"
     ],
     "hasAnalysis": true,
     "title_en": "Atomic Habits",
@@ -132,7 +183,15 @@
     "status": "finished",
     "tags": [
       "Coding",
-      "Software"
+      "Software",
+      "Software Engineering",
+      "Clean Code",
+      "Best Practices",
+      "Architecture",
+      "Refactoring",
+      "Programming",
+      "OOP",
+      "Agile"
     ],
     "hasAnalysis": true,
     "title_en": "Clean Code",
@@ -151,7 +210,15 @@
     "status": "finished",
     "tags": [
       "Design",
-      "UX"
+      "UX",
+      "Human Factors",
+      "Psychology",
+      "Usability",
+      "Product Design",
+      "Cognitive Science",
+      "Industrial Design",
+      "Ergonomics",
+      "User Experience"
     ],
     "title_en": "The Design of Everyday Things",
     "title_cs": "Design pro každý den",
@@ -169,7 +236,15 @@
     "status": "ongoing",
     "tags": [
       "Physics",
-      "Electromagnetism"
+      "Electromagnetism",
+      "Electrodynamics",
+      "Maxwell Equations",
+      "Vector Calculus",
+      "Field Theory",
+      "Science",
+      "Textbook",
+      "Griffiths",
+      "Mathematics"
     ],
     "title_en": "Introduction to Electrodynamics",
     "title_cs": "Úvod do elektrodynamiky",
@@ -187,7 +262,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Dystopian"
+      "Dystopian",
+      "Totalitarianism",
+      "Surveillance",
+      "Political Fiction",
+      "George Orwell",
+      "Censorship",
+      "Literature",
+      "Philosophy",
+      "Classic Fiction"
     ],
     "title_en": "1984",
     "title_cs": "1984",
@@ -196,21 +279,29 @@
     "date_en": "Read: 2023",
     "date_cs": "Přečteno: 2023"
   },
-  "bible-first-100-pages": {
+  "bible": {
     "category": "book",
-    "name": "The Bible (First 100 Pages)",
-    "link": "https://books.google.com/books/about/The_Bible_in_100_Pages.html?id=xHPfAwAAQBAJ",
+    "name": "The Bible",
+    "link": "https://en.wikipedia.org/wiki/Bible",
     "author": "Various",
     "image": "book_placeholder.png",
     "status": "finished",
     "tags": [
       "Religion",
-      "History"
+      "History",
+      "Theology",
+      "Philosophy",
+      "Ancient History",
+      "Old Testament",
+      "Morality",
+      "Scripture",
+      "Classic Texts",
+      "Literature"
     ],
-    "title_en": "The Bible (First 100 Pages)",
-    "title_cs": "Bible (prvních 100 stran)",
-    "desc_en": "Reading and reflecting on the foundational historical, moral, and spiritual texts of the Old Testament.",
-    "desc_cs": "Čtení a zamyšlení nad zakládajícími historickými, morálními a duchovními texty Starého zákona.",
+    "title_en": "The Bible",
+    "title_cs": "Bible",
+    "desc_en": "Reading and reflecting on foundational historical, moral, and spiritual texts of the scriptures.",
+    "desc_cs": "Čtení a zamyšlení nad zakládajícími historickými, morálními a duchovními texty.",
     "date_en": "Read: 2023",
     "date_cs": "Přečteno: 2023"
   },
@@ -223,7 +314,15 @@
     "status": "finished",
     "tags": [
       "Biography",
-      "Physics"
+      "Physics",
+      "Science",
+      "Humor",
+      "Richard Feynman",
+      "Memoir",
+      "Nobel Prize",
+      "Curiosity",
+      "STEM",
+      "Autobiography"
     ],
     "title_en": "Surely You're Joking, Mr. Feynman!",
     "title_cs": "To snad nemyslíte vážně, pane Feynmane!",
@@ -241,7 +340,15 @@
     "status": "finished",
     "tags": [
       "Physics",
-      "Science"
+      "Science",
+      "Mechanics",
+      "Radiation",
+      "Thermodynamics",
+      "Richard Feynman",
+      "Textbook",
+      "Undergraduate",
+      "Mathematics",
+      "STEM"
     ],
     "title_en": "Feynman's Lectures on Physics Vol. 1",
     "title_cs": "Feynmanovy přednášky z fyziky 1",
@@ -260,7 +367,14 @@
     "tags": [
       "Classic",
       "Drama",
-      "Czech"
+      "Czech",
+      "Karel Čapek",
+      "Anti-War",
+      "Totalitarianism",
+      "Theatre",
+      "Play",
+      "Satire",
+      "Czech Literature"
     ],
     "title_en": "The White Disease",
     "title_cs": "Bílá nemoc",
@@ -279,7 +393,14 @@
     "tags": [
       "Sci-Fi",
       "Satire",
-      "Czech"
+      "Czech",
+      "Karel Čapek",
+      "Classic",
+      "Dystopian",
+      "Allegory",
+      "Political Satire",
+      "Czech Literature",
+      "Science Fiction"
     ],
     "title_en": "War with the Newts",
     "title_cs": "Válka s mloky",
@@ -298,7 +419,14 @@
     "tags": [
       "Classic",
       "Drama",
-      "Czech"
+      "Czech",
+      "Karel Čapek",
+      "Anti-War",
+      "Theatre",
+      "Family",
+      "Sacrifice",
+      "Czech Literature",
+      "Play"
     ],
     "title_en": "The Mother",
     "title_cs": "Matka",
@@ -316,7 +444,15 @@
     "status": "finished",
     "tags": [
       "Sci-Fi",
-      "Comedy"
+      "Comedy",
+      "Douglas Adams",
+      "Space",
+      "Satire",
+      "Classic",
+      "Humor",
+      "Adventure",
+      "Absurdist",
+      "Cult Classic"
     ],
     "title_en": "The Hitchhiker's Guide to the Galaxy",
     "title_cs": "Stopařův průvodce Galaxií",
@@ -334,7 +470,15 @@
     "status": "finished",
     "tags": [
       "Fiction",
-      "Dystopian"
+      "Dystopian",
+      "Margaret Atwood",
+      "Feminism",
+      "Totalitarianism",
+      "Speculative Fiction",
+      "Classic",
+      "Society",
+      "Oppression",
+      "Literature"
     ],
     "title_en": "The Handmaid's Tale",
     "title_cs": "Příběh služebnice",
@@ -352,7 +496,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Fiction"
+      "Fiction",
+      "Harper Lee",
+      "Justice",
+      "Racial Inequality",
+      "American Literature",
+      "Morality",
+      "Courtroom Drama",
+      "Coming of Age",
+      "Historical"
     ],
     "title_en": "To Kill a Mockingbird",
     "title_cs": "Jako zabít ptáčka",
@@ -370,7 +522,15 @@
     "status": "finished",
     "tags": [
       "Psychology",
-      "Self-Help"
+      "Self-Help",
+      "Jordan Peterson",
+      "Philosophy",
+      "Personal Responsibility",
+      "Mindset",
+      "Behavioral Science",
+      "Meaning",
+      "Mythology",
+      "Discipline"
     ],
     "title_en": "12 Rules for Life",
     "title_cs": "12 pravidel pro život",
@@ -388,7 +548,15 @@
     "status": "finished",
     "tags": [
       "Psychology",
-      "Self-Help"
+      "Self-Help",
+      "Jordan Peterson",
+      "Philosophy",
+      "Order and Chaos",
+      "Personal Growth",
+      "Mindset",
+      "Meaning",
+      "Mythology",
+      "Ethics"
     ],
     "title_en": "Beyond Order: 12 More Rules",
     "title_cs": "Řád není všechno: 12 dalších pravidel",
@@ -406,7 +574,15 @@
     "status": "finished",
     "tags": [
       "Science",
-      "Health"
+      "Health",
+      "Sleep",
+      "Neuroscience",
+      "Biology",
+      "Matthew Walker",
+      "Wellness",
+      "Medicine",
+      "Circadian Rhythm",
+      "Psychology"
     ],
     "title_en": "Why We Sleep",
     "title_cs": "Proč spíme",
@@ -424,7 +600,15 @@
     "status": "finished",
     "tags": [
       "Engineering",
-      "Physics"
+      "Physics",
+      "Structural Engineering",
+      "Materials Science",
+      "Mechanical Engineering",
+      "Civil Engineering",
+      "J.E. Gordon",
+      "Mechanics",
+      "Architecture",
+      "Science"
     ],
     "title_en": "Structures: Or Why Things Don't Fall Down",
     "title_cs": "Struktury: Anebo proč věci nespadnou",
@@ -442,7 +626,15 @@
     "status": "finished",
     "tags": [
       "Science",
-      "Biology"
+      "Biology",
+      "Mary Roach",
+      "Medicine",
+      "Anatomy",
+      "Forensics",
+      "Humor",
+      "Non-Fiction",
+      "History",
+      "Death"
     ],
     "title_en": "Stiff: The Curious Lives of Human Cadavers",
     "title_cs": "Stiff: Podivuhodné životy lidských mrtvol",
@@ -460,7 +652,15 @@
     "status": "finished",
     "tags": [
       "Finance",
-      "Business"
+      "Business",
+      "Investing",
+      "Robert Kiyosaki",
+      "Personal Finance",
+      "Money",
+      "Financial Literacy",
+      "Entrepreneurship",
+      "Wealth",
+      "Mindset"
     ],
     "title_en": "Rich Dad Poor Dad",
     "title_cs": "Bohatý táta, chudý táta",
@@ -478,7 +678,15 @@
     "status": "finished",
     "tags": [
       "Graphics",
-      "Coding"
+      "Coding",
+      "Computer Graphics",
+      "Rendering",
+      "Algorithms",
+      "Mathematics",
+      "Geometry",
+      "Shaders",
+      "3D",
+      "Textbook"
     ],
     "title_en": "Modern Computer Graphics",
     "title_cs": "Moderní počítačová grafika",
@@ -496,7 +704,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Dystopian"
+      "Dystopian",
+      "Ray Bradbury",
+      "Sci-Fi",
+      "Censorship",
+      "Literature",
+      "Books",
+      "Society",
+      "Future",
+      "Totalitarianism"
     ],
     "title_en": "Fahrenheit 451",
     "title_cs": "451 stupňů Fahrenheita",
@@ -514,7 +730,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Drama"
+      "Drama",
+      "Sophocles",
+      "Greek Tragedy",
+      "Mythology",
+      "Philosophy",
+      "Ethics",
+      "Theatre",
+      "Ancient Greece",
+      "Morality"
     ],
     "title_en": "Antigone",
     "title_cs": "Antigona",
@@ -532,7 +756,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Poetry"
+      "Poetry",
+      "Dante Alighieri",
+      "Epic Poetry",
+      "Italian Literature",
+      "Theology",
+      "Philosophy",
+      "Inferno",
+      "Middle Ages",
+      "Allegory"
     ],
     "title_en": "The Divine Comedy",
     "title_cs": "Božská komedie",
@@ -550,7 +782,15 @@
     "status": "finished",
     "tags": [
       "Thriller",
-      "Fiction"
+      "Fiction",
+      "Frederick Forsyth",
+      "Suspense",
+      "Espionage",
+      "Assassination",
+      "Historical Fiction",
+      "Mystery",
+      "Crime",
+      "Political Thriller"
     ],
     "title_en": "The Day of the Jackal",
     "title_cs": "Den pro Šakala",
@@ -568,7 +808,15 @@
     "status": "finished",
     "tags": [
       "Biography",
-      "History"
+      "History",
+      "WWII",
+      "Holocaust",
+      "Anne Frank",
+      "Memoir",
+      "Historical",
+      "Non-Fiction",
+      "War",
+      "Jewish History"
     ],
     "title_en": "The Diary of a Young Girl",
     "title_cs": "Deník Anny Frankové",
@@ -586,7 +834,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Satire"
+      "Satire",
+      "George Orwell",
+      "Allegory",
+      "Totalitarianism",
+      "Political Fiction",
+      "Novella",
+      "Dystopian",
+      "Fable",
+      "Literature"
     ],
     "title_en": "Animal Farm",
     "title_cs": "Farma zvířat",
@@ -604,7 +860,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Historical"
+      "Historical",
+      "Walter Scott",
+      "Medieval",
+      "Chivalry",
+      "Knights",
+      "Adventure",
+      "British Literature",
+      "12th Century",
+      "Historical Fiction"
     ],
     "title_en": "Ivanhoe",
     "title_cs": "Ivanhoe",
@@ -622,7 +886,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Dystopian"
+      "Dystopian",
+      "Aldous Huxley",
+      "Sci-Fi",
+      "Genetic Engineering",
+      "Consumerism",
+      "Future",
+      "Philosophy",
+      "Society",
+      "Totalitarianism"
     ],
     "title_en": "Brave New World",
     "title_cs": "Konec civilizace (Brave New World)",
@@ -640,7 +912,15 @@
     "status": "finished",
     "tags": [
       "Sci-Fi",
-      "Czech"
+      "Czech",
+      "Karel Čapek",
+      "Classic",
+      "Explosives",
+      "Pacifism",
+      "Invention",
+      "Czech Literature",
+      "Science Fiction",
+      "Thriller"
     ],
     "title_en": "Krakatit",
     "title_cs": "Krakatit",
@@ -658,7 +938,15 @@
     "status": "finished",
     "tags": [
       "Non-Fiction",
-      "History"
+      "History",
+      "Reportage",
+      "Journalism",
+      "Sociology",
+      "Racism",
+      "Extremism",
+      "American History",
+      "Documentary",
+      "Investigative"
     ],
     "title_en": "Ku-klux-klan: Where the Love Lives",
     "title_cs": "Ku-klux-klan: Tady bydlí láska",
@@ -676,7 +964,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Fiction"
+      "Fiction",
+      "Guy de Maupassant",
+      "French Literature",
+      "Short Story",
+      "Franco-Prussian War",
+      "Hypocrisy",
+      "19th Century",
+      "Realism",
+      "Satire"
     ],
     "title_en": "Butterball (Boule de Suif)",
     "title_cs": "Kulička",
@@ -695,7 +991,14 @@
     "tags": [
       "Classic",
       "Poetry",
-      "Czech"
+      "Czech",
+      "Karel Jaromír Erben",
+      "Ballads",
+      "Folklore",
+      "Mythology",
+      "Romanticism",
+      "Czech Literature",
+      "Dark Tales"
     ],
     "title_en": "A Bouquet (Kytice)",
     "title_cs": "Kytice",
@@ -713,7 +1016,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Comedy"
+      "Comedy",
+      "Molière",
+      "French Drama",
+      "Theatre",
+      "Greed",
+      "Satire",
+      "17th Century",
+      "Play",
+      "Farce"
     ],
     "title_en": "The Miser (Lakomec)",
     "title_cs": "Lakomec",
@@ -731,7 +1042,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Philosophy"
+      "Philosophy",
+      "Antoine de Saint-Exupéry",
+      "Fable",
+      "French Literature",
+      "Friendship",
+      "Allegory",
+      "Love",
+      "Wisdom",
+      "Children Literature"
     ],
     "title_en": "The Little Prince",
     "title_cs": "Malý princ",
@@ -749,7 +1068,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Czech"
+      "Czech",
+      "Arnošt Lustig",
+      "Holocaust",
+      "WWII",
+      "Drama",
+      "Novella",
+      "Dignity",
+      "Czech Literature",
+      "Historical Fiction"
     ],
     "title_en": "A Prayer for Katerina Horovitzova",
     "title_cs": "Modlitba pro Kateřinu Horovitzovou",
@@ -767,7 +1094,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Historical"
+      "Historical",
+      "Erich Maria Remarque",
+      "WWI",
+      "Anti-War",
+      "German Literature",
+      "Soldiers",
+      "Tragedy",
+      "Military",
+      "Historical Fiction"
     ],
     "title_en": "All Quiet on the Western Front",
     "title_cs": "Na západní frontě klid",
@@ -785,7 +1120,15 @@
     "status": "finished",
     "tags": [
       "Fantasy",
-      "Classic"
+      "Classic",
+      "J.R.R. Tolkien",
+      "Epic Fantasy",
+      "High Fantasy",
+      "Middle-earth",
+      "Adventure",
+      "Mythology",
+      "Worldbuilding",
+      "Quests"
     ],
     "title_en": "The Lord of the Rings",
     "title_cs": "Pán prstenů",
@@ -803,7 +1146,15 @@
     "status": "finished",
     "tags": [
       "Biography",
-      "Graphic Novel"
+      "Graphic Novel",
+      "Marjane Satrapi",
+      "Memoir",
+      "Iran",
+      "Islamic Revolution",
+      "Comics",
+      "Autobiography",
+      "History",
+      "Middle East"
     ],
     "title_en": "Persepolis",
     "title_cs": "Persepolis",
@@ -821,7 +1172,15 @@
     "status": "finished",
     "tags": [
       "Mystery",
-      "Classic"
+      "Classic",
+      "Arthur Conan Doyle",
+      "Sherlock Holmes",
+      "Detective",
+      "Gothic",
+      "Crime",
+      "Investigation",
+      "Victorian",
+      "Suspense"
     ],
     "title_en": "The Hound of the Baskervilles",
     "title_cs": "Pes baskervillský",
@@ -839,7 +1198,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Czech"
+      "Czech",
+      "Jan Neruda",
+      "Prague",
+      "Malá Strana",
+      "Short Stories",
+      "19th Century",
+      "Czech Literature",
+      "Realism",
+      "Satire"
     ],
     "title_en": "Tales of the Little Quarter",
     "title_cs": "Povídky malostranské",
@@ -857,7 +1224,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Czech"
+      "Czech",
+      "Franz Kafka",
+      "Metamorphosis",
+      "Existentialism",
+      "Absurdism",
+      "Surrealism",
+      "Novella",
+      "Alienation",
+      "German Literature"
     ],
     "title_en": "The Metamorphosis",
     "title_cs": "Proměna",
@@ -876,7 +1251,15 @@
     "tags": [
       "Sci-Fi",
       "Drama",
-      "Czech"
+      "Czech",
+      "Karel Čapek",
+      "Robots",
+      "AI",
+      "Play",
+      "Theatre",
+      "Dystopian",
+      "Czech Literature",
+      "Technology"
     ],
     "title_en": "R.U.R. (Rossum's Universal Robots)",
     "title_cs": "R.U.R.",
@@ -894,7 +1277,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Adventure"
+      "Adventure",
+      "Daniel Defoe",
+      "Survival",
+      "Island",
+      "Shipwreck",
+      "Colonialism",
+      "18th Century",
+      "English Literature",
+      "Fiction"
     ],
     "title_en": "Robinson Crusoe",
     "title_cs": "Robinson Crusoe",
@@ -912,7 +1303,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Drama"
+      "Drama",
+      "William Shakespeare",
+      "Tragedy",
+      "Romance",
+      "Play",
+      "Theatre",
+      "Renaissance",
+      "Poetry",
+      "English Literature"
     ],
     "title_en": "Romeo and Juliet",
     "title_cs": "Romeo a Julie",
@@ -931,7 +1330,14 @@
     "tags": [
       "Classic",
       "Comedy",
-      "Czech"
+      "Czech",
+      "Zdeněk Jirotka",
+      "Humor",
+      "Satire",
+      "Czech Literature",
+      "Gentleman",
+      "Servant",
+      "Feel Good"
     ],
     "title_en": "Saturnin",
     "title_cs": "Saturnin",
@@ -949,7 +1355,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Fiction"
+      "Fiction",
+      "F. Scott Fitzgerald",
+      "Roaring Twenties",
+      "Jazz Age",
+      "American Dream",
+      "Tragedy",
+      "Wealth",
+      "American Literature",
+      "Romance"
     ],
     "title_en": "The Great Gatsby",
     "title_cs": "Velký Gatsby",
@@ -967,7 +1381,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Comedy"
+      "Comedy",
+      "William Shakespeare",
+      "Falstaff",
+      "Play",
+      "Theatre",
+      "Farce",
+      "Renaissance",
+      "Humor",
+      "English Literature"
     ],
     "title_en": "The Merry Wives of Windsor",
     "title_cs": "Veselé paničky windsorské",
@@ -985,7 +1407,15 @@
     "status": "finished",
     "tags": [
       "Mystery",
-      "Classic"
+      "Classic",
+      "Agatha Christie",
+      "Hercule Poirot",
+      "Detective",
+      "Crime",
+      "Train",
+      "Whodunit",
+      "Suspense",
+      "Investigation"
     ],
     "title_en": "Murder on the Orient Express",
     "title_cs": "Vražda v Orient expresu",
@@ -1003,7 +1433,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Czech"
+      "Czech",
+      "Josef Škvorecký",
+      "Danny Smiřický",
+      "WWII",
+      "Jazz",
+      "Czech Literature",
+      "Coming of Age",
+      "Liberation",
+      "Historical Fiction"
     ],
     "title_en": "The Cowards (Zbabělci)",
     "title_cs": "Zbabělci",
@@ -1021,7 +1459,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Psychology"
+      "Psychology",
+      "Fyodor Dostoevsky",
+      "Russian Literature",
+      "Guilt",
+      "Morality",
+      "Crime",
+      "Raskolnikov",
+      "Philosophy",
+      "Ethics"
     ],
     "title_en": "Crime and Punishment",
     "title_cs": "Zločin a trest",
@@ -1039,7 +1485,15 @@
     "status": "finished",
     "tags": [
       "Sci-Fi",
-      "Classic"
+      "Classic",
+      "Isaac Asimov",
+      "Robotics",
+      "Three Laws of Robotics",
+      "AI",
+      "Short Stories",
+      "Future",
+      "Technology",
+      "Logic"
     ],
     "title_en": "I, Robot",
     "title_cs": "Já, robot",
@@ -1057,7 +1511,15 @@
     "status": "finished",
     "tags": [
       "Mystery",
-      "Classic"
+      "Classic",
+      "Arthur Conan Doyle",
+      "Sherlock Holmes",
+      "Dr. Watson",
+      "Detective",
+      "Crime",
+      "Victorian",
+      "Investigation",
+      "Deduction"
     ],
     "title_en": "A Study in Scarlet",
     "title_cs": "Studie v šarlatové",
@@ -1075,7 +1537,15 @@
     "status": "finished",
     "tags": [
       "Finance",
-      "Investing"
+      "Investing",
+      "Mikuláš Splítek",
+      "Stocks",
+      "Value Investing",
+      "Czech",
+      "Financial Literacy",
+      "Economics",
+      "Markets",
+      "Money"
     ],
     "title_en": "Stát se investorem",
     "title_cs": "Stát se investorem",
@@ -1093,7 +1563,15 @@
     "status": "finished",
     "tags": [
       "Biography",
-      "Sport"
+      "Sport",
+      "Martin Kovář",
+      "Czech",
+      "Paralympics",
+      "Inspiration",
+      "Resilience",
+      "Swimming",
+      "Athletics",
+      "Motivation"
     ],
     "title_en": "Sport je bolest",
     "title_cs": "Sport je bolest",
@@ -1111,7 +1589,15 @@
     "status": "finished",
     "tags": [
       "Fiction",
-      "Drama"
+      "Drama",
+      "John Green",
+      "YA",
+      "Romance",
+      "Cancer",
+      "Coming of Age",
+      "Contemporary",
+      "Tragedy",
+      "Emotional"
     ],
     "title_en": "The Fault in Our Stars",
     "title_cs": "Hvězdy nám nepřály",
@@ -1129,7 +1615,15 @@
     "status": "ongoing",
     "tags": [
       "AI",
-      "Computer Science"
+      "Computer Science",
+      "Machine Learning",
+      "Stuart Russell",
+      "Peter Norvig",
+      "Textbook",
+      "Algorithms",
+      "Deep Learning",
+      "Robotics",
+      "Search"
     ],
     "title_en": "Artificial Intelligence: A Modern Approach",
     "title_cs": "Umělá inteligence: Moderní přístup",
@@ -1147,7 +1641,15 @@
     "status": "finished",
     "tags": [
       "Classic",
-      "Drama"
+      "Drama",
+      "Daniel Keyes",
+      "Sci-Fi",
+      "Intelligence",
+      "Psychology",
+      "Ethics",
+      "Tragedy",
+      "Human Nature",
+      "Novella"
     ],
     "title_en": "Flowers for Algernon",
     "title_cs": "Růže pro Algernon",
@@ -1165,7 +1667,15 @@
     "status": "finished",
     "tags": [
       "Sci-Fi",
-      "Space"
+      "Space",
+      "Carl Sagan",
+      "SETI",
+      "Astronomy",
+      "Aliens",
+      "Science",
+      "Cosmos",
+      "Philosophy",
+      "First Contact"
     ],
     "title_en": "Contact",
     "title_cs": "Kontakt",
@@ -1183,7 +1693,15 @@
     "status": "finished",
     "tags": [
       "Sci-Fi",
-      "Space"
+      "Space",
+      "David Weber",
+      "Military Sci-Fi",
+      "Space Opera",
+      "Technology",
+      "Religion",
+      "War",
+      "Rebirth",
+      "Future"
     ],
     "title_en": "Safehold Series",
     "title_cs": "Série Safehold",
@@ -1201,7 +1719,15 @@
     "status": "finished",
     "tags": [
       "Sci-Fi",
-      "Space"
+      "Space",
+      "Adrian Tchaikovsky",
+      "Evolution",
+      "Spiders",
+      "Terraforming",
+      "Space Opera",
+      "Biology",
+      "Future",
+      "Artificial Intelligence"
     ],
     "title_en": "Children of Time",
     "title_cs": "Děti času",
@@ -1219,7 +1745,15 @@
     "status": "ongoing",
     "tags": [
       "Aerospace",
-      "Engineering"
+      "Engineering",
+      "Rocketry",
+      "Propulsion",
+      "Thermodynamics",
+      "George P. Sutton",
+      "Spacecraft",
+      "Fluid Dynamics",
+      "Textbook",
+      "Physics"
     ],
     "title_en": "Rocket Propulsion Elements",
     "title_cs": "Rocket Propulsion Elements",
@@ -1237,7 +1771,15 @@
     "status": "ongoing",
     "tags": [
       "Math",
-      "Visualization"
+      "Visualization",
+      "Linear Algebra",
+      "Calculus",
+      "Neural Networks",
+      "Education",
+      "Geometry",
+      "Computer Science",
+      "Animation",
+      "Grant Sanderson"
     ],
     "title_en": "3Blue1Brown",
     "title_cs": "3Blue1Brown",
@@ -1255,7 +1797,15 @@
     "status": "ongoing",
     "tags": [
       "Engineering",
-      "Science"
+      "Science",
+      "Inventions",
+      "DIY",
+      "Experiments",
+      "NASA",
+      "Robotics",
+      "Fun",
+      "Physics",
+      "Mark Rober"
     ],
     "title_en": "Mark Rober",
     "title_cs": "Mark Rober",
@@ -1273,7 +1823,15 @@
     "status": "ongoing",
     "tags": [
       "Science",
-      "Physics"
+      "Physics",
+      "Experiments",
+      "Derek Muller",
+      "Education",
+      "Misconceptions",
+      "STEM",
+      "Quantum Mechanics",
+      "Space",
+      "Engineering"
     ],
     "title_en": "Veritasium",
     "title_cs": "Veritasium",
@@ -1291,7 +1849,15 @@
     "status": "ongoing",
     "tags": [
       "Engineering",
-      "DIY"
+      "DIY",
+      "Fabrication",
+      "Machining",
+      "Robotics",
+      "Inventions",
+      "Shane Wighton",
+      "CAD",
+      "Hardware",
+      "Woodworking"
     ],
     "title_en": "Stuff Made Here",
     "title_cs": "Stuff Made Here",
@@ -1309,7 +1875,15 @@
     "status": "ongoing",
     "tags": [
       "Business",
-      "Podcast"
+      "Podcast",
+      "Finance",
+      "Investing",
+      "Startups",
+      "Economics",
+      "Interviews",
+      "Tech",
+      "Entrepreneurship",
+      "Venture Capital"
     ],
     "title_en": "Nikhil Kamath",
     "title_cs": "Nikhil Kamath",
@@ -1327,7 +1901,15 @@
     "status": "ongoing",
     "tags": [
       "TV",
-      "Czech"
+      "Czech",
+      "Culture",
+      "Documentaries",
+      "News",
+      "Media",
+      "Public Broadcast",
+      "Films",
+      "Series",
+      "Czech Television"
     ],
     "title_en": "iVysílání",
     "title_cs": "iVysílání",
@@ -1345,7 +1927,15 @@
     "status": "ongoing",
     "tags": [
       "Music",
-      "Guitar"
+      "Guitar",
+      "Tutorials",
+      "Lessons",
+      "Chords",
+      "Instruments",
+      "Acoustic",
+      "Electric",
+      "Beginners",
+      "Songwriting"
     ],
     "title_en": "Andy Guitar",
     "title_cs": "Andy Guitar",
@@ -1363,7 +1953,15 @@
     "status": "ongoing",
     "tags": [
       "Gaming",
-      "Czech"
+      "Czech",
+      "Streaming",
+      "Entertainment",
+      "Gameplay",
+      "Twitch",
+      "Pavel Mikeš",
+      "Strategy",
+      "Humor",
+      "Vlogs"
     ],
     "title_en": "Herdyn",
     "title_cs": "Herdyn",
@@ -1381,7 +1979,15 @@
     "status": "ongoing",
     "tags": [
       "Education",
-      "University"
+      "University",
+      "MIT",
+      "Lectures",
+      "Computer Science",
+      "Physics",
+      "Mathematics",
+      "Engineering",
+      "Courses",
+      "Open Learning"
     ],
     "title_en": "MIT OpenCourseWare",
     "title_cs": "MIT OpenCourseWare",
@@ -1399,7 +2005,15 @@
     "status": "ongoing",
     "tags": [
       "Math",
-      "IB"
+      "IB",
+      "Education",
+      "Exam Prep",
+      "High School",
+      "Calculus",
+      "Algebra",
+      "Tutorials",
+      "Practice",
+      "International Baccalaureate"
     ],
     "title_en": "Revision Village",
     "title_cs": "Revision Village",
@@ -1417,7 +2031,15 @@
     "status": "ongoing",
     "tags": [
       "Education",
-      "Czech"
+      "Czech",
+      "ČVUT",
+      "Engineering",
+      "Electrical Engineering",
+      "Computer Science",
+      "Robotics",
+      "University",
+      "Prague",
+      "FEL"
     ],
     "title_en": "CVUTFEL",
     "title_cs": "CVUTFEL",
@@ -1435,7 +2057,15 @@
     "status": "ongoing",
     "tags": [
       "Education",
-      "Czech"
+      "Czech",
+      "FJFI",
+      "ČVUT",
+      "Nuclear Physics",
+      "Mathematics",
+      "Quantum",
+      "University",
+      "Science",
+      "Jaderka"
     ],
     "title_en": "Jaderka [fjfi]",
     "title_cs": "Jaderka [fjfi]",
@@ -1453,7 +2083,15 @@
     "status": "ongoing",
     "tags": [
       "Finance",
-      "Czech"
+      "Czech",
+      "Investing",
+      "Economics",
+      "Stocks",
+      "Crypto",
+      "Markets",
+      "Passive Income",
+      "Wealth",
+      "Business"
     ],
     "title_en": "Kapitalista",
     "title_cs": "Kapitalista",
@@ -1471,7 +2109,15 @@
     "status": "ongoing",
     "tags": [
       "Science",
-      "Physics"
+      "Physics",
+      "Experiments",
+      "Demonstrations",
+      "Steve Mould",
+      "Mechanics",
+      "Chemistry",
+      "Curiosity",
+      "STEM",
+      "Optics"
     ],
     "title_en": "Steve Mould",
     "title_cs": "Steve Mould",
@@ -1489,7 +2135,15 @@
     "status": "ongoing",
     "tags": [
       "Education",
-      "Czech"
+      "Czech",
+      "Math",
+      "Tutorials",
+      "School",
+      "Physics",
+      "Geometry",
+      "Exams",
+      "Teaching",
+      "Lessons"
     ],
     "title_en": "Online Učitel",
     "title_cs": "Online Učitel",
@@ -1507,7 +2161,15 @@
     "status": "ongoing",
     "tags": [
       "Neuroscience",
-      "Biology"
+      "Biology",
+      "Brain",
+      "Computational Neuroscience",
+      "Animation",
+      "Cognitive Science",
+      "Science",
+      "Visual Explanation",
+      "Complex Systems",
+      "Neural Networks"
     ],
     "title_en": "Artem Kirsanov",
     "title_cs": "Artem Kirsanov",
@@ -1525,7 +2187,15 @@
     "status": "ongoing",
     "tags": [
       "Engineering",
-      "History"
+      "History",
+      "Aviation",
+      "Materials",
+      "Mechanics",
+      "Technology",
+      "Design",
+      "Physics",
+      "Aerospace",
+      "Shaun Fitzgerald"
     ],
     "title_en": "Real Engineering",
     "title_cs": "Real Engineering",
@@ -1543,7 +2213,15 @@
     "status": "ongoing",
     "tags": [
       "Space",
-      "Astronomy"
+      "Astronomy",
+      "Rocketry",
+      "Orbital Mechanics",
+      "SpaceX",
+      "NASA",
+      "Kerbal Space Program",
+      "Physics",
+      "Aviation",
+      "Scott Manley"
     ],
     "title_en": "Scott Manley",
     "title_cs": "Scott Manley",
@@ -1561,7 +2239,15 @@
     "status": "ongoing",
     "tags": [
       "Tech",
-      "Coding"
+      "Coding",
+      "Software Engineering",
+      "Web Development",
+      "Computer Science",
+      "Algorithms",
+      "Career",
+      "Programming",
+      "Tutorials",
+      "Frontend"
     ],
     "title_en": "Gal Lahat",
     "title_cs": "Gal Lahat",
@@ -1579,7 +2265,15 @@
     "status": "ongoing",
     "tags": [
       "AI",
-      "MIT"
+      "MIT",
+      "Deep Learning",
+      "Neural Networks",
+      "Alexander Amini",
+      "Lectures",
+      "Computer Science",
+      "Machine Learning",
+      "Research",
+      "Computer Vision"
     ],
     "title_en": "Alexander Amini",
     "title_cs": "Alexander Amini",
@@ -1597,7 +2291,15 @@
     "status": "ongoing",
     "tags": [
       "AI",
-      "Analysis"
+      "Analysis",
+      "LLM",
+      "Artificial Intelligence",
+      "Research",
+      "Machine Learning",
+      "OpenAI",
+      "Anthropic",
+      "Benchmarks",
+      "Future of AI"
     ],
     "title_en": "AI Explained",
     "title_cs": "AI Explained",
@@ -1615,7 +2317,15 @@
     "status": "ongoing",
     "tags": [
       "Math",
-      "Physics"
+      "Physics",
+      "Pure Math",
+      "Abstract Math",
+      "Geometry",
+      "Number Theory",
+      "Visualization",
+      "Education",
+      "Analysis",
+      "Topology"
     ],
     "title_en": "Aleph 0",
     "title_cs": "Aleph 0",
@@ -1633,7 +2343,15 @@
     "status": "ongoing",
     "tags": [
       "Engineering",
-      "Physics"
+      "Physics",
+      "FEA",
+      "Structural Analysis",
+      "Solid Mechanics",
+      "Fluid Mechanics",
+      "Stress and Strain",
+      "CAD",
+      "Materials",
+      "Mechanical Engineering"
     ],
     "title_en": "The Efficient Engineer",
     "title_cs": "The Efficient Engineer",
@@ -1651,7 +2369,15 @@
     "status": "ongoing",
     "tags": [
       "Education",
-      "History"
+      "History",
+      "Geography",
+      "Systems",
+      "CGP Grey",
+      "Politics",
+      "Animations",
+      "Philosophy",
+      "Society",
+      "Infographics"
     ],
     "title_en": "CGP Grey",
     "title_cs": "CGP Grey",
@@ -1669,7 +2395,15 @@
     "status": "ongoing",
     "tags": [
       "Science",
-      "Math"
+      "Math",
+      "Physics",
+      "Biology",
+      "Computer Science",
+      "Theoretical Physics",
+      "Research",
+      "Cosmology",
+      "Journalism",
+      "Discoveries"
     ],
     "title_en": "Quanta Magazine",
     "title_cs": "Quanta Magazine",
@@ -1687,7 +2421,15 @@
     "status": "ongoing",
     "tags": [
       "Documentary",
-      "Mystery"
+      "Mystery",
+      "History",
+      "Space",
+      "Analysis",
+      "Storytelling",
+      "Mini Documentaries",
+      "True Crime",
+      "Research",
+      "Animation"
     ],
     "title_en": "LEMMiNO",
     "title_cs": "LEMMiNO",
@@ -1705,7 +2447,15 @@
     "status": "ongoing",
     "tags": [
       "AI",
-      "Deep Learning"
+      "Deep Learning",
+      "Neural Networks",
+      "Andrej Karpathy",
+      "Python",
+      "Transformers",
+      "LLM",
+      "Machine Learning",
+      "Education",
+      "Coding"
     ],
     "title_en": "Andrej Karpathy",
     "title_cs": "Andrej Karpathy",
@@ -1723,7 +2473,15 @@
     "status": "ongoing",
     "tags": [
       "Engineering",
-      "DIY"
+      "DIY",
+      "Rocketry",
+      "3D Printing",
+      "Engines",
+      "Inventions",
+      "Experiments",
+      "Thermodynamics",
+      "Propulsion",
+      "Machining"
     ],
     "title_en": "Integza",
     "title_cs": "Integza",
@@ -1741,7 +2499,15 @@
     "status": "ongoing",
     "tags": [
       "Aerospace",
-      "Engineering"
+      "Engineering",
+      "Model Rockets",
+      "Thrust Vector Control",
+      "Avionics",
+      "Rocketry",
+      "DIY Space",
+      "Joe Barnard",
+      "Guidance Systems",
+      "Electronics"
     ],
     "title_en": "BPS.space",
     "title_cs": "BPS.space",
@@ -1759,7 +2525,15 @@
     "status": "ongoing",
     "tags": [
       "Coding",
-      "GameDev"
+      "GameDev",
+      "Algorithms",
+      "Procedural Generation",
+      "Unity",
+      "Computer Graphics",
+      "Simulation",
+      "C#",
+      "Math",
+      "Visualization"
     ],
     "title_en": "Sebastian Lague",
     "title_cs": "Sebastian Lague",
@@ -1777,7 +2551,15 @@
     "status": "ongoing",
     "tags": [
       "Web Design",
-      "Coding"
+      "Coding",
+      "Frontend",
+      "CSS",
+      "JavaScript",
+      "UI/UX",
+      "Animation",
+      "HTML",
+      "Creative Coding",
+      "Web Development"
     ],
     "title_en": "Hyperplexed",
     "title_cs": "Hyperplexed",
@@ -1795,7 +2577,15 @@
     "status": "ongoing",
     "tags": [
       "Education",
-      "Czech"
+      "Czech",
+      "Explanations",
+      "Society",
+      "Economics",
+      "History",
+      "Current Events",
+      "Journalism",
+      "Infographics",
+      "Jirka Burýšek"
     ],
     "title_en": "Jirka vysvětluje věci",
     "title_cs": "Jirka vysvětluje věci",
@@ -1813,7 +2603,15 @@
     "status": "ongoing",
     "tags": [
       "Space",
-      "Aerospace"
+      "Aerospace",
+      "SpaceX",
+      "Starship",
+      "Rocket Science",
+      "NASA",
+      "Tim Dodd",
+      "Orbital Launches",
+      "Propulsion",
+      "Interviews"
     ],
     "title_en": "Everyday Astronaut",
     "title_cs": "Everyday Astronaut",
@@ -1831,7 +2629,15 @@
     "status": "ongoing",
     "tags": [
       "Science",
-      "Philosophy"
+      "Philosophy",
+      "Michael Stevens",
+      "Curiosity",
+      "Psychology",
+      "Mind",
+      "Paradoxes",
+      "Mathematics",
+      "Physics",
+      "Experiments"
     ],
     "title_en": "Vsauce",
     "title_cs": "Vsauce",
@@ -1849,7 +2655,15 @@
     "status": "ongoing",
     "tags": [
       "Science",
-      "Engineering"
+      "Engineering",
+      "Destin Sandlin",
+      "Physics",
+      "High Speed Video",
+      "Aerodynamics",
+      "Space",
+      "Curiosity",
+      "Experiments",
+      "Military Tech"
     ],
     "title_en": "SmarterEveryDay",
     "title_cs": "SmarterEveryDay",
@@ -1867,7 +2681,15 @@
     "status": "ongoing",
     "tags": [
       "Tech",
-      "AI"
+      "AI",
+      "Machine Learning",
+      "Deep Learning",
+      "Generative AI",
+      "Paper Explanations",
+      "Neural Networks",
+      "Computer Vision",
+      "Research",
+      "Coding"
     ],
     "title_en": "bycloud",
     "title_cs": "bycloud",
@@ -1875,5 +2697,211 @@
     "desc_cs": "Dokumentární animace a příběhy o historii počítačů a hardwarovém inženýrství.",
     "date_en": "Recommended",
     "date_cs": "Doporučeno"
+  },
+  "hyde_park_civilizace": {
+    "category": "podcast",
+    "name": "Hyde Park Civilizace",
+    "link": "https://ct24.ceskatelevize.cz/porady/hyde-park-civilizace",
+    "author": "Daniel Stach",
+    "image": "hyde_park_logo.png",
+    "tags": [
+      "Science",
+      "Podcast",
+      "Czech",
+      "Daniel Stach",
+      "Interviews",
+      "Physics",
+      "Nobel Prize",
+      "Research",
+      "Technology",
+      "Space",
+      "Medicine"
+    ],
+    "title_en": "Hyde Park Civilizace",
+    "title_cs": "Hyde Park Civilizace",
+    "desc_en": "Premier science talk show and podcast hosted by Daniel Stach, featuring in-depth interviews with Nobel laureates, scientists, and world experts.",
+    "desc_cs": "Přední vědecká talk show a podcast Daniela Stacha s hloubkovými rozhovory s nositeli Nobelovy ceny, vědci a světovými experty.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "neurazitelny": {
+    "category": "podcast",
+    "name": "Neurazitelný.cz",
+    "link": "https://neurazitelny.cz/",
+    "author": "Marek Černý",
+    "image": "neurazitelny_logo.png",
+    "tags": [
+      "Podcast",
+      "Czech",
+      "Interviews",
+      "Philosophy",
+      "Education",
+      "Science",
+      "Culture",
+      "Inspiration",
+      "Critical Thinking",
+      "Marek Černý"
+    ],
+    "title_en": "Neurazitelný.cz",
+    "title_cs": "Neurazitelný.cz",
+    "desc_en": "Czech long-form interview podcast featuring inspiring conversations with renowned thinkers, scientists, educators, and innovators.",
+    "desc_cs": "Český podcast s dlouhými a hloubkovými rozhovory s inspirativními mysliteli, vědci, pedagogy a inovátory.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "mindscape": {
+    "category": "podcast",
+    "name": "Sean Carroll's Mindscape",
+    "link": "https://www.preposterousuniverse.com/podcast/",
+    "author": "Sean Carroll",
+    "image": "mindscape_logo.png",
+    "tags": [
+      "Science",
+      "Physics",
+      "Philosophy",
+      "Podcast",
+      "Sean Carroll",
+      "Cosmology",
+      "Quantum Mechanics",
+      "Mathematics",
+      "Interviews",
+      "Epistemology",
+      "Neuroscience"
+    ],
+    "title_en": "Sean Carroll's Mindscape",
+    "title_cs": "Sean Carroll's Mindscape",
+    "desc_en": "Theoretical physicist Sean Carroll explores big ideas in physics, philosophy, neuroscience, and culture with leading thinkers.",
+    "desc_cs": "Teoretický fyzik Sean Carroll diskutuje o velkých myšlenkách ve fyzice, filosofii, neurovědě a kultuře s předními mysliteli.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "kecy_a_politika": {
+    "category": "podcast",
+    "name": "Kecy a politika",
+    "link": "https://kecyapolitika.cz/",
+    "author": "Bohumil Pečinka, Petros Michopulos",
+    "image": "kecy_a_politika_logo.png",
+    "tags": [
+      "Podcast",
+      "Czech",
+      "Politics",
+      "Current Events",
+      "Commentary",
+      "Geopolitics",
+      "Journalism",
+      "Society",
+      "Bohumil Pečinka",
+      "Petros Michopulos",
+      "Economics"
+    ],
+    "title_en": "Kecy a politika",
+    "title_cs": "Kecy a politika",
+    "desc_en": "A prominent Czech political commentary podcast analyzing current domestic and geopolitical affairs with insider perspectives and sharp wit.",
+    "desc_cs": "Přední český politický podcast glosující aktuální domácí i geopolitické dění s vhledem ze zákulisí a ostrým vtipem.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "machine_learning_street_talk": {
+    "category": "podcast",
+    "name": "Machine Learning Street Talk",
+    "link": "https://www.youtube.com/@MachineLearningStreetTalk",
+    "author": "Tim Scarfe, Keith Duggar",
+    "image": "mlst_logo.png",
+    "tags": [
+      "AI",
+      "Machine Learning",
+      "Deep Learning",
+      "Podcast",
+      "Computer Science",
+      "Artificial Intelligence",
+      "Neural Networks",
+      "Mathematics",
+      "Philosophy of AI",
+      "AGI",
+      "Research"
+    ],
+    "title_en": "Machine Learning Street Talk (MLST)",
+    "title_cs": "Machine Learning Street Talk (MLST)",
+    "desc_en": "Rigorous technical interviews and deep conceptual debates with leading artificial intelligence researchers, mathematicians, and cognitive scientists.",
+    "desc_cs": "Hloubkové technické rozhovory a koncepční debaty s předními výzkumníky v oblasti umělé inteligence, matematiky a kognitivních věd.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "lex_fridman": {
+    "category": "podcast",
+    "name": "Lex Fridman Podcast",
+    "link": "https://lexfridman.com/podcast/",
+    "author": "Lex Fridman",
+    "image": "lex_fridman_logo.png",
+    "tags": [
+      "AI",
+      "Podcast",
+      "Interviews",
+      "Lex Fridman",
+      "Science",
+      "Technology",
+      "Philosophy",
+      "Computer Science",
+      "Robotics",
+      "Physics",
+      "History"
+    ],
+    "title_en": "Lex Fridman Podcast",
+    "title_cs": "Lex Fridman Podcast",
+    "desc_en": "Long-form conversations about artificial intelligence, science, technology, history, philosophy, and the human condition.",
+    "desc_cs": "Dlouhé rozhovory o umělé inteligenci, vědě, technologiích, historii, filosofii a podstatě lidské existence.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "joe_rogan_experience": {
+    "category": "podcast",
+    "name": "The Joe Rogan Experience",
+    "link": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+    "author": "Joe Rogan",
+    "image": "jre_logo.png",
+    "tags": [
+      "Podcast",
+      "Interviews",
+      "Joe Rogan",
+      "Comedy",
+      "Society",
+      "Culture",
+      "Health",
+      "Science",
+      "Conversations",
+      "Entertainment"
+    ],
+    "title_en": "The Joe Rogan Experience",
+    "title_cs": "The Joe Rogan Experience",
+    "desc_en": "Long-form, unscripted conversations with diverse guests ranging from scientists and comedians to fighters, authors, and artists.",
+    "desc_cs": "Dlouhé, nestrukturované rozhovory s pestrými hosty od vědců a komiků po bojovníky, autory a umělce.",
+    "date_en": "",
+    "date_cs": ""
+  },
+  "episodic_table_of_elements": {
+    "category": "podcast",
+    "name": "The Episodic Table of Elements",
+    "link": "https://episodictable.com/",
+    "author": "T. R. Appleton",
+    "image": "episodic_table_logo.png",
+    "tags": [
+      "Chemistry",
+      "Science",
+      "Podcast",
+      "History",
+      "Periodic Table",
+      "Elements",
+      "Storytelling",
+      "Education",
+      "Physics",
+      "STEM",
+      "Discoveries"
+    ],
+    "title_en": "The Episodic Table of Elements",
+    "title_cs": "The Episodic Table of Elements",
+    "desc_en": "A podcast telling the fascinating, humorous, and sometimes bizarre historical stories behind each element on the periodic table.",
+    "desc_cs": "Podcast vyprávějící fascinující, humorné a někdy bizarní historické příběhy o každém prvku periodické tabulky.",
+    "date_en": "",
+    "date_cs": ""
   }
 }

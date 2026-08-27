@@ -83,49 +83,66 @@ h1 {
     letter-spacing: 0.15rem;
     padding: 0 1rem;
   }
-
-  .lang-toggle-btn {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.75rem;
-  }
-
-  .flag-icon {
-    font-size: 1rem;
-  }
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.lang-toggle-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  color: var(--mat-sys-on-surface, #ffffff);
-  padding: 0.4rem 0.8rem;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
+/* Dual Segmented Language Switcher Pill */
+.lang-segmented-pill {
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 3px;
+  cursor: pointer;
   outline: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
 }
 
-.lang-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--cyan, #00ffff);
-  transform: scale(1.05);
+.lang-segmented-pill:hover {
+  border-color: rgba(27, 193, 152, 0.4);
+  box-shadow: 0 0 12px rgba(27, 193, 152, 0.15);
 }
 
-.flag-icon {
-  font-size: 1.15rem;
-  line-height: 1;
+.lang-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: var(--cyan, #1bc198);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(27, 193, 152, 0.4);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.lang-text {
-  letter-spacing: 0.05rem;
+.lang-thumb.is-cs {
+  transform: translateX(100%);
+}
+
+.lang-label {
+  position: relative;
+  z-index: 2;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.55rem;
+  min-width: 24px;
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant, rgba(255, 255, 255, 0.55));
+  transition: color 0.25s ease;
+}
+
+.lang-label.active {
+  color: #ffffff;
 }

@@ -1,5 +1,6 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,6 +51,7 @@ export interface LibraryItem {
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
@@ -207,6 +209,10 @@ export class Projects {
 
   getItemTags(item: LibraryItem): string[] {
     return item.tags || [];
+  }
+
+  getVisibleTags(item: LibraryItem): string[] {
+    return (item.tags || []).slice(0, 5);
   }
 
   getYear(item: LibraryItem): number {
