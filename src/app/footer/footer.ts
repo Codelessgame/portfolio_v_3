@@ -12,10 +12,12 @@ export class Footer {
   emailCopied = signal(false);
 
   copyEmail() {
-    navigator.clipboard.writeText('stanik.ruzicka@gmail.com').then(() => {
-      this.emailCopied.set(true);
-      setTimeout(() => this.emailCopied.set(false), 2000);
-    });
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText('stanik.ruzicka@gmail.com').then(() => {
+        this.emailCopied.set(true);
+        setTimeout(() => this.emailCopied.set(false), 2000);
+      }).catch(() => {});
+    }
   }
 
   t(key: string): string {

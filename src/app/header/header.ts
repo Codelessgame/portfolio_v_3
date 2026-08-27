@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, signal, inject, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, OnDestroy, SimpleChanges, signal, inject, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,7 +15,7 @@ const letters = "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYZŽ012345678
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header implements OnChanges, OnInit {
+export class Header implements OnChanges, OnInit, OnDestroy {
   @Input() value: string = '';
   currentValue = signal('');
   stars = Array.from({ length: 15 });
@@ -87,4 +87,9 @@ export class Header implements OnChanges, OnInit {
     }, 30)
   }
 
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
 }

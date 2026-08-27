@@ -128,12 +128,12 @@ export class Projects {
       extraKey: item.author || undefined,
       tags: item.tags || [],
       pinned: !!item.pinned,
-      title_en: item.title_en,
-      title_cs: item.title_cs,
-      desc_en: item.desc_en,
-      desc_cs: item.desc_cs,
-      date_en: item.date_en,
-      date_cs: item.date_cs
+      title_en: item.title_en || item.name || '',
+      title_cs: item.title_cs || item.name || '',
+      desc_en: item.desc_en || '',
+      desc_cs: item.desc_cs || '',
+      date_en: item.date_en || '',
+      date_cs: item.date_cs || ''
     } as LibraryItem;
   });
 
@@ -253,11 +253,11 @@ export class Projects {
 
       // Text Search Filter
       if (query) {
-        const title = (lang === 'en' ? item.title_en : item.title_cs).toLowerCase();
-        const desc = (lang === 'en' ? item.desc_en : item.desc_cs).toLowerCase();
+        const title = (lang === 'en' ? (item.title_en || '') : (item.title_cs || '')).toLowerCase();
+        const desc = (lang === 'en' ? (item.desc_en || '') : (item.desc_cs || '')).toLowerCase();
         const extra = item.extraKey ? item.extraKey.toLowerCase() : '';
-        const tags = this.getItemTags(item).map(t => t.toLowerCase());
-        const typeLabel = translator(`projects.filter_${item.type}`).toLowerCase();
+        const tags = this.getItemTags(item).map(t => (t || '').toLowerCase());
+        const typeLabel = (translator(`projects.filter_${item.type}`) || '').toLowerCase();
         const searchable = `${title} ${desc} ${extra} ${tags.join(' ')} ${typeLabel}`;
 
         if (!searchable.includes(query)) return false;
@@ -271,14 +271,14 @@ export class Projects {
       return [...items].reverse();
     } else if (mode === 'alpha-asc') {
       return [...items].sort((a, b) => {
-        const titleA = (lang === 'en' ? a.title_en : a.title_cs).toLowerCase();
-        const titleB = (lang === 'en' ? b.title_en : b.title_cs).toLowerCase();
+        const titleA = (lang === 'en' ? (a.title_en || '') : (a.title_cs || '')).toLowerCase();
+        const titleB = (lang === 'en' ? (b.title_en || '') : (b.title_cs || '')).toLowerCase();
         return titleA.localeCompare(titleB, lang);
       });
     } else if (mode === 'alpha-desc') {
       return [...items].sort((a, b) => {
-        const titleA = (lang === 'en' ? a.title_en : a.title_cs).toLowerCase();
-        const titleB = (lang === 'en' ? b.title_en : b.title_cs).toLowerCase();
+        const titleA = (lang === 'en' ? (a.title_en || '') : (a.title_cs || '')).toLowerCase();
+        const titleB = (lang === 'en' ? (b.title_en || '') : (b.title_cs || '')).toLowerCase();
         return titleB.localeCompare(titleA, lang);
       });
     } else if (mode === 'date-desc') {

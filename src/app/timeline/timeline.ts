@@ -257,7 +257,7 @@ export class Timeline implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateLines() {
-    if (!isPlatformBrowser(this.platformId) || !this.isDesktop) return;
+    if (this.destroyed || !isPlatformBrowser(this.platformId) || !this.isDesktop) return;
 
     const container = this.el.nativeElement.querySelector('.timeline-container');
     if (!container) return;

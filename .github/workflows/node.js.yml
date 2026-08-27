@@ -29,6 +29,9 @@ jobs:
       # I have automatically inserted your repository name here
       run: npx ng build --configuration production --base-href /portfolio_v_3/
 
+    - name: Create 404 fallback for GitHub Pages
+      run: cp dist/portfolio_v_3/browser/index.html dist/portfolio_v_3/browser/404.html
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
