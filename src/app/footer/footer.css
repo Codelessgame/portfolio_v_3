@@ -104,6 +104,7 @@
 }
 
 .social-icon-btn {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,11 +114,25 @@
   background-color: var(--mat-sys-surface-container-high, rgba(0, 0, 0, 0.04));
   border: 1px solid var(--mat-sys-outline-variant, rgba(0, 0, 0, 0.15));
   color: var(--mat-sys-on-surface-variant, rgba(30, 30, 30, 0.7));
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-decoration: none;
 }
 
+/* Hitbox bridge so cursor on bottom edge never oscillates */
+.social-icon-btn::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -10px;
+  pointer-events: auto;
+  border-radius: 50%;
+}
+
 .social-icon-svg {
+  position: relative;
+  z-index: 2;
   width: 20px;
   height: 20px;
   stroke-width: 2px;

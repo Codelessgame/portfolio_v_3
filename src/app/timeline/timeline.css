@@ -310,6 +310,17 @@
 }
 
 /* HOVER & ACTIVE STATES */
+.roadmap-pill-block::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  pointer-events: auto;
+  border-radius: 8px;
+}
+
 .roadmap-pill-block:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px color-mix(in srgb, var(--pill-color, #1bc198) 40%, transparent);

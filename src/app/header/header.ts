@@ -83,8 +83,8 @@ export class Header implements OnChanges, OnInit, OnDestroy {
         clearInterval(this.interval)
       }
 
-      iteration += 1 / 3
-    }, 30)
+      iteration += 1 / 6;
+    }, 45);
   }
 
   ngOnDestroy() {

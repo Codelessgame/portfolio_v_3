@@ -252,10 +252,7 @@
               }
               <div class="card-content">
                 <div class="card-top-row">
-                  <h3>
-                    <mat-icon class="podcast-icon">mic</mat-icon>
-                    <span>{{ currentLang() === 'en' ? item.title_en : item.title_cs }}</span>
-                  </h3>
+                  <h3>{{ currentLang() === 'en' ? item.title_en : item.title_cs }}</h3>
                 </div>
                 <div class="card-middle-row">
                   <span class="creator-label">{{ item.extraKey }}</span>

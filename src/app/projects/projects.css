@@ -404,6 +404,17 @@ a.project-card {
 }
 
 /* Hover effects triggered from stationary wrapper */
+.project-card.interactive::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -12px;
+  pointer-events: auto;
+  border-radius: 16px;
+}
+
 .project-card-wrapper:hover .project-card.interactive,
 .project-card.interactive:hover {
   transform: translateY(-6px);

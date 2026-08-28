@@ -1,24 +1,27 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule, Router } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslationService } from '../translation.service';
 import projectsData from './projects-data.json';
 
-export interface ProjectSpec {
-  label_en: string;
-  label_cs: string;
-  value: string;
+export interface StepItem {
+  stepNumber: number;
+  title_en: string;
+  title_cs: string;
+  desc_en: string;
+  desc_cs: string;
+  image?: string;
+  imageCaption_en?: string;
+  imageCaption_cs?: string;
 }
 
-export interface ChallengeItem {
-  title: string;
-  desc: string;
-}
-
-export interface GalleryItem {
+export interface AssetItem {
+  type: 'image' | 'audio';
   src: string;
+  title_en?: string;
+  title_cs?: string;
   caption_en: string;
   caption_cs: string;
 }
@@ -35,21 +38,12 @@ export interface CaseStudyProject {
   date_cs: string;
   status: 'finished' | 'ongoing';
   github?: string;
-  demo?: string;
   tags: string[];
   heroImage: string;
-  specs: ProjectSpec[];
-  story: {
-    problem_en: string;
-    problem_cs: string;
-    architecture_en: string;
-    architecture_cs: string;
-    challenges_en: ChallengeItem[];
-    challenges_cs: ChallengeItem[];
-    results_en: string;
-    results_cs: string;
-  };
-  gallery: GalleryItem[];
+  overview_en: string;
+  overview_cs: string;
+  steps: StepItem[];
+  assets: AssetItem[];
 }
 
 @Component({
@@ -66,13 +60,12 @@ export interface CaseStudyProject {
 })
 export class ProjectDetail {
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
   private ts = inject(TranslationService);
   currentLang = this.ts.currentLang;
 
   allProjects: CaseStudyProject[] = projectsData as CaseStudyProject[];
   projectId = signal<string>('');
-  activeLightbox = signal<GalleryItem | null>(null);
+  activeAssetIndex = signal<number | null>(null);
 
   constructor() {
     this.route.paramMap.subscribe(params => {
@@ -89,24 +82,48 @@ export class ProjectDetail {
     return this.allProjects.find(p => p.id === id) || this.allProjects[0];
   });
 
-  prevProject = computed(() => {
-    const idx = this.allProjects.findIndex(p => p.id === this.project().id);
-    if (idx <= 0) return null;
-    return this.allProjects[idx - 1];
+  currentAsset = computed<AssetItem | null>(() => {
+    const idx = this.activeAssetIndex();
+    if (idx === null) return null;
+    const p = this.project();
+    if (!p.assets || p.assets.length === 0) return null;
+    return p.assets[idx] || p.assets[0];
   });
 
-  nextProject = computed(() => {
-    const idx = this.allProjects.findIndex(p => p.id === this.project().id);
-    if (idx < 0 || idx >= this.allProjects.length - 1) return null;
-    return this.allProjects[idx + 1];
-  });
-
-  openLightbox(item: GalleryItem) {
-    this.activeLightbox.set(item);
+  openAssetLibrary(startIndex = 0) {
+    this.activeAssetIndex.set(startIndex);
   }
 
-  closeLightbox() {
-    this.activeLightbox.set(null);
+  openAssetBySrc(src: string) {
+    const p = this.project();
+    if (!p.assets || p.assets.length === 0) return;
+    let idx = p.assets.findIndex(a => a.src === src);
+    if (idx === -1) idx = 0;
+    this.activeAssetIndex.set(idx);
+  }
+
+  selectAsset(idx: number) {
+    this.activeAssetIndex.set(idx);
+  }
+
+  closeAssetLibrary() {
+    this.activeAssetIndex.set(null);
+  }
+
+  nextAsset() {
+    const curr = this.activeAssetIndex();
+    if (curr === null) return;
+    const len = this.project().assets?.length || 0;
+    if (len === 0) return;
+    this.activeAssetIndex.set((curr + 1) % len);
+  }
+
+  prevAsset() {
+    const curr = this.activeAssetIndex();
+    if (curr === null) return;
+    const len = this.project().assets?.length || 0;
+    if (len === 0) return;
+    this.activeAssetIndex.set((curr - 1 + len) % len);
   }
 
   t(key: string): string {
