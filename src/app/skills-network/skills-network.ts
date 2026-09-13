@@ -10,7 +10,7 @@ import {
   PLATFORM_ID,
   effect
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, APP_BASE_HREF, PlatformLocation } from '@angular/common';
 import { TranslationService } from '../translation.service';
 import * as echarts from 'echarts';
 
@@ -46,9 +46,17 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
   private resizeObserver: ResizeObserver | null = null;
   private isDark = true;
   private mediaQueryList: MediaQueryList | null = null;
+  private platformLocation = inject(PlatformLocation);
 
   t(key: string): string {
     return this.ts.t()(key);
+  }
+
+  private getIconUrl(path: string): string {
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    const base = this.platformLocation.getBaseHrefFromDOM() || '/';
+    const normalizedBase = base.endsWith('/') ? base : base + '/';
+    return `${normalizedBase}${cleanPath}`;
   }
 
   // Branch data
@@ -228,7 +236,7 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
         children: branch.skills.map(skill => ({
           name: skill.name,
           categoryName: this.t(branch.nameKey),
-          symbol: `image://${skill.icon}`,
+          symbol: `image://${this.getIconUrl(skill.icon)}`,
           symbolSize: 36,
           itemStyle: {
             borderColor: 'transparent',
