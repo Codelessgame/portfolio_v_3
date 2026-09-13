@@ -6,6 +6,7 @@
   transform: translate3d(var(--start-x), var(--start-y), 0) rotate(var(--star-rotation));
   animation: fly-and-fade var(--fall-duration) var(--fall-delay) linear infinite;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .star {
@@ -18,11 +19,12 @@
   color: var(--star-color);
   background: linear-gradient(45deg, currentColor, transparent);
   border-radius: 50%;
-  filter: drop-shadow(0 0 6px currentColor);
+  box-shadow: 0 0 6px currentColor;
   opacity: var(--max-opacity, 1);
   transform-origin: 0 50%;
   animation: shrink-tail var(--fall-duration) var(--fall-delay) linear infinite;
   pointer-events: none;
+  will-change: transform, width;
 }
 
 .star.twinkle {

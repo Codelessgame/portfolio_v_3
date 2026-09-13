@@ -1,5 +1,6 @@
 import { Component, inject, computed } from '@angular/core';
 import { SplitSection } from '../split-section/split-section';
+import { SkillsNetwork } from '../skills-network/skills-network';
 import { FeaturedCards } from '../featured-cards/featured-cards';
 import { Timeline } from '../timeline/timeline';
 import { TranslationService } from '../translation.service';
@@ -7,7 +8,7 @@ import aboutParagraphs from './about.json';
 
 @Component({
   selector: 'app-home',
-  imports: [SplitSection, FeaturedCards, Timeline],
+  imports: [SplitSection, SkillsNetwork, FeaturedCards, Timeline],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

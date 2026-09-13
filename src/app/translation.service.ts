@@ -32,6 +32,16 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     'about.title': 'About Me',
 
+    // Skills Network Section
+    'skills.title': 'Skills & Tools',
+    'skills.subtitle': 'Interactive mind map of programming languages, engineering software, and daily tools',
+    'skills.drag_hint': 'Hover over any icon to reveal details • Click categories to fold branches',
+    'skills.cat_programming': 'Programming & Frameworks',
+    'skills.cat_hardware': '3D & Hardware',
+    'skills.cat_office': 'Productivity & Office',
+    'skills.cat_tools': 'Developer Tools',
+    'skills.cat_other': 'Other',
+
     // Showcase / Creative Space Section
     'creative.title': 'My Creative Space',
     'creative.subtitle': 'A collection of code, art, and engineering projects',
@@ -91,6 +101,16 @@ export const translations: Record<Lang, Record<string, string>> = {
     'header.title': 'STANISLAV RŮŽIČKA',
 
     'about.title': 'O mně',
+
+    // Skills Network Section
+    'skills.title': 'Dovednosti a nástroje',
+    'skills.subtitle': 'Interaktivní myšlenková mapa programovacích jazyků, inženýrského softwaru a nástrojů',
+    'skills.drag_hint': 'Přejeďte myší přes ikonu pro název • Kliknutím sbalíte větve',
+    'skills.cat_programming': 'Programování a frameworky',
+    'skills.cat_hardware': '3D a hardware',
+    'skills.cat_office': 'Kancelář a produktivita',
+    'skills.cat_tools': 'Vývojářské nástroje',
+    'skills.cat_other': 'Ostatní',
 
     // Showcase / Creative Space Section
     'creative.title': 'Můj kreativní prostor',

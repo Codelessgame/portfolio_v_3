@@ -54,11 +54,18 @@
   overflow: hidden;
   isolation: isolate;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.14);
   text-decoration: none;
   background-color: #0b0f17;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .showcase-card {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
 }
 
 /* Image container & Zoom effect */

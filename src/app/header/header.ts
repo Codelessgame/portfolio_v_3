@@ -18,7 +18,7 @@ const letters = "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYZŽ012345678
 export class Header implements OnChanges, OnInit, OnDestroy {
   @Input() value: string = '';
   currentValue = signal('');
-  stars = Array.from({ length: 15 });
+  stars = Array.from({ length: 6 });
   interval: any;
 
   private ts = inject(TranslationService);
@@ -38,9 +38,9 @@ export class Header implements OnChanges, OnInit, OnDestroy {
   private updateStarCount() {
     if (isPlatformBrowser(this.platformId)) {
       const w = window.innerWidth;
-      let count = 15;
-      if (w < 600) count = 6;
-      else if (w < 900) count = 10;
+      let count = 6;
+      if (w < 600) count = 3;
+      else if (w < 900) count = 4;
       if (this.stars.length !== count) {
         this.stars = Array.from({ length: count });
       }
@@ -83,8 +83,8 @@ export class Header implements OnChanges, OnInit, OnDestroy {
         clearInterval(this.interval)
       }
 
-      iteration += 1 / 6;
-    }, 45);
+      iteration += 1 / 3;
+    }, 28);
   }
 
   ngOnDestroy() {
