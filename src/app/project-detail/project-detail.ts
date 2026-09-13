@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,6 +15,9 @@ export interface StepItem {
   image?: string;
   imageCaption_en?: string;
   imageCaption_cs?: string;
+  audio?: string;
+  audioCaption_en?: string;
+  audioCaption_cs?: string;
 }
 
 export interface AssetItem {
@@ -58,10 +61,12 @@ export interface CaseStudyProject {
   templateUrl: './project-detail.html',
   styleUrl: './project-detail.css'
 })
-export class ProjectDetail {
+export class ProjectDetail implements AfterViewInit {
   private route = inject(ActivatedRoute);
   private ts = inject(TranslationService);
   currentLang = this.ts.currentLang;
+
+  @ViewChild('projectTitle') projectTitleRef?: ElementRef<HTMLHeadingElement>;
 
   allProjects: CaseStudyProject[] = projectsData as CaseStudyProject[];
   projectId = signal<string>('');
@@ -71,10 +76,26 @@ export class ProjectDetail {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id') || '';
       this.projectId.set(id);
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      this.scrollToHeading();
     });
+  }
+
+  ngAfterViewInit() {
+    this.scrollToHeading();
+  }
+
+  scrollToHeading() {
+    if (typeof window === 'undefined') return;
+    setTimeout(() => {
+      const heading = this.projectTitleRef?.nativeElement || document.querySelector('.project-title');
+      if (heading) {
+        const toolbar = document.querySelector('mat-toolbar');
+        const toolbarHeight = toolbar ? toolbar.getBoundingClientRect().height : 64;
+        const rect = heading.getBoundingClientRect();
+        const targetY = window.pageYOffset + rect.top - toolbarHeight - 16;
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+      }
+    }, 80);
   }
 
   project = computed(() => {

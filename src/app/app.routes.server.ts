@@ -1,11 +1,8 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 
 const projectParams = async () => [
-  { id: 'rc_car' },
   { id: 'railway' },
-  { id: 'digit' },
-  { id: 'music' },
-  { id: 'slm' }
+  { id: 'digit' }
 ];
 
 export const serverRoutes: ServerRoute[] = [

@@ -6,7 +6,11 @@
 
 }
 
-mat-icon {
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
+mat-icon {
   padding: 2px;
 }

@@ -1,24 +1,44 @@
 {
   "personalActivities": [
     {
-      "id": "art",
-      "icon": "palette",
-      "color": "#ff006e",
-      "startYear": 2022,
+      "id": "football",
+      "icon": "sports_soccer",
+      "color": "#ffbe0b",
+      "startYear": 2013,
       "startMonth": 9,
-      "endYear": 2026,
+      "endYear": 2017,
       "endMonth": 6,
       "lane": 0,
-      "status": "ongoing",
-      "label_en": "Art Club",
-      "label_cs": "Výtvarný kroužek",
-      "desc_en": "Volunteered to coordinate custom physical/digital artwork commissions and designed school community farewell gifts, utilizing acrylic painting and pastels.",
-      "desc_cs": "Dobrovolná koordinace zakázek na fyzické a digitální umění, tvorba rozlučkových dárků pro školní komunitu (akrylové malby, pastely).",
-      "startDateLabel_en": "Sept 2022",
-      "startDateLabel_cs": "Září 2022",
-      "endDateLabel_en": "June 2026",
-      "endDateLabel_cs": "Červen 2026",
-      "tags": ["Creative", "Design", "Commissions", "Volunteering"]
+      "status": "finished",
+      "label_en": "Football (FK Rokycany)",
+      "label_cs": "Fotbal (FK Rokycany)",
+      "desc_en": "Played youth football for FK Rokycany from 1st to 4th grade. It gave me an active sports foundation and, most importantly, taught me how to work and communicate effectively as part of a team.",
+      "desc_cs": "Hrál jsem za mládežnický klub FK Rokycany od 1. do 4. třídy. Byla to skvělá sportovní průprava, která mě hlavně naučila, jak fungovat a spolupracovat v týmu.",
+      "startDateLabel_en": "Sept 2013",
+      "startDateLabel_cs": "Září 2013",
+      "endDateLabel_en": "June 2017",
+      "endDateLabel_cs": "Červen 2017",
+      "tags": ["FK Rokycany", "Teamwork", "Cooperation", "Youth Sports"]
+    },
+    {
+      "id": "athletics",
+      "icon": "directions_run",
+      "color": "#fb5607",
+      "startYear": 2017,
+      "startMonth": 9,
+      "endYear": 2022,
+      "endMonth": 6,
+      "lane": 0,
+      "status": "finished",
+      "label_en": "Athletics (AC Falcon Rokycany)",
+      "label_cs": "Atletika (AC Falcon Rokycany)",
+      "desc_en": "Trained and competed with local club AC Falcon Rokycany, specializing in long-distance running (1,000m+). Five years of endurance training built lasting self-discipline and the ability to push myself through physical exhaustion.",
+      "desc_cs": "Trénoval a závodil jsem za místní klub AC Falcon Rokycany se zaměřením na dlouhé tratě (1000 m a více). Pět let vytrvalostního tréninku mi dalo pevnou disciplínu a schopnost jít přes fyzické vyčerpání, když jde do tuhého.",
+      "startDateLabel_en": "Sept 2017",
+      "startDateLabel_cs": "Září 2017",
+      "endDateLabel_en": "June 2022",
+      "endDateLabel_cs": "Červen 2022",
+      "tags": ["AC Falcon Rokycany", "Long-Distance Running", "Discipline", "Endurance"]
     },
     {
       "id": "volunteering",
@@ -28,17 +48,77 @@
       "startMonth": 9,
       "endYear": 2026,
       "endMonth": 6,
-      "lane": 1,
-      "status": "ongoing",
-      "label_en": "School Volunteering",
-      "label_cs": "Školní dobrovolnictví",
-      "desc_en": "Organised school events and assisted with lower-grade activities, promoting community spirit and collaboration.",
-      "desc_cs": "Organizace školních akcí a pomoc s aktivitami pro nižší ročníky, podpora komunitního ducha a spolupráce.",
+      "lane": 0,
+      "status": "finished",
+      "label_en": "Chotěšov Monastery & Model Railway",
+      "label_cs": "Klášter Chotěšov & modelové kolejiště",
+      "desc_en": "Volunteered as part of IB CAS Service with a group restoring historical rooms and setting up public exhibitions at Chotěšov Monastery. Assisted with building renovations and built an interactive exhibition feature: an ESP32 system enabling visitors to switch model railway junctions via a local web interface (detailed in projects).",
+      "desc_cs": "V rámci dobrovolnictví IB CAS jsem se zapojil do záchrany a rekonstrukce historických sálů a přípravy výstav v klášteře Chotěšov. Vedle manuálních prací jsem pro expozici navrhl interaktivní prvek: systém řízený ESP32, který návštěvníkům umožňuje ovládat výhybky modelového kolejiště přes web (detail v sekci projektů).",
       "startDateLabel_en": "Sept 2024",
       "startDateLabel_cs": "Září 2024",
       "endDateLabel_en": "June 2026",
       "endDateLabel_cs": "Červen 2026",
-      "tags": ["Community", "Event Management", "Leadership"]
+      "tags": ["IB CAS Service", "Chotěšov Monastery", "Heritage Restoration", "ESP32 Web Control"]
+    },
+    {
+      "id": "art",
+      "icon": "palette",
+      "color": "#ff006e",
+      "startYear": 2017,
+      "startMonth": 9,
+      "endYear": 2026,
+      "endMonth": 6,
+      "lane": 1,
+      "status": "finished",
+      "label_en": "Fine Arts (ZUŠ)",
+      "label_cs": "Výtvarný obor (ZUŠ)",
+      "desc_en": "Attended an elementary art school (ZUŠ) continuously from 5th grade through high school graduation, working with painting, drawing, and ceramics. Over nine years, my work evolved from realistic studies of animals and human figures into technology-inspired paintings and creative drawings with deeper symbolic meaning.",
+      "desc_cs": "Navštěvoval jsem výtvarný obor na Základní umělecké škole (ZUŠ) nepřetržitě od 5. třídy až po maturitu. Pracoval jsem s malbou, kresbou i keramikou. Moje tvorba se postupně vyvinula od realistických kreseb zvířat a lidí k malbám inspirovaným technologiemi a ke koncepční tvorbě se skrytým významem.",
+      "startDateLabel_en": "Sept 2017",
+      "startDateLabel_cs": "Září 2017",
+      "endDateLabel_en": "June 2026",
+      "endDateLabel_cs": "Červen 2026",
+      "tags": ["ZUŠ", "Visual Arts", "Painting & Ceramics", "Conceptual Design"]
+    },
+    {
+      "id": "rock_climbing",
+      "icon": "terrain",
+      "color": "#e76f51",
+      "startYear": 2017,
+      "startMonth": 9,
+      "endYear": 2019,
+      "endMonth": 6,
+      "lane": 2,
+      "status": "finished",
+      "label_en": "Rock Climbing Club",
+      "label_cs": "Lezecký kroužek",
+      "desc_en": "Attended an indoor climbing club in 5th and 6th grade, trying out bouldering and top-rope climbing on artificial walls alongside active team games with other kids.",
+      "desc_cs": "V 5. a 6. třídě jsem chodil do lezeckého kroužku na umělou stěnu. Byla to směs základů boulderingu, lezení s lanem a týmových her s ostatními dětmi.",
+      "startDateLabel_en": "Sept 2017",
+      "startDateLabel_cs": "Září 2017",
+      "endDateLabel_en": "June 2019",
+      "endDateLabel_cs": "Červen 2019",
+      "tags": ["Indoor Climbing", "Bouldering", "Youth Club"]
+    },
+    {
+      "id": "robotics_primary",
+      "icon": "precision_manufacturing",
+      "color": "#3a86ff",
+      "startYear": 2019,
+      "startMonth": 9,
+      "endYear": 2020,
+      "endMonth": 6,
+      "lane": 2,
+      "status": "finished",
+      "label_en": "Centrum Robotiky Plzeň (7th Grade)",
+      "label_cs": "Centrum robotiky Plzeň (7. třída)",
+      "desc_en": "Attended Centrum robotiky in Pilsen, building an autonomous line-tracking car using an Arduino Uno and a camera sensor. Working across programming, electronics, and 3D-modeled parts sparked a lasting passion for hardware prototyping—and was the direct reason I got my own 3D printer at home.",
+      "desc_cs": "Navštěvoval jsem kroužek v Centru robotiky v Plzni, kde jsme stavěli autíčko sledující čáru řízené Arduinem Uno s kamerou. Praktický mix programování, elektroniky a 3D modelování dílů ve mně zapálil vášeň pro hardware – což byl přímý impuls k tomu, že mám dnes doma vlastní 3D tiskárnu.",
+      "startDateLabel_en": "Sept 2019",
+      "startDateLabel_cs": "Září 2019",
+      "endDateLabel_en": "June 2020",
+      "endDateLabel_cs": "Červen 2020",
+      "tags": ["Centrum robotiky Plzeň", "Arduino Uno", "Autonomous Car", "3D Printing", "Embedded Hardware"]
     },
     {
       "id": "physics",
@@ -50,15 +130,15 @@
       "endMonth": 6,
       "lane": 2,
       "status": "finished",
-      "label_en": "Robotics Club",
-      "label_cs": "Robotický kroužek",
-      "desc_en": "Designed and simulated a mathematical shadow projection model for convex 3D shapes using coordinate geometry, vector analysis, and Python.",
-      "desc_cs": "Návrh a simulace matematického modelu stínové projekce pro konvexní 3D tvary s využitím analytické geometrie, vektorové analýzy a Pythonu.",
+      "label_en": "Robotics Club (SVČ RADOVÁNEK)",
+      "label_cs": "Robotický kroužek (SVČ RADOVÁNEK)",
+      "desc_en": "Participated in the project-based robotics club at SVČ RADOVÁNEK in Pilsen, building independent hardware projects and consulting with experienced mentors. Learned to design custom PCBs in KiCad and established communication protocols between multiple Arduino and microcontroller boards.",
+      "desc_cs": "Navštěvoval jsem projektový kroužek v SVČ RADOVÁNEK v Plzni, kde jsme pod vedením zkušenějších mentorů pracovali na vlastních projektech. Naučil jsem se navrhovat jednoduché plošné spoje (PCB) v programu KiCad a řešit komunikaci mezi více deskami Arduino.",
       "startDateLabel_en": "Sept 2024",
       "startDateLabel_cs": "Září 2024",
       "endDateLabel_en": "June 2025",
       "endDateLabel_cs": "Červ. 2025",
-      "tags": ["Python", "3D Math", "Vector Analysis", "Robotics"]
+      "tags": ["SVČ RADOVÁNEK", "KiCad", "PCB Design", "Arduino Communication", "Prototyping"]
     },
     {
       "id": "sports",
@@ -70,15 +150,15 @@
       "endMonth": 6,
       "lane": 3,
       "status": "finished",
-      "label_en": "Rugby",
-      "label_cs": "Rugby",
-      "desc_en": "Engaged in competitive team sports to build tactical cooperation, leadership, and quick decision-making under physical and mental pressure.",
-      "desc_cs": "Účast v soutěžních týmových sportech s cílem rozvíjet taktickou spolupráci, vůdčí schopnosti a rychlé rozhodování pod fyzickým a psychickým tlakem.",
+      "label_en": "Rugby (Brief Trial)",
+      "label_cs": "Rugby (krátká zkušenost)",
+      "desc_en": "Briefly joined a rugby club to test out a demanding team sport—only to realize very quickly that heavy contact and tackling weren't for me, prompting a swift and graceful exit.",
+      "desc_cs": "Krátce jsem zkusil trénovat rugby v rámci hledání nového sportu. Velmi rychle jsem ale přišel na to, že tvrdý kontaktní sport pro mě opravdu není, a po pár týdnech jsem s čistým štítem skončil.",
       "startDateLabel_en": "April 2025",
       "startDateLabel_cs": "Dub. 2025",
       "endDateLabel_en": "June 2025",
       "endDateLabel_cs": "Červ. 2025",
-      "tags": ["Teamwork", "Tactics", "Athletics", "Leadership"]
+      "tags": ["Rugby", "Brief Trial", "Self-Discovery"]
     }
   ],
   "timelineItems": [
@@ -86,36 +166,63 @@
       "id": "fontys",
       "type": "education",
       "title_en": "Fontys University of Applied Sciences",
-      "title_cs": "Univerzita aplikovaných věd Fontys",
+      "title_cs": "Fontys University of Applied Sciences",
       "subtitle_en": "Bachelor of Science in Mechatronics",
-      "subtitle_cs": "Bakalář věd v oboru mechatroniky",
-      "date_en": "Sept 2026 – 2030 (Upcoming)",
-      "date_cs": "Září 2026 – 2030 (Budoucí)",
+      "subtitle_cs": "Bakalářské studium mechatroniky (BSc)",
+      "date_en": "Sept 2026 – 2030 (Ongoing)",
+      "date_cs": "Září 2026 – 2030 (Probíhá)",
       "startYear": 2026,
       "startMonth": 9,
       "endYear": 2030,
       "endMonth": 7,
-      "status": "upcoming",
-      "ongoing": false,
-      "icon": "upcoming",
+      "status": "ongoing",
+      "ongoing": true,
+      "icon": "school",
       "color": "#1bc198",
-      "tags": ["Mechatronics", "Engineering", "Applied Sciences", "Hardware & Software"],
+      "tags": ["Mechatronics", "Robotics", "Eindhoven", "Hands-on Engineering", "Hardware & Software"],
       "bullets_en": [
-        "Status: conditionally accepted awaiting IBDP results on July 6th.",
-        "The programme is focused on practical knowledge, requiring mandatory internships at innovative engineering companies."
+        "Pursuing a Bachelor of Science in Mechatronics in Eindhoven, Netherlands—discovered through a workshop on studying abroad and chosen for its hands-on engineering approach and accessible EU tuition.",
+        "Unites my three core passions—mechanical design, electronics, and software development—driven by a genuine enthusiasm for robotics."
       ],
       "bullets_cs": [
-        "Status: podmíněně přijat, čekám na výsledky IBDP 6. července.",
-        "Program se zaměřuje na praktické znalosti a vyžaduje povinné stáže ve strojírenských a technologických firmách."
+        "Studium bakalářského oboru Mechatronika v Eindhovenu (Nizozemsko) – k této cestě mě inspiroval workshop o studiu v zahraničí a Fontys jsem si vybral pro jeho praktický přístup i dostupnost kvalitního vysokoškolského studia v rámci EU.",
+        "Propojení mých tří klíčových technických zájmů: mechaniky, elektrotechniky a softwaru, motivované dlouhodobým nadšením pro robotiku."
+      ]
+    },
+    {
+      "id": "tractor_inventory",
+      "type": "work",
+      "title_en": "SMS CZ s.r.o. (Agricultural Machinery)",
+      "title_cs": "SMS CZ s.r.o. (Zemědělská technika)",
+      "subtitle_en": "Mechanical Parts & Technical Inventory Assistant",
+      "subtitle_cs": "Správa skladu a technické dokumentace dílů",
+      "date_en": "Aug 1 – Aug 20, 2026",
+      "date_cs": "1. srpna – 20. srpna 2026",
+      "startYear": 2026,
+      "startMonth": 8,
+      "endYear": 2026,
+      "endMonth": 8,
+      "status": "finished",
+      "ongoing": false,
+      "icon": "precision_manufacturing",
+      "color": "#3a86ff",
+      "tags": ["SMS CZ", "Technical Drawings", "Mechanical Parts", "Inventory Auditing", "Agricultural Machinery"],
+      "bullets_en": [
+        "Conducted physical inventory audits of mechanical replacement parts at agricultural machinery manufacturer SMS CZ in Rokycany.",
+        "Cross-referenced physical components with technical exploded-view engineering drawings to accurately identify, catalog, and record parts into the inventory system."
+      ],
+      "bullets_cs": [
+        "Provedl jsem fyzickou inventuru a systematickou evidenci mechanických náhradních dílů u výrobce zemědělské techniky SMS CZ v Rokycanech.",
+        "Dohledával a porovnával jsem fyzické součástky s technickými rozpadovými výkresy (exploded-view), přesně identifikoval neoznačené díly a zaznamenával je do skladového systému."
       ]
     },
     {
       "id": "viktoria_plzen",
       "type": "work",
-      "title_en": "Stadion Viktoria Plzeň",
-      "title_cs": "Stadion Viktoria Plzeň",
-      "subtitle_en": "Fast-food Stall Operator",
-      "subtitle_cs": "Obsluha Fast-food stánku",
+      "title_en": "Stadion FC Viktoria Plzeň",
+      "title_cs": "Stadion FC Viktoria Plzeň",
+      "subtitle_en": "Food Kiosk Operator & Service",
+      "subtitle_cs": "Obsluha stánku s občerstvením",
       "date_en": "June 2025 – Dec 2025",
       "date_cs": "Červen 2025 – Prosinec 2025",
       "startYear": 2025,
@@ -126,12 +233,14 @@
       "ongoing": false,
       "icon": "sports_soccer",
       "color": "#3a86ff",
-      "tags": ["Customer Service", "Fast-paced", "Cashier", "Teamwork"],
+      "tags": ["Viktoria Plzeň", "Customer Service", "Food Prep", "Matchday Logistics", "Self-Awareness"],
       "bullets_en": [
-        "Operated food preparation and customer service in a high-volume, fast-paced environment during football match days."
+        "Worked directly in stadium kiosks during FC Viktoria Plzeň matchdays: preparing food, serving customers in high-volume rushes, and managing inventory replenishment.",
+        "Navigating intense halftime rushes alongside long stretches of idle waiting confirmed that mindless, repetitive work isn't for me—solidifying my ambition for an intellectually demanding engineering career."
       ],
       "bullets_cs": [
-        "Práce spočívala v prodeji, přípravě jídel a komunikaci se zákazníky ve vysokém tempu během fotbalových utkání."
+        "Pracoval jsem ve stáncích s občerstvením během zápasů FC Viktoria Plzeň: připravoval jídlo, obsluhoval fanoušky při nárazových vlnách a doplňoval zásoby.",
+        "Zkušenost s návalem o poločase i dlouhým čekáním bez práce mě utvrdila v tom, že monotónní práce pro mě není – což definitivně posílilo moji motivaci věnovat se technickému inženýrství."
       ]
     },
     {
@@ -139,8 +248,8 @@
       "type": "work",
       "title_en": "PPA Arena",
       "title_cs": "PPA Arena",
-      "subtitle_en": "Cashier & Paintball Event Organizer",
-      "subtitle_cs": "Pokladní & organizátor paintballových akcí",
+      "subtitle_en": "Paintball Event Organizer & Field Marshal",
+      "subtitle_cs": "Instruktor paintballu a údržba výstroje",
       "date_en": "June 2023 – June 2024",
       "date_cs": "Červen 2023 – Červen 2024",
       "startYear": 2023,
@@ -151,14 +260,16 @@
       "ongoing": false,
       "icon": "groups",
       "color": "#3a86ff",
-      "tags": ["Event Management", "Safety Briefs", "English/German Communication", "Logistics"],
+      "tags": ["Event Coordination", "Customer Service", "English & German", "Pneumatic Equipment", "Safety"],
       "bullets_en": [
-        "Managed daily logistics, safety briefs, and client relations for paintball groups ranging from 6 to 90 participants per day.",
-        "Communicated event rules, handled fee collection, and guided foreign visitors in English and German."
+        "Organized and marshaled paintball matches for various groups, conducting safety briefings and refereeing games on the field.",
+        "Guided numerous international visitors in English, picking up practical German on the job to communicate with German-speaking clients.",
+        "Routinely inspected, cleaned, and maintained pneumatic paintball markers, protective gear, and high-pressure air systems."
       ],
       "bullets_cs": [
-        "Správa denní logistiky, bezpečnostních školení a klientských vztahů pro paintballové skupiny od 6 do 90 účastníků denně.",
-        "Vysvětlování pravidel, výběr poplatků a navigace zahraničních návštěvníků v angličtině a němčině."
+        "Organizace a rozhodování paintballových her pro různé skupiny, vedení bezpečnostních instruktáží a dohled na hřišti.",
+        "Komunikace se zahraničními návštěvníky v angličtině a využití němčiny pro německy mluvící zákazníky.",
+        "Pravidelná technická údržba, čištění a servis pneumatických paintballových zbraní (markerů), masek a vysokotlakých vzduchových systémů."
       ]
     },
     {
@@ -174,18 +285,20 @@
       "startMonth": 9,
       "endYear": 2026,
       "endMonth": 6,
-      "status": "ongoing",
-      "ongoing": true,
+      "status": "finished",
+      "ongoing": false,
       "icon": "school",
       "color": "#1bc198",
-      "tags": ["Math AA HL", "Physics HL", "English B HL", "Chemistry SL", "Bilingual 100% EN"],
+      "tags": ["IB Diploma", "Math AA HL", "Physics HL", "English B HL", "Chemistry SL", "Bilingual EN"],
       "bullets_en": [
-        "Rigorous 2-year International Baccalaureate programme taught entirely in English.",
-        "Courses taken: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL, and Czech A: Literature SL."
+        "Completed a 4-year grammar school education: two years of bilingual Czech-English foundation, followed by the rigorous 2-year IB Diploma Programme taught entirely in English.",
+        "Higher Level (HL): Mathematics Analysis & Approaches, Physics, English B.",
+        "Standard Level (SL): Chemistry, Geography, Czech A: Literature."
       ],
       "bullets_cs": [
-        "Náročný 2letý program International Baccalaureate vyučovaný kompletně v angličtině.",
-        "Předměty: Mathematics Analysis and Approaches HL, Physics HL, English B HL, Chemistry SL, Geography SL a Czech A: Literature SL."
+        "Čtyřleté gymnaziální studium: dva roky bilingvní přípravy a následný náročný dvouletý program International Baccalaureate vyučovaný kompletně v angličtině.",
+        "Vyšší úroveň (HL): Mathematics Analysis & Approaches, Physics, English B.",
+        "Standardní úroveň (SL): Chemistry, Geography, Czech A: Literature."
       ]
     },
     {
@@ -205,12 +318,14 @@
       "ongoing": false,
       "icon": "school",
       "color": "#1bc198",
-      "tags": ["Foundation", "STEM Interest", "Rokycany"],
+      "tags": ["Mathematical Olympiad", "Pythagoriáda", "Analytical Logic", "STEM Foundation"],
       "bullets_en": [
-        "Foundational education with strong emphasis on sciences, mathematics, and early interest in engineering."
+        "Discovered a passion for math and analytical problem-solving through competitions, regularly competing in district rounds of the Mathematical Olympiad, Pythagoriáda, and Kangaroo.",
+        "Growing up around programmers in my family naturally sparked my interest in logic, coding, and eventually joining the robotics club."
       ],
       "bullets_cs": [
-        "Základní vzdělání s důrazem na přírodní vědy, matematiku a rozvoj zájmu o techniku."
+        "Díky soutěžím jako Matematická olympiáda, Pythagoriáda nebo Klokan (často až na okresní úrovni) jsem v sobě našel vášeň pro matiku a logické myšlení.",
+        "Většina rodiny jsou programátoři, takže mě svět kódu a logiky lákal odmala – a to byl přímý impuls se v 7. třídě přihlásit do robotiky."
       ]
     }
   ]

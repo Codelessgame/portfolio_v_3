@@ -4,24 +4,24 @@
     <p class="section-subtitle">{{ t('timeline.subtitle') }}</p>
   </div>
 
-  <!-- Main Horizontal Roadmap Container -->
+  <!-- Main Horizontal Roadmap Runway (Full-Bleed) -->
   <div class="roadmap-wrapper">
-    <div class="roadmap-nav-header">
-      <div class="roadmap-hint">
-        <mat-icon class="hint-icon">touch_app</mat-icon>
-        <span>{{ t('timeline.select_item_hint') }}</span>
+    <!-- Floating Shift + Scroll Tip Badge -->
+    @if (!hasScrolled()) {
+      <div 
+        class="roadmap-scroll-tip" 
+        [class.fading]="isFading()"
+        (mouseenter)="onTipMouseEnter()"
+        (mouseleave)="onTipMouseLeave()"
+        (click)="dismissImmediately()"
+        title="Click to dismiss">
+        <mat-icon class="tip-icon">mouse</mat-icon>
+        <span class="tip-prefix">{{ t('timeline.shift_scroll_tip') }}</span>
+        <kbd class="keycap">Shift</kbd>
+        <span class="tip-plus">+</span>
+        <span class="tip-action">{{ t('timeline.scroll_action') }}</span>
       </div>
-
-      <!-- Arrow Scroll Controls -->
-      <div class="roadmap-scroll-controls">
-        <button class="scroll-btn" (click)="scrollRoadmap('left')" aria-label="Scroll left">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-        <button class="scroll-btn" (click)="scrollRoadmap('right')" aria-label="Scroll right">
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-      </div>
-    </div>
+    }
 
     <!-- Scrollable Roadmap Runway -->
     <div class="roadmap-scroll-container" #roadmapScroll>
@@ -36,25 +36,27 @@
             </div>
           }
 
+          <!-- Quarterly Markers in High-Resolution 2025–2026 Era -->
+          @for (q of quarterMarkers; track q.label + q.year) {
+            <div class="grid-quarter-col" [style.left.%]="calcLeft(q.year, q.month)">
+              <span class="quarter-label-tick">{{ q.label }}</span>
+              <div class="grid-quarter-line"></div>
+            </div>
+          }
+
           <!-- Glowing "NOW" Indicator Line -->
           <div class="now-marker-line" [style.left.%]="nowPercent()">
             <span class="now-badge">{{ t('timeline.now') }} (2026)</span>
           </div>
         </div>
 
-        <!-- TRACK 1: EDUCATION -->
+        <!-- TRACK 1: EDUCATION (ROW 1) -->
         <div class="roadmap-track-row track-education">
-          <div class="track-info-side">
-            <span class="track-badge edu-badge">
-              <mat-icon>school</mat-icon>
-              <span>{{ t('timeline.track_edu') }}</span>
-            </span>
-          </div>
           <div class="track-lanes-area">
             @for (item of educationItems(); track item.id) {
               <button 
                 class="roadmap-pill-block"
-                [class.active]="isSelected(item.id)"
+                [class.active]="isActive(item.id)"
                 [class.status-finished]="item.status === 'finished'"
                 [class.status-ongoing]="item.status === 'ongoing'"
                 [class.status-upcoming]="item.status === 'upcoming'"
@@ -62,7 +64,7 @@
                 [style.width.%]="item.widthPercent"
                 [style.--pill-color]="item.color"
                 [title]="item.title + ' (' + item.date + ')'"
-                (click)="toggleSelect(item.id, $event)">
+                (click)="selectPill(item.id)">
                 @if (item.fitsInPill) {
                   <span class="pill-title">{{ item.title }}</span>
                 }
@@ -71,19 +73,13 @@
           </div>
         </div>
 
-        <!-- TRACK 2: WORK EXPERIENCE -->
+        <!-- TRACK 2: WORK EXPERIENCE (ROW 2) -->
         <div class="roadmap-track-row track-work">
-          <div class="track-info-side">
-            <span class="track-badge work-badge">
-              <mat-icon>work</mat-icon>
-              <span>{{ t('timeline.track_work') }}</span>
-            </span>
-          </div>
           <div class="track-lanes-area">
             @for (item of workItems(); track item.id) {
               <button 
                 class="roadmap-pill-block"
-                [class.active]="isSelected(item.id)"
+                [class.active]="isActive(item.id)"
                 [class.status-finished]="item.status === 'finished'"
                 [class.status-ongoing]="item.status === 'ongoing'"
                 [class.status-upcoming]="item.status === 'upcoming'"
@@ -91,7 +87,7 @@
                 [style.width.%]="item.widthPercent"
                 [style.--pill-color]="item.color"
                 [title]="item.title + ' (' + item.date + ')'"
-                (click)="toggleSelect(item.id, $event)">
+                (click)="selectPill(item.id)">
                 @if (item.fitsInPill) {
                   <span class="pill-title">{{ item.title }}</span>
                 }
@@ -100,19 +96,13 @@
           </div>
         </div>
 
-        <!-- TRACK 3: EXTRACURRICULARS & PROJECTS -->
+        <!-- TRACK 3: EXTRACURRICULARS, CLUBS & SPORTS (ROW 3+ MULTI-LANE) -->
         <div class="roadmap-track-row track-activities">
-          <div class="track-info-side centered-activity-badge">
-            <span class="track-badge act-badge">
-              <mat-icon>palette</mat-icon>
-              <span>{{ t('timeline.track_act') }}</span>
-            </span>
-          </div>
           <div class="track-lanes-area multi-lane">
             @for (item of activityItems(); track item.id) {
               <button 
                 class="roadmap-pill-block sub-lane-block"
-                [class.active]="isSelected(item.id)"
+                [class.active]="isActive(item.id)"
                 [class.status-finished]="item.status === 'finished'"
                 [class.status-ongoing]="item.status === 'ongoing'"
                 [class.status-upcoming]="item.status === 'upcoming'"
@@ -121,7 +111,7 @@
                 [style.top.rem]="item.lane * 2.7"
                 [style.--pill-color]="item.color"
                 [title]="item.title + ' (' + item.date + ')'"
-                (click)="toggleSelect(item.id, $event)">
+                (click)="selectPill(item.id)">
                 @if (item.fitsInPill) {
                   <span class="pill-title">{{ item.title }}</span>
                 }
@@ -134,11 +124,28 @@
     </div>
   </div>
 
-  <!-- INTERACTIVE MILESTONE INSPECTOR SECTION (SUPPORTS MULTI-SELECTION VIA SHIFT+CLICK) -->
+  <!-- MILESTONE CARDS SECTION -->
   <div class="inspector-cards-wrapper">
-    <div class="inspector-cards-grid" [class.multi-grid]="selectedItems().length > 1">
-      @for (item of selectedItems(); track item.id) {
-        <div class="inspector-card" [style.--accent-color]="item.color">
+    <!-- View Mode Controls Toolbar -->
+    <div class="cards-toolbar">
+      <div class="cards-count-info">
+        <mat-icon class="toolbar-icon">grid_view</mat-icon>
+        <span class="toolbar-title">{{ showAllCards() ? t('timeline.all_milestones') : t('timeline.focused_milestone') }} ({{ displayedItems().length }})</span>
+      </div>
+      <button class="view-toggle-btn" (click)="toggleShowAll()">
+        <mat-icon class="btn-icon">{{ showAllCards() ? 'filter_alt' : 'apps' }}</mat-icon>
+        <span>{{ showAllCards() ? t('timeline.focus_selected') : t('timeline.show_all') }}</span>
+      </button>
+    </div>
+
+    <div class="inspector-cards-grid" [class.multi-grid]="displayedItems().length > 1">
+      @for (item of displayedItems(); track item.id) {
+        <div 
+          class="inspector-card" 
+          [id]="'card-' + item.id"
+          [class.highlighted]="isActive(item.id)"
+          [style.--accent-color]="item.color"
+          (click)="activeCardId.set(item.id)">
           <div class="inspector-header">
             <div class="inspector-title-group">
               <div class="inspector-icon-wrapper" [style.background-color]="item.color + '22'" [style.border-color]="item.color">
@@ -146,9 +153,6 @@
               </div>
               <div>
                 <div class="inspector-badges-row">
-                  <span class="category-chip" [style.color]="item.color" [style.border-color]="item.color + '44'">
-                    {{ item.type === 'education' ? t('timeline.edu') : (item.type === 'work' ? t('timeline.work') : t('timeline.activities')) }}
-                  </span>
                   <span class="status-chip" [ngClass]="item.status">
                     {{ t('timeline.' + item.status) }}
                   </span>

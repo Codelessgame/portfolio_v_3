@@ -76,6 +76,7 @@
   margin: 0 0 0.75rem 0;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  scroll-margin-top: 80px;
 }
 
 .project-subtitle {
@@ -696,6 +697,68 @@
 @keyframes soundWave {
   0% { transform: scaleY(0.3); opacity: 0.6; }
   100% { transform: scaleY(1.1); opacity: 1; }
+}
+
+/* Inline Step Audio Card */
+.step-audio-card {
+  margin-top: 1.25rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(162, 0, 255, 0.25);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-audio-card:hover {
+  border-color: rgba(162, 0, 255, 0.45);
+  box-shadow: 0 6px 24px rgba(162, 0, 255, 0.15);
+}
+
+.step-audio-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.audio-icon-pulse.small {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.audio-icon-pulse.small mat-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.step-audio-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.audio-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #c084fc;
+}
+
+.step-audio-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.native-audio-player.step-player {
+  max-width: 100%;
 }
 
 /* Modal Meta Footer */

@@ -38,54 +38,81 @@ export class Timeline implements AfterViewInit {
 
   @ViewChild('roadmapScroll') roadmapScrollRef?: ElementRef<HTMLDivElement>;
 
-  // Comprehensive scale from Primary School (Sept 2013) to University Graduation (July 2030)
+  // Scale covers from Primary School start (Sept 2013) to University Graduation (July 2030)
   readonly scaleMin = 2013.7;
   readonly scaleMax = 2030.0;
-  readonly canvasPixelWidth = 2900;
+  readonly canvasPixelWidth = 3500;
 
   // Year markers to display along the horizontal axis
   readonly yearMarkers = [
     2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030
   ];
 
-  // Currently selected item IDs for the Inspector pane (supports Shift+click multi-selection)
-  selectedItemIds = signal<string[]>(['gymnazium']);
+  // Quarterly markers for the high-resolution dense era (Q1 represented by the year label)
+  readonly quarterMarkers = [
+    { year: 2025, month: 4, label: 'Q2' },
+    { year: 2025, month: 7, label: 'Q3' },
+    { year: 2025, month: 10, label: 'Q4' },
+    { year: 2026, month: 4, label: 'Q2' },
+    { year: 2026, month: 7, label: 'Q3' },
+    { year: 2026, month: 10, label: 'Q4' },
+  ];
+
+  // Card display controls: show all cards by default, highlight and jump on pill click
+  showAllCards = signal<boolean>(true);
+  activeCardId = signal<string>('fontys');
+
+  // Tip badge state
+  hasScrolled = signal<boolean>(false);
+  isFading = signal<boolean>(false);
+  private autoDismissTimer?: ReturnType<typeof setTimeout>;
+  private hoverDismissTimer?: ReturnType<typeof setTimeout>;
 
   t(key: string): string {
     return this.ts.t()(key);
   }
 
+  // Piece-wise continuous virtual scale granting ~3.2x resolution to the dense 2024.5–2027 era
+  private readonly totalVirtualUnits = 23.9;
+
+  private getVirtualUnits(t: number): number {
+    if (t <= 2013.7) return 0;
+    if (t <= 2022.0) return (t - 2013.7) * 1.0;
+    if (t <= 2024.5) return 8.3 + (t - 2022.0) * 1.6;
+    if (t <= 2027.0) return 12.3 + (t - 2024.5) * 3.2;
+    if (t <= 2030.0) return 20.3 + (t - 2027.0) * 1.2;
+    return 23.9;
+  }
+
   // Calculate left offset percentage for a date
   calcLeft(year: number, month: number): number {
-    const val = year + (month - 1) / 12;
-    const clamped = Math.max(this.scaleMin, Math.min(this.scaleMax, val));
-    return ((clamped - this.scaleMin) / (this.scaleMax - this.scaleMin)) * 100;
+    const t = year + (month - 1) / 12;
+    return (this.getVirtualUnits(t) / this.totalVirtualUnits) * 100;
   }
 
   // Calculate width percentage for a date range
   calcWidth(startYear: number, startMonth: number, endYear: number, endMonth: number): number {
-    const startVal = Math.max(this.scaleMin, startYear + (startMonth - 1) / 12);
-    const endVal = Math.min(this.scaleMax, endYear + endMonth / 12);
-    const rawWidth = ((endVal - startVal) / (this.scaleMax - this.scaleMin)) * 100;
-    return Math.max(1.8, rawWidth);
+    const startT = startYear + (startMonth - 1) / 12;
+    const endT = endYear + endMonth / 12;
+    const startPct = (this.getVirtualUnits(startT) / this.totalVirtualUnits) * 100;
+    const endPct = (this.getVirtualUnits(endT) / this.totalVirtualUnits) * 100;
+    return Math.max(0.9, endPct - startPct);
   }
 
   // Check whether the title string fits fully inside the pill width
   calcFitsInPill(title: string, startYear: number, startMonth: number, endYear: number, endMonth: number): boolean {
-    const startVal = Math.max(this.scaleMin, startYear + (startMonth - 1) / 12);
-    const endVal = Math.min(this.scaleMax, endYear + endMonth / 12);
-    const fraction = (endVal - startVal) / (this.scaleMax - this.scaleMin);
-    const widthPx = fraction * this.canvasPixelWidth;
-    const estimatedNeededPx = (title.length * 8.8) + 26; // character width + padding
+    const widthPct = this.calcWidth(startYear, startMonth, endYear, endMonth);
+    const widthPx = (widthPct / 100) * this.canvasPixelWidth;
+    const estimatedNeededPx = (title.length * 8.5) + 24;
     return widthPx >= estimatedNeededPx;
   }
 
-  // "Now" vertical indicator line percentage (August 2026)
+  // "Now" vertical indicator line percentage (September 2026)
   nowPercent = computed(() => {
-    return this.calcLeft(2026, 8);
+    return this.calcLeft(2026, 9);
   });
 
-  // Education Track Items
+  // Education Track Items (Row 1)
   educationItems = computed<RoadmapItem[]>(() => {
     const lang = this.currentLang();
     return timelineData.timelineItems
@@ -115,7 +142,7 @@ export class Timeline implements AfterViewInit {
       });
   });
 
-  // Work Track Items
+  // Work Track Items (Row 2)
   workItems = computed<RoadmapItem[]>(() => {
     const lang = this.currentLang();
     return timelineData.timelineItems
@@ -145,7 +172,7 @@ export class Timeline implements AfterViewInit {
       });
   });
 
-  // Activity & Extracurricular Track Items
+  // Extracurricular / Clubs / Sports Items (Row 3+)
   activityItems = computed<RoadmapItem[]>(() => {
     const lang = this.currentLang();
     return timelineData.personalActivities.map(act => {
@@ -173,7 +200,7 @@ export class Timeline implements AfterViewInit {
     });
   });
 
-  // All Items Combined
+  // All Items Combined: Education on top, Work second, Extracurriculars third
   allItems = computed<RoadmapItem[]>(() => {
     return [
       ...this.educationItems(),
@@ -182,58 +209,125 @@ export class Timeline implements AfterViewInit {
     ];
   });
 
-  // Currently Selected Items Array for Inspector Pane (1 or more items)
-  selectedItems = computed<RoadmapItem[]>(() => {
-    const all = this.allItems();
-    const ids = this.selectedItemIds();
-    const matches = all.filter(item => ids.includes(item.id));
-    return matches.length > 0 ? matches : [all[0]];
+  // Displayed items depending on view mode (all or single focused)
+  displayedItems = computed<RoadmapItem[]>(() => {
+    if (this.showAllCards()) {
+      return this.allItems();
+    }
+    const current = this.allItems().find(item => item.id === this.activeCardId());
+    return current ? [current] : [this.allItems()[0]];
   });
 
-  isSelected(id: string): boolean {
-    return this.selectedItemIds().includes(id);
+  isActive(id: string): boolean {
+    return this.activeCardId() === id;
   }
 
-  // Toggle selection: regular click selects single; Shift+click multi-selects/toggles
-  toggleSelect(id: string, event: MouseEvent) {
-    if (event.shiftKey) {
-      const current = this.selectedItemIds();
-      if (current.includes(id)) {
-        if (current.length > 1) {
-          this.selectedItemIds.set(current.filter(i => i !== id));
+  // Handle pill click: update active selection and smoothly scroll to the card
+  selectPill(id: string) {
+    this.activeCardId.set(id);
+    if (typeof document !== 'undefined') {
+      setTimeout(() => {
+        const el = document.getElementById('card-' + id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-      } else {
-        this.selectedItemIds.set([...current, id]);
-      }
-    } else {
-      this.selectedItemIds.set([id]);
+      }, 60);
     }
   }
 
-  // Scroll buttons for roadmap container
-  scrollRoadmap(direction: 'left' | 'right') {
-    if (!this.roadmapScrollRef) return;
-    const el = this.roadmapScrollRef.nativeElement;
-    if (!el || typeof el.scrollBy !== 'function') return;
-    const offset = direction === 'left' ? -420 : 420;
-    el.scrollBy({ left: offset, behavior: 'smooth' });
+  // Toggle between showing all cards and focusing single card
+  toggleShowAll() {
+    this.showAllCards.update(show => !show);
+    if (typeof document !== 'undefined') {
+      setTimeout(() => {
+        const el = document.getElementById('card-' + this.activeCardId());
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 60);
+    }
   }
 
-  // Focus roadmap view on the 2022 to 2027 window on page load
-  centerOn2022() {
+
+  // Dismiss the tip badge immediately without delay
+  dismissImmediately() {
+    this.clearTipTimers();
+    this.isFading.set(true);
+    this.hasScrolled.set(true);
+  }
+
+  // Dismiss the tip badge with a smooth fade
+  dismissTip() {
+    if (this.hasScrolled() || this.isFading()) return;
+    this.clearTipTimers();
+    this.isFading.set(true);
+    setTimeout(() => {
+      this.hasScrolled.set(true);
+    }, 500);
+  }
+
+  // When hovered over, dismiss after 0.5 seconds (500ms)
+  onTipMouseEnter() {
+    if (this.hasScrolled() || this.isFading()) return;
+    this.hoverDismissTimer = setTimeout(() => {
+      this.dismissTip();
+    }, 500);
+  }
+
+  // Cancel hover timer if cursor leaves before 0.5 seconds
+  onTipMouseLeave() {
+    if (this.hoverDismissTimer) {
+      clearTimeout(this.hoverDismissTimer);
+      this.hoverDismissTimer = undefined;
+    }
+  }
+
+  private clearTipTimers() {
+    if (this.autoDismissTimer) {
+      clearTimeout(this.autoDismissTimer);
+      this.autoDismissTimer = undefined;
+    }
+    if (this.hoverDismissTimer) {
+      clearTimeout(this.hoverDismissTimer);
+      this.hoverDismissTimer = undefined;
+    }
+  }
+
+  // Focus roadmap view on the 2024–2027 window on page load
+  centerOnCurrentEra() {
     if (!this.roadmapScrollRef) return;
     const el = this.roadmapScrollRef.nativeElement;
     if (!el || typeof el.scrollTo !== 'function') return;
-    const leftPercent2022 = (2022.0 - this.scaleMin) / (this.scaleMax - this.scaleMin);
-    const scrollTarget = (el.scrollWidth - 150) * leftPercent2022;
+    const leftPercent = this.calcLeft(2024, 6) / 100;
+    const scrollTarget = el.scrollWidth * leftPercent;
     el.scrollTo({ left: scrollTarget, behavior: 'smooth' });
   }
 
   ngAfterViewInit() {
     if (typeof window !== 'undefined') {
       setTimeout(() => {
-        this.centerOn2022();
+        this.centerOnCurrentEra();
       }, 150);
+
+      // Auto-disappear after 5s of user looking at the timeline
+      this.autoDismissTimer = setTimeout(() => {
+        this.dismissTip();
+      }, 5000);
+
+      // Setup Shift + Wheel horizontal scroll handler
+      const el = this.roadmapScrollRef?.nativeElement;
+      if (el) {
+        el.addEventListener(
+          'wheel',
+          (e: WheelEvent) => {
+            if (e.shiftKey) {
+              e.preventDefault();
+              el.scrollLeft += e.deltaY;
+            }
+          },
+          { passive: false }
+        );
+      }
     }
   }
 }

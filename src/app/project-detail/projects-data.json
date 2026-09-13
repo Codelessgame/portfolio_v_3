@@ -1,157 +1,60 @@
 [
   {
-    "id": "rc_car",
-    "category": "embedded",
-    "icon": "toys",
-    "title_en": "Remote Controlled Car",
-    "title_cs": "Dálkově ovládané auto",
-    "subtitle_en": "Custom-designed obstacle-avoiding smart vehicle with dual-motor control, servo scanning, and Bluetooth telemetry",
-    "subtitle_cs": "Na zakázku navržené chytré vozidlo s vyhýbáním se překážkám, servopohonem a Bluetooth telemetrií",
-    "date_en": "March 2024 – December 2024",
-    "date_cs": "Březen 2024 – Prosinec 2024",
-    "status": "finished",
-    "github": "https://github.com/Codelessgame/Arduino",
-    "tags": ["Arduino", "C++", "Bluetooth", "CAD", "Robotics", "Hardware", "Sensors", "Embedded", "Motor Control", "3D Printing"],
-    "heroImage": "rc_car_cad_perspective.jpg",
-    "overview_en": "A complete step-by-step walkthrough of designing, 3D printing, wiring, and programming an autonomous and Bluetooth remote-controlled smart vehicle from scratch.",
-    "overview_cs": "Kompletní návod krok za krokem k návrhu, 3D tisku, zapojení a programování autonomního a Bluetooth dálkově řízeného chytrého vozidla od základu.",
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title_en": "Step 1: CAD Chassis Design & 3D Printing",
-        "title_cs": "Krok 1: CAD návrh podvozku a 3D tisk",
-        "desc_en": "Designed a custom modular chassis in Autodesk Fusion 360 to house the dual DC gear motors, battery pack, motor driver, and Arduino MCU. The structure includes internal mounting brackets and cable management channels. The parts were printed using PETG filament at 20% infill to maximize structural rigidity while keeping total weight minimal.",
-        "desc_cs": "V aplikaci Autodesk Fusion 360 byl navržen modulární podvozek pro uložení dvou stejnosměrných motorů s převodovkou, bateriového bloku, budiče motorů a desky Arduino. Model obsahuje vnitřní úchyty a kanály pro kabeláž. Díly byly vytištěny z PETG filamentu s 20% výplní pro dosažení optimální pevnosti.",
-        "image": "rc_car_cad_perspective.jpg",
-        "imageCaption_en": "Fusion 360 3D CAD isometric chassis render",
-        "imageCaption_cs": "3D CAD sestava ve Fusion 360 a rozvržení komponent"
-      },
-      {
-        "stepNumber": 2,
-        "title_en": "Step 2: Chassis Geometry & Front Elevation Stance",
-        "title_cs": "Krok 2: Geometrie podvozku a čelní rozchod kol",
-        "desc_en": "Calibrated front and rear wheel clearance, ground clearance, and low center of gravity to ensure stable cornering. The top deck accommodates sensor mounts including a rotating distance scanner module.",
-        "desc_cs": "Optimalizace světlé výšky podvozku, rozchodu kol a nízkého těžiště pro stabilní průjezd zatáčkami. Horní deska poskytuje montážní prostor pro otočný senzorový modul.",
-        "image": "rc_car_cad_front.jpg",
-        "imageCaption_en": "Front elevation CAD stance and suspension clearance",
-        "imageCaption_cs": "Čelní 3D CAD pohled a rozvržení podvozku"
-      },
-      {
-        "stepNumber": 3,
-        "title_en": "Step 3: Circuitry, Power Rail & Motor Driver Assembly",
-        "title_cs": "Krok 3: Zapojení obvodů, napájení a budiče motorů",
-        "desc_en": "Wired the L298N Dual H-Bridge motor controller to drive two high-torque DC motors. Power is supplied by a 2S 18650 Li-Ion 7.4V battery pack with a protection circuit module. To prevent microcontroller resets caused by inductive back-EMF voltage drops from the motors, separate filtered power rails and flyback suppression diodes were integrated.",
-        "desc_cs": "Propojení budiče L298N Dual H-Bridge pro řízení dvou stejnosměrných motorů. Napájení zajišťuje 2S 18650 Li-Ion 7,4V akumulátor s ochranným BMS modulem. Proti restartům mikrokontroléru způsobeným napěťovými špičkami motorů byly napájecí větve odděleny a doplněny ochrannými diodami."
-      },
-      {
-        "stepNumber": 4,
-        "title_en": "Step 4: Bluetooth Telemetry & Ultrasonic Evasion",
-        "title_cs": "Krok 4: Bluetooth telemetrie a ultrazvukové vyhýbání se překážkám",
-        "desc_en": "Configured the HC-05 Bluetooth transceiver module over UART serial communication with custom C++ command parsing. Mounted an HC-SR04 ultrasonic distance sensor on a front micro-servo to sweep a 120-degree arc ahead of the vehicle for autonomous collision avoidance.",
-        "desc_cs": "Konfigurace Bluetooth modulu HC-05 přes UART s vlastním C++ parserem. Přední ultrazvukový senzor HC-SR04 na mikroservu skenuje prostor v úhlu 120 stupňů pro autonomní vyhýbání se překážkám."
-      }
-    ],
-    "assets": [
-      { "type": "image", "src": "rc_car_cad_perspective.jpg", "title_en": "3D CAD Isometric Assembly", "title_cs": "3D CAD izometrická sestava", "caption_en": "Isometric 3D CAD chassis render with top-mounted rotating sensor module.", "caption_cs": "Izometrický 3D CAD render podvozku s horním otočným senzorovým modulem." },
-      { "type": "image", "src": "rc_car_cad_front.jpg", "title_en": "3D CAD Front Elevation", "title_cs": "3D CAD čelní pohled", "caption_en": "Front elevation CAD render showing wheel suspension and ground clearance.", "caption_cs": "Čelní 3D CAD render zobrazující rozchod kol, odpružení a světlou výšku." }
-    ]
-  },
-  {
     "id": "railway",
     "category": "embedded",
     "icon": "alt_route",
-    "title_en": "Model Railway CAN Bus Switch Controller",
-    "title_cs": "CAN Bus řadič výhybek pro modelovou železnici",
-    "subtitle_en": "Multi-node Arduino turnout controller network utilizing MCP2515 CAN bus transceivers (500 kbps), EEPROM calibration storage, and custom serial CLI",
-    "subtitle_cs": "Víceuzlová síť pro řízení výhybek na modelové železnici s řadiči MCP2515 CAN bus (500 kbps), Arduinem, ukládáním kalibrace do EEPROM a sériovým CLI",
+    "title_en": "Model Railway CAN Bus & ESP32 Switch Controller",
+    "title_cs": "CAN Bus & ESP32 řadič výhybek pro modelové kolejiště",
+    "subtitle_en": "Automating train switches for an exhibition at Chotěšov Monastery using an ESP32 Wi-Fi web controller, CAN bus network, and custom servo mechanisms",
+    "subtitle_cs": "Automatické přehazování výhybek pro expozici v klášteře Chotěšov pomocí Wi-Fi ovladače na ESP32, CAN sběrnice a servomotorů",
     "date_en": "November 2024 – June 2026",
     "date_cs": "Listopad 2024 – Červen 2026",
     "status": "finished",
     "github": "https://github.com/Codelessgame/Arduino",
-    "tags": ["Arduino", "C++", "MCP2515", "CAN Bus", "SPI", "Servos", "Automation", "Hardware", "Embedded", "Railway", "Electronics"],
+    "tags": ["Arduino", "ESP32", "C++", "MCP2515", "CAN Bus", "SPI", "Servos", "Automation", "Hardware", "Embedded", "Railway", "Electronics"],
     "heroImage": "railway_long_perspective_hill.jpg",
-    "overview_en": "An industrial-grade, multi-node model railway turnout controller network built in C++ and Arduino using MCP2515 CAN Bus modules at 500 kbps, combined with an onboard wireless Web Server interface (192.168.4.1) with interactive track diagrams and serial CLI for robust turnout automation across a custom scenic layout.",
-    "overview_cs": "Průmyslová víceuzlová síť pro automatizované řízení výhybek na modelovém kolejišti naprogramovaná v C++ a Arduinu s využitím CAN sběrnice MCP2515 při 500 kbps, bezdrátového webového serveru (192.168.4.1) s interaktivním schématem kolejiště a sériového CLI.",
+    "overview_en": "At the historic Chotěšov Monastery, I helped put together a large model railway layout for an exhibition and built the entire electronic system to control its switches. Instead of a mess of tangled cables, an ESP32 board lets you switch tracks right from your phone's browser over Wi-Fi, sending commands across a CAN bus network to small Arduino boards and servos tucked under the tables.",
+    "overview_cs": "V historickém klášteře Chotěšov jsem pomáhal se stavbou velkého modelového kolejiště pro expozici a kompletně vymyslel a zapojil elektroniku pro ovládání výhybek. Místo spousty zamotaných kabelů můžete přehazovat tratě přímo z displeje mobilu přes Wi-Fi – příkazy putují po CAN sběrnici do malých desek Arduino a servomotorů schovaných pod stolem.",
     "steps": [
       {
         "stepNumber": 1,
-        "title_en": "Step 1: Benchwork, Timber Framing & Elevation Risers",
-        "title_cs": "Krok 1: Dřevěná nosná konstrukce, rám a výškové stupně",
-        "desc_en": "Constructed the sturdy multi-tier wooden benchwork, leg supports, and sub-roadbed framework. Designed elevation risers to accommodate upper mainline loops, lower return tracks, and gradient transitions.",
-        "desc_cs": "Stavba robustní víceúrovňové dřevěné konstrukce, nosných noh a podkladového rámu kolejiště. Příprava výškových stupňů pro horní okruh trati a vratné smyčky.",
+        "title_en": "Assembling Tables, Carving Mountains & Laying the Tracks",
+        "title_cs": "Skládání stolů, vyřezávání hor a pokládka kolejí",
+        "desc_en": "We bought standard tables (from IKEA and elsewhere) to form the base of the layout, and I helped assemble them in the exhibition room. From there, we glued down thick sheets of styrofoam insulation, carving out hills, tunnels, and track ramps. The most delicate and fun challenge was laying the tracks with just the right curves and alignment so that the trains would glide through smoothly without flying off the rails on the turns!",
+        "desc_cs": "Jako základ pro kolejiště jsme pořídili stoly (z IKEA i odjinud) a já je pomáhal na místě smontovat. Na stoly jsme pak lepili desky polystyrenu a vyřezávali z nich kopce, tunely a stoupání. Nejzábavnější výzvou bylo položit a přesně slícovat koleje, aby modely vlaků hladce projížděly oblouky a v plné rychlosti nevykolejily.",
         "image": "railway_benchwork_timber_frame.jpg",
-        "imageCaption_en": "Sturdy timber benchwork, leg trestles, and layout framework",
-        "imageCaption_cs": "Dřevěný rám kolejiště, nosné nohy a konstrukční základ"
+        "imageCaption_en": "Assembling the tables, foam elevation ramps, and testing the track layout",
+        "imageCaption_cs": "Sestavení stolů, pěnová stoupání a zkouška usazení kolejí"
       },
       {
         "stepNumber": 2,
-        "title_en": "Step 2: Baseboard Foam Shaping, Mountain Framing & Tunnel Portals",
-        "title_cs": "Krok 2: Tvarování pěnového podloží, terén a tunelové portály",
-        "desc_en": "Shaped extruded insulation foam baseboards, carved mountain tunnel portal cutouts, and laid foundations for the terminal station loop and scenic backdrop panels.",
-        "desc_cs": "Tvarování extrudovaného polystyrenu, vyřezání vjezdů do tunelu a usazení základů pro staniční smyčku a panoramatické pozadí.",
-        "image": "railway_baseboard_construction.jpg",
-        "imageCaption_en": "Baseboard insulation foam shaping, elevation risers, and terrain foundation",
-        "imageCaption_cs": "Tvarování pěnového podloží, výšková stoupání a terénní základy"
+        "title_en": "Under-Track Servos, 3D Mounts & Christmas Tree Hooks",
+        "title_cs": "Serva pod tratí, 3D tištěné držáky a vánoční háčky",
+        "desc_en": "To physically move the track switches, small SG90 servo motors are mounted underneath. I put each servo into a custom 3D-printed mount, glued it to a piece of cardboard right under the track, cut out pockets in the styrofoam, and drilled holes through the table for the wires. To connect the servo arm to the track switch, forget expensive specialized parts—I used ordinary thin wire hooks used for hanging Christmas tree ornaments! It worked like a charm. I also added little limit switches to keep power flowing to the switch frog so locomotives don't stutter or stall at slow speeds.",
+        "desc_cs": "O samotné přehazování výhybek se starají malá mikroserva SG90 schovaná pod tratí. Každé servo jsem usadil do vlastního 3D tištěného držáku přilepeného na kus kartonu přímo pod výhybku, vyřezal pro něj kapsu v polystyrenu a provrtal stůl pro kabely. A jak propojit servo s výhybkou? Místo drahých modelářských strun jsem použil obyčejné drátěné háčky na vánoční ozdoby! Fungovalo to skvěle. Navíc jsem přidal malé mikrospínače pro napájení srdcovky, aby lokomotivy při pomalé jízdě necukaly a nezastavovaly.",
+        "image": "railway_turnout_servos_calibration.jpg",
+        "imageCaption_en": "SG90 servo mechanisms with limit microswitches and calibrated travel angles",
+        "imageCaption_cs": "Servomechanismy s mikrospínači pro napájení srdcovky a kalibrovanými úhly"
       },
       {
         "stepNumber": 3,
-        "title_en": "Step 3: Track Layout, Platform Alignment & Wiring Harness",
-        "title_cs": "Krok 3: Pokládka kolejí, usazení nástupišť a kabelové trasy",
-        "desc_en": "Laid out the mainline tracks, passing sidings, and turnout junctions. Precisely aligned the passenger platforms and laid under-table wiring harnesses connecting track power feeds and turnout servo signal channels to central terminal strips.",
-        "desc_cs": "Pokládka kolejí hlavní trati, odboček a výhybkových spojek. Přesné usazení staničních nástupišť a příprava kabelových svazků pro napájení kolejí i signálových tras servomotorů.",
-        "image": "railway_wiring_bench.jpg",
-        "imageCaption_en": "Track installation, platform fitting, and servo signal wiring harness",
-        "imageCaption_cs": "Instalace kolejí, osazení nástupišť a rozvody kabeláže"
+        "title_en": "Connecting Everything with a CAN Bus Network",
+        "title_cs": "Propojení přes CAN bus síť bez zbytečných kabelů",
+        "desc_en": "With a layout stretching over 3 meters, running individual long cables from every single servo back to one central controller would have created an enormous tangle of wires. Rather than running long servo cables across the layout, I implemented a CAN bus network using MCP2515 chips. A main controller broadcasts switch commands along a single pair of twisted wires, and local Arduino boards along the tracks listen for their specific commands to turn their nearby servos. This setup also leaves plenty of room to add train detection sensors in the future.",
+        "desc_cs": "Kolejiště měří přes 3 metry, a kdybych vedl samostatný kabel od každého serva k jedné centrální desce, byla by z toho změť drátů plná elektrického šumu. Místo tahání dlouhých kabelů k servům jsem nasadil CAN bus síť s čipy MCP2515. Hlavní jednotka posílá příkazy po jedné kroucené dvoulince a lokální desky Arduino podél trati zachytí svůj povel a otočí příslušným servem. Zároveň je tím připravený prostor pro budoucí senzory detekce polohy vlaků.",
+        "image": "railway_mainline_throat.jpg",
+        "imageCaption_en": "Mainline track junctions connected to local servo lines and CAN nodes",
+        "imageCaption_cs": "Zhlaví hlavní trati s napojením na servopohony a CAN uzly"
       },
       {
         "stepNumber": 4,
-        "title_en": "Step 4: Under-Turnout Servo Actuation, Microswitches & Angle Calibration",
-        "title_cs": "Krok 4: Servopohony výhybek, mikrospínače a kalibrace úhlů",
-        "desc_en": "Engineered custom under-board servo actuation mounts using SG90 micro-servos paired with dual limit microswitches for frog polarization and position feedback. Calibrated exact endstop angles (e.g. 51°-125°, 49°-118°, 95°-160°) saved persistently into EEPROM by the C++ SwitchServo firmware.",
-        "desc_cs": "Vývoj podkolejištního mechanismu se servy SG90 a dvojicí mikrospínačů pro napájení srdcovky a detekci polohy. Přesná kalibrace koncových úhlů serv (např. 51°-125°, 49°-118°, 95°-160°) ukládaná do EEPROM paměti.",
-        "image": "railway_turnout_servos_calibration.jpg",
-        "imageCaption_en": "Under-turnout servo mounts with microswitches and calibrated angle labels (51-125, 49-118, 95-160)",
-        "imageCaption_cs": "Přestavníky se servy, mikrospínači a kalibrovanými rozsahy úhlů (51-125, 49-118, 95-160)"
-      },
-      {
-        "stepNumber": 5,
-        "title_en": "Step 5: Mechanical Piano Wire Linkage & Turnout Points Control",
-        "title_cs": "Krok 5: Táhla z pružinového ocelového drátu a mechanika jazyků výhybky",
-        "desc_en": "Installed spring-steel piano wire linkages passing through the baseboard into the turnout throw bars. Tuned servo sweep travel to ensure firm point rail contact without mechanical binding.",
-        "desc_cs": "Instalace pružinových ocelových strun procházejících podložím do unášeče jazyků výhybek. Nastavení chodu pro spolehlivý přítlak jazyků bez namáhání.",
-        "image": "railway_switch_linkage.jpg",
-        "imageCaption_en": "Spring-steel piano wire throw bar linkage for smooth, non-binding turnout actuation",
-        "imageCaption_cs": "Pružinové táhlo v unášeči výhybky pro plynulé přestavování jazyků"
-      },
-      {
-        "stepNumber": 6,
-        "title_en": "Step 6: Multi-Node MCP2515 CAN Bus Controller, EEPROM Storage & CLI",
-        "title_cs": "Krok 6: Sběrnice MCP2515 CAN Bus, EEPROM a sériový CommandProcessor",
-        "desc_en": "Integrated MCP2515 CAN controllers (500 kbps, 16MHz SPI) into a distributed multi-node network. Master node broadcasts 8-byte command frames to control turnouts across the entire layout including station throats, engine yards, and the scenic lake bridge sector.",
-        "desc_cs": "Propojení jednotek přes sběrnici CAN s řadiči MCP2515 (500 kbps, 16MHz SPI). Master jednotka vysílá 8bajtové rámce pro synchronní ovládání všech výhybek včetně zhlaví, depa a mostního úseku.",
-        "image": "railway_mainline_throat.jpg",
-        "imageCaption_en": "Mainline crossover turnouts and distributed servo actuation lines",
-        "imageCaption_cs": "Výhybkové spojky hlavní trati a napojení servopohonů"
-      },
-      {
-        "stepNumber": 7,
-        "title_en": "Step 7: Wireless Web Server GUI (192.168.4.1) & Interactive Track Diagram",
-        "title_cs": "Krok 7: Bezdrátové webové GUI (192.168.4.1) a interaktivní schéma kolejiště",
-        "desc_en": "Deployed an onboard wireless Access Point Web Server (192.168.4.1) with an interactive digital track plan GUI. Allows smartphones and tablets to tap individual turnout nodes (highlighted in red) to trigger train routes and switch alignments in real time over WiFi.",
-        "desc_cs": "Nasazení bezdrátového webového serveru (192.168.4.1) s interaktivním schématem kolejového plánu pro smartphony a tablety s vizuální indikací polohy výhybek a okamžitým přestavováním cest.",
+        "title_en": "Switching Tracks from a Phone over Wi-Fi",
+        "title_cs": "Přehazování výhybek z mobilu přes Wi-Fi",
+        "desc_en": "To control the tracks without being stuck standing in one spot by a physical switchboard, I used an ESP32 circuit board (which had an ESP32 chip) that broadcasts its own Wi-Fi network. When you connect your phone or tablet to it, a clean interactive map of the tracks opens right in your browser. You simply tap on any junction on your screen to flip the track in real time. It made testing trains around the big tables effortless, and once the room at Chotěšov is finished and opened to visitors, anyone can try it without having to install any app.",
+        "desc_cs": "Aby člověk nemusel stát na jednom místě u pevného ovládacího pultu, použil jsem desku s čipem ESP32, která vysílá vlastní Wi-Fi síť. Jakmile se k ní připojíte z mobilu nebo tabletu, v prohlížeči se vám otevře přehledné schéma kolejiště. Stačí ťuknout na výhybku na displeji a ta se okamžitě přehodí. Při testování kolem velkého stolu to byla obrovská úleva, a až bude sál v Chotěšově dokončený pro veřejnost, bude si moci kolejiště vyzkoušet kterýkoliv návštěvník bez nutnosti stahovat aplikaci.",
         "image": "railway_web_gui_track_diagram.jpg",
-        "imageCaption_en": "Mobile smartphone Web GUI (192.168.4.1) displaying interactive track diagram with turnout nodes",
-        "imageCaption_cs": "Mobilní webové rozhraní (192.168.4.1) s interaktivním schématem kolejiště a ovládacími uzly"
-      },
-      {
-        "stepNumber": 8,
-        "title_en": "Step 8: Modern Passenger Station, Rolling Stock & Scenic Detailing",
-        "title_cs": "Krok 8: Moderní nádražní budova, soupravy a detailní krajinotvorba",
-        "desc_en": "Installed modern multi-story passenger terminal buildings, double-decker passenger train sets, freight gantry cranes, streetlights, roadway markings, rock faces, pine trees, and a lake with islands spanned by a steel truss bridge.",
-        "desc_cs": "Instalace moderní výpravní budovy, patrových souprav osobních vlaků, portálového jeřábu, silničního značení, skalních masivů a realistického jezera s ostrovy a mostem.",
-        "image": "railway_modern_station_double_decker.jpg",
-        "imageCaption_en": "Modern passenger station, double-decker train coaches, gantry crane, and town detailing",
-        "imageCaption_cs": "Moderní nádražní budova, patrové osobní vagony, jeřáb a městská zástavba"
+        "imageCaption_en": "Mobile web screen (192.168.4.1) showing the interactive track map and switch buttons",
+        "imageCaption_cs": "Mobilní webové rozhraní (192.168.4.1) s interaktivním schématem a tlačítky výhybek"
       }
     ],
     "assets": [
@@ -190,47 +93,46 @@
     "icon": "gesture",
     "title_en": "NumPy MNIST Digit Recognizer",
     "title_cs": "Rozpoznávání číslic MNIST v čistém NumPy",
-    "subtitle_en": "From-scratch dense neural network implemented in Python using pure NumPy with analytical forward/backward passes, ReLU, Softmax, and gradient descent",
-    "subtitle_cs": "Dopředná neuronová síť naprogramovaná od základu v Pythonu a čistém NumPy s analytickým forward/backward passem, ReLU, Softmax a gradientním sestupem",
+    "subtitle_en": "Building a neural network from scratch in pure Python and NumPy to understand how computers learn to recognize handwritten numbers",
+    "subtitle_cs": "Stavba neuronové sítě od úplného základu v čistém Pythonu a NumPy pro pochopení toho, jak se počítač učí číst rukou psaná čísla",
     "date_en": "June 9, 2026",
     "date_cs": "9. června 2026",
     "status": "finished",
     "github": "https://github.com/Codelessgame/digit-program",
     "tags": ["NumPy", "Python", "From Scratch", "Neural Networks", "MNIST", "Backpropagation", "Gradient Descent", "Machine Learning", "Classification", "AI"],
     "heroImage": "mnist_dataset_samples.png",
-    "overview_en": "A complete from-scratch implementation of a 2-layer neural network in pure NumPy and Pandas to classify MNIST handwritten digits, with custom mathematical forward propagation, exact analytical gradient backpropagation, and weight serialization.",
-    "overview_cs": "Kompletní implementace dvouvrstvé neuronové sítě od základu v čistém NumPy a Pandas pro klasifikaci rukou psaných číslic MNIST s přesnou analytickou zpětnou propagací a ukládáním vah.",
+    "overview_en": "Most people build neural networks using heavy libraries like PyTorch that hide all the math behind magic functions. I wanted to see what was really happening under the hood. So, I built a neural network from scratch using only Python and basic matrix math in NumPy. By feeding it thousands of handwritten digit images, calculating its errors, and nudging the numbers until it learned, the model climbed from blind guesses all the way to an impressive 95% accuracy.",
+    "overview_cs": "Většina lidí dnes staví neuronové sítě pomocí hotových knihoven jako PyTorch, které veškerou matematiku schovávají. Já jsem ale chtěl doopravdy pochopit, jak učení funguje uvnitř. Proto jsem neuronovou síť naprogramoval od úplného základu pouze v Pythonu a základním NumPy. Po natrénování na tisících obrázků rukou psaných číslic a postupném opravování chyb se síť z náhodného hádání vypracovala až na skvělou 95% úspěšnost.",
     "steps": [
       {
         "stepNumber": 1,
-        "title_en": "Step 1: Dataset Preprocessing & One-Hot Encoding",
-        "title_cs": "Krok 1: Příprava dat a One-Hot kódování",
-        "desc_en": "Loaded the MNIST dataset (train.csv) with Pandas and converted it into NumPy matrices. Shuffled and split the data into a 1,000-sample validation set (X_dev, Y_dev) and training set (X_train, Y_train). Normalized pixel intensity values by 255.0 to scale inputs into [0, 1] and implemented a custom one-hot label encoding function.",
-        "desc_cs": "Načtení datové sady MNIST pomocí Pandas a převod do NumPy matic. Data jsou náhodně promíchána a rozdělena na 1 000 validačních vzorků a trénovací sadu. Hodnoty pixelů jsou normalizovány dělením 255.0 na interval [0, 1] a je vytvořena funkce pro one-hot kódování štítků.",
+        "title_en": "Feeding the Drawings to the Computer",
+        "title_cs": "Příprava obrázků pro počítač",
+        "desc_en": "To teach the computer to recognize numbers, I used the famous MNIST collection of thousands of tiny 28x28 pixel handwritten digits (0 through 9). I flattened each little drawing into a list of 784 numbers representing how dark each pixel was, scaled them to stay between 0 and 1, and lined them up so the math functions could read them all at once.",
+        "desc_cs": "Abych počítač naučil rozpoznávat čísla, použil jsem známou datovou sadu MNIST – tisíce malých obrázků rukou psaných číslic o velikosti 28x28 pixelů (od 0 do 9). Každý obrázek jsem převedl na řadu 784 čísel podle tmavosti pixelů, upravil hodnoty do rozmezí 0 až 1 a poskládal je do tabulek, aby s nimi síť mohla najednou počítat.",
         "image": "mnist_dataset_samples.png",
         "imageCaption_en": "MNIST handwritten digit samples (0-9) normalized into 28x28 grayscale feature matrices",
         "imageCaption_cs": "Ukázka rukou psaných číslic MNIST (0-9) normalizovaných do matic 28x28 v odstínech šedi"
       },
       {
         "stepNumber": 2,
-        "title_en": "Step 2: Forward Propagation with ReLU & Softmax",
-        "title_cs": "Krok 2: Dopředný průchod (Forward Propagation) s ReLU a Softmax",
-        "desc_en": "Initialized network parameters with uniform random distributions (W1: 10x784, b1: 10x1, W2: 10x10, b2: 10x1). Formulated the forward pass: Z1 = W1.dot(X) + b1, applied non-linear ReLU activation A1 = max(Z1, 0), computed output layer activations Z2 = W2.dot(A1) + b2, and calculated final class probabilities using numerically stable Softmax.",
-        "desc_cs": "Inicializace parametrů sítě náhodnými vahami (W1: 10x784, b1: 10x1, W2: 10x10, b2: 10x1). Dopředný průchod počítá lineární kombinaci Z1 = W1.dot(X) + b1, aplikuje nelineární aktivaci ReLU A1 = max(Z1, 0), výstupní vrstvu Z2 a pravděpodobnosti tříd pomocí Softmax."
+        "title_en": "Learning from Mistakes & Reaching 95% Accuracy",
+        "title_cs": "Učení se z chyb a dosažení 95% úspěšnosti",
+        "desc_en": "The network makes an initial guess by multiplying the pixels through layers of mathematical weights. Whenever its guess is wrong, the code calculates backward to see which connections caused the error and nudges them in the right direction. The hardest part was getting all the math shapes and tables to line up properly in Python without errors. After repeating this learning loop 300 times, the network reached an impressive 95% accuracy!",
+        "desc_cs": "Síť nejdříve udělá odhad tak, že pixely vynásobí vnitřními vahami. Když se splete, program spočítá, které spoje chybu způsobily, a kousek po kousku je upraví správným směrem. Nejtěžší bylo srovnat všechny matice a vzorce v Pythonu tak, aby do sebe přesně zapadaly. Po 300 opakováních tohoto trénovacího cyklu dosáhla síť skvělé 95% úspěšnosti!",
+        "image": "",
+        "imageCaption_en": "",
+        "imageCaption_cs": ""
       },
       {
         "stepNumber": 3,
-        "title_en": "Step 3: Analytical Backpropagation & Gradient Descent Optimization",
-        "title_cs": "Krok 3: Analytická zpětná propagace a gradientní sestup",
-        "desc_en": "Derived and implemented exact mathematical derivatives for backpropagation: output error dZ2 = A2 - one_hot(Y), dW2 = (1/m) * dZ2.dot(A1.T), db2 = (1/m) * sum(dZ2), hidden layer error dZ1 = W2.T.dot(dZ2) * (Z1 > 0), and dW1 = (1/m) * dZ1.dot(X.T). Updated parameters across 300 iterations with learning rate alpha = 0.1, achieving ~85% accuracy.",
-        "desc_cs": "Odvození a implementace přesných derivací pro backpropagation: odchylka výstupu dZ2 = A2 - one_hot(Y), dW2 = (1/m) * dZ2.dot(A1.T), skrytá vrstva dZ1 = W2.T.dot(dZ2) * (Z1 > 0) a dW1 = (1/m) * dZ1.dot(X.T). Aktualizace parametrů během 300 iterací s rychlostí učení alpha = 0.1."
-      },
-      {
-        "stepNumber": 4,
-        "title_en": "Step 4: Model Export to JSON & Interactive Matplotlib Inference",
-        "title_cs": "Krok 4: Export modelu do JSON a interaktivní vizualizace v Matplotlib",
-        "desc_en": "Serialized the trained weight arrays (W1, b1, W2, b2) into JSON format ('myfile.json'). Built an interactive CLI loop where users input sample indices to reconstruct the 28x28 grayscale digit image with Matplotlib imshow and display live neural network predictions alongside actual ground truth labels.",
-        "desc_cs": "Uložení natrénovaných matic vah a posunutí do formátu JSON ('myfile.json'). Vytvoření interaktivního rozhraní pro zadávání indexů vzorků, vykreslení 28x28 číslic v odstínech šedi pomocí Matplotlib a zobrazení predikcí sítě oproti skutečným štítkům."
+        "title_en": "Saving the Brain & Testing It on Real Drawings",
+        "title_cs": "Uložení naučeného modelu a testování na reálných číslicích",
+        "desc_en": "Once the network was trained, I saved all its learned numbers into a file so it wouldn't forget them. Then I built a simple testing tool where you can pick any random drawing from the test pile: it pops up the handwritten digit image on your screen and shows the computer's live guess right next to the real answer.",
+        "desc_cs": "Jakmile byla síť natrénovaná, uložil jsem všechny její naučené váhy do souboru, aby se neztratily. Pak jsem vytvořil jednoduchý program na testování: můžete vybrat libovolný vzorek z testovacích dat, na obrazovce vám vyskočí nakreslená číslice a vedle ní se hned ukáže, jaké číslo v ní síť vidí.",
+        "image": "",
+        "imageCaption_en": "",
+        "imageCaption_cs": ""
       }
     ],
     "assets": [
@@ -243,92 +145,5 @@
         "caption_cs": "Vzorky číslic 0 až 9 o rozměrech 28x28 pixelů v odstínech šedi z datové sady MNIST."
       }
     ]
-  },
-  {
-    "id": "music",
-    "category": "ai",
-    "icon": "graphic_eq",
-    "title_en": "NumPy Attention Music Generator",
-    "title_cs": "Generátor hudby s pozorností v NumPy",
-    "subtitle_en": "From-scratch Self-Attention neural network and MIDI music generator implemented purely in NumPy without deep learning frameworks",
-    "subtitle_cs": "Neuronová síť se samo-pozorností a generátor MIDI hudby naprogramovaný od základu čistě v NumPy bez frameworků",
-    "date_en": "June 10, 2026 – June 11, 2026",
-    "date_cs": "10. června 2026 – 11. června 2026",
-    "status": "finished",
-    "github": "https://github.com/Codelessgame/numpy_attention_music_generator",
-    "tags": ["NumPy", "Self-Attention", "Python", "MIDI", "From Scratch", "Backpropagation", "Deep Learning", "Neural Networks", "Music AI", "Transformers"],
-    "overview_en": "A deep dive into implementing the Transformer Self-Attention mechanism, modular neural layers, and analytical backpropagation from first principles using only Python and NumPy to train on the MAESTRO Piano MIDI dataset.",
-    "overview_cs": "Implementace mechanismu samo-pozornosti (Self-Attention), modulárních neuronových vrstev a analytické zpětné propagace od základů pouze v Pythonu a NumPy natrénovaná na datové sadě MAESTRO Piano MIDI.",
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title_en": "Step 1: MAESTRO MIDI Dataset Ingestion & Preprocessing",
-        "title_cs": "Krok 1: Získání a předzpracování datové sady MAESTRO MIDI",
-        "desc_en": "Automated dataset downloading via KaggleHub to pull the MAESTRO Piano MIDI corpus into a local workspace. Used PrettyMIDI to parse polyphonic piano performances, extracting note pitches, velocities, and step durations into structured NumPy matrices suitable for sequence modeling.",
-        "desc_cs": "Automatizace stahování datové sady MAESTRO Piano MIDI přes KaggleHub. Pomocí knihovny PrettyMIDI jsou polyfonní klavírní skladby parsovány a převáděny na tónové výšky, dynamiku a délky not do strukturovaných matic v NumPy pro trénování."
-      },
-      {
-        "stepNumber": 2,
-        "title_en": "Step 2: Modular Neural Layers & Analytical Backpropagation in NumPy",
-        "title_cs": "Krok 2: Modulární neuronové vrstvy a analytický backpropagation v NumPy",
-        "desc_en": "Constructed an abstract Layer base class defining forward and backward contracts. Implemented custom Relu_layer and Leaky_Relu_layer with exact analytical gradient calculations (dZ = dL * d_relu, dW = X.T @ dZ, db = sum(dZ), dX = dZ @ W.T) to update weight matrices via gradient descent without automatic differentiation engines.",
-        "desc_cs": "Vytvoření abstraktní třídy Layer s metodami forward a backward. Implementovány vrstvy Relu_layer a Leaky_Relu_layer s přesným analytickým výpočtem gradientů (dZ = dL * d_relu, dW = X.T @ dZ, db = sum(dZ), dX = dZ @ W.T) a aktualizací vah bez použití autogradu."
-      },
-      {
-        "stepNumber": 3,
-        "title_en": "Step 3: Self-Attention Mechanism from First Principles (Q, K, V)",
-        "title_cs": "Krok 3: Mechanismus samo-pozornosti od základu (Query, Key, Value)",
-        "desc_en": "Built the core Attention module with learned Query, Key, and Value projection weight matrices (W_query, W_key, W_value). Implemented dot-product attention calculation and Softmax probability distribution normalization to dynamically weight long-range temporal dependencies across musical sequences.",
-        "desc_cs": "Návrh jádra modulu Attention s váhovými maticemi projekcí pro dotazy (W_query), klíče (W_key) a hodnoty (W_value). Implementován skalární součin pozornosti a Softmax normalizace pro modelování časových závislostí v hudebním kontextu."
-      },
-      {
-        "stepNumber": 4,
-        "title_en": "Step 4: Training & Model Weights Serialization (.npz)",
-        "title_cs": "Krok 4: Trénování a serializace vah modelu (.npz)",
-        "desc_en": "Trained the network on sequential MIDI fragments, tracking loss reduction across epochs. Serialized the learned projection weights into compressed NumPy archives (music_model_weights.npz) to enable autoregressive generation of original piano melodies.",
-        "desc_cs": "Trénování sítě na sekvencích MIDI úseků se sledováním poklesu chybové funkce. Naučené váhy jsou ukládány do komprimovaného formátu NumPy (music_model_weights.npz) pro následné generování nových klavírních melodií."
-      }
-    ],
-    "assets": []
-  },
-  {
-    "id": "slm",
-    "category": "ai",
-    "icon": "psychology",
-    "title_en": "Small Language Model",
-    "title_cs": "Malý jazykový model",
-    "subtitle_en": "Autoregressive Decoder-only Transformer pre-trained from scratch with custom Byte-Pair Encoding (BPE)",
-    "subtitle_cs": "Autoregresivní Transformer architektura typu Decoder natrénovaná od základu s vlastním BPE tokenizérem",
-    "date_en": "June 14, 2026 – Ongoing",
-    "date_cs": "14. června 2026 – Probíhá",
-    "status": "ongoing",
-    "github": "https://github.com/Codelessgame",
-    "tags": ["PyTorch", "Tokenization", "Transformer", "LLM", "NLP", "Deep Learning", "Language Modeling", "Attention Mechanism", "Machine Learning", "AI"],
-    "overview_en": "Designing, tokenizing, and pre-training a lightweight autoregressive decoder-only Transformer language model from scratch in PyTorch.",
-    "overview_cs": "Návrh, tokenizace a předtrénování lehkého autoregresivního jazykového modelu typu Decoder od základu v PyTorch.",
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title_en": "Step 1: Custom Byte-Pair Encoding (BPE) Tokenizer",
-        "title_cs": "Krok 1: Vlastní BPE tokenizér (Byte-Pair Encoding)",
-        "desc_en": "Implemented a custom BPE tokenizer in Python that reads raw text corpora, counts recurring character pair frequencies, and iteratively builds an optimized vocabulary of 8,192 subword tokens, compressing sequence lengths by ~60%.",
-        "desc_cs": "Implementace BPE tokenizéru v Pythonu, který analyzuje frekvenci dvojic znaků a vytváří slovník 8 192 podslov, čímž zkracuje délku sekvencí o ~60 %."
-      },
-      {
-        "stepNumber": 2,
-        "title_en": "Step 2: Transformer Decoder Architecture Implementation",
-        "title_cs": "Krok 2: Implementace architektury Transformer dekodéru",
-        "desc_en": "Coded the GPT-style decoder architecture in PyTorch from first principles. The model features 6 transformer blocks with 6 attention heads each, embedding dimension of 384, pre-LayerNorm stabilization, GELU non-linearities, and triangular causal attention masks.",
-        "desc_cs": "Programování architektury ve stylu GPT v PyTorch. Model obsahuje 6 bloků s 6 hlavami pozornosti, dimenzi vnoření 384, pre-LayerNorm normalizaci, aktivační funkce GELU a kauzální maskování."
-      },
-      {
-        "stepNumber": 3,
-        "title_en": "Step 3: Training Dynamics & Autoregressive Sampling",
-        "title_cs": "Krok 3: Trénování a autoregresivní generování textu",
-        "desc_en": "Trained the model using AdamW optimizer with Cosine Annealing learning rate scheduling and gradient clipping. Implemented autoregressive token generation with temperature scaling and top-k nucleus sampling for coherent and structured completions.",
-        "desc_cs": "Trénování modelu s optimalizátorem AdamW a kosínovým plánem učící rychlosti. Implementováno autoregresivní generování s nastavením teploty a top-k vzorkováním pro koherentní výstupy."
-      }
-    ],
-    "assets": []
   }
 ]
