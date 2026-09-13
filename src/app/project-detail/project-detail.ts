@@ -1,9 +1,10 @@
 import { Component, inject, signal, computed, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslationService } from '../translation.service';
+import { LibraryNavigationService } from '../library-navigation.service';
 import projectsData from './projects-data.json';
 
 export interface StepItem {
@@ -63,6 +64,8 @@ export interface CaseStudyProject {
 })
 export class ProjectDetail implements AfterViewInit {
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private libraryNav = inject(LibraryNavigationService);
   private ts = inject(TranslationService);
   currentLang = this.ts.currentLang;
 
@@ -71,6 +74,12 @@ export class ProjectDetail implements AfterViewInit {
   allProjects: CaseStudyProject[] = projectsData as CaseStudyProject[];
   projectId = signal<string>('');
   activeAssetIndex = signal<number | null>(null);
+
+  goBackToLibrary(event: Event) {
+    event.preventDefault();
+    this.libraryNav.requestScrollToSearch();
+    this.router.navigate(['/projects'], { state: { scrollToSearch: true } });
+  }
 
   constructor() {
     this.route.paramMap.subscribe(params => {

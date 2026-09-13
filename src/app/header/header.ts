@@ -2,16 +2,18 @@ import { Component, Input, OnChanges, OnInit, OnDestroy, SimpleChanges, signal, 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Star } from './star/star';
 import { TranslationService } from '../translation.service';
+import { LibraryNavigationService } from '../library-navigation.service';
+import { HomeNavigationService } from '../home-navigation.service';
 
 const letters = "AÁBCČDĎEÉĚFGHIÍJKLMNŇOÓPQRŘSŠTŤUÚŮVWXYZŽ0123456789";
 
 @Component({
   selector: 'app-header',
-  imports: [MatButtonModule, MatIconModule, MatToolbarModule, RouterLink, Star],
+  imports: [MatButtonModule, MatIconModule, MatToolbarModule, Star],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -22,6 +24,9 @@ export class Header implements OnChanges, OnInit, OnDestroy {
   interval: any;
 
   private ts = inject(TranslationService);
+  private router = inject(Router);
+  private libraryNav = inject(LibraryNavigationService);
+  private homeNav = inject(HomeNavigationService);
   currentLang = this.ts.currentLang;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
@@ -33,6 +38,33 @@ export class Header implements OnChanges, OnInit, OnDestroy {
   @HostListener('window:resize')
   onResize() {
     this.updateStarCount();
+  }
+
+  navigateToHome() {
+    const currentUrl = this.router.url.split('?')[0].split('#')[0].replace(/\/$/, '');
+    const isHome = currentUrl === '' || currentUrl === '/';
+    if (isHome) {
+      this.homeNav.triggerScrollToHome();
+    } else {
+      this.homeNav.requestScrollToLastPosition();
+      this.router.navigate(['/']);
+    }
+  }
+
+  navigateToLibrary() {
+    const currentUrl = this.router.url.split('?')[0].split('#')[0].replace(/\/$/, '');
+    if (currentUrl === '' || currentUrl === '/') {
+      if (isPlatformBrowser(this.platformId)) {
+        const pos = window.pageYOffset || document.documentElement.scrollTop || 0;
+        this.homeNav.setLastHomeScrollPosition(pos);
+      }
+    }
+    if (currentUrl === '/projects') {
+      this.libraryNav.triggerScrollToSearch();
+    } else {
+      this.libraryNav.requestScrollToSearch();
+      this.router.navigate(['/projects'], { state: { scrollToSearch: true } });
+    }
   }
 
   private updateStarCount() {

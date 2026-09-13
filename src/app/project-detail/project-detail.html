@@ -1,7 +1,7 @@
 <div class="project-article-container">
   <!-- Top Navigation Bar -->
   <nav class="article-nav">
-    <a routerLink="/projects" class="back-btn">
+    <a routerLink="/projects" [state]="{ scrollToSearch: true }" (click)="goBackToLibrary($event)" class="back-btn">
       <mat-icon>arrow_back</mat-icon>
       <span>{{ currentLang() === 'en' ? 'Back to Library' : 'Zpět do Knihovny' }}</span>
     </a>

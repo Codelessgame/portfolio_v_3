@@ -1,7 +1,7 @@
 <div class="header-container">
   <mat-toolbar class="sticky">
-    <button mat-button routerLink="/">{{ t('nav.home') }}</button>
-    <button mat-button routerLink="/projects">{{ t('nav.projects') }}</button>
+    <button mat-button (click)="navigateToHome()">{{ t('nav.home') }}</button>
+    <button mat-button (click)="navigateToLibrary()">{{ t('nav.projects') }}</button>
     
     <span class="spacer"></span>
     

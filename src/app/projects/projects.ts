@@ -1,11 +1,12 @@
-import { Component, inject, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component, inject, signal, computed, ViewChild, ElementRef, AfterViewInit, OnDestroy, effect, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslationService } from '../translation.service';
+import { LibraryNavigationService } from '../library-navigation.service';
 import verifiedLinks from './verified_links.json';
 
 interface VerifiedLinkItem {
@@ -60,14 +61,140 @@ export interface LibraryItem {
   templateUrl: './projects.html',
   styleUrl: './projects.css'
 })
-export class Projects {
+export class Projects implements AfterViewInit, OnDestroy {
+  @ViewChild('librarySearchSection') librarySearchSection?: ElementRef<HTMLElement>;
+  @ViewChild('searchBarWrapper') searchBarWrapper?: ElementRef<HTMLElement>;
+  @ViewChild('searchInput') searchInput?: ElementRef<HTMLInputElement>;
+
   private ts = inject(TranslationService);
+  private router = inject(Router);
+  private libraryNav = inject(LibraryNavigationService);
 
   searchQuery = signal<string>('');
   selectedTags = signal<string[]>([]);
   selectedCategories = signal<string[]>([]);
   excludedCategories = signal<string[]>([]);
   currentLang = this.ts.currentLang;
+
+  private activeScrollAnimationId: number | null = null;
+  private viewInitialized = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    // Watch for scroll requests when the user re-clicks "Library" while already on the page
+    effect(() => {
+      const trigger = this.libraryNav.scrollToSearchTrigger();
+      if (trigger > 0 && this.viewInitialized) {
+        this.performScrollAnimationFromTop();
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.viewInitialized = true;
+    if (isPlatformBrowser(this.platformId)) {
+      const shouldScrollFromService = this.libraryNav.consumeScrollRequest();
+      const shouldScrollFromState = history.state && history.state.scrollToSearch;
+
+      if (shouldScrollFromService || shouldScrollFromState) {
+        if (history.state && history.state.scrollToSearch) {
+          try {
+            history.replaceState({ ...history.state, scrollToSearch: undefined }, '');
+          } catch (_) {}
+        }
+        setTimeout(() => {
+          this.performScrollAnimationFromTop();
+        }, 80);
+      }
+    }
+  }
+
+  performScrollAnimationFromTop() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    // 1. Immediately position the viewport at the very top of the page
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    this.cancelActiveScrollAnimation();
+
+    // 2. Allow a short pause for the layout to settle, then glide smoothly to center the search text box
+    setTimeout(() => {
+      const el = (document.querySelector('.search-input') ||
+                  document.querySelector('.search-wrapper') ||
+                  this.searchInput?.nativeElement ||
+                  this.searchBarWrapper?.nativeElement ||
+                  this.librarySearchSection?.nativeElement) as HTMLElement;
+      if (!el) return;
+
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
+
+      // Position the search text box in the vertical center of the viewport
+      const targetY = Math.max(0, Math.round(rect.top + currentScroll - (viewportHeight / 2) + (rect.height / 2)));
+
+      // Honor user preference for reduced motion
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.scrollTo(0, targetY);
+        document.documentElement.scrollTop = targetY;
+        document.body.scrollTop = targetY;
+        return;
+      }
+
+      this.animateScroll(0, targetY, 800);
+    }, 120);
+  }
+
+  private animateScroll(startY: number, targetY: number, duration: number) {
+    this.cancelActiveScrollAnimation();
+
+    const distance = targetY - startY;
+    if (Math.abs(distance) < 5) return;
+
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Smooth easeInOutCubic curve
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      const newY = Math.round(startY + distance * ease);
+      window.scrollTo(0, newY);
+      document.documentElement.scrollTop = newY;
+      document.body.scrollTop = newY;
+
+      if (progress < 1) {
+        this.activeScrollAnimationId = requestAnimationFrame(step);
+      } else {
+        this.cancelActiveScrollAnimation();
+        window.scrollTo(0, targetY);
+        document.documentElement.scrollTop = targetY;
+        document.body.scrollTop = targetY;
+      }
+    };
+
+    this.activeScrollAnimationId = requestAnimationFrame(step);
+  }
+
+  private cancelActiveScrollAnimation() {
+    if (this.activeScrollAnimationId !== null) {
+      cancelAnimationFrame(this.activeScrollAnimationId);
+      this.activeScrollAnimationId = null;
+    }
+  }
+
+  scrollToSearch() {
+    this.performScrollAnimationFromTop();
+  }
+
+  ngOnDestroy() {
+    this.cancelActiveScrollAnimation();
+  }
 
   /** Check if a category is currently included in selected filters */
   isCategorySelected(cat: string): boolean {
@@ -187,13 +314,6 @@ export class Projects {
     } as LibraryItem;
   });
 
-  // Pinned/fixed items to showcase at the top
-  pinnedItems: LibraryItem[] = [];
-
-  constructor() {
-    this.pinnedItems = this.libraryItems.filter(item => item.pinned);
-  }
-
   sortMode = signal<'default' | 'default-rev' | 'alpha-asc' | 'alpha-desc' | 'date-desc' | 'date-asc'>('default');
 
   isDateSortActive = computed(() => {
@@ -275,10 +395,6 @@ export class Projects {
     }
     return 0;
   }
-
-  filteredPinnedItems = computed(() => {
-    return this.pinnedItems;
-  });
 
   filteredItems = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();

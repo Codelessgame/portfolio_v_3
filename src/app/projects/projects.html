@@ -4,51 +4,8 @@
     <p class="subtitle">{{ t('projects.subtitle') }}</p>
   </div>
 
-  <!-- Featured Showcase: Fixed projects the user wants to highlight -->
-  @if (filteredPinnedItems().length > 0) {
-    <div class="showcase-section">
-      <h3 class="section-title">
-        <mat-icon class="section-icon">star</mat-icon>
-        <span>{{ t('projects.featured_showcase') }}</span>
-      </h3>
-      <div class="projects-grid featured-grid">
-        @for (project of filteredPinnedItems(); track project.id) {
-          <div class="project-card featured-card" [class.interactive]="project.status !== 'ongoing'">
-            @if (project.status !== 'ongoing') {
-              <a [routerLink]="['/project', project.id]" class="stretched-link" aria-hidden="true"></a>
-            }
-            <div class="card-content">
-              <div class="card-top-row">
-                <h3>{{ currentLang() === 'en' ? project.title_en : project.title_cs }}</h3>
-                <span class="status-badge" [ngClass]="project.status || ''">
-                  {{ t('projects.status_' + project.status) }}
-                </span>
-              </div>
-              <div class="card-middle-row">
-                <p class="brief-desc">{{ currentLang() === 'en' ? project.desc_en : project.desc_cs }}</p>
-                <div class="card-tags">
-                  @for (tag of getVisibleTags(project); track tag) {
-                    <button class="tag-btn" [class.active]="isTagActive(tag)" (click)="toggleTag(tag); $event.stopPropagation()">
-                      {{ tag }}
-                    </button>
-                  }
-                </div>
-              </div>
-              <div class="card-bottom-row">
-                <span class="project-date">{{ currentLang() === 'en' ? project.date_en : project.date_cs }}</span>
-                <span class="category-tag project">
-                  {{ t('projects.filter_project') }}
-                </span>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  }
-
   <!-- Resources Library: Searchable & Filterable grid -->
-  <div class="library-section">
+  <div class="library-section" #librarySearchSection>
     <h3 class="section-title">
       <mat-icon class="section-icon">local_library</mat-icon>
       <span>{{ t('projects.library_resources') }}</span>
@@ -56,9 +13,10 @@
 
     <div class="filter-controls">
       <!-- Search Bar -->
-      <div class="search-wrapper">
+      <div class="search-wrapper" #searchBarWrapper>
         <mat-icon class="search-icon">search</mat-icon>
         <input 
+          #searchInput
           type="text" 
           [ngModel]="searchQuery()" 
           (ngModelChange)="searchQuery.set($event)" 
