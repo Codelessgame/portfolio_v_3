@@ -8,12 +8,24 @@ export class LibraryNavigationService {
   scrollToSearchTrigger = this._scrollToSearchTrigger.asReadonly();
 
   private _pendingScrollRequest = false;
+  private libraryScrollCallback: (() => void) | null = null;
+
+  registerLibraryScrollCallback(cb: () => void) {
+    this.libraryScrollCallback = cb;
+  }
+
+  unregisterLibraryScrollCallback() {
+    this.libraryScrollCallback = null;
+  }
 
   requestScrollToSearch() {
     this._pendingScrollRequest = true;
   }
 
   triggerScrollToSearch() {
+    if (this.libraryScrollCallback) {
+      this.libraryScrollCallback();
+    }
     this._scrollToSearchTrigger.update(val => val + 1);
   }
 

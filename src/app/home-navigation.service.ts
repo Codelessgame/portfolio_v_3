@@ -6,11 +6,9 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class HomeNavigationService {
-  private _scrollToHomeTrigger = signal<number>(0);
-  scrollToHomeTrigger = this._scrollToHomeTrigger.asReadonly();
-
   private _pendingScrollRequest = false;
   private _lastKnownHomeScrollPosition: number | null = null;
+  private landingScrollCallback: (() => void) | null = null;
   isLeavingHome = false;
 
   private router = inject(Router);
@@ -36,11 +34,32 @@ export class HomeNavigationService {
     }
   }
 
+  registerHomeLandingCallback(cb: () => void) {
+    this.landingScrollCallback = cb;
+  }
+
+  unregisterHomeLandingCallback() {
+    this.landingScrollCallback = null;
+  }
+
+  triggerHomeClick() {
+    if (this.landingScrollCallback) {
+      this.landingScrollCallback();
+    } else {
+      this.requestScrollToLastPosition();
+      this.router.navigate(['/']);
+    }
+  }
+
   setLastHomeScrollPosition(position: number) {
     this._lastKnownHomeScrollPosition = position;
     if (isPlatformBrowser(this.platformId)) {
       try {
-        sessionStorage.setItem('portfolio_home_scroll', position.toString());
+        if (position > 0) {
+          sessionStorage.setItem('portfolio_home_scroll', position.toString());
+        } else {
+          sessionStorage.removeItem('portfolio_home_scroll');
+        }
       } catch (_) {}
     }
   }
@@ -64,16 +83,21 @@ export class HomeNavigationService {
     return null;
   }
 
+  resetPosition() {
+    this._lastKnownHomeScrollPosition = 0;
+    if (isPlatformBrowser(this.platformId)) {
+      try {
+        sessionStorage.removeItem('portfolio_home_scroll');
+      } catch (_) {}
+    }
+  }
+
   requestScrollToLastPosition() {
     this._pendingScrollRequest = true;
   }
 
-  triggerScrollToHome() {
-    this._scrollToHomeTrigger.update(val => val + 1);
-  }
-
   triggerScrollToLanding() {
-    this.triggerScrollToHome();
+    this.triggerHomeClick();
   }
 
   consumeScrollRequest(): boolean {

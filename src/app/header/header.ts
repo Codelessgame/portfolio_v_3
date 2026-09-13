@@ -41,25 +41,21 @@ export class Header implements OnChanges, OnInit, OnDestroy {
   }
 
   navigateToHome() {
-    const currentUrl = this.router.url.split('?')[0].split('#')[0].replace(/\/$/, '');
-    const isHome = currentUrl === '' || currentUrl === '/';
-    if (isHome) {
-      this.homeNav.triggerScrollToHome();
-    } else {
-      this.homeNav.requestScrollToLastPosition();
-      this.router.navigate(['/']);
-    }
+    this.homeNav.triggerHomeClick();
   }
 
   navigateToLibrary() {
     const currentUrl = this.router.url.split('?')[0].split('#')[0].replace(/\/$/, '');
-    if (currentUrl === '' || currentUrl === '/') {
+    const path = isPlatformBrowser(this.platformId) ? window.location.pathname.replace(/\/$/, '') : '';
+    const isLib = currentUrl === '/projects' || path === '/projects';
+
+    if (currentUrl === '' || currentUrl === '/' || path === '') {
       if (isPlatformBrowser(this.platformId)) {
         const pos = window.pageYOffset || document.documentElement.scrollTop || 0;
         this.homeNav.setLastHomeScrollPosition(pos);
       }
     }
-    if (currentUrl === '/projects') {
+    if (isLib) {
       this.libraryNav.triggerScrollToSearch();
     } else {
       this.libraryNav.requestScrollToSearch();

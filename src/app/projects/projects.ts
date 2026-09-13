@@ -80,11 +80,17 @@ export class Projects implements AfterViewInit, OnDestroy {
   private viewInitialized = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.libraryNav.registerLibraryScrollCallback(() => {
+        this.scrollToSearchFromCurrentPosition();
+      });
+    }
+
     // Watch for scroll requests when the user re-clicks "Library" while already on the page
     effect(() => {
       const trigger = this.libraryNav.scrollToSearchTrigger();
       if (trigger > 0 && this.viewInitialized) {
-        this.performScrollAnimationFromTop();
+        this.scrollToSearchFromCurrentPosition();
       }
     });
   }
@@ -134,14 +140,6 @@ export class Projects implements AfterViewInit, OnDestroy {
       // Position the search text box in the vertical center of the viewport
       const targetY = Math.max(0, Math.round(rect.top + currentScroll - (viewportHeight / 2) + (rect.height / 2)));
 
-      // Honor user preference for reduced motion
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        window.scrollTo(0, targetY);
-        document.documentElement.scrollTop = targetY;
-        document.body.scrollTop = targetY;
-        return;
-      }
-
       this.animateScroll(0, targetY, 800);
     }, 120);
   }
@@ -188,12 +186,35 @@ export class Projects implements AfterViewInit, OnDestroy {
     }
   }
 
+  scrollToSearchFromCurrentPosition() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.cancelActiveScrollAnimation();
+
+    const el = (document.querySelector('.search-input') ||
+                document.querySelector('.search-wrapper') ||
+                this.searchInput?.nativeElement ||
+                this.searchBarWrapper?.nativeElement ||
+                this.librarySearchSection?.nativeElement) as HTMLElement;
+    if (!el) return;
+
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const rect = el.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
+
+    // Position the search text box in the vertical center of the viewport
+    const targetY = Math.max(0, Math.round(rect.top + currentScroll - (viewportHeight / 2) + (rect.height / 2)));
+
+    this.animateScroll(currentScroll, targetY, 800);
+  }
+
   scrollToSearch() {
-    this.performScrollAnimationFromTop();
+    this.scrollToSearchFromCurrentPosition();
   }
 
   ngOnDestroy() {
     this.cancelActiveScrollAnimation();
+    this.libraryNav.unregisterLibraryScrollCallback();
   }
 
   /** Check if a category is currently included in selected filters */

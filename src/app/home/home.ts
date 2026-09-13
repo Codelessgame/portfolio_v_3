@@ -1,4 +1,4 @@
-import { Component, inject, computed, AfterViewInit, OnDestroy, HostListener, effect, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, computed, AfterViewInit, OnDestroy, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { SplitSection } from '../split-section/split-section';
 import { SkillsNetwork } from '../skills-network/skills-network';
@@ -18,19 +18,16 @@ export class Home implements AfterViewInit, OnDestroy {
   private ts = inject(TranslationService);
   private homeNav = inject(HomeNavigationService);
 
-  private viewInitialized = false;
   private isAnimating = false;
   private activeAnimationId: number | null = null;
   private isDestroying = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    // Watch for clicks on "Home" nav link while already on the Home page
-    effect(() => {
-      const trigger = this.homeNav.scrollToHomeTrigger();
-      if (trigger > 0 && this.viewInitialized) {
-        this.performScrollAnimationFromTop();
-      }
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.homeNav.registerHomeLandingCallback(() => {
+        this.scrollToLandingSection();
+      });
+    }
   }
 
   @HostListener('window:scroll')
@@ -43,7 +40,6 @@ export class Home implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.viewInitialized = true;
     if (isPlatformBrowser(this.platformId)) {
       const shouldScroll = this.homeNav.consumeScrollRequest();
       if (shouldScroll) {
@@ -52,6 +48,25 @@ export class Home implements AfterViewInit, OnDestroy {
         }, 80);
       }
     }
+  }
+
+  scrollToLandingSection() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.cancelActiveScrollAnimation();
+
+    const currentY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (currentY < 10) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      this.homeNav.resetPosition();
+      return;
+    }
+
+    // Smoothly scroll upwards from current position to landing section (top: 0) in 0.8s (800ms)
+    this.animateScroll(currentY, 0, 800, () => {
+      this.homeNav.resetPosition();
+    });
   }
 
   performScrollAnimationFromTop() {
@@ -67,16 +82,8 @@ export class Home implements AfterViewInit, OnDestroy {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
-    // If target is top 0 (no position saved or user was at the landing section), stay at top
+    // If target is top 0 (no position saved, reset, or user was at the landing section), stay at top
     if (targetY <= 10) {
-      return;
-    }
-
-    // Honor user preference for reduced motion
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      window.scrollTo(0, targetY);
-      document.documentElement.scrollTop = targetY;
-      document.body.scrollTop = targetY;
       return;
     }
 
@@ -94,11 +101,14 @@ export class Home implements AfterViewInit, OnDestroy {
     this.isAnimating = false;
   }
 
-  private animateScroll(startY: number, targetY: number, duration: number) {
+  private animateScroll(startY: number, targetY: number, duration: number, onComplete?: () => void) {
     this.cancelActiveScrollAnimation();
 
     const distance = targetY - startY;
-    if (Math.abs(distance) < 5) return;
+    if (Math.abs(distance) < 5) {
+      if (onComplete) onComplete();
+      return;
+    }
 
     this.isAnimating = true;
     const startTime = performance.now();
@@ -125,6 +135,9 @@ export class Home implements AfterViewInit, OnDestroy {
         document.documentElement.scrollTop = targetY;
         document.body.scrollTop = targetY;
         this.isAnimating = false;
+        if (onComplete) {
+          onComplete();
+        }
       }
     };
 
@@ -143,5 +156,6 @@ export class Home implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.isDestroying = true;
     this.cancelActiveScrollAnimation();
+    this.homeNav.unregisterHomeLandingCallback();
   }
 }
