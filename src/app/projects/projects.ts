@@ -65,8 +65,54 @@ export class Projects {
 
   searchQuery = signal<string>('');
   selectedTags = signal<string[]>([]);
-  selectedCategory = signal<string>('all');
+  selectedCategories = signal<string[]>([]);
+  excludedCategories = signal<string[]>([]);
   currentLang = this.ts.currentLang;
+
+  /** Check if a category is currently included in selected filters */
+  isCategorySelected(cat: string): boolean {
+    return this.selectedCategories().includes(cat);
+  }
+
+  /** Check if a category is currently excluded */
+  isCategoryExcluded(cat: string): boolean {
+    return this.excludedCategories().includes(cat);
+  }
+
+  /** Whether the "All" category is actively showing everything without exclusions */
+  isAllActive(): boolean {
+    return this.selectedCategories().length === 0 && this.excludedCategories().length === 0;
+  }
+
+  /**
+   * Category button click cycle:
+   * State 0: Neutral (unselected) -> Click -> State 1: Selected (Included)
+   * State 1: Selected (Included)  -> Click -> State 2: Excluded (with canceling block icon)
+   * State 2: Excluded             -> Click -> State 0: Neutral (unselected)
+   */
+  onCategoryClick(cat: string) {
+    if (cat === 'all') {
+      this.selectedCategories.set([]);
+      this.excludedCategories.set([]);
+      return;
+    }
+
+    if (this.isCategorySelected(cat)) {
+      // Step: Included -> Excluded
+      this.selectedCategories.set(this.selectedCategories().filter(c => c !== cat));
+      this.excludedCategories.set([...this.excludedCategories(), cat]);
+      return;
+    }
+
+    if (this.isCategoryExcluded(cat)) {
+      // Step: Excluded -> Neutral
+      this.excludedCategories.set(this.excludedCategories().filter(c => c !== cat));
+      return;
+    }
+
+    // Step: Neutral -> Included
+    this.selectedCategories.set([...this.selectedCategories(), cat]);
+  }
 
   /** Tags that match what the user has typed in the search box */
   suggestedTags = computed(() => {
@@ -114,6 +160,8 @@ export class Projects {
   clearAll() {
     this.searchQuery.set('');
     this.selectedTags.set([]);
+    this.selectedCategories.set([]);
+    this.excludedCategories.set([]);
   }
 
   // The searchable & filterable collection of ALL items
@@ -167,8 +215,8 @@ export class Projects {
     this.sortMode.set(nextMode);
 
     if ((nextMode === 'date-desc' || nextMode === 'date-asc') &&
-        (this.selectedCategory() === 'youtube' || this.selectedCategory() === 'podcast')) {
-      this.selectedCategory.set('all');
+        (this.selectedCategories().includes('youtube') || this.selectedCategories().includes('podcast'))) {
+      this.selectedCategories.set(this.selectedCategories().filter(c => c !== 'youtube' && c !== 'podcast'));
     }
   }
 
@@ -234,7 +282,8 @@ export class Projects {
 
   filteredItems = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
-    const cat = this.selectedCategory();
+    const activeCategories = this.selectedCategories();
+    const excludedCategories = this.excludedCategories();
     const activeTags = this.selectedTags();
     const lang = this.currentLang();
     const translator = this.ts.t();
@@ -245,8 +294,16 @@ export class Projects {
         return false;
       }
 
-      // Category Filter
-      if (cat !== 'all' && item.type !== cat) return false;
+      // Excluded Categories (multi-exclusion support)
+      if (excludedCategories.includes(item.type)) {
+        return false;
+      }
+
+      // Selected Categories Filter (multi-selection support):
+      // If any categories are selected, item must belong to one of them
+      if (activeCategories.length > 0 && !activeCategories.includes(item.type)) {
+        return false;
+      }
 
       // Tag Filter — item must have ALL selected tags
       if (activeTags.length > 0) {
@@ -305,6 +362,6 @@ export class Projects {
   }
 
   setCategory(category: string) {
-    this.selectedCategory.set(category);
+    this.onCategoryClick(category);
   }
 }

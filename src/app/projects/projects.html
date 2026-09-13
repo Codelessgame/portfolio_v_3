@@ -64,7 +64,7 @@
           (ngModelChange)="searchQuery.set($event)" 
           [placeholder]="t('projects.search_placeholder')" 
           class="search-input" />
-        @if (searchQuery() || selectedTags().length > 0) {
+        @if (searchQuery() || selectedTags().length > 0 || selectedCategories().length > 0 || excludedCategories().length > 0) {
           <button class="clear-btn" (click)="clearAll()" aria-label="Clear all">
             <mat-icon>close</mat-icon>
           </button>
@@ -84,7 +84,7 @@
         </div>
       }
 
-      <!-- Active Tag Filters -->
+      <!-- Active Filters: Tags -->
       @if (selectedTags().length > 0) {
         <div class="active-tags-row">
           @for (tag of selectedTags(); track tag) {
@@ -96,43 +96,62 @@
         </div>
       }
 
-
       <!-- Category Pills -->
       <div class="filters-row">
         <div class="filter-group">
           <button 
             class="pill-btn" 
-            [class.active]="selectedCategory() === 'all'" 
-            (click)="setCategory('all')">
+            [class.active]="isAllActive()" 
+            (click)="onCategoryClick('all')">
             {{ t('projects.filter_all') }}
           </button>
           <button 
             class="pill-btn" 
-            [class.active]="selectedCategory() === 'project'" 
-            (click)="setCategory('project')">
-            {{ t('projects.filter_project') }}
+            [class.active]="isCategorySelected('project')" 
+            [class.excluded]="isCategoryExcluded('project')"
+            (click)="onCategoryClick('project')"
+            [title]="isCategoryExcluded('project') ? (currentLang() === 'en' ? 'Excluded from search. Click to remove exclusion.' : 'Vyloučeno z vyhledávání. Kliknutím zrušíte vyloučení.') : (isCategorySelected('project') ? (currentLang() === 'en' ? 'Active. Click again to exclude from search.' : 'Aktivní. Klikněte znovu pro vyloučení z vyhledávání.') : (currentLang() === 'en' ? 'Click to select category' : 'Kliknutím vyberete kategorii'))">
+            @if (isCategoryExcluded('project')) {
+              <mat-icon class="pill-ban-icon">block</mat-icon>
+            }
+            <span>{{ t('projects.filter_project') }}</span>
           </button>
           <button 
             class="pill-btn" 
-            [class.active]="selectedCategory() === 'book'" 
-            (click)="setCategory('book')">
-            {{ t('projects.filter_book') }}
+            [class.active]="isCategorySelected('book')" 
+            [class.excluded]="isCategoryExcluded('book')"
+            (click)="onCategoryClick('book')"
+            [title]="isCategoryExcluded('book') ? (currentLang() === 'en' ? 'Excluded from search. Click to remove exclusion.' : 'Vyloučeno z vyhledávání. Kliknutím zrušíte vyloučení.') : (isCategorySelected('book') ? (currentLang() === 'en' ? 'Active. Click again to exclude from search.' : 'Aktivní. Klikněte znovu pro vyloučení z vyhledávání.') : (currentLang() === 'en' ? 'Click to select category' : 'Kliknutím vyberete kategorii'))">
+            @if (isCategoryExcluded('book')) {
+              <mat-icon class="pill-ban-icon">block</mat-icon>
+            }
+            <span>{{ t('projects.filter_book') }}</span>
           </button>
           <button 
             class="pill-btn" 
-            [class.active]="selectedCategory() === 'youtube'" 
+            [class.active]="isCategorySelected('youtube')" 
+            [class.excluded]="isCategoryExcluded('youtube')"
             [class.disabled-pill]="isDateSortActive()"
             [disabled]="isDateSortActive()"
-            (click)="setCategory('youtube')">
-            {{ t('projects.filter_youtube') }}
+            (click)="onCategoryClick('youtube')"
+            [title]="isCategoryExcluded('youtube') ? (currentLang() === 'en' ? 'Excluded from search. Click to remove exclusion.' : 'Vyloučeno z vyhledávání. Kliknutím zrušíte vyloučení.') : (isCategorySelected('youtube') ? (currentLang() === 'en' ? 'Active. Click again to exclude from search.' : 'Aktivní. Klikněte znovu pro vyloučení z vyhledávání.') : (currentLang() === 'en' ? 'Click to select category' : 'Kliknutím vyberete kategorii'))">
+            @if (isCategoryExcluded('youtube')) {
+              <mat-icon class="pill-ban-icon">block</mat-icon>
+            }
+            <span>{{ t('projects.filter_youtube') }}</span>
           </button>
           <button 
             class="pill-btn" 
-            [class.active]="selectedCategory() === 'podcast'" 
+            [class.active]="isCategorySelected('podcast')" 
+            [class.excluded]="isCategoryExcluded('podcast')"
             [class.disabled-pill]="isDateSortActive()"
             [disabled]="isDateSortActive()"
-            (click)="setCategory('podcast')">
-            {{ t('projects.filter_podcast') }}
+            (click)="onCategoryClick('podcast')"
+            [title]="isCategoryExcluded('podcast') ? (currentLang() === 'en' ? 'Excluded from search. Click to remove exclusion.' : 'Vyloučeno z vyhledávání. Kliknutím zrušíte vyloučení.') : (isCategorySelected('podcast') ? (currentLang() === 'en' ? 'Active. Click again to exclude from search.' : 'Aktivní. Klikněte znovu pro vyloučení z vyhledávání.') : (currentLang() === 'en' ? 'Click to select category' : 'Kliknutím vyberete kategorii'))">
+            @if (isCategoryExcluded('podcast')) {
+              <mat-icon class="pill-ban-icon">block</mat-icon>
+            }
+            <span>{{ t('projects.filter_podcast') }}</span>
           </button>
         </div>
 
