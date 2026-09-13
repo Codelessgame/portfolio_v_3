@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, inject, signal, computed, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -145,6 +145,23 @@ export class ProjectDetail implements AfterViewInit {
     const len = this.project().assets?.length || 0;
     if (len === 0) return;
     this.activeAssetIndex.set((curr - 1 + len) % len);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (this.activeAssetIndex() === null) return;
+
+    const key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'd' || key === 'D' || key === 's' || key === 'S') {
+      event.preventDefault();
+      this.nextAsset();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'a' || key === 'A' || key === 'w' || key === 'W') {
+      event.preventDefault();
+      this.prevAsset();
+    } else if (key === 'Escape') {
+      event.preventDefault();
+      this.closeAssetLibrary();
+    }
   }
 
   t(key: string): string {

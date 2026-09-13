@@ -11,7 +11,6 @@ import {
   effect
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
 import { TranslationService } from '../translation.service';
 import * as echarts from 'echarts';
 
@@ -19,7 +18,6 @@ interface SkillLeaf {
   name: string;
   icon: string;
   color: string;
-  isSecondary?: boolean;
 }
 
 interface SkillBranch {
@@ -31,7 +29,7 @@ interface SkillBranch {
 @Component({
   selector: 'app-skills-network',
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule],
   templateUrl: './skills-network.html',
   styleUrl: './skills-network.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -64,7 +62,7 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
         { name: 'C', icon: '/assets/icons/skills/c.svg', color: '#A8B9CC' },
         { name: 'Angular', icon: '/assets/icons/skills/angular.svg', color: '#E0234E' },
         { name: 'TypeScript', icon: '/assets/icons/skills/typescript.svg', color: '#3178C6' },
-        { name: 'JavaScript', icon: '/assets/icons/skills/javascript.svg', color: '#F7DF1E', isSecondary: true }
+        { name: 'JavaScript', icon: '/assets/icons/skills/javascript.svg', color: '#F7DF1E' }
       ]
     },
     {
@@ -73,9 +71,19 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
       skills: [
         { name: 'Autodesk Fusion 360', icon: '/assets/icons/skills/fusion360.svg', color: '#FF6B00' },
         { name: 'Blender', icon: '/assets/icons/skills/blender.svg', color: '#E87D0D' },
-        { name: 'Arduino IDE', icon: '/assets/icons/skills/arduino.svg', color: '#00979C' },
-        { name: 'KiCad EDA', icon: '/assets/icons/skills/kicad.svg', color: '#314CB0', isSecondary: true },
-        { name: 'PrusaSlicer', icon: '/assets/icons/skills/prusaslicer.svg', color: '#ED6B21', isSecondary: true }
+        { name: 'PrusaSlicer', icon: '/assets/icons/skills/prusaslicer.svg', color: '#ED6B21' },
+        { name: 'KiCad EDA', icon: '/assets/icons/skills/kicad.svg', color: '#314CB0' },
+        { name: 'Arduino IDE', icon: '/assets/icons/skills/arduino.svg', color: '#00979C' }
+      ]
+    },
+    {
+      nameKey: 'skills.cat_tools',
+      color: '#a200ff',
+      skills: [
+        { name: 'Git', icon: '/assets/icons/skills/git.svg', color: '#F05032' },
+        { name: 'GitHub', icon: '/assets/icons/skills/github.svg', color: '#6e5494' },
+        { name: 'VS Code', icon: '/assets/icons/skills/vscode.svg', color: '#007ACC' },
+        { name: 'Linux', icon: '/assets/icons/skills/linux.svg', color: '#FCC624' }
       ]
     },
     {
@@ -87,22 +95,12 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
       ]
     },
     {
-      nameKey: 'skills.cat_tools',
-      color: '#a200ff',
-      skills: [
-        { name: 'Git', icon: '/assets/icons/skills/git.svg', color: '#F05032' },
-        { name: 'GitHub', icon: '/assets/icons/skills/github.svg', color: '#6e5494' },
-        { name: 'VS Code', icon: '/assets/icons/skills/vscode.svg', color: '#007ACC' },
-        { name: 'Linux', icon: '/assets/icons/skills/linux.svg', color: '#FCC624', isSecondary: true }
-      ]
-    },
-    {
       nameKey: 'skills.cat_other',
       color: '#00b4d8',
       skills: [
         { name: 'Canva', icon: '/assets/icons/skills/canva.svg', color: '#00C4CC' },
-        { name: 'Krita', icon: '/assets/icons/skills/krita.svg', color: '#3BABFF', isSecondary: true },
-        { name: 'QGIS', icon: '/assets/icons/skills/qgis.svg', color: '#589632', isSecondary: true }
+        { name: 'Krita', icon: '/assets/icons/skills/krita.svg', color: '#3BABFF' },
+        { name: 'QGIS', icon: '/assets/icons/skills/qgis.svg', color: '#589632' }
       ]
     }
   ];
@@ -231,7 +229,7 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
           name: skill.name,
           categoryName: this.t(branch.nameKey),
           symbol: `image://${skill.icon}`,
-          symbolSize: skill.isSecondary ? 26 : 36,
+          symbolSize: 36,
           itemStyle: {
             borderColor: 'transparent',
             borderWidth: 0,
@@ -300,7 +298,7 @@ export class SkillsNetwork implements AfterViewInit, OnDestroy {
           initialTreeDepth: 2,
           animationDuration: 750,
           animationDurationUpdate: 500,
-          roam: 'move',
+          roam: false,
           leaves: {
             label: {
               show: false

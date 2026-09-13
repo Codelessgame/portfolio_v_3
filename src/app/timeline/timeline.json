@@ -244,6 +244,33 @@
       ]
     },
     {
+      "id": "lidl_warehouse",
+      "type": "work",
+      "title_en": "Lidl Distribution Center (Pilsen)",
+      "title_cs": "Logistické centrum Lidl (Plzeň)",
+      "subtitle_en": "Order Picker & Warehouse Logistics Operative",
+      "subtitle_cs": "Kompletace zakázek a skladová logistika",
+      "date_en": "April 2025",
+      "date_cs": "Duben 2025",
+      "startYear": 2025,
+      "startMonth": 4,
+      "endYear": 2025,
+      "endMonth": 4,
+      "status": "finished",
+      "ongoing": false,
+      "icon": "warehouse",
+      "color": "#3a86ff",
+      "tags": ["Lidl Logistics", "Order Picking", "Barcode & Voice-Picking", "Supply Chain", "Warehouse Operations"],
+      "bullets_en": [
+        "Operated within the high-throughput Lidl distribution center in Pilsen, picking, assembling, and staging bulk store orders using barcode scanning and digital warehouse management systems.",
+        "Gained direct hands-on experience with industrial supply chain workflows, pallet jack handling, safety protocols, and spatial optimization across large-scale logistics operations."
+      ],
+      "bullets_cs": [
+        "Pracoval jsem ve vysokokapacitním distribučním centru Lidl v Plzni na pozici kompletace zakázek, kde jsem vychystával a připravoval paletové zásilky pro prodejny pomocí čteček a skladového systému.",
+        "Získal jsem praktický vhled do fungování moderní průmyslové logistiky, manipulace s paletovou technikou, bezpečnosti práce a prostorové optimalizace skladových toků."
+      ]
+    },
+    {
       "id": "ppa_arena",
       "type": "work",
       "title_en": "PPA Arena",

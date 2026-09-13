@@ -210,16 +210,6 @@
           }
         </div>
 
-        <!-- Asset Meta Description -->
-        <div class="asset-meta-footer">
-          <h4 class="asset-caption-title">
-            {{ currentLang() === 'en' ? currentAsset()!.title_en : currentAsset()!.title_cs }}
-          </h4>
-          <p class="asset-caption-text">
-            {{ currentLang() === 'en' ? currentAsset()!.caption_en : currentAsset()!.caption_cs }}
-          </p>
-        </div>
-
         <!-- Asset Thumbnails Strip -->
         <div class="asset-thumbnails-strip">
           @for (asset of project().assets; track asset.src; let i = $index) {

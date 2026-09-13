@@ -33,7 +33,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'about.title': 'About Me',
 
     // Skills Network Section
-    'skills.title': 'Skills & Tools',
+    'skills.title': 'Tools I Can Use',
     'skills.subtitle': 'Interactive mind map of programming languages, engineering software, and daily tools',
     'skills.drag_hint': 'Hover over any icon to reveal details • Click categories to fold branches',
     'skills.cat_programming': 'Programming & Frameworks',
@@ -103,7 +103,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'about.title': 'O mně',
 
     // Skills Network Section
-    'skills.title': 'Dovednosti a nástroje',
+    'skills.title': 'Nástroje, které umím používat',
     'skills.subtitle': 'Interaktivní myšlenková mapa programovacích jazyků, inženýrského softwaru a nástrojů',
     'skills.drag_hint': 'Přejeďte myší přes ikonu pro název • Kliknutím sbalíte větve',
     'skills.cat_programming': 'Programování a frameworky',
